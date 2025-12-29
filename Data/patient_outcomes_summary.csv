@@ -1,0 +1,13 @@
+﻿연구번호,has_hsil_cin3_recurrence,first_hsil_cin3_date,first_detected_lesion,first_severity_level,total_hsil_cin3_events,has_high_risk_hpv,first_high_risk_hpv_date,detected_hpv_types,total_hpv_positive_tests
+R000000001,False,,,,0,True,2014-11-13,"[31, 33, 35, 39, 45, 51, 52, 56, 58, 59, 66, 68]",1
+R000000002,False,,,,0,True,2020-01-02,"[16, 18, 31, 33, 35, 39, 45, 51, 52, 56, 58, 59, 66, 68]",4
+R000000003,False,,,,0,False,,[],0
+R000000004,False,,,,0,True,2019-02-11,"[16, 18, 31, 33, 35, 39, 45, 51, 52, 56, 58, 59, 66, 68]",4
+R000000005,False,,,,0,True,2015-06-26,"[16, 18, 31, 33, 35, 39, 45, 51, 52, 56, 58, 59, 66, 68]",19
+R000000006,False,,,,0,False,,[],0
+R000000007,False,,,,0,True,2019-03-26,"[16, 31, 33, 35, 39, 45, 51, 52, 56, 58, 59, 66, 68]",9
+R000000008,False,,,,0,False,,[],0
+R000000009,False,,,,0,True,2019-09-16,"[16, 18, 31, 33, 35, 39, 45, 51, 52, 56, 58, 59, 66, 68]",1
+R000000010,True,2020-10-28,CERVICAL CANCER,Carcinoma,2,True,2020-10-28,[],1
+R000000011,False,,,,0,False,,[],0
+R000000012,False,,,,0,True,2016-03-30,"[31, 33, 35, 39, 45, 51, 52, 56, 58, 59, 66, 68]",6
