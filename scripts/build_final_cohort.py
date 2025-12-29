@@ -469,13 +469,25 @@ def main():
 
     # Step 2: 추적 관찰 횟수 필터링
     cohort_step2, cohort_with_fu = filter_by_follow_up(cohort_step1, pathology, min_visits=2)
-    print_cohort_flow("[Step 2] 추적 관찰 ≥ 2회",
-                      cohort_step2, len(cohort_step1) - len(cohort_step2))
 
-    print(f"\n  [추적 관찰 현황]")
-    print(f"    - 추적 0회: {(cohort_with_fu['total_follow_up'] == 0).sum():,}명")
-    print(f"    - 추적 1회: {(cohort_with_fu['total_follow_up'] == 1).sum():,}명")
-    print(f"    - 추적 2회 이상: {(cohort_with_fu['total_follow_up'] >= 2).sum():,}명")
+    # 추적 관찰 데이터가 없는 경우 (샘플 데이터 등) Step 1 코호트 사용
+    if len(cohort_step2) == 0 and len(cohort_step1) > 0:
+        print("\n  ⚠️ 병리 데이터에 매칭되는 환자가 없음 - 추적 관찰 필터 생략")
+        print("     (샘플 데이터 사용 시 발생할 수 있음)")
+        cohort_step2 = cohort_step1.copy()
+        cohort_step2['biopsy_count'] = 0
+        cohort_step2['hpv_count'] = 0
+        cohort_step2['total_follow_up'] = 0
+        print_cohort_flow("[Step 2] 추적 관찰 필터 생략 (데이터 미매칭)",
+                          cohort_step2, 0)
+    else:
+        print_cohort_flow("[Step 2] 추적 관찰 ≥ 2회",
+                          cohort_step2, len(cohort_step1) - len(cohort_step2))
+
+        print(f"\n  [추적 관찰 현황]")
+        print(f"    - 추적 0회: {(cohort_with_fu['total_follow_up'] == 0).sum():,}명")
+        print(f"    - 추적 1회: {(cohort_with_fu['total_follow_up'] == 1).sum():,}명")
+        print(f"    - 추적 2회 이상: {(cohort_with_fu['total_follow_up'] >= 2).sum():,}명")
 
     # Step 3: Fine Matching 변수 추가 및 매칭
     if len(cohort_step2) > 0:

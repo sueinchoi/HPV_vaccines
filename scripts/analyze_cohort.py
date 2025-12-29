@@ -19,19 +19,25 @@ plt.rcParams['axes.unicode_minus'] = False
 
 def load_cohort_data(data_dir: Path) -> Tuple[pd.DataFrame, pd.DataFrame]:
     """매칭 전후 코호트 데이터 로드"""
-    # 매칭 전 코호트 (Step 1 이후)
-    before_matching = pd.read_csv(data_dir / 'matched_cohort.csv', encoding='utf-8-sig')
+    # 매칭 전 코호트 (초기 1:1 매칭 후)
+    before_file = data_dir / 'matched_cohort.csv'
+    before_matching = pd.read_csv(before_file, encoding='utf-8-sig')
     before_matching['index_date'] = pd.to_datetime(before_matching['index_date'])
 
-    # 최종 매칭 코호트
+    # 최종 Fine Matching 코호트
     final_cohort_file = data_dir / 'final_matched_cohort.csv'
     if final_cohort_file.exists():
         after_matching = pd.read_csv(final_cohort_file, encoding='utf-8-sig')
+        after_matching['index_date'] = pd.to_datetime(after_matching['index_date'])
     else:
         # 파일이 없으면 before_matching 사용
         after_matching = before_matching.copy()
 
-    after_matching['index_date'] = pd.to_datetime(after_matching['index_date'])
+    # BMI 변수 추가를 위해 기초임상정보 로드 시도 (before_matching에 BMI가 없는 경우)
+    if 'closest_bmi' not in before_matching.columns and 'closest_bmi' in after_matching.columns:
+        # after_matching에서 BMI를 가져와 before_matching에 병합
+        bmi_data = after_matching[['연구번호', 'closest_bmi', 'index_age']].drop_duplicates(subset='연구번호')
+        before_matching = before_matching.merge(bmi_data, on='연구번호', how='left')
 
     return before_matching, after_matching
 
@@ -479,8 +485,12 @@ def main():
     # 데이터 로드
     print("\n[1. 데이터 로드]")
     before_matching, after_matching = load_cohort_data(data_dir)
-    print(f"  - 매칭 전 코호트: {len(before_matching)}명")
-    print(f"  - 매칭 후 코호트: {len(after_matching)}명")
+    print(f"  - 초기 매칭 코호트: {len(before_matching)}명 (matched_cohort.csv)")
+    print(f"  - Fine Matching 후: {len(after_matching)}명 (final_matched_cohort.csv)")
+
+    vax_after = after_matching[after_matching['접종여부'] == True]
+    unvax_after = after_matching[after_matching['접종여부'] == False]
+    print(f"    * 접종군: {len(vax_after)}명, 비접종군: {len(unvax_after)}명")
 
     # 매칭 변수 정의
     matching_variables = ['index_age', 'closest_bmi', '수술연도', '수술시나이']
@@ -513,13 +523,15 @@ def main():
     # Cox 분석
     print("\n[4. Cox Proportional Hazards 분석]")
 
-    # 결과 데이터 로드
+    # 결과 데이터 로드 - 최종 매칭 코호트만 사용
     outcomes_file = data_dir / 'final_matched_outcomes.csv'
     if not outcomes_file.exists():
         outcomes_file = data_dir / 'cohort_outcomes.csv'
+        print(f"  ⚠️ final_matched_outcomes.csv 없음, {outcomes_file.name} 사용")
 
     if outcomes_file.exists():
         outcomes = pd.read_csv(outcomes_file, encoding='utf-8-sig')
+        print(f"  - 분석 데이터: {outcomes_file.name} ({len(outcomes)}명)")
 
         # 병변 재발 분석
         if 'has_recurrence' in outcomes.columns and 'follow_up_days' in outcomes.columns:
