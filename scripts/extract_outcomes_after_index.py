@@ -325,7 +325,7 @@ def main():
     data_dir = base_path / 'Data'
 
     cohort_path = data_dir / 'matched_cohort.csv'
-    pathology_path = data_dir / 'pathology_sample.csv'
+    pathology_path = data_dir / 'pathology.csv'
     outcomes_path = data_dir / 'cohort_outcomes.csv'
     summary_path = data_dir / 'outcomes_summary.csv'
 

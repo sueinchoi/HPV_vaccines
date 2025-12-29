@@ -26,7 +26,7 @@ def load_data(data_dir: Path) -> tuple:
     cohort['최종추적일자'] = pd.to_datetime(cohort['최종추적일자'])
 
     # 병리 데이터
-    pathology = pd.read_csv(data_dir / 'pathology_sample.csv', encoding='utf-8')
+    pathology = pd.read_csv(data_dir / 'pathology.csv', encoding='utf-8')
     pathology['실시일자'] = pd.to_datetime(pathology['실시일자'], format='%Y%m%d', errors='coerce')
 
     return cohort, pathology
