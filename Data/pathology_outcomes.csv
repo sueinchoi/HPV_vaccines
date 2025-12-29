@@ -1,0 +1,2173 @@
+﻿연구번호,처방일자,처방코드,처방명,병리검사구분,검사코드,검사명,실시일자,판독일자,대표검체명,세부검체명,판독결과,is_hsil_cin3_or_higher,detected_lesion,severity_level,is_high_risk_hpv_positive,detected_hpv_types,hpv_result_detail
+R000000001,2014-11-12,PMO03001,HPV Genotype-HPV DNA Chip,분자병리,PMO03001,HPV Genotype-HPV DNA Chip,2014-11-13,2014-11-17,세포 cervico-vaginal smear,세포검체 cervico-vaginal smear,"병리번호 : M14-******
+채 취 일 : 2014-11-12 15:39:48 이**
+대표검체 : 세포 cervico-vaginal smear
+세부검체 : 세포검체 cervico-vaginal smear
+[MOLECULAR PATHOGY]
+     M14-******      HPV DNA Chip                    
+     [[SAMPLE ADEQUACY]]
+      
+     
+     [[RESULT]]
+     Positive (Other Type)
+     COMMENTS
+     19종 HPV DNA Genotyping Chip 검사를 시행하였습니다.
+     분류되지 않은 인유두종 바이러스에 감염되었습니다.
+     담당 의사 선생님과 상담 후 정기적인 검사를 권장합니다.
+     *High risk:16,18,31,33,35,39,45,51,52,56,58,59,66,68 *Low risk:6,11,34,40,42",False,,,True,"[31, 33, 35, 39, 45, 51, 52, 56, 58, 59, 66, 68]",Other high-risk types detected
+R000000001,2014-11-12,PSU00009,Pathology (Biopsy) 1-3 pieces,조직병리,PSU00009,생검(1-3개),2014-11-13,2014-11-18,uterine cervix,uterine cervix/uterine cervix/uterine cervix,"병리번호 : S14-******
+채 취 일 : 2014-11-12 15:39:48 이**
+대표검체 : uterine cervix
+세부검체 : uterine cervix/uterine cervix/uterine cervix
+[GROSS DESCRIPTION]
+     Specimen consists of three parts as follows;
+     No1. Specimen labeled ""1 o'clock"" consists of a fragment of soft tissue, 
+          measuring 0.1cm. Entrely submitted in one cassette(A).
+     No2. Specimen labeled ""6 o'clock"" consists of a fragment of soft tissue, 
+          measuring 0.2cm. Entrely submitted in one cassette(B).
+     No3. Specimen labeled ""12 o'clock"" consists of a fragment of soft tissue, 
+          measuring 0.3cm. Entrely submitted in one cassette(C).
+     (BLOCK 3 개)
+
+[MICROSCOPIC DESCRIPTION]
+     
+
+[IMMUNOHISTOCHEMISTRY]
+     IH14-******      P16                        negative
+
+[DIAGNOSIS]
+     Uterine cervix, punch biopsy;
+     Flat condyloma(A,B,C).
+
+[COMMENT]
+     
+
+[CF]
+     M14-******",False,,,False,[],
+R000000002,2020-01-02,PCY10004,[선] 액상세포검사-자궁질 세포병리검사,세포병리,PCY10004,액상세포검사-자궁질 세포병리검사,2020-01-02,2020-01-07,cervico-vaginal smear,Cervico-vaginal smear,"병리번호 : C20-******
+채 취 일 : 2020-01-02 12:03:24 곽**
+대표검체 : cervico-vaginal smear
+세부검체 : Cervico-vaginal smear
+[DIAGNOSIS]
+     1) Adequacy of specimen     
+          Satisfactory
+     2) Cytologic diagnosis
+          Negative for Intraepithelial Lesion or Malignancy
+               Other non-neoplastic findings :
+                    Reactive cellular changes
+     
+
+[CF]
+     M20-******,C20-******,S20-******,M20-******
+
+Additional Result                        *진  단  일 : 20200108
+[MOLECULAR PATHOGY]
+     M20-******       HPV genotyping real-time PCR   
+     [검사방법]
+      Qualitative real-time PCR (Cobas 4800 System HPV DNA Test)
+     
+     [검사결과]
+      HPV genotyping Real-time PCR: Negative
+     Key Block :   
+     Comments
+     1) HPV genotyping real-time PCR 검사는 총 14종의 HPV high risk를 detection 합니다.
+       : High risk 14종 (16,18,31,33,35,39,45,51,52,56,58,59,66,68)
+     2) 검사 결과에서 'Positive(16)은 HPV 16','Positive(18)은 HPV 18', 
+        'Positive(other)는 HPV 31,33,35,39,45,51,52,56,58,59,66,68’의 유전자형이 있음을 의미합니다, 
+     
+      상기 검사는 검사 방법, 시약의 정도 관리 및 검사 결과가 병리과 전문의에 의해 확인되었습니다.
+     (검사담당자: ***)",False,,,True,"[16, 18, 31, 33, 35, 39, 45, 51, 52, 56, 58, 59, 66, 68]",Other high-risk types detected
+R000000002,2020-01-02,PMO12040,[선] HPV genotyping real-time PCR,분자병리,PMO12040,HPV genotyping real-time PCR,2020-01-02,2020-01-08,세포검체 cervico-vaginal smear,세포검체 cervico-vaginal smear,"병리번호 : M20-******
+채 취 일 : 2020-01-02 12:03:24 곽**
+대표검체 : 세포검체 cervico-vaginal smear
+세부검체 : 세포검체 cervico-vaginal smear
+[MOLECULAR PATHOGY]
+     M20-******       HPV genotyping real-time PCR   
+     [[SAMPLE ADEQUACY]]
+     Adequate
+     
+     [[RESULT]]
+     [검사방법]
+      Qualitative real-time PCR (Cobas 4800 System HPV DNA Test)
+     
+     [검사결과]
+      HPV genotyping Real-time PCR: Negative
+     KEY BLOCK :  
+     COMMENTS
+     1) HPV genotyping real-time PCR 검사는 총 14종의 HPV high risk를 detection 합니다.
+       : High risk 14종 (16,18,31,33,35,39,45,51,52,56,58,59,66,68)
+     2) 검사 결과에서 'Positive(16)은 HPV 16','Positive(18)은 HPV 18', 
+        'Positive(other)는 HPV 31,33,35,39,45,51,52,56,58,59,66,68’의 유전자형이 있음을 의미합니다, 
+     
+      상기 검사는 검사 방법, 시약의 정도 관리 및 검사 결과가 병리과 전문의에 의해 확인되었습니다.
+     (검사담당자: ***)",False,,,True,"[16, 18, 31, 33, 35, 39, 45, 51, 52, 56, 58, 59, 66, 68]",Other high-risk types detected
+R000000002,2020-02-21,PSU00029,조직병리검사[1장기당]- Level C- 파라핀블록: 1~9개,조직병리,PSU00029,Level C(1~9개) 조직병리검사,2020-02-21,2020-02-25,Uterus,"fallopian tube, right/fallopian tube, left","병리번호 : S20-******
+채 취 일 : 2020-02-21 11:06:52 이**
+대표검체 : Uterus
+세부검체 : fallopian tube, right/fallopian tube, left
+[GROSS DESCRIPTION]
+     Number of specimen; 1) one, 2) one
+     Specimen size; 1) 5.2 x 0.5 cm, 2) 5.8 x 0.4 cm
+     1~2) Totally embedded 
+     (BLOCK 4 개)
+
+[DIAGNOSIS]
+     1. Fallopian tube, right, salpingectomy(#1);
+           Unremarkable.
+     2. Fallopian tube, left, salpingectomy(#2);
+           Unremarkable.
+
+[CF]
+     M20-******,C20-******,M20-******,C20-******",False,,,False,[],
+R000000002,2020-02-21,PSU00027,조직병리검사[1장기당]- Level A,조직병리,PSU00027,Level A 조직병리검사,2020-02-21,2020-02-25,Uterus,"fallopian tube, right/fallopian tube, left","병리번호 : S20-******
+채 취 일 : 
+대표검체 : Uterus
+세부검체 : fallopian tube, right/fallopian tube, left
+[GROSS DESCRIPTION]
+     Number of specimen; 1) one, 2) one
+     Specimen size; 1) 5.2 x 0.5 cm, 2) 5.8 x 0.4 cm
+     1~2) Totally embedded 
+     (BLOCK 4 개)
+
+[DIAGNOSIS]
+     1. Fallopian tube, right, salpingectomy(#1);
+           Unremarkable.
+     2. Fallopian tube, left, salpingectomy(#2);
+           Unremarkable.
+
+[CF]
+     M20-******,C20-******,M20-******,C20-******",False,,,False,[],
+R000000002,2020-10-06,PCY10004,[선] 액상세포검사-자궁질 세포병리검사,세포병리,PCY10004,액상세포검사-자궁질 세포병리검사,2020-10-06,2020-10-08,cervico-vaginal smear,Cervico-vaginal smear,"병리번호 : C20-******
+채 취 일 : 2020-10-06 11:13:15 박**
+대표검체 : cervico-vaginal smear
+세부검체 : Cervico-vaginal smear
+[DIAGNOSIS]
+     1) Adequacy of specimen     
+          Satisfactory
+     2) Cytologic diagnosis
+          Negative for Intraepithelial Lesion or Malignancy
+               Other non-neoplastic findings :
+                    Reactive cellular changes
+     
+
+[CF]
+     M20-******,S20-******,M20-******,C20-******
+
+Additional Result                        *진  단  일 : 20201008
+[MOLECULAR PATHOGY]
+     M20-******       HPV genotyping real-time PCR   
+     [검사방법]
+      Qualitative real-time PCR (Cobas 4800 System HPV DNA Test)
+     
+     [검사결과]
+      HPV genotyping Real-time PCR: Negative
+     Key Block :  
+     Comments
+     1) HPV genotyping real-time PCR 검사는 총 14종의 HPV high risk를 detection 합니다.
+       : High risk 14종 (16,18,31,33,35,39,45,51,52,56,58,59,66,68)
+     2) 검사 결과에서 'Positive(16)은 HPV 16','Positive(18)은 HPV 18', 
+        'Positive(other)는 HPV 31,33,35,39,45,51,52,56,58,59,66,68’의 유전자형이 있음을 의미합니다, 
+     
+      상기 검사는 검사 방법, 시약의 정도 관리 및 검사 결과가 병리과 전문의에 의해 확인되었습니다.
+     (검사담당자: ***)",False,,,True,"[16, 18, 31, 33, 35, 39, 45, 51, 52, 56, 58, 59, 66, 68]",Other high-risk types detected
+R000000002,2020-10-06,PMO12040,[선] HPV genotyping real-time PCR,분자병리,PMO12040,HPV genotyping real-time PCR,2020-10-06,2020-10-08,세포검체 cervico-vaginal smear,세포검체 cervico-vaginal smear,"병리번호 : M20-******
+채 취 일 : 2020-10-06 11:13:15 박**
+대표검체 : 세포검체 cervico-vaginal smear
+세부검체 : 세포검체 cervico-vaginal smear
+[MOLECULAR PATHOGY]
+     M20-******       HPV genotyping real-time PCR   
+     [[SAMPLE ADEQUACY]]
+     Adequate
+     
+     [[RESULT]]
+     [검사방법]
+      Qualitative real-time PCR (Cobas 4800 System HPV DNA Test)
+     
+     [검사결과]
+      HPV genotyping Real-time PCR: Negative
+     KEY BLOCK :  
+     COMMENTS
+     1) HPV genotyping real-time PCR 검사는 총 14종의 HPV high risk를 detection 합니다.
+       : High risk 14종 (16,18,31,33,35,39,45,51,52,56,58,59,66,68)
+     2) 검사 결과에서 'Positive(16)은 HPV 16','Positive(18)은 HPV 18', 
+        'Positive(other)는 HPV 31,33,35,39,45,51,52,56,58,59,66,68’의 유전자형이 있음을 의미합니다, 
+     
+      상기 검사는 검사 방법, 시약의 정도 관리 및 검사 결과가 병리과 전문의에 의해 확인되었습니다.
+     (검사담당자: ***)",False,,,True,"[16, 18, 31, 33, 35, 39, 45, 51, 52, 56, 58, 59, 66, 68]",Other high-risk types detected
+R000000003,2015-03-05,PMO12040,HPV genotyping real-time PCR,분자병리,PMO12040,HPV genotyping real-time PCR,2015-03-05,2015-03-10,"cervico-vaginal smear ,세포검체","cervico-vaginal smear ,세포검체","병리번호 : M15-******
+채 취 일 : 2015-03-05 16:12:16 윤**
+대표검체 : cervico-vaginal smear ,세포검체
+세부검체 : cervico-vaginal smear ,세포검체
+[MOLECULAR PATHOGY]
+     M15-******       HPV genotyping real-time PCR   58(++)",False,,,False,[],
+R000000003,2015-03-12,PSU00015,"양성병변절제, 파라핀 블록 7개 이상",조직병리,PSU00015,파라핀블록 7개이상-양성병변절제,2015-03-12,2015-03-19,uterine cervix,uterine cervix,"병리번호 : S15-******
+채 취 일 : 2015-03-12 11:14:28 김**
+대표검체 : uterine cervix
+세부검체 : uterine cervix
+[GROSS DESCRIPTION]
+     A pale brown tissue fragment, 2.5x2x1.6cm. Totally embedded.
+     (BLOCK 4 개)
+
+[MICROSCOPIC DESCRIPTION]
+     
+     (a) site : transformation zone (1,2,4,5,6,9,10 o'clock directional sites)
+     (b) morphologic findings of HPV infection : present(+)	
+     (c) endocervical resected margin involvement : absent 	
+     (d) exocervical resected margin involvement : involved by squamous epithelium with koilocytosis(4,5 o'clock directinal sites, see comment 3)
+
+[DIAGNOSIS]
+     Uterine cervix, conization;
+     1. Cervical intraepithelial neoplasm (CIN) 1. 
+     2. Chronic cervicitis with squamous metaplasia, endocervix. 
+     
+     
+     
+     
+
+[COMMENT]
+     1) The submitted specimen was cut by marking parallel sections along the plane of the endocervical canal staring at the 12 o'clock position, if indicated by the surgeon. The parallel sectioning was performed with moving clockwise.
+     2) No directional indication was marked in the specimen. 
+     3) 형태학적으로 HPV infection이 의심되는 편평상피조직이 일부 절제면에서 관찰됩니다. 
+
+[CF]
+     M17-******,C17-******,M16-******,C16-******,M16-******,C16-******,M15-******,C15-******,M15-******,C15-******,M15-******,S08-******,S08-******,S03-******",False,,,False,[],
+R000000003,2015-07-22,PCY10004,"자궁경부세포, 액상",세포병리,PCY10004,"자궁경부세포, 액상",2015-07-22,2015-07-24,cervico-vaginal smear,Cervico-vaginal smear,"병리번호 : C15-******
+채 취 일 : 2015-07-22 11:56:43 이**
+대표검체 : cervico-vaginal smear
+세부검체 : Cervico-vaginal smear
+[DIAGNOSIS]
+     1) Adequacy of specimen     
+          Satisfactory
+     2) Cytologic diagnosis
+          Negative for Intraepithelial Lesion or Malignancy
+               Other non-neoplastic findings :
+                    Reactive cellular changes
+     
+
+[CF]
+     M17-******,C17-******,M16-******,C16-******,M16-******,C16-******,M15-******,C15-******,M15-******,S15-******,M15-******,S08-******,S08-******,S03-******
+
+Additional Result                        *진  단  일 : 20150727
+[MOLECULAR PATHOGY]
+     M15-******       HPV genotyping real-time PCR   
+     58(+)58(+)",False,,,False,[],
+R000000003,2015-07-22,PMO12040,HPV genotyping real-time PCR,분자병리,PMO12040,HPV genotyping real-time PCR,2015-07-22,2015-07-27,"cervico-vaginal smear ,세포검체","cervico-vaginal smear ,세포검체","병리번호 : M15-******
+채 취 일 : 2015-07-22 11:56:43 이**
+대표검체 : cervico-vaginal smear ,세포검체
+세부검체 : cervico-vaginal smear ,세포검체
+[MOLECULAR PATHOGY]
+     M15-******       HPV genotyping real-time PCR   
+     [[SAMPLE ADEQUACY]]
+     adequate
+     
+     [[RESULT]]
+     58(+)",False,,,False,[],
+R000000003,2015-11-19,PMO12040,HPV genotyping real-time PCR,분자병리,PMO12040,HPV genotyping real-time PCR,2015-11-20,2015-11-24,"cervico-vaginal smear ,세포검체","cervico-vaginal smear ,세포검체","병리번호 : M15-******
+채 취 일 : 2015-11-19 16:42:25 이**
+대표검체 : cervico-vaginal smear ,세포검체
+세부검체 : cervico-vaginal smear ,세포검체
+[MOLECULAR PATHOGY]
+     M15-******       HPV genotyping real-time PCR   
+     [[SAMPLE ADEQUACY]]
+     adequate
+     
+     [[RESULT]]
+     58(+)",False,,,False,[],
+R000000003,2015-11-19,PCY10004,"자궁경부세포, 액상",세포병리,PCY10004,"자궁경부세포, 액상",2015-11-20,2015-11-24,cervico-vaginal smear,Cervico-vaginal smear,"병리번호 : C15-******
+채 취 일 : 2015-11-19 16:42:25 이**
+대표검체 : cervico-vaginal smear
+세부검체 : Cervico-vaginal smear
+[DIAGNOSIS]
+     1) Adequacy of specimen     
+          Satisfactory
+     2) Cytologic diagnosis
+          Epithelial cell abnormalities
+               Squamous cell
+                    Atypical squamous cells
+                         Atypical squamous cells of undetermined significance (ASC-US)
+     3) Comment :
+          Follow-up cytology, Other : HPV atypia, 소수
+     
+
+[CF]
+     M17-******,C17-******,M16-******,C16-******,M16-******,C16-******,M15-******,M15-******,C15-******,S15-******,M15-******,S08-******,S08-******,S03-******
+
+Additional Result                        *진  단  일 : 20151124
+[MOLECULAR PATHOGY]
+     M15-******       HPV genotyping real-time PCR   
+     58(+)58(+)",False,,,False,[],
+R000000003,2016-02-17,PMO12040,HPV genotyping real-time PCR,분자병리,PMO12040,HPV genotyping real-time PCR,2016-02-17,2016-02-22,"cervico-vaginal smear ,세포검체","cervico-vaginal smear ,세포검체","병리번호 : M16-******
+채 취 일 : 2016-02-17 13:13:17 윤**
+대표검체 : cervico-vaginal smear ,세포검체
+세부검체 : cervico-vaginal smear ,세포검체
+[MOLECULAR PATHOGY]
+     M16-******       HPV genotyping real-time PCR   
+     [[SAMPLE ADEQUACY]]
+     adequate
+     
+     [[RESULT]]
+     44(+),58(++)",False,,,False,[],
+R000000003,2016-02-17,PCY10004,"자궁경부세포, 액상",세포병리,PCY10004,"자궁경부세포, 액상",2016-02-17,2016-02-23,cervico-vaginal smear,Cervico-vaginal smear,"병리번호 : C16-******
+채 취 일 : 2016-02-17 13:13:17 윤**
+대표검체 : cervico-vaginal smear
+세부검체 : Cervico-vaginal smear
+[DIAGNOSIS]
+     1) Adequacy of specimen     
+          Satisfactory
+     2) Cytologic diagnosis
+          Negative for Intraepithelial Lesion or Malignancy
+     
+
+[CF]
+     M17-******,C17-******,M16-******,C16-******,M16-******,M15-******,C15-******,M15-******,C15-******,S15-******,M15-******,S08-******,S08-******,S03-******
+
+Additional Result                        *진  단  일 : 20160222
+[MOLECULAR PATHOGY]
+     M16-******       HPV genotyping real-time PCR   
+     44(+),58(++)44(+),58(++)",False,,,False,[],
+R000000003,2016-10-21,PMO12040,HPV genotyping real-time PCR,분자병리,PMO12040,HPV genotyping real-time PCR,2016-10-21,2016-10-25,"cervico-vaginal smear ,세포검체","cervico-vaginal smear ,세포검체","병리번호 : M16-******
+채 취 일 : 2016-10-21 13:08:45 윤**
+대표검체 : cervico-vaginal smear ,세포검체
+세부검체 : cervico-vaginal smear ,세포검체
+[MOLECULAR PATHOGY]
+     M16-******       HPV genotyping real-time PCR   
+     [[SAMPLE ADEQUACY]]
+     adequate
+     
+     [[RESULT]]
+     58(+)
+     COMMENTS
+     본 제품은 19종의 고위험군 HPV 19종 (16, 18, 26, 31, 33, 35, 39, 45, 51, 52, 53, 56, 58, 59, 66, 68, 69, 73, 82형)과 9종의 저위험군 HPV 9종 (6, 11, 40, 42, 43, 44, 54, 61, 70형), 내부대조군(IC, Internal Control)의 타겟 핵산을 동시 또는 단독으로 검출합니다. 
+     본 검사의 검출 한계치는 50 copies/reaction 입니다. 
+     분석 참고치
+     +++ : 100,000 copies/reaction 이상 (Ct value 30 이하)
+     ++ : 100 ~ 100,000 copies/reaction(Ct value 30 ~ 40)
+     +     : 100 copies/reaction 이하 (Ct value 40 ~ 50 ; 검출한계치 이하의 HPV가 포함되어 있을 경우 재현되지 않을 수 있습니다.) 
+     *CT Value: Cycle threshold
+     상기 검사는 검사 방법, 시약의 정도 관리 및 검사결과가 병리과 전문의에 의해 확인 되었습니다.",False,,,False,[],
+R000000003,2016-10-21,PCY10004,"자궁경부세포, 액상",세포병리,PCY10004,"자궁경부세포, 액상",2016-10-21,2016-10-26,cervico-vaginal smear,Cervico-vaginal smear,"병리번호 : C16-******
+채 취 일 : 2016-10-21 13:08:45 윤**
+대표검체 : cervico-vaginal smear
+세부검체 : Cervico-vaginal smear
+[DIAGNOSIS]
+     1) Adequacy of specimen     
+          Satisfactory
+     2) Cytologic diagnosis
+          Negative for Intraepithelial Lesion or Malignancy
+     
+
+[CF]
+     M17-******,C17-******,M16-******,M16-******,C16-******,M15-******,C15-******,M15-******,C15-******,S15-******,M15-******,S08-******,S08-******,S03-******
+
+Additional Result                        *진  단  일 : 20161025
+[MOLECULAR PATHOGY]
+     M16-******       HPV genotyping real-time PCR   
+     58(+)58(+)
+     Comments
+     본 제품은 19종의 고위험군 HPV 19종 (16, 18, 26, 31, 33, 35, 39, 45, 51, 52, 53, 56, 58, 59, 66, 68, 69, 73, 82형)과 9종의 저위험군 HPV 9종 (6, 11, 40, 42, 43, 44, 54, 61, 70형), 내부대조군(IC, Internal Control)의 타겟 핵산을 동시 또는 단독으로 검출합니다. 
+     본 검사의 검출 한계치는 50 copies/reaction 입니다. 
+     분석 참고치
+     +++ : 100,000 copies/reaction 이상 (Ct value 30 이하)
+     ++ : 100 ~ 100,000 copies/reaction(Ct value 30 ~ 40)
+     +     : 100 copies/reaction 이하 (Ct value 40 ~ 50 ; 검출한계치 이하의 HPV가 포함되어 있을 경우 재현되지 않을 수 있습니다.) 
+     *CT Value: Cycle threshold
+     상기 검사는 검사 방법, 시약의 정도 관리 및 검사결과가 병리과 전문의에 의해 확인 되었습니다.
+     ",False,,,False,[],
+R000000003,2017-04-14,PCY10004,"자궁경부세포, 액상",세포병리,PCY10004,"자궁경부세포, 액상",2017-04-15,2017-04-18,cervico-vaginal smear,Cervico-vaginal smear,"병리번호 : C17-******
+채 취 일 : 2017-04-14 16:31:14 이**
+대표검체 : cervico-vaginal smear
+세부검체 : Cervico-vaginal smear
+[DIAGNOSIS]
+     1) Adequacy of specimen     
+          Satisfactory
+     2) Cytologic diagnosis
+          Negative for Intraepithelial Lesion or Malignancy
+     
+
+[CF]
+     M17-******,M16-******,C16-******,M16-******,C16-******,M15-******,C15-******,M15-******,C15-******,S15-******,M15-******,S08-******,S08-******,S03-******
+
+Additional Result                        *진  단  일 : 20170419
+[MOLECULAR PATHOGY]
+     M17-******       HPV genotyping real-time PCR   
+     44(+),58(++)44(+),58(++)
+     Comments
+     본 제품은 19종의 고위험군 HPV 19종 (16, 18, 26, 31, 33, 35, 39, 45, 51, 52, 53, 56, 58, 59, 66, 68, 69, 73, 82형)과 9종의 저위험군 HPV 9종 (6, 11, 40, 42, 43, 44, 54, 61, 70형), 내부대조군(IC, Internal Control)의 타겟 핵산을 동시 또는 단독으로 검출합니다. 
+     본 검사의 검출 한계치는 50 copies/reaction 입니다. 
+     분석 참고치
+     +++ : 100,000 copies/reaction 이상 (Ct value 30 이하)
+     ++ : 100 ~ 100,000 copies/reaction(Ct value 30 ~ 40)
+     +     : 100 copies/reaction 이하 (Ct value 40 ~ 50 ; 검출한계치 이하의 HPV가 포함되어 있을 경우 재현되지 않을 수 있습니다.) 
+     *CT Value: Cycle threshold
+     상기 검사는 검사 방법, 시약의 정도 관리 및 검사결과가 병리과 전문의에 의해 확인 되었습니다.
+     ",False,,,False,[],
+R000000003,2017-04-14,PMO12040,HPV genotyping real-time PCR,분자병리,PMO12040,HPV genotyping real-time PCR,2017-04-15,2017-04-19,"cervico-vaginal smear ,세포검체","cervico-vaginal smear ,세포검체","병리번호 : M17-******
+채 취 일 : 2017-04-14 16:31:14 이**
+대표검체 : cervico-vaginal smear ,세포검체
+세부검체 : cervico-vaginal smear ,세포검체
+[MOLECULAR PATHOGY]
+     M17-******       HPV genotyping real-time PCR   
+     [[SAMPLE ADEQUACY]]
+     adequate
+     
+     [[RESULT]]
+     44(+),58(++)
+     COMMENTS
+     본 제품은 19종의 고위험군 HPV 19종 (16, 18, 26, 31, 33, 35, 39, 45, 51, 52, 53, 56, 58, 59, 66, 68, 69, 73, 82형)과 9종의 저위험군 HPV 9종 (6, 11, 40, 42, 43, 44, 54, 61, 70형), 내부대조군(IC, Internal Control)의 타겟 핵산을 동시 또는 단독으로 검출합니다. 
+     본 검사의 검출 한계치는 50 copies/reaction 입니다. 
+     분석 참고치
+     +++ : 100,000 copies/reaction 이상 (Ct value 30 이하)
+     ++ : 100 ~ 100,000 copies/reaction(Ct value 30 ~ 40)
+     +     : 100 copies/reaction 이하 (Ct value 40 ~ 50 ; 검출한계치 이하의 HPV가 포함되어 있을 경우 재현되지 않을 수 있습니다.) 
+     *CT Value: Cycle threshold
+     상기 검사는 검사 방법, 시약의 정도 관리 및 검사결과가 병리과 전문의에 의해 확인 되었습니다.",False,,,False,[],
+R000000004,2010-05-31,PCY10005,"(예방)자궁경부세포, 일반+자동화",세포병리,PCY10005,"(예방)자궁경부세포,일반+자동화",2010-06-01,2010-06-07,cervico-vaginal smear,Cervico-vaginal smear,"병리번호 : C10-******
+채 취 일 : 2010-05-31 12:50:24 서**
+대표검체 : cervico-vaginal smear
+세부검체 : Cervico-vaginal smear
+[DIAGNOSIS]
+     1) Adequacy of specimen     
+          Satisfactory
+               absence of endocervical cell
+     2) Cytologic diagnosis
+          Negative for Intraepithelial Lesion or Malignancy
+               Other non-neoplastic findings :
+                    Reactive cellular changes
+     
+
+[CF]
+     C23-******,C23-******,M22-******,C22-******,S22-******,S22-******,S22-******,M21-******,C21-******,C21-******,S20-******,M19-******,C19-******,M19-******,C19-******,C18-******,S18-******,S18-******,S17-******,S17-******,S17-******,S16-******,S16-******,C16-******,C15-******,S14-******,S14-******,C12-******,S12-******,S12-******,C11-******,S10-******,C09-******,C09-******,C08-******,S07-******,C07-******,S05-******,S05-******,S05-******,C02-******",False,,,False,[],
+R000000004,2011-05-16,PCY10005,"(예방)자궁경부세포, 일반+자동화",세포병리,PCY10005,"(예방)자궁경부세포,일반+자동화",2011-05-17,2011-05-19,cervico-vaginal smear,Cervico-vaginal smear,"병리번호 : C11-******
+채 취 일 : 2011-05-16 14:59:01 서**
+대표검체 : cervico-vaginal smear
+세부검체 : Cervico-vaginal smear
+[DIAGNOSIS]
+     1) Adequacy of specimen     
+          Satisfactory
+               presence of endocervical cell
+     2) Cytologic diagnosis
+          Negative for Intraepithelial Lesion or Malignancy
+               Other non-neoplastic findings :
+                    Reactive cellular changes
+     
+
+[CF]
+     C23-******,C23-******,M22-******,C22-******,S22-******,S22-******,S22-******,M21-******,C21-******,C21-******,S20-******,M19-******,C19-******,M19-******,C19-******,C18-******,S18-******,S18-******,S17-******,S17-******,S17-******,S16-******,S16-******,C16-******,C15-******,S14-******,S14-******,C12-******,S12-******,S12-******,S10-******,C10-******,C09-******,C09-******,C08-******,S07-******,C07-******,S05-******,S05-******,S05-******,C02-******",False,,,False,[],
+R000000004,2012-06-28,PCY10005,"(예방)자궁경부세포, 일반+자동화",세포병리,PCY10005,"(예방)자궁경부세포,일반+자동화",2012-06-29,2012-07-02,cervico-vaginal smear,Cervico-vaginal smear,"병리번호 : C12-******
+채 취 일 : 2012-06-28 16:37:51 안**
+대표검체 : cervico-vaginal smear
+세부검체 : Cervico-vaginal smear
+[DIAGNOSIS]
+     1) Adequacy of specimen     
+          Satisfactory
+               presence of endocervical cell
+     2) Cytologic diagnosis
+          Negative for Intraepithelial Lesion or Malignancy
+               Other non-neoplastic findings :
+                    Atrophy
+     
+
+[CF]
+     C23-******,C23-******,M22-******,C22-******,S22-******,S22-******,S22-******,M21-******,C21-******,C21-******,S20-******,M19-******,C19-******,M19-******,C19-******,C18-******,S18-******,S18-******,S17-******,S17-******,S17-******,S16-******,S16-******,C16-******,C15-******,S14-******,S14-******,S12-******,S12-******,C11-******,S10-******,C10-******,C09-******,C09-******,C08-******,S07-******,C07-******,S05-******,S05-******,S05-******,C02-******",False,,,False,[],
+R000000004,2015-01-12,PCY10008,"(예방목적)Cervico-vaginal Cytology, Liquid based ",세포병리,PCY10008,"(예방)자궁경부세포, 액상",2015-01-13,2015-01-14,cervico-vaginal smear,Cervico-vaginal smear,"병리번호 : C15-******
+채 취 일 : 2015-01-12 12:27:31 이**
+대표검체 : cervico-vaginal smear
+세부검체 : Cervico-vaginal smear
+[DIAGNOSIS]
+     1) Adequacy of specimen     
+          Satisfactory
+               presence of endocervical cell
+     2) Cytologic diagnosis
+          Negative for Intraepithelial Lesion or Malignancy
+               Other non-neoplastic findings :
+                    Atrophy
+     
+
+[CF]
+     C23-******,C23-******,M22-******,C22-******,S22-******,S22-******,S22-******,M21-******,C21-******,C21-******,S20-******,M19-******,C19-******,M19-******,C19-******,C18-******,S18-******,S18-******,S17-******,S17-******,S17-******,S16-******,S16-******,C16-******,S14-******,S14-******,C12-******,S12-******,S12-******,C11-******,S10-******,C10-******,C09-******,C09-******,C08-******,S07-******,C07-******,S05-******,S05-******,S05-******,C02-******",False,,,False,[],
+R000000004,2016-06-10,PCY10008,"(예방목적)Cervico-vaginal Cytology, Liquid based ",세포병리,PCY10008,"(예방)자궁경부세포, 액상",2016-06-13,2016-06-15,cervico-vaginal smear,Cervico-vaginal smear,"병리번호 : C16-******
+채 취 일 : 2016-06-10 12:54:36 이**
+대표검체 : cervico-vaginal smear
+세부검체 : Cervico-vaginal smear
+[DIAGNOSIS]
+     1) Adequacy of specimen     
+          Satisfactory
+               presence of endocervical cell
+     2) Cytologic diagnosis
+          Negative for Intraepithelial Lesion or Malignancy
+               Other non-neoplastic findings :
+                    Atrophy
+     
+
+[CF]
+     C23-******,C23-******,M22-******,C22-******,S22-******,S22-******,S22-******,M21-******,C21-******,C21-******,S20-******,M19-******,C19-******,M19-******,C19-******,C18-******,S18-******,S18-******,S17-******,S17-******,S17-******,S16-******,S16-******,C15-******,S14-******,S14-******,C12-******,S12-******,S12-******,C11-******,S10-******,C10-******,C09-******,C09-******,C08-******,S07-******,C07-******,S05-******,S05-******,S05-******,C02-******",False,,,False,[],
+R000000004,2018-06-29,PCY10004,Cervico-vaginal Cytology Liquid based,세포병리,PCY10004,"자궁경부세포, 액상",2018-07-02,2018-07-05,cervico-vaginal smear,Cervico-vaginal smear,"병리번호 : C18-******
+채 취 일 : 2018-06-29 16:17:24 진**
+대표검체 : cervico-vaginal smear
+세부검체 : Cervico-vaginal smear
+[DIAGNOSIS]
+     1) Adequacy of specimen     
+          Satisfactory
+               presence of endocervical cell
+     2) Cytologic diagnosis
+          1. Organisms :
+                    Fungal organisms morphologically consistent with Candida spp.
+          2. Epithelial cell abnormalities
+               Squamous cell
+                    Atypical squamous cells
+                         Atypical squamous cells of undetermined significance (ASC-US)
+     
+
+[CF]
+     C23-******,C23-******,M22-******,C22-******,S22-******,S22-******,S22-******,M21-******,C21-******,C21-******,S20-******,M19-******,C19-******,M19-******,C19-******,S18-******,S18-******,S17-******,S17-******,S17-******,S16-******,S16-******,C16-******,C15-******,S14-******,S14-******,C12-******,S12-******,S12-******,C11-******,S10-******,C10-******,C09-******,C09-******,C08-******,S07-******,C07-******,S05-******,S05-******,S05-******,C02-******",False,,,False,[],
+R000000004,2019-02-08,PCY10004,Cervico-vaginal Cytology Liquid based,세포병리,PCY10004,"자궁경부세포, 액상",2019-02-11,2019-02-13,cervico-vaginal smear,Cervico-vaginal smear,"병리번호 : C19-******
+채 취 일 : 2019-02-08 11:41:00 김**
+대표검체 : cervico-vaginal smear
+세부검체 : Cervico-vaginal smear
+[DIAGNOSIS]
+     1) Adequacy of specimen     
+          Satisfactory
+               presence of endocervical cell
+     2) Cytologic diagnosis
+          Negative for Intraepithelial Lesion or Malignancy
+               Other non-neoplastic findings :
+                    Reactive cellular changes
+     
+
+[CF]
+     C23-******,C23-******,M22-******,C22-******,S22-******,S22-******,S22-******,M21-******,C21-******,C21-******,S20-******,M19-******,C19-******,M19-******,C18-******,S18-******,S18-******,S17-******,S17-******,S17-******,S16-******,S16-******,C16-******,C15-******,S14-******,S14-******,C12-******,S12-******,S12-******,C11-******,S10-******,C10-******,C09-******,C09-******,C08-******,S07-******,C07-******,S05-******,S05-******,S05-******,C02-******",False,,,False,[],
+R000000004,2019-02-08,PMO12040,HPV genotyping real-time PCR,분자병리,PMO12040,HPV genotyping real-time PCR,2019-02-11,2019-02-13,uterine cervix,uterine cervix,"병리번호 : M19-******
+채 취 일 : 2019-02-08 11:41:00 김**
+대표검체 : uterine cervix
+세부검체 : uterine cervix
+[MOLECULAR PATHOGY]
+     M19-******       HPV genotyping real-time PCR   
+     [[SAMPLE ADEQUACY]]
+     [검체종류]
+     자궁경부 세포검체
+     
+     [검체적절성]
+     Satisfactory for PCR
+     
+     [검사방법]
+     HPV genotyping Real-time PCR (Roche사의 Cobas 4800 System HPV DNA Test)
+     
+     [[RESULT]]
+     
+     [검사결과]
+     HPV genotyping Real-time PCR: Negative
+     KEY BLOCK :  
+     COMMENTS
+     1.HPV genotyping real-time PCR 검사는 총 14종의 HPV high risk를 detection 합니다.
+      : High risk 14종 (16,18,31,33,35,39,45,51,52,56,58,59,66,68)
+     2.검사 결과에서 'Positive(16)은 HPV 16','Positive(18)은 HPV 18', 
+     'Positive(other)는 HPV 31,33,35,39,45,51,52,56,58,59,66,68’의 유전자형이 있음을 의미합니다,
+     
+     상기 검사는 검사 방법, 시약의 정도 관리 및 검사 결과가 병리과 전문의에 의해 확인되었습니다.
+     (검사자: ***)",False,,,True,"[16, 18, 31, 33, 35, 39, 45, 51, 52, 56, 58, 59, 66, 68]",Other high-risk types detected
+R000000004,2019-09-16,PCY10004,Cervico-vaginal Cytology Liquid based,세포병리,PCY10004,"자궁경부세포, 액상",2019-09-17,2019-09-18,cervico-vaginal smear,Cervico-vaginal smear,"병리번호 : C19-******
+채 취 일 : 2019-09-16 16:10:52 박**
+대표검체 : cervico-vaginal smear
+세부검체 : Cervico-vaginal smear
+[DIAGNOSIS]
+     1) Adequacy of specimen     
+          Satisfactory
+               presence of endocervical cell
+     2) Cytologic diagnosis
+          Negative for Intraepithelial Lesion or Malignancy
+               Other non-neoplastic findings :
+                    Reactive cellular changes
+     
+
+[CF]
+     C23-******,C23-******,M22-******,C22-******,S22-******,S22-******,S22-******,M21-******,C21-******,C21-******,S20-******,M19-******,M19-******,C19-******,C18-******,S18-******,S18-******,S17-******,S17-******,S17-******,S16-******,S16-******,C16-******,C15-******,S14-******,S14-******,C12-******,S12-******,S12-******,C11-******,S10-******,C10-******,C09-******,C09-******,C08-******,S07-******,C07-******,S05-******,S05-******,S05-******,C02-******",False,,,False,[],
+R000000004,2019-09-16,PMO12040,HPV genotyping real-time PCR,분자병리,PMO12040,HPV genotyping real-time PCR,2019-09-17,2019-09-19,uterine cervix,uterine cervix,"병리번호 : M19-******
+채 취 일 : 2019-09-16 16:10:52 박**
+대표검체 : uterine cervix
+세부검체 : uterine cervix
+[MOLECULAR PATHOGY]
+     M19-******       HPV genotyping real-time PCR   
+     [[SAMPLE ADEQUACY]]
+     [검체종류]
+     자궁경부 세포검체
+     
+     [검체적절성]
+     Satisfactory for PCR
+     
+     [검사방법]
+     HPV genotyping Real-time PCR (Roche사의 Cobas 4800 System HPV DNA Test)
+     
+     [[RESULT]]
+     
+     [검사결과]
+     HPV genotyping Real-time PCR: Negative
+     KEY BLOCK :  
+     COMMENTS
+     1.HPV genotyping real-time PCR 검사는 총 14종의 HPV high risk를 detection 합니다.
+      : High risk 14종 (16,18,31,33,35,39,45,51,52,56,58,59,66,68)
+     2.검사 결과에서 'Positive(16)은 HPV 16','Positive(18)은 HPV 18', 
+     'Positive(other)는 HPV 31,33,35,39,45,51,52,56,58,59,66,68’의 유전자형이 있음을 의미합니다,
+     
+     상기 검사는 검사 방법, 시약의 정도 관리 및 검사 결과가 병리과 전문의에 의해 확인되었습니다.
+     (검사자: ***)",False,,,True,"[16, 18, 31, 33, 35, 39, 45, 51, 52, 56, 58, 59, 66, 68]",Other high-risk types detected
+R000000004,2021-11-22,PCY10003,Cervico-vaginal Cytology Conventional,세포병리,PCY10003,"자궁경부세포, 일반",2021-11-22,2021-11-24,cervico-vaginal smear,cervico-vaginal smear,"병리번호 : C21-******
+채 취 일 : 2021-11-22 09:49:43 안**
+대표검체 : cervico-vaginal smear
+세부검체 : cervico-vaginal smear
+[DIAGNOSIS]
+     1) Adequacy of specimen     
+          Satisfactory
+               presence of endocervical cell
+     2) Cytologic diagnosis
+          Epithelial cell abnormalities
+               Squamous cell
+                    Atypical squamous cells
+                         Atypical squamous cells of undetermined significance (ASC-US)
+     
+
+[CF]
+     C23-******,C23-******,M22-******,C22-******,S22-******,S22-******,S22-******,M21-******,C21-******,S20-******,M19-******,C19-******,M19-******,C19-******,C18-******,S18-******,S18-******,S17-******,S17-******,S17-******,S16-******,S16-******,C16-******,C15-******,S14-******,S14-******,C12-******,S12-******,S12-******,C11-******,S10-******,C10-******,C09-******,C09-******,C08-******,S07-******,C07-******,S05-******,S05-******,S05-******,C02-******",False,,,False,[],
+R000000004,2021-12-13,PMO12040,HPV genotyping real-time PCR,분자병리,PMO12040,HPV genotyping real-time PCR,2021-12-14,2021-12-15,uterine cervix,uterine cervix,"병리번호 : M21-******
+채 취 일 : 2021-12-13 16:08:15 안**
+대표검체 : uterine cervix
+세부검체 : uterine cervix
+[MOLECULAR PATHOGY]
+     M21-******       HPV genotyping real-time PCR   
+     [[SAMPLE ADEQUACY]]
+     Adequate
+     
+     [[RESULT]]
+     [검사방법]
+     Qualitative real-time PCR (BD Viper LT System HPV DNA Test)
+     
+     [검사결과]
+     HPV genotyping real-time PCR: Negative
+     KEY BLOCK :  
+     COMMENTS
+     1) HPV genotyping real-time PCR 검사는 총 14종의 HPV high risk를 detection합니다.
+     : High risk 14종: 16,18,31,45,51,52, P1(33/58), P2(56/59/66), P3(35/39/68)
+     
+     2) 검사 결과에서 ‘Positive(16)은 HPV 16’, ‘Positive(18)은 HPV 18’, ‘Positive(31)은 HPV 31’, 
+     ‘Positive(45)은 HPV 45’, ‘Positive(51)은 HPV 51’, ‘Positive(52)은 HPV 52’의 유전자형이 있음을 
+     의미하고, Positive(P1)는 HPV 33,58,  Positive(P2)는 HPV 56,59,66,  Positive(P3) HPV 35,39,68
+     중에 유전자형이 있음을 의미합니다.
+     
+     상기 검사는 검사 방법, 시약의 정도 관리 및 검사 결과가 병리과 전문의에 의해 확인되었습니다.
+     (검사 담당자 : ***)",False,,,True,"[16, 18, 31, 33, 35, 39, 45, 51, 52, 56, 58, 59, 66, 68]",
+R000000004,2022-12-19,PMO12040,HPV genotyping real-time PCR,분자병리,PMO12040,HPV genotyping real-time PCR,2022-12-20,2022-12-22,uterine cervix,uterine cervix,"병리번호 : M22-******
+채 취 일 : 2022-12-19 11:24:03 서**
+대표검체 : uterine cervix
+세부검체 : uterine cervix
+[MOLECULAR PATHOGY]
+     M22-******       HPV genotyping real-time PCR   
+     [[SAMPLE ADEQUACY]]
+     Adequate
+     
+     [[RESULT]]
+     [검사방법]
+     Qualitative real-time PCR (BD Viper LT System HPV DNA Test)
+     
+     [검사결과]
+     HPV genotyping real-time PCR: Negative
+     KEY BLOCK :  
+     COMMENTS
+     1) HPV genotyping real-time PCR 검사는 총 14종의 HPV high risk를 detection합니다.
+     : High risk 14종: 16,18,31,45,51,52, P1(33/58), P2(56/59/66), P3(35/39/68)
+     
+     2) 검사 결과에서 ‘Positive(16)은 HPV 16’, ‘Positive(18)은 HPV 18’, ‘Positive(31)은 HPV 31’, 
+     ‘Positive(45)은 HPV 45’, ‘Positive(51)은 HPV 51’, ‘Positive(52)은 HPV 52’의 유전자형이 있음을 
+     의미하고, Positive(P1)는 HPV 33,58,  Positive(P2)는 HPV 56,59,66,  Positive(P3) HPV 35,39,68
+     중에 유전자형이 있음을 의미합니다.
+     
+     상기 검사는 검사 방법, 시약의 정도 관리 및 검사 결과가 병리과 전문의에 의해 확인되었습니다.
+     (검사 담당자 : ***)",False,,,True,"[16, 18, 31, 33, 35, 39, 45, 51, 52, 56, 58, 59, 66, 68]",
+R000000004,2022-12-19,PCY10004,Cervico-vaginal Cytology Liquid based,세포병리,PCY10004,"자궁경부세포, 액상",2022-12-20,2022-12-22,cervico-vaginal smear,Cervico-vaginal smear,"병리번호 : C22-******
+채 취 일 : 2022-12-19 11:24:03 서**
+대표검체 : cervico-vaginal smear
+세부검체 : Cervico-vaginal smear
+[DIAGNOSIS]
+     1) Adequacy of specimen     
+          Satisfactory
+               absence of endocervical cell
+     2) Cytologic diagnosis
+          Negative for Intraepithelial Lesion or Malignancy
+               Other non-neoplastic findings :
+                    Reactive cellular changes associated with inflammation (includes typical repair)
+     
+
+[CF]
+     C23-******,C23-******,M22-******,S22-******,S22-******,S22-******,M21-******,C21-******,C21-******,S20-******,M19-******,C19-******,M19-******,C19-******,C18-******,S18-******,S18-******,S17-******,S17-******,S17-******,S16-******,S16-******,C16-******,C15-******,S14-******,S14-******,C12-******,S12-******,S12-******,C11-******,S10-******,C10-******,C09-******,C09-******,C08-******,S07-******,C07-******,S05-******,S05-******,S05-******,C02-******",False,,,False,[],
+R000000004,2023-08-08,PCY10003,Cervico-vaginal Cytology Conventional,세포병리,PCY10003,"자궁경부세포, 일반",2023-08-08,2023-08-10,cervico-vaginal smear,cervico-vaginal smear,"병리번호 : C23-******
+채 취 일 : 2023-08-08 08:54:04 이**
+대표검체 : cervico-vaginal smear
+세부검체 : cervico-vaginal smear
+[DIAGNOSIS]
+     1) Adequacy of specimen     
+          Satisfactory
+               presence of endocervical cell, low cellularity
+     2) Cytologic diagnosis
+          Negative for Intraepithelial Lesion or Malignancy
+               Other non-neoplastic findings :
+                    Atrophy
+     
+
+[CF]
+     C23-******,M22-******,C22-******,S22-******,S22-******,S22-******,M21-******,C21-******,C21-******,S20-******,M19-******,C19-******,M19-******,C19-******,C18-******,S18-******,S18-******,S17-******,S17-******,S17-******,S16-******,S16-******,C16-******,C15-******,S14-******,S14-******,C12-******,S12-******,S12-******,C11-******,S10-******,C10-******,C09-******,C09-******,C08-******,S07-******,C07-******,S05-******,S05-******,S05-******,C02-******",False,,,False,[],
+R000000005,2015-06-26,PMO12040,[선] HPV genotyping real-time PCR,분자병리,PMO12040,HPV genotyping real-time PCR,2015-06-26,2015-07-01,세포검체 cervico-vaginal smear,세포검체 cervico-vaginal smear,"병리번호 : M15-******
+채 취 일 : 2015-06-26 17:05:36 김**
+대표검체 : 세포검체 cervico-vaginal smear
+세부검체 : 세포검체 cervico-vaginal smear
+[MOLECULAR PATHOGY]
+     M15-******       HPV genotyping real-time PCR   
+     [[SAMPLE ADEQUACY]]
+     [검체종류]
+     자궁경부 세포검체
+     
+     [검체적절성]
+     Satisfactory for PCR
+     
+     [검사방법]
+     HPV genotyping Real-time PCR (Roche사의 Cobas 4800 System HPV DNA Test)
+     
+     [[RESULT]]
+     
+     [검사결과]
+     HPV genotyping Real-time PCR: Positive(other)
+     COMMENTS
+     1.HPV genotyping real-time PCR 검사는 총 14종의 HPV high risk를 detection 합니다.
+      : High risk 14종 (16,18,31,33,35,39,45,51,52,56,58,59,66,68)
+     2.검사 결과에서 'Positive(16)은 HPV 16','Positive(18)은 HPV 18', 
+     'Positive(other)는 HPV 31,33,35,39,45,51,52,56,58,59,66,68’의 유전자형이 있음을 의미합니다,
+     
+     상기 검사는 검사 방법, 시약의 정도 관리 및 검사 결과가 병리과 전문의에 의해 확인되었습니다.
+     (검사자: ***)",False,,,True,"[16, 18, 31, 33, 35, 39, 45, 51, 52, 56, 58, 59, 66, 68]",Other high-risk types detected
+R000000005,2015-06-26,PCY10004,[선] Cervico-vaginal Cytology Liquid based,세포병리,PCY10004,액상세포검사-자궁질 세포병리검사,2015-06-26,2015-07-02,cervico-vaginal smear,Cervico-vaginal smear,"병리번호 : C15-******
+채 취 일 : 2015-06-26 17:05:36 김**
+대표검체 : cervico-vaginal smear
+세부검체 : Cervico-vaginal smear
+[DIAGNOSIS]
+     1) Adequacy of specimen     
+          Satisfactory
+     2) Cytologic diagnosis
+          Epithelial cell abnormalities
+               Squamous cell
+                    Low-grade squamous intraepithelial lesion (LSIL)
+     
+
+[CF]
+     M23-******,C23-******,M22-******,C22-******,M21-******,C21-******,S20-******,M20-******,C20-******,M19-******,C19-******,M18-******,C18-******,M17-******,C17-******,M16-******,C16-******,M16-******,C16-******,M15-******
+
+Additional Result                        *진  단  일 : 20150701
+[MOLECULAR PATHOGY]
+     M15-******       HPV genotyping real-time PCR   
+     [검사결과]
+     HPV genotyping Real-time PCR: Positive(other) 
+     Comments
+     1.HPV genotyping real-time PCR 검사는 총 14종의 HPV high risk를 detection 합니다.
+      : High risk 14종 (16,18,31,33,35,39,45,51,52,56,58,59,66,68)
+     2.검사 결과에서 'Positive(16)은 HPV 16','Positive(18)은 HPV 18', 
+     'Positive(other)는 HPV 31,33,35,39,45,51,52,56,58,59,66,68’의 유전자형이 있음을 의미합니다,
+     
+     상기 검사는 검사 방법, 시약의 정도 관리 및 검사 결과가 병리과 전문의에 의해 확인되었습니다.
+     (검사자: ***)",False,,,True,"[16, 18, 31, 33, 35, 39, 45, 51, 52, 56, 58, 59, 66, 68]",Other high-risk types detected
+R000000005,2016-02-17,PMO12040,[선] HPV genotyping real-time PCR,분자병리,PMO12040,HPV genotyping real-time PCR,2016-02-17,2016-02-19,세포검체 cervico-vaginal smear,세포검체 cervico-vaginal smear,"병리번호 : M16-******
+채 취 일 : 2016-02-17 16:38:36 김**
+대표검체 : 세포검체 cervico-vaginal smear
+세부검체 : 세포검체 cervico-vaginal smear
+[MOLECULAR PATHOGY]
+     M16-******       HPV genotyping real-time PCR   
+     [[SAMPLE ADEQUACY]]
+     [검체종류]
+     자궁경부 세포검체
+     
+     [검체적절성]
+     Satisfactory for PCR
+     
+     [검사방법]
+     HPV genotyping Real-time PCR (Roche사의 Cobas 4800 System HPV DNA Test)
+     
+     [[RESULT]]
+     
+     [검사결과]
+     HPV genotyping Real-time PCR: Positive(other)
+     KEY BLOCK :  
+     COMMENTS
+     1.HPV genotyping real-time PCR 검사는 총 14종의 HPV high risk를 detection 합니다.
+      : High risk 14종 (16,18,31,33,35,39,45,51,52,56,58,59,66,68)
+     2.검사 결과에서 'Positive(16)은 HPV 16','Positive(18)은 HPV 18', 
+     'Positive(other)는 HPV 31,33,35,39,45,51,52,56,58,59,66,68’의 유전자형이 있음을 의미합니다,
+     
+     상기 검사는 검사 방법, 시약의 정도 관리 및 검사 결과가 병리과 전문의에 의해 확인되었습니다.
+     (검사자: ***)",False,,,True,"[16, 18, 31, 33, 35, 39, 45, 51, 52, 56, 58, 59, 66, 68]",Other high-risk types detected
+R000000005,2016-02-17,PCY10004,[선] Cervico-vaginal Cytology Liquid based,세포병리,PCY10004,액상세포검사-자궁질 세포병리검사,2016-02-17,2016-02-22,cervico-vaginal smear,Cervico-vaginal smear,"병리번호 : C16-******
+채 취 일 : 2016-02-17 16:38:36 김**
+대표검체 : cervico-vaginal smear
+세부검체 : Cervico-vaginal smear
+[DIAGNOSIS]
+     1) Adequacy of specimen     
+          Satisfactory
+     2) Cytologic diagnosis
+          Negative for Intraepithelial Lesion or Malignancy
+               Other non-neoplastic findings :
+                    Reactive cellular changes associated with inflammation (includes typical repair)
+     
+
+[CF]
+     M23-******,C23-******,M22-******,C22-******,M21-******,C21-******,S20-******,M20-******,C20-******,M19-******,C19-******,M18-******,C18-******,M17-******,C17-******,M16-******,C16-******,M16-******,M15-******,C15-******
+
+Additional Result                        *진  단  일 : 20160219
+[MOLECULAR PATHOGY]
+     M16-******       HPV genotyping real-time PCR   
+     [검사결과]
+     HPV genotyping Real-time PCR: Positive(other)
+     Key Block :   
+     Comments
+     1.HPV genotyping real-time PCR 검사는 총 14종의 HPV high risk를 detection 합니다.
+      : High risk 14종 (16,18,31,33,35,39,45,51,52,56,58,59,66,68)
+     2.검사 결과에서 'Positive(16)은 HPV 16','Positive(18)은 HPV 18', 
+     'Positive(other)는 HPV 31,33,35,39,45,51,52,56,58,59,66,68’의 유전자형이 있음을 의미합니다,
+     
+     상기 검사는 검사 방법, 시약의 정도 관리 및 검사 결과가 병리과 전문의에 의해 확인되었습니다.
+     (검사자: ***)",False,,,True,"[16, 18, 31, 33, 35, 39, 45, 51, 52, 56, 58, 59, 66, 68]",Other high-risk types detected
+R000000005,2016-08-17,PMO12040,[선] HPV genotyping real-time PCR,분자병리,PMO12040,HPV genotyping real-time PCR,2016-08-17,2016-08-19,세포검체 cervico-vaginal smear,세포검체 cervico-vaginal smear,"병리번호 : M16-******
+채 취 일 : 2016-08-17 12:12:48 김**
+대표검체 : 세포검체 cervico-vaginal smear
+세부검체 : 세포검체 cervico-vaginal smear
+[MOLECULAR PATHOGY]
+     M16-******       HPV genotyping real-time PCR   
+     [[SAMPLE ADEQUACY]]
+     Adequate
+     
+     [[RESULT]]
+     [검사방법]
+      Qualitative real-time PCR (Cobas 4800 System HPV DNA Test)
+     
+     [검사결과]
+      HPV genotyping Real-time PCR: Negative
+     KEY BLOCK :  
+     COMMENTS
+     1.HPV genotyping real-time PCR 검사는 총 14종의 HPV high risk를 detection 합니다.
+       : High risk 14종 (16,18,31,33,35,39,45,51,52,56,58,59,66,68)
+      2.검사 결과에서 'Positive(16)은 HPV 16','Positive(18)은 HPV 18', 
+        'Positive(other)는 HPV 31,33,35,39,45,51,52,56,58,59,66,68’의 유전자형이 있음을 의미합니다, 
+     
+      상기 검사는 검사 방법, 시약의 정도 관리 및 검사 결과가 병리과 전문의에 의해 확인되었습니다.
+      (검사담당자: ***)",False,,,True,"[16, 18, 31, 33, 35, 39, 45, 51, 52, 56, 58, 59, 66, 68]",Other high-risk types detected
+R000000005,2016-08-17,PCY10004,[선] Cervico-vaginal Cytology Liquid based,세포병리,PCY10004,액상세포검사-자궁질 세포병리검사,2016-08-17,2016-08-23,cervico-vaginal smear,Cervico-vaginal smear,"병리번호 : C16-******
+채 취 일 : 2016-08-17 12:12:48 김**
+대표검체 : cervico-vaginal smear
+세부검체 : Cervico-vaginal smear
+[DIAGNOSIS]
+     1) Adequacy of specimen     
+          Satisfactory
+     2) Cytologic diagnosis
+          Negative for Intraepithelial Lesion or Malignancy
+               Other non-neoplastic findings :
+                    Reactive cellular changes associated with inflammation (includes typical repair)
+     
+
+[CF]
+     M23-******,C23-******,M22-******,C22-******,M21-******,C21-******,S20-******,M20-******,C20-******,M19-******,C19-******,M18-******,C18-******,M17-******,C17-******,M16-******,M16-******,C16-******,M15-******,C15-******
+
+Additional Result                        *진  단  일 : 20160819
+[MOLECULAR PATHOGY]
+     M16-******       HPV genotyping real-time PCR   
+     [검사방법]
+      Qualitative real-time PCR (Cobas 4800 System HPV DNA Test)
+     
+     [검사결과]
+      HPV genotyping Real-time PCR: Negative
+     Key Block :   
+     Comments
+     1.HPV genotyping real-time PCR 검사는 총 14종의 HPV high risk를 detection 합니다.
+       : High risk 14종 (16,18,31,33,35,39,45,51,52,56,58,59,66,68)
+      2.검사 결과에서 'Positive(16)은 HPV 16','Positive(18)은 HPV 18', 
+        'Positive(other)는 HPV 31,33,35,39,45,51,52,56,58,59,66,68’의 유전자형이 있음을 의미합니다, 
+     
+      상기 검사는 검사 방법, 시약의 정도 관리 및 검사 결과가 병리과 전문의에 의해 확인되었습니다.
+      (검사담당자: ***)",False,,,True,"[16, 18, 31, 33, 35, 39, 45, 51, 52, 56, 58, 59, 66, 68]",Other high-risk types detected
+R000000005,2017-08-30,PMO12040,[선] HPV genotyping real-time PCR,분자병리,PMO12040,HPV genotyping real-time PCR,2017-08-30,2017-08-31,세포검체 cervico-vaginal smear,세포검체 cervico-vaginal smear,"병리번호 : M17-******
+채 취 일 : 2017-08-30 11:58:23 송**
+대표검체 : 세포검체 cervico-vaginal smear
+세부검체 : 세포검체 cervico-vaginal smear
+[MOLECULAR PATHOGY]
+     M17-******       HPV genotyping real-time PCR   
+     [[SAMPLE ADEQUACY]]
+     Adequate
+     
+     [[RESULT]]
+     [검사방법]
+      Qualitative real-time PCR (Cobas 4800 System HPV DNA Test)
+     
+     [검사결과]
+      HPV genotyping Real-time PCR: Positive(other)
+     KEY BLOCK :  
+     COMMENTS
+     1.HPV genotyping real-time PCR 검사는 총 14종의 HPV high risk를 detection 합니다.
+       : High risk 14종 (16,18,31,33,35,39,45,51,52,56,58,59,66,68)
+      2.검사 결과에서 'Positive(16)은 HPV 16','Positive(18)은 HPV 18', 
+        'Positive(other)는 HPV 31,33,35,39,45,51,52,56,58,59,66,68’의 유전자형이 있음을 의미합니다, 
+     
+      상기 검사는 검사 방법, 시약의 정도 관리 및 검사 결과가 병리과 전문의에 의해 확인되었습니다.
+      (검사담당자: ***)",False,,,True,"[16, 18, 31, 33, 35, 39, 45, 51, 52, 56, 58, 59, 66, 68]",Other high-risk types detected
+R000000005,2017-08-30,PCY10004,[선] Cervico-vaginal Cytology Liquid based,세포병리,PCY10004,액상세포검사-자궁질 세포병리검사,2017-08-30,2017-09-05,cervico-vaginal smear,Cervico-vaginal smear,"병리번호 : C17-******
+채 취 일 : 2017-08-30 11:58:23 송**
+대표검체 : cervico-vaginal smear
+세부검체 : Cervico-vaginal smear
+[DIAGNOSIS]
+     1) Adequacy of specimen     
+          Satisfactory
+     2) Cytologic diagnosis
+          Negative for Intraepithelial Lesion or Malignancy
+     
+
+[CF]
+     M23-******,C23-******,M22-******,C22-******,M21-******,C21-******,S20-******,M20-******,C20-******,M19-******,C19-******,M18-******,C18-******,M17-******,M16-******,C16-******,M16-******,C16-******,M15-******,C15-******
+
+Additional Result                        *진  단  일 : 20170831
+[MOLECULAR PATHOGY]
+     M17-******       HPV genotyping real-time PCR   
+     [검사방법]
+      Qualitative real-time PCR (Cobas 4800 System HPV DNA Test)
+     
+     [검사결과]
+      HPV genotyping Real-time PCR: Positive(other)
+     Key Block :   
+     Comments
+     1.HPV genotyping real-time PCR 검사는 총 14종의 HPV high risk를 detection 합니다.
+       : High risk 14종 (16,18,31,33,35,39,45,51,52,56,58,59,66,68)
+      2.검사 결과에서 'Positive(16)은 HPV 16','Positive(18)은 HPV 18', 
+        'Positive(other)는 HPV 31,33,35,39,45,51,52,56,58,59,66,68’의 유전자형이 있음을 의미합니다, 
+     
+      상기 검사는 검사 방법, 시약의 정도 관리 및 검사 결과가 병리과 전문의에 의해 확인되었습니다.
+      (검사담당자: ***)",False,,,True,"[16, 18, 31, 33, 35, 39, 45, 51, 52, 56, 58, 59, 66, 68]",Other high-risk types detected
+R000000005,2018-03-30,PCY10004,[선] 액상세포검사-자궁질 세포병리검사,세포병리,PCY10004,액상세포검사-자궁질 세포병리검사,2018-03-30,2018-04-04,cervico-vaginal smear,Cervico-vaginal smear,"병리번호 : C18-******
+채 취 일 : 2018-03-30 15:47:26 황**
+대표검체 : cervico-vaginal smear
+세부검체 : Cervico-vaginal smear
+[DIAGNOSIS]
+     1) Adequacy of specimen     
+          Satisfactory
+     2) Cytologic diagnosis
+          Negative for Intraepithelial Lesion or Malignancy
+     
+
+[CF]
+     M23-******,C23-******,M22-******,C22-******,M21-******,C21-******,S20-******,M20-******,C20-******,M19-******,C19-******,M18-******,M17-******,C17-******,M16-******,C16-******,M16-******,C16-******,M15-******,C15-******",False,,,False,[],
+R000000005,2018-03-30,PMO12040,[선] HPV genotyping real-time PCR,분자병리,PMO12040,HPV genotyping real-time PCR,2018-03-30,2018-04-04,세포검체 cervico-vaginal smear,세포검체 cervico-vaginal smear,"병리번호 : M18-******
+채 취 일 : 2018-03-30 15:47:26 황**
+대표검체 : 세포검체 cervico-vaginal smear
+세부검체 : 세포검체 cervico-vaginal smear
+[MOLECULAR PATHOGY]
+     M18-******       HPV genotyping real-time PCR   
+     [[SAMPLE ADEQUACY]]
+     Adequate
+     
+     [[RESULT]]
+     [검사방법]
+      Qualitative real-time PCR (Cobas 4800 System HPV DNA Test)
+     
+     [검사결과]
+      HPV genotyping Real-time PCR: Negative
+     KEY BLOCK :  
+     COMMENTS
+     1.HPV genotyping real-time PCR 검사는 총 14종의 HPV high risk를 detection 합니다.
+       : High risk 14종 (16,18,31,33,35,39,45,51,52,56,58,59,66,68)
+      2.검사 결과에서 'Positive(16)은 HPV 16','Positive(18)은 HPV 18', 
+        'Positive(other)는 HPV 31,33,35,39,45,51,52,56,58,59,66,68’의 유전자형이 있음을 의미합니다, 
+     
+      상기 검사는 검사 방법, 시약의 정도 관리 및 검사 결과가 병리과 전문의에 의해 확인되었습니다.
+      (검사담당자: ***)",False,,,True,"[16, 18, 31, 33, 35, 39, 45, 51, 52, 56, 58, 59, 66, 68]",Other high-risk types detected
+R000000005,2019-03-12,PMO12040,[선] HPV genotyping real-time PCR,분자병리,PMO12040,HPV genotyping real-time PCR,2019-03-12,2019-03-14,세포검체 cervico-vaginal smear,세포검체 cervico-vaginal smear,"병리번호 : M19-******
+채 취 일 : 2019-03-12 09:50:58 강**
+대표검체 : 세포검체 cervico-vaginal smear
+세부검체 : 세포검체 cervico-vaginal smear
+[MOLECULAR PATHOGY]
+     M19-******       HPV genotyping real-time PCR   
+     [[SAMPLE ADEQUACY]]
+     Adequate
+     
+     [[RESULT]]
+     [검사방법]
+      Qualitative real-time PCR (Cobas 4800 System HPV DNA Test)
+     
+     [검사결과]
+      HPV genotyping Real-time PCR: Negative
+     KEY BLOCK :  
+     COMMENTS
+     1) HPV genotyping real-time PCR 검사는 총 14종의 HPV high risk를 detection 합니다.
+       : High risk 14종 (16,18,31,33,35,39,45,51,52,56,58,59,66,68)
+     2) 검사 결과에서 'Positive(16)은 HPV 16','Positive(18)은 HPV 18', 
+        'Positive(other)는 HPV 31,33,35,39,45,51,52,56,58,59,66,68’의 유전자형이 있음을 의미합니다, 
+     
+      상기 검사는 검사 방법, 시약의 정도 관리 및 검사 결과가 병리과 전문의에 의해 확인되었습니다.
+     (검사담당자: ***)",False,,,True,"[16, 18, 31, 33, 35, 39, 45, 51, 52, 56, 58, 59, 66, 68]",Other high-risk types detected
+R000000005,2019-03-12,PCY10004,[선] 액상세포검사-자궁질 세포병리검사,세포병리,PCY10004,액상세포검사-자궁질 세포병리검사,2019-03-12,2019-03-14,cervico-vaginal smear,Cervico-vaginal smear,"병리번호 : C19-******
+채 취 일 : 2019-03-12 09:50:58 강**
+대표검체 : cervico-vaginal smear
+세부검체 : Cervico-vaginal smear
+[DIAGNOSIS]
+     1) Adequacy of specimen     
+          Satisfactory
+     2) Cytologic diagnosis
+          Negative for Intraepithelial Lesion or Malignancy
+     
+
+[CF]
+     M23-******,C23-******,M22-******,C22-******,M21-******,C21-******,S20-******,M20-******,C20-******,M19-******,M18-******,C18-******,M17-******,C17-******,M16-******,C16-******,M16-******,C16-******,M15-******,C15-******
+
+Additional Result                        *진  단  일 : 20190314
+[MOLECULAR PATHOGY]
+     M19-******       HPV genotyping real-time PCR   
+     [검사방법]
+      Qualitative real-time PCR (Cobas 4800 System HPV DNA Test)
+     
+     [검사결과]
+      HPV genotyping Real-time PCR: Negative
+     Key Block :   
+     Comments
+     1) HPV genotyping real-time PCR 검사는 총 14종의 HPV high risk를 detection 합니다.
+       : High risk 14종 (16,18,31,33,35,39,45,51,52,56,58,59,66,68)
+     2) 검사 결과에서 'Positive(16)은 HPV 16','Positive(18)은 HPV 18', 
+        'Positive(other)는 HPV 31,33,35,39,45,51,52,56,58,59,66,68’의 유전자형이 있음을 의미합니다, 
+     
+      상기 검사는 검사 방법, 시약의 정도 관리 및 검사 결과가 병리과 전문의에 의해 확인되었습니다.
+     (검사담당자: ***)",False,,,True,"[16, 18, 31, 33, 35, 39, 45, 51, 52, 56, 58, 59, 66, 68]",Other high-risk types detected
+R000000005,2020-03-17,PCY10004,[선] 액상세포검사-자궁질 세포병리검사,세포병리,PCY10004,액상세포검사-자궁질 세포병리검사,2020-03-17,2020-03-19,cervico-vaginal smear,Cervico-vaginal smear,"병리번호 : C20-******
+채 취 일 : 2020-03-17 11:51:11 김**
+대표검체 : cervico-vaginal smear
+세부검체 : Cervico-vaginal smear
+[DIAGNOSIS]
+     1) Adequacy of specimen     
+          Satisfactory
+     2) Cytologic diagnosis
+          Negative for Intraepithelial Lesion or Malignancy
+     
+
+[CF]
+     M23-******,C23-******,M22-******,C22-******,M21-******,C21-******,S20-******,M20-******,M19-******,C19-******,M18-******,C18-******,M17-******,C17-******,M16-******,C16-******,M16-******,C16-******,M15-******,C15-******
+
+Additional Result                        *진  단  일 : 20200324
+[MOLECULAR PATHOGY]
+     M20-******       HPV genotyping real-time PCR   
+     [검사방법]
+      Qualitative real-time PCR (Cobas 4800 System HPV DNA Test)
+     
+     [검사결과]
+      HPV genotyping Real-time PCR: Negative
+     Key Block :   
+     Comments
+     1) HPV genotyping real-time PCR 검사는 총 14종의 HPV high risk를 detection 합니다.
+       : High risk 14종 (16,18,31,33,35,39,45,51,52,56,58,59,66,68)
+     2) 검사 결과에서 'Positive(16)은 HPV 16','Positive(18)은 HPV 18', 
+        'Positive(other)는 HPV 31,33,35,39,45,51,52,56,58,59,66,68’의 유전자형이 있음을 의미합니다, 
+     
+      상기 검사는 검사 방법, 시약의 정도 관리 및 검사 결과가 병리과 전문의에 의해 확인되었습니다.
+     (검사담당자: ***)",False,,,True,"[16, 18, 31, 33, 35, 39, 45, 51, 52, 56, 58, 59, 66, 68]",Other high-risk types detected
+R000000005,2020-03-17,PMO12040,[선] HPV genotyping real-time PCR,분자병리,PMO12040,HPV genotyping real-time PCR,2020-03-17,2020-03-24,세포검체 cervico-vaginal smear,세포검체 cervico-vaginal smear,"병리번호 : M20-******
+채 취 일 : 2020-03-17 11:51:11 김**
+대표검체 : 세포검체 cervico-vaginal smear
+세부검체 : 세포검체 cervico-vaginal smear
+[MOLECULAR PATHOGY]
+     M20-******       HPV genotyping real-time PCR   
+     [[SAMPLE ADEQUACY]]
+     Adequate
+     
+     [[RESULT]]
+     [검사방법]
+      Qualitative real-time PCR (Cobas 4800 System HPV DNA Test)
+     
+     [검사결과]
+      HPV genotyping Real-time PCR: Negative
+     KEY BLOCK :  
+     COMMENTS
+     1) HPV genotyping real-time PCR 검사는 총 14종의 HPV high risk를 detection 합니다.
+       : High risk 14종 (16,18,31,33,35,39,45,51,52,56,58,59,66,68)
+     2) 검사 결과에서 'Positive(16)은 HPV 16','Positive(18)은 HPV 18', 
+        'Positive(other)는 HPV 31,33,35,39,45,51,52,56,58,59,66,68’의 유전자형이 있음을 의미합니다, 
+     
+      상기 검사는 검사 방법, 시약의 정도 관리 및 검사 결과가 병리과 전문의에 의해 확인되었습니다.
+     (검사담당자: ***)",False,,,True,"[16, 18, 31, 33, 35, 39, 45, 51, 52, 56, 58, 59, 66, 68]",Other high-risk types detected
+R000000005,2021-02-09,PMO12040,[선] HPV genotyping real-time PCR,분자병리,PMO12040,HPV genotyping real-time PCR,2021-02-09,2021-02-14,세포검체 cervico-vaginal smear,세포검체 cervico-vaginal smear,"병리번호 : M21-******
+채 취 일 : 2021-02-09 12:24:12 박**
+대표검체 : 세포검체 cervico-vaginal smear
+세부검체 : 세포검체 cervico-vaginal smear
+[MOLECULAR PATHOGY]
+     M21-******       HPV genotyping real-time PCR   
+     [[SAMPLE ADEQUACY]]
+     Adequate
+     
+     [[RESULT]]
+     [검사방법]
+     Qualitative real-time PCR (BD Viper LT System HPV DNA Test)
+     
+     [검사결과]
+     HPV genotyping real-time PCR: Negative
+     KEY BLOCK :  
+     COMMENTS
+     1) HPV genotyping real-time PCR 검사는 총 14종의 HPV high risk를 detection합니다.
+     : High risk 14종: 16,18,31,45,51,52, P1(33/58), P2(56/59/66), P3(35/39/68)
+     
+     2) 검사 결과에서 ‘Positive(16)은 HPV 16’, ‘Positive(18)은 HPV 18’, ‘Positive(31)은 HPV 31’, 
+     ‘Positive(45)은 HPV 45’, ‘Positive(51)은 HPV 51’, ‘Positive(52)은 HPV 52’의 유전자형이 있음을 
+     의미하고, Positive(P1)는 HPV 33,58,  Positive(P2)는 HPV 56,59,66,  Positive(P3) HPV 35,39,68
+     중에 유전자형이 있음을 의미합니다.
+     
+     상기 검사는 검사 방법, 시약의 정도 관리 및 검사 결과가 병리과 전문의에 의해 확인되었습니다.
+     (검사 담당자 : ***)",False,,,True,"[16, 18, 31, 33, 35, 39, 45, 51, 52, 56, 58, 59, 66, 68]",
+R000000005,2021-02-09,PCY10004,[선] 액상세포검사-자궁질 세포병리검사,세포병리,PCY10004,액상세포검사-자궁질 세포병리검사,2021-02-09,2021-02-15,cervico-vaginal smear,Cervico-vaginal smear,"병리번호 : C21-******
+채 취 일 : 2021-02-09 12:24:12 박**
+대표검체 : cervico-vaginal smear
+세부검체 : Cervico-vaginal smear
+[DIAGNOSIS]
+     1) Adequacy of specimen     
+          Satisfactory
+     2) Cytologic diagnosis
+          Negative for Intraepithelial Lesion or Malignancy
+               Other non-neoplastic findings :
+                    Reactive cellular changes associated with inflammation (includes typical repair)
+     
+
+[CF]
+     S23-******,M23-******,C23-******,M22-******,C22-******,M21-******,S20-******,M20-******,C20-******,M19-******,C19-******,M18-******,C18-******,M17-******,C17-******,M16-******,C16-******,M16-******,C16-******,M15-******,C15-******
+
+Additional Result                        *진  단  일 : 20210214
+[MOLECULAR PATHOGY]
+     M21-******       HPV genotyping real-time PCR   
+     [검사방법]
+     Qualitative real-time PCR (BD Viper LT System HPV DNA Test)
+     
+     [검사결과]
+     HPV genotyping real-time PCR: Negative
+     Key Block :  Negative
+     Comments
+     1) HPV genotyping real-time PCR 검사는 총 14종의 HPV high risk를 detection합니다.
+     : High risk 14종: 16,18,31,45,51,52, P1(33/58), P2(56/59/66), P3(35/39/68)
+     
+     2) 검사 결과에서 ‘Positive(16)은 HPV 16’, ‘Positive(18)은 HPV 18’, ‘Positive(31)은 HPV 31’, 
+     ‘Positive(45)은 HPV 45’, ‘Positive(51)은 HPV 51’, ‘Positive(52)은 HPV 52’의 유전자형이 있음을 
+     의미하고, Positive(P1)는 HPV 33,58,  Positive(P2)는 HPV 56,59,66,  Positive(P3) HPV 35,39,68
+     중에 유전자형이 있음을 의미합니다.
+     
+     상기 검사는 검사 방법, 시약의 정도 관리 및 검사 결과가 병리과 전문의에 의해 확인되었습니다.
+     (검사 담당자 : ***)
+     ",False,,,True,"[16, 18, 31, 33, 35, 39, 45, 51, 52, 56, 58, 59, 66, 68]",
+R000000005,2022-02-09,PCY10004,[선] 액상세포검사-자궁질 세포병리검사,세포병리,PCY10004,액상세포검사-자궁질 세포병리검사,2022-02-09,2022-02-11,cervico-vaginal smear,Cervico-vaginal smear,"병리번호 : C22-******
+채 취 일 : 2022-02-09 12:16:18 한**
+대표검체 : cervico-vaginal smear
+세부검체 : Cervico-vaginal smear
+[DIAGNOSIS]
+     1) Adequacy of specimen     
+          Satisfactory
+     2) Cytologic diagnosis
+          Negative for Intraepithelial Lesion or Malignancy
+     
+
+[CF]
+     M24-******,C24-******,S23-******,M23-******,C23-******,M22-******,M21-******,C21-******,S20-******,M20-******,C20-******,M19-******,C19-******,M18-******,C18-******,M17-******,C17-******,M16-******,C16-******,M16-******,C16-******,M15-******,C15-******
+
+Additional Result                        *진  단  일 : 20220216
+[MOLECULAR PATHOGY]
+     M22-******       HPV genotyping real-time PCR   
+     [검사방법]
+     Qualitative real-time PCR (BD Viper LT System HPV DNA Test)
+     
+     [검사결과]
+     HPV genotyping real-time PCR: Negative
+     Key Block :  Negative
+     Comments
+     1) HPV genotyping real-time PCR 검사는 총 14종의 HPV high risk를 detection합니다.
+     : High risk 14종: 16,18,31,45,51,52, P1(33/58), P2(56/59/66), P3(35/39/68)
+     
+     2) 검사 결과에서 ‘Positive(16)은 HPV 16’, ‘Positive(18)은 HPV 18’, ‘Positive(31)은 HPV 31’, 
+     ‘Positive(45)은 HPV 45’, ‘Positive(51)은 HPV 51’, ‘Positive(52)은 HPV 52’의 유전자형이 있음을 
+     의미하고, Positive(P1)는 HPV 33,58,  Positive(P2)는 HPV 56,59,66,  Positive(P3) HPV 35,39,68
+     중에 유전자형이 있음을 의미합니다.
+     
+     상기 검사는 검사 방법, 시약의 정도 관리 및 검사 결과가 병리과 전문의에 의해 확인되었습니다.
+     (검사 담당자 : ***)
+     ",False,,,True,"[16, 18, 31, 33, 35, 39, 45, 51, 52, 56, 58, 59, 66, 68]",
+R000000005,2022-02-09,PMO12040,[선] HPV genotyping real-time PCR,분자병리,PMO12040,HPV genotyping real-time PCR,2022-02-09,2022-02-16,세포검체 cervico-vaginal smear,세포검체 cervico-vaginal smear,"병리번호 : M22-******
+채 취 일 : 2022-02-09 12:16:18 한**
+대표검체 : 세포검체 cervico-vaginal smear
+세부검체 : 세포검체 cervico-vaginal smear
+[MOLECULAR PATHOGY]
+     M22-******       HPV genotyping real-time PCR   
+     [[SAMPLE ADEQUACY]]
+     Adequate
+     
+     [[RESULT]]
+     [검사방법]
+     Qualitative real-time PCR (BD Viper LT System HPV DNA Test)
+     
+     [검사결과]
+     HPV genotyping real-time PCR: Negative
+     KEY BLOCK :  
+     COMMENTS
+     1) HPV genotyping real-time PCR 검사는 총 14종의 HPV high risk를 detection합니다.
+     : High risk 14종: 16,18,31,45,51,52, P1(33/58), P2(56/59/66), P3(35/39/68)
+     
+     2) 검사 결과에서 ‘Positive(16)은 HPV 16’, ‘Positive(18)은 HPV 18’, ‘Positive(31)은 HPV 31’, 
+     ‘Positive(45)은 HPV 45’, ‘Positive(51)은 HPV 51’, ‘Positive(52)은 HPV 52’의 유전자형이 있음을 
+     의미하고, Positive(P1)는 HPV 33,58,  Positive(P2)는 HPV 56,59,66,  Positive(P3) HPV 35,39,68
+     중에 유전자형이 있음을 의미합니다.
+     
+     상기 검사는 검사 방법, 시약의 정도 관리 및 검사 결과가 병리과 전문의에 의해 확인되었습니다.
+     (검사 담당자 : ***)",False,,,True,"[16, 18, 31, 33, 35, 39, 45, 51, 52, 56, 58, 59, 66, 68]",
+R000000005,2023-03-15,PCY10004,[선] 액상세포검사-자궁질 세포병리검사,세포병리,PCY10004,액상세포검사-자궁질 세포병리검사,2023-03-15,2023-03-20,cervico-vaginal smear,Cervico-vaginal smear,"병리번호 : C23-******
+채 취 일 : 2023-03-15 11:58:33 한**
+대표검체 : cervico-vaginal smear
+세부검체 : Cervico-vaginal smear
+[DIAGNOSIS]
+     1) Adequacy of specimen     
+          Satisfactory
+     2) Cytologic diagnosis
+          Negative for Intraepithelial Lesion or Malignancy
+               Other non-neoplastic findings :
+                    Reactive cellular changes
+     
+
+[CF]
+     M25-******,C25-******,M24-******,C24-******,S23-******,M23-******,M22-******,C22-******,M21-******,C21-******,S20-******,M20-******,C20-******,M19-******,C19-******,M18-******,C18-******,M17-******,C17-******,M16-******,C16-******,M16-******,C16-******,M15-******,C15-******
+
+Additional Result                        *진  단  일 : 20230321
+[MOLECULAR PATHOGY]
+     M23-******       HPV genotyping real-time PCR   
+     [검사방법]
+     Qualitative real-time PCR (BD Viper LT System HPV DNA Test)
+     
+     [검사결과]
+     HPV genotyping real-time PCR: Negative
+     Key Block :  Negative
+     Comments
+     1) HPV genotyping real-time PCR 검사는 총 14종의 HPV high risk를 detection합니다.
+     : High risk 14종: 16,18,31,45,51,52, P1(33/58), P2(56/59/66), P3(35/39/68)
+     
+     2) 검사 결과에서 ‘Positive(16)은 HPV 16’, ‘Positive(18)은 HPV 18’, ‘Positive(31)은 HPV 31’, 
+     ‘Positive(45)은 HPV 45’, ‘Positive(51)은 HPV 51’, ‘Positive(52)은 HPV 52’의 유전자형이 있음을 
+     의미하고, Positive(P1)는 HPV 33,58,  Positive(P2)는 HPV 56,59,66,  Positive(P3) HPV 35,39,68
+     중에 유전자형이 있음을 의미합니다.
+     
+     상기 검사는 검사 방법, 시약의 정도 관리 및 검사 결과가 병리과 전문의에 의해 확인되었습니다.
+     (검사 담당자 : ***)
+     ",False,,,True,"[16, 18, 31, 33, 35, 39, 45, 51, 52, 56, 58, 59, 66, 68]",
+R000000005,2023-03-15,PMO12040,[선] HPV genotyping real-time PCR,분자병리,PMO12040,HPV genotyping real-time PCR,2023-03-15,2023-03-21,세포검체 cervico-vaginal smear,세포검체 cervico-vaginal smear,"병리번호 : M23-******
+채 취 일 : 2023-03-15 11:58:33 한**
+대표검체 : 세포검체 cervico-vaginal smear
+세부검체 : 세포검체 cervico-vaginal smear
+[MOLECULAR PATHOGY]
+     M23-******       HPV genotyping real-time PCR   
+     [[SAMPLE ADEQUACY]]
+     Adequate
+     
+     [[RESULT]]
+     [검사방법]
+     Qualitative real-time PCR (BD Viper LT System HPV DNA Test)
+     
+     [검사결과]
+     HPV genotyping real-time PCR: Negative
+     KEY BLOCK :  
+     COMMENTS
+     1) HPV genotyping real-time PCR 검사는 총 14종의 HPV high risk를 detection합니다.
+     : High risk 14종: 16,18,31,45,51,52, P1(33/58), P2(56/59/66), P3(35/39/68)
+     
+     2) 검사 결과에서 ‘Positive(16)은 HPV 16’, ‘Positive(18)은 HPV 18’, ‘Positive(31)은 HPV 31’, 
+     ‘Positive(45)은 HPV 45’, ‘Positive(51)은 HPV 51’, ‘Positive(52)은 HPV 52’의 유전자형이 있음을 
+     의미하고, Positive(P1)는 HPV 33,58,  Positive(P2)는 HPV 56,59,66,  Positive(P3) HPV 35,39,68
+     중에 유전자형이 있음을 의미합니다.
+     
+     상기 검사는 검사 방법, 시약의 정도 관리 및 검사 결과가 병리과 전문의에 의해 확인되었습니다.
+     (검사 담당자 : ***)",False,,,True,"[16, 18, 31, 33, 35, 39, 45, 51, 52, 56, 58, 59, 66, 68]",
+R000000006,2016-11-09,PCY10006,"(예방목적)자궁경부세포, 액상+자동화",세포병리,PCY10006,"(예방)자궁경부세포, 액상+자동화",2016-11-10,2016-11-15,cervico-vaginal smear,Cervico-vaginal smear,"병리번호 : C16-******
+채 취 일 : 2016-11-09 15:02:05 서**
+대표검체 : cervico-vaginal smear
+세부검체 : Cervico-vaginal smear
+[DIAGNOSIS]
+     2) Cytologic diagnosis
+          Epithelial cell abnormalities
+               Squamous cell
+                    Low-grade squamous intraepithelial lesion (LSIL)
+     
+
+[CF]
+     C17-******,M17-******,S16-******,M16-******",False,,,False,[],
+R000000006,2016-11-22,PMO12040,HPV genotyping real-time PCR,분자병리,PMO12040,HPV genotyping real-time PCR,2016-11-23,2016-11-25,세포검체 cervico-vaginal smear,세포검체 cervico-vaginal smear,"병리번호 : M16-******
+채 취 일 : 2016-11-22 15:51:49 정**
+대표검체 : 세포검체 cervico-vaginal smear
+세부검체 : 세포검체 cervico-vaginal smear
+[MOLECULAR PATHOGY]
+     M16-******       HPV genotyping real-time PCR   
+     [[SAMPLE ADEQUACY]]
+     Adequate
+     
+     [[RESULT]]
+     이미지 참조
+     COMMENTS
+     삼광검사  위탁의뢰한 검사 결과입니다",False,,,False,[],
+R000000006,2016-11-22,PSU00009,생검 (1-3개),조직병리,PSU00009,생검(1-3개),2016-11-24,2016-11-28,uterine cervix,uterine exocervix-12시/uterine exocervix-6시,"병리번호 : S16-******
+채 취 일 : 2016-11-22 15:51:49 정**
+대표검체 : uterine cervix
+세부검체 : uterine exocervix-12시/uterine exocervix-6시
+[GROSS DESCRIPTION]
+     A. The specimen consists of a fragment of tan-colored tissue, measuring 0.2cm.
+     B. The specimen consists of two fragments of tan-colored tissue, measuring up to 0.5cm.
+     (A&B: in toto x1)
+     (BLOCK 2 개)
+
+[DIAGNOSIS]
+     . Uterine cervix, 12 o'clock(A) and 6 o'clock(B) direction, biopsy:
+       Cervical intraepithelial neoplasia 1 (CIN1) with koilocytosis.
+
+[CF]
+     C17-******,M17-******,M16-******,C16-******",False,,,False,[],
+R000000006,2017-04-11,PMO12040,HPV genotyping real-time PCR,분자병리,PMO12040,HPV genotyping real-time PCR,2017-04-12,2017-04-13,세포검체 cervico-vaginal smear,세포검체 cervico-vaginal smear,"병리번호 : M17-******
+채 취 일 : 2017-04-11 16:50:00 이**
+대표검체 : 세포검체 cervico-vaginal smear
+세부검체 : 세포검체 cervico-vaginal smear
+[MOLECULAR PATHOGY]
+     M17-******       HPV genotyping real-time PCR   
+     [[SAMPLE ADEQUACY]]
+     Adequate
+     
+     [[RESULT]]
+     이미지 참조
+     COMMENTS
+     삼광검사  위탁의뢰한 검사 결과입니다",False,,,False,[],
+R000000006,2017-04-11,PCY10002,"자궁경부세포, 액상+자동화",세포병리,PCY10002,"자궁경부세포, 액상+자동화",2017-04-13,2017-04-14,cervico-vaginal smear,Cervico-vaginal smear,"병리번호 : C17-******
+채 취 일 : 2017-04-11 16:50:00 이**
+대표검체 : cervico-vaginal smear
+세부검체 : Cervico-vaginal smear
+[DIAGNOSIS]
+     1) Adequacy of specimen     
+          Satisfactory for evaluation.
+     2) Cytologic diagnosis
+          Negative for Intraepithelial Lesion or Malignancy
+     
+
+[CF]
+     M17-******,S16-******,M16-******,C16-******",False,,,False,[],
+R000000007,2015-03-02,PCY10004,Liquid-Based Cervicovaginal Cytology,세포병리,PCY10004,Liquid-Based Cervicovaginal Cytology,2015-03-02,2015-03-05,cervico-vaginal smear,Cervico-vaginal smear,"병리번호 : C15-******
+채 취 일 : 2015-03-02 14:54:56 이**
+대표검체 : cervico-vaginal smear
+세부검체 : Cervico-vaginal smear
+[DIAGNOSIS]
+     1) Adequacy of specimen     
+          Satisfactory
+     2) Cytologic diagnosis
+          Negative for Intraepithelial Lesion or Malignancy
+                    Atrophy
+     3) Comment :
+          Follow up cytology
+     
+
+[CF]
+     M23-******,C23-******,S23-******,S23-******,M23-******,M22-******,C22-******,M22-******,C22-******,S21-******,S21-******,M21-******,C21-******,M20-******,C20-******,M20-******,C20-******,S19-******,M19-******,C19-******,M19-******,C19-******,C16-******,C10-******",False,,,False,[],
+R000000007,2016-09-21,PCY10003,Gynecological Cytology,세포병리,PCY10003,Cervicovaginal Smear Cytology,2016-09-21,2016-09-23,cervico-vaginal smear,Cervico-vaginal smear,"병리번호 : C16-******
+채 취 일 : 2016-09-21 09:15:28 전**
+대표검체 : cervico-vaginal smear
+세부검체 : Cervico-vaginal smear
+[DIAGNOSIS]
+     1) Adequacy of specimen     
+          Satisfactory
+     2) Cytologic diagnosis
+          Negative for Intraepithelial Lesion or Malignancy
+                    Atrophy
+     3) Comment :
+          Follow up cytology
+     
+
+[CF]
+     M23-******,C23-******,S23-******,S23-******,M23-******,M22-******,C22-******,M22-******,C22-******,S21-******,S21-******,M21-******,C21-******,M20-******,C20-******,M20-******,C20-******,S19-******,M19-******,C19-******,M19-******,C19-******,C15-******,C10-******",False,,,False,[],
+R000000007,2019-03-26,PMO12040,HPV (인두유종 바이러스),분자병리,PMO12040,HPV(Real-time PCR),2019-03-26,2019-03-27,세포 cervico-vaginal smear,세포 cervico-vaginal smear,"병리번호 : M19-******
+채 취 일 : 2019-03-26 12:03:26 이**
+대표검체 : 세포 cervico-vaginal smear
+세부검체 : 세포 cervico-vaginal smear
+[MOLECULAR PATHOGY]
+     M19-******      HPV(Real-time PCR)              
+     [[SAMPLE ADEQUACY]]
+      
+     
+     [[RESULT]]
+     Positive (16)  , Positive (Other Type)
+     KEY BLOCK :  
+     COMMENTS
+     22종 HPV DNA Real-time PCR(실시간 중합효소연쇄반응) 검사를 시행하였습니다.
+     고위험도 HPV 양성 (Type 16번), 분류되지 않은 인유두종 바이러스에 감염되었습니다.
+     담당 의사 선생님과 상담 후 정기적인 검사를 권장합니다.
+     *High risk:16,18,26,31,33,35,39,45,51,52,53,56,58,59,66,68,69,70,73,82 
+     *Low risk:6,11
+     *Other type:30,32,34,40,42,43,44,54,55,61,62,67,74,81,83,84,87,90",False,,,True,"[16, 31, 33, 35, 39, 45, 51, 52, 56, 58, 59, 66, 68]",Other high-risk types detected
+R000000007,2019-03-26,PCY10004,Liquid-Based Cervicovaginal Cytology,세포병리,PCY10004,Liquid-Based Cervicovaginal Cytology,2019-03-26,2019-03-29,cervico-vaginal smear,Cervico-vaginal smear,"병리번호 : C19-******
+채 취 일 : 2019-03-26 12:03:26 이**
+대표검체 : cervico-vaginal smear
+세부검체 : Cervico-vaginal smear
+[DIAGNOSIS]
+     1) Adequacy of specimen     
+          Satisfactory
+     2) Cytologic diagnosis
+          Negative for Intraepithelial Lesion or Malignancy
+                    Atrophy
+     3) Comment :
+          Follow up cytology
+     
+
+[CF]
+     M23-******,C23-******,S23-******,S23-******,M23-******,M22-******,C22-******,M22-******,C22-******,S21-******,S21-******,M21-******,C21-******,M20-******,C20-******,M20-******,C20-******,S19-******,M19-******,C19-******,M19-******,C16-******,C15-******,C10-******",False,,,False,[],
+R000000007,2019-09-24,PCY10004,Liquid-Based Cervicovaginal Cytology,세포병리,PCY10004,Liquid-Based Cervicovaginal Cytology,2019-09-24,2019-09-27,cervico-vaginal smear,Cervico-vaginal smear,"병리번호 : C19-******
+채 취 일 : 2019-09-24 12:23:02 이**
+대표검체 : cervico-vaginal smear
+세부검체 : Cervico-vaginal smear
+[DIAGNOSIS]
+     1) Adequacy of specimen     
+          Satisfactory
+     2) Cytologic diagnosis
+          Negative for Intraepithelial Lesion or Malignancy
+                    Atrophy
+     
+
+[CF]
+     M23-******,C23-******,S23-******,S23-******,M23-******,M22-******,C22-******,M22-******,C22-******,S21-******,S21-******,M21-******,C21-******,M20-******,C20-******,M20-******,C20-******,S19-******,M19-******,M19-******,C19-******,C16-******,C15-******,C10-******",False,,,False,[],
+R000000007,2019-09-24,PMO12040,HPV (인유두종 바이러스),분자병리,PMO12040,HPV(Real-time PCR),2019-09-24,2019-09-27,세포 cervico-vaginal smear,세포 cervico-vaginal smear,"병리번호 : M19-******
+채 취 일 : 2019-09-24 12:23:02 이**
+대표검체 : 세포 cervico-vaginal smear
+세부검체 : 세포 cervico-vaginal smear
+[MOLECULAR PATHOGY]
+     M19-******      HPV(Real-time PCR)              
+     [[SAMPLE ADEQUACY]]
+      
+     
+     [[RESULT]]
+     Positive (16, 68)  , Positive (Other Type)
+     KEY BLOCK :  
+     COMMENTS
+     22종 HPV DNA Real-time PCR(실시간 중합효소연쇄반응) 검사를 시행하였습니다.
+     고위험도 HPV 양성 (Type 16, 68번), 분류되지 않은 인유두종 바이러스에 감염되었습니다.
+     담당 의사 선생님과 상담 후 정기적인 검사를 권장합니다.
+     *High risk:16,18,26,31,33,35,39,45,51,52,53,56,58,59,66,68,69,70,73,82 
+     *Low risk:6,11
+     *Other type:30,32,34,40,42,43,44,54,55,61,62,67,74,81,83,84,87,90",False,,,True,"[31, 33, 35, 39, 45, 51, 52, 56, 58, 59, 66, 68]",Other high-risk types detected
+R000000007,2020-02-11,PMO12040,HPV (인유두종 바이러스),분자병리,PMO12040,HPV(Real-time PCR),2020-02-11,2020-02-12,세포 cervico-vaginal smear,세포 cervico-vaginal smear,"병리번호 : M20-******
+채 취 일 : 2020-02-11 11:26:30 김**
+대표검체 : 세포 cervico-vaginal smear
+세부검체 : 세포 cervico-vaginal smear
+[MOLECULAR PATHOGY]
+     M20-******      HPV(Real-time PCR)              
+     [[SAMPLE ADEQUACY]]
+      
+     
+     [[RESULT]]
+     Positive (16, 68)  , Positive (Other Type)
+     KEY BLOCK :  
+     COMMENTS
+     22종 HPV DNA Real-time PCR(실시간 중합효소연쇄반응) 검사를 시행하였습니다.
+     고위험도 HPV 양성 (Type 16, 68번), 분류되지 않은 인유두종 바이러스에 감염되었습니다.
+     담당 의사 선생님과 상담 후 정기적인 검사를 권장합니다.
+     *High risk:16,18,26,31,33,35,39,45,51,52,53,56,58,59,66,68,69,70,73,82 
+     *Low risk:6,11
+     *Other type:30,32,34,40,42,43,44,54,55,61,62,67,74,81,83,84,87,90",False,,,True,"[31, 33, 35, 39, 45, 51, 52, 56, 58, 59, 66, 68]",Other high-risk types detected
+R000000007,2020-02-11,PCY10004,Liquid-Based Cervicovaginal Cytology,세포병리,PCY10004,Liquid-Based Cervicovaginal Cytology,2020-02-11,2020-02-13,cervico-vaginal smear,Cervico-vaginal smear,"병리번호 : C20-******
+채 취 일 : 2020-02-11 11:26:30 김**
+대표검체 : cervico-vaginal smear
+세부검체 : Cervico-vaginal smear
+[DIAGNOSIS]
+     1) Adequacy of specimen     
+          Satisfactory
+     2) Cytologic diagnosis
+          Negative for Intraepithelial Lesion or Malignancy
+                    Atrophy
+     3) Comment :
+          Follow up cytology
+     
+
+[CF]
+     M23-******,C23-******,S23-******,S23-******,M23-******,M22-******,C22-******,M22-******,C22-******,S21-******,S21-******,M21-******,C21-******,M20-******,C20-******,M20-******,S19-******,M19-******,C19-******,M19-******,C19-******,C16-******,C15-******,C10-******",False,,,False,[],
+R000000007,2020-08-27,PCY10004,Liquid-Based Cervicovaginal Cytology,세포병리,PCY10004,Liquid-Based Cervicovaginal Cytology,2020-08-27,2020-09-01,cervico-vaginal smear,Cervico-vaginal smear,"병리번호 : C20-******
+채 취 일 : 2020-08-27 14:20:28 김**
+대표검체 : cervico-vaginal smear
+세부검체 : Cervico-vaginal smear
+[DIAGNOSIS]
+     1) Adequacy of specimen     
+          Satisfactory
+     2) Cytologic diagnosis
+          Negative for Intraepithelial Lesion or Malignancy
+                    Atrophy
+     3) Comment :
+          Follow up cytology
+     
+
+[CF]
+     M23-******,C23-******,S23-******,S23-******,M23-******,M22-******,C22-******,M22-******,C22-******,S21-******,S21-******,M21-******,C21-******,M20-******,M20-******,C20-******,S19-******,M19-******,C19-******,M19-******,C19-******,C16-******,C15-******,C10-******",False,,,False,[],
+R000000007,2020-08-27,PMO12040,HPV (인유두종 바이러스),분자병리,PMO12040,HPV(Real-time PCR),2020-08-27,2020-09-01,세포 cervico-vaginal smear,세포 cervico-vaginal smear,"병리번호 : M20-******
+채 취 일 : 2020-08-27 14:20:28 김**
+대표검체 : 세포 cervico-vaginal smear
+세부검체 : 세포 cervico-vaginal smear
+[MOLECULAR PATHOGY]
+     M20-******      HPV(Real-time PCR)              
+     [[SAMPLE ADEQUACY]]
+      
+     
+     [[RESULT]]
+     Positive (16, 68)  , Positive (Other Type)
+     KEY BLOCK :  
+     COMMENTS
+     22종 HPV DNA Real-time PCR(실시간 중합효소연쇄반응) 검사를 시행하였습니다.
+     고위험도 HPV 양성 (Type 16, 68번), 분류되지 않은 인유두종 바이러스에 감염되었습니다.
+     담당 의사 선생님과 상담 후 정기적인 검사를 권장합니다.
+     *High risk:16,18,26,31,33,35,39,45,51,52,53,56,58,59,66,68,69,70,73,82 
+     *Low risk:6,11
+     *Other type:30,32,34,40,42,43,44,54,55,61,62,67,74,81,83,84,87,90",False,,,True,"[31, 33, 35, 39, 45, 51, 52, 56, 58, 59, 66, 68]",Other high-risk types detected
+R000000007,2021-07-15,PMO12040,HPV (인유두종 바이러스),분자병리,PMO12040,HPV(Real-time PCR),2021-07-16,2021-07-16,세포 cervico-vaginal smear,세포 cervico-vaginal smear,"병리번호 : M21-******
+채 취 일 : 2021-07-15 15:00:28 방**
+대표검체 : 세포 cervico-vaginal smear
+세부검체 : 세포 cervico-vaginal smear
+[MOLECULAR PATHOGY]
+     M21-******      HPV(Real-time PCR)              
+     [[SAMPLE ADEQUACY]]
+      
+     
+     [[RESULT]]
+     Positive (16)  , Positive (Other Type)
+     KEY BLOCK :  
+     COMMENTS
+     22종 HPV DNA Real-time PCR(실시간 중합효소연쇄반응) 검사를 시행하였습니다.
+     고위험도 HPV 양성 (Type 16번), 분류되지 않은 인유두종 바이러스에 감염되었습니다.
+     담당 의사 선생님과 상담 후 정기적인 검사를 권장합니다.
+     *High risk:16,18,26,31,33,35,39,45,51,52,53,56,58,59,66,68,69,70,73,82 
+     *Low risk:6,11
+     *Other type:30,32,34,40,42,43,44,54,55,61,62,67,74,81,83,84,87,90",False,,,True,"[16, 31, 33, 35, 39, 45, 51, 52, 56, 58, 59, 66, 68]",Other high-risk types detected
+R000000007,2021-07-15,PCY10004,Liquid-Based Cervicovaginal Cytology,세포병리,PCY10004,Liquid-Based Cervicovaginal Cytology,2021-07-16,2021-07-20,cervico-vaginal smear,Cervico-vaginal smear,"병리번호 : C21-******
+채 취 일 : 2021-07-15 15:00:28 방**
+대표검체 : cervico-vaginal smear
+세부검체 : Cervico-vaginal smear
+[DIAGNOSIS]
+     1) Adequacy of specimen     
+          Satisfactory
+     2) Cytologic diagnosis
+          Negative for Intraepithelial Lesion or Malignancy
+               Other non-neoplastic findings :
+                    Atrophy
+     
+
+[CF]
+     M23-******,C23-******,M23-******,C23-******,S23-******,S23-******,M23-******,M22-******,C22-******,M22-******,C22-******,S21-******,S21-******,M21-******,M20-******,C20-******,M20-******,C20-******,S19-******,M19-******,C19-******,M19-******,C19-******,C16-******,C15-******,C10-******",False,,,False,[],
+R000000007,2022-01-20,PCY10004,Liquid-Based Cervicovaginal Cytology,세포병리,PCY10004,Liquid-Based Cervicovaginal Cytology,2022-01-21,2022-01-25,cervico-vaginal smear,Cervico-vaginal smear,"병리번호 : C22-******
+채 취 일 : 2022-01-20 13:51:04 김**
+대표검체 : cervico-vaginal smear
+세부검체 : Cervico-vaginal smear
+[DIAGNOSIS]
+     1) Adequacy of specimen     
+          Satisfactory
+     2) Cytologic diagnosis
+          Negative for Intraepithelial Lesion or Malignancy
+               Other non-neoplastic findings :
+                    Atrophy
+     3) Comment :
+          Follow up cytology
+     
+
+[CF]
+     M24-******,C24-******,M23-******,C23-******,M23-******,C23-******,S23-******,S23-******,M23-******,M22-******,C22-******,M22-******,S21-******,S21-******,M21-******,C21-******,M20-******,C20-******,M20-******,C20-******,S19-******,M19-******,C19-******,M19-******,C19-******,C16-******,C15-******,C10-******",False,,,False,[],
+R000000007,2022-01-20,PMO12040,HPV (인유두종 바이러스),분자병리,PMO12040,HPV(Real-time PCR),2022-01-24,2022-01-24,세포 cervico-vaginal smear,세포 cervico-vaginal smear,"병리번호 : M22-******
+채 취 일 : 2022-01-20 13:51:04 김**
+대표검체 : 세포 cervico-vaginal smear
+세부검체 : 세포 cervico-vaginal smear
+[MOLECULAR PATHOGY]
+     M22-******      HPV(Real-time PCR)              
+     [[SAMPLE ADEQUACY]]
+      
+     
+     [[RESULT]]
+     Positive (68)  , Positive (Other Type)
+     KEY BLOCK :  
+     COMMENTS
+     22종 HPV DNA Real-time PCR(실시간 중합효소연쇄반응) 검사를 시행하였습니다.
+     고위험도 HPV 양성 (Type 68번), 분류되지 않은 인유두종 바이러스에 감염되었습니다.
+     담당 의사 선생님과 상담 후 정기적인 검사를 권장합니다.
+     *High risk:16,18,26,31,33,35,39,45,51,52,53,56,58,59,66,68,69,70,73,82 
+     *Low risk:6,11
+     *Other type:30,32,34,40,42,43,44,54,55,61,62,67,74,81,83,84,87,90",False,,,True,"[31, 33, 35, 39, 45, 51, 52, 56, 58, 59, 66, 68]",Other high-risk types detected
+R000000007,2022-11-17,PMO12040,HPV (인유두종 바이러스),분자병리,PMO12040,HPV(Real-time PCR),2022-11-18,2022-11-18,세포 cervico-vaginal smear,세포 cervico-vaginal smear,"병리번호 : M22-******
+채 취 일 : 2022-11-17 15:48:15 김**
+대표검체 : 세포 cervico-vaginal smear
+세부검체 : 세포 cervico-vaginal smear
+[MOLECULAR PATHOGY]
+     M22-******      HPV(Real-time PCR)              
+     [[SAMPLE ADEQUACY]]
+      
+     
+     [[RESULT]]
+     Positive (16, 68)  , Positive (Other Type)
+     KEY BLOCK :  
+     COMMENTS
+     22종 HPV DNA Real-time PCR(실시간 중합효소연쇄반응) 검사를 시행하였습니다.
+     고위험도 HPV 양성 (Type 16, 68번), 분류되지 않은 인유두종 바이러스에 감염되었습니다.
+     담당 의사 선생님과 상담 후 정기적인 검사를 권장합니다.
+     *High risk:16,18,26,31,33,35,39,45,51,52,53,56,58,59,66,68,69,70,73,82 
+     *Low risk:6,11
+     *Other type:30,32,34,40,42,43,44,54,55,61,62,67,74,81,83,84,87,90",False,,,True,"[31, 33, 35, 39, 45, 51, 52, 56, 58, 59, 66, 68]",Other high-risk types detected
+R000000007,2022-11-17,PCY10004,Liquid-Based Cervicovaginal Cytology,세포병리,PCY10004,Liquid-Based Cervicovaginal Cytology,2022-11-18,2022-11-21,cervico-vaginal smear,Cervico-vaginal smear,"병리번호 : C22-******
+채 취 일 : 2022-11-17 15:48:15 김**
+대표검체 : cervico-vaginal smear
+세부검체 : Cervico-vaginal smear
+[DIAGNOSIS]
+     1) Adequacy of specimen     
+          Satisfactory
+     2) Cytologic diagnosis
+          Negative for Intraepithelial Lesion or Malignancy
+               Other non-neoplastic findings :
+                    Atrophy
+     3) Comment :
+          Follow up cytology
+     
+
+[CF]
+     S25-******,IH25-******,M25-******,C25-******,M24-******,C24-******,M23-******,C23-******,M23-******,C23-******,S23-******,S23-******,M23-******,M22-******,M22-******,C22-******,S21-******,S21-******,M21-******,C21-******,M20-******,C20-******,M20-******,C20-******,S19-******,M19-******,C19-******,M19-******,C19-******,C16-******,C15-******,C10-******",False,,,False,[],
+R000000007,2023-05-11,PCY10004,Liquid-Based Cervicovaginal Cytology,세포병리,PCY10004,Liquid-Based Cervicovaginal Cytology,2023-05-12,2023-05-22,cervico-vaginal smear,Cervico-vaginal smear,"병리번호 : C23-******
+채 취 일 : 2023-05-11 15:42:48 서**
+대표검체 : cervico-vaginal smear
+세부검체 : Cervico-vaginal smear
+[DIAGNOSIS]
+     1) Adequacy of specimen     
+          Satisfactory
+     2) Cytologic diagnosis
+          Epithelial cell abnormalities
+               Squamous cell
+                    Atypical squamous cells
+                         Atypical squamous cells of undetermined significance (ASC-US)
+     3) Comment :
+          Follow up cytology is recommended within 6 months
+     
+
+[CF]
+     S25-******,IH25-******,M25-******,C25-******,M24-******,C24-******,M23-******,C23-******,M23-******,S23-******,S23-******,M23-******,M22-******,C22-******,M22-******,C22-******,S21-******,S21-******,M21-******,C21-******,M20-******,C20-******,M20-******,C20-******,S19-******,M19-******,C19-******,M19-******,C19-******,C16-******,C15-******,C10-******",False,,,False,[],
+R000000007,2023-05-11,PMO12040,HPV (인유두종 바이러스),분자병리,PMO12040,HPV(Real-time PCR),2023-05-18,2023-05-18,세포 cervico-vaginal smear,세포 cervico-vaginal smear,"병리번호 : M23-******
+채 취 일 : 2023-05-11 15:42:48 서**
+대표검체 : 세포 cervico-vaginal smear
+세부검체 : 세포 cervico-vaginal smear
+[MOLECULAR PATHOGY]
+     M23-******      HPV(Real-time PCR)              
+     [[SAMPLE ADEQUACY]]
+      
+     
+     [[RESULT]]
+     Positive (Other Type)
+     KEY BLOCK :  
+     COMMENTS
+     22종 HPV DNA Real-time PCR(실시간 중합효소연쇄반응) 검사를 시행하였습니다.
+     분류되지 않은 인유두종 바이러스에 감염되었습니다.
+     담당 의사 선생님과 상담 후 정기적인 검사를 권장합니다.
+     *High risk:16,18,26,31,33,35,39,45,51,52,53,56,58,59,66,68,69,70,73,82 
+     *Low risk:6,11
+     *Other type:30,32,34,40,42,43,44,54,55,61,62,67,74,81,83,84,87,90",False,,,True,"[31, 33, 35, 39, 45, 51, 52, 56, 58, 59, 66, 68]",Other high-risk types detected
+R000000007,2023-11-07,PCY10004,Liquid-Based Cervicovaginal Cytology,세포병리,PCY10004,Liquid-Based Cervicovaginal Cytology,2023-11-07,2023-11-10,cervico-vaginal smear,Cervico-vaginal smear,"병리번호 : C23-******
+채 취 일 : 2023-11-07 10:39:05 김**
+대표검체 : cervico-vaginal smear
+세부검체 : Cervico-vaginal smear
+[DIAGNOSIS]
+     1) Adequacy of specimen     
+          Satisfactory
+     2) Cytologic diagnosis
+          Negative for Intraepithelial Lesion or Malignancy
+               Other non-neoplastic findings :
+                    Atrophy
+     3) Comment :
+          Follow up cytology
+     
+
+[CF]
+     S25-******,IH25-******,M25-******,C25-******,M24-******,C24-******,M23-******,M23-******,C23-******,S23-******,S23-******,M23-******,M22-******,C22-******,M22-******,C22-******,S21-******,S21-******,M21-******,C21-******,M20-******,C20-******,M20-******,C20-******,S19-******,M19-******,C19-******,M19-******,C19-******,C16-******,C15-******,C10-******",False,,,False,[],
+R000000007,2023-11-07,PMO12040,HPV (인유두종 바이러스),분자병리,PMO12040,HPV(Real-time PCR),2023-11-09,2023-11-09,세포 cervico-vaginal smear,세포 cervico-vaginal smear,"병리번호 : M23-******
+채 취 일 : 2023-11-07 10:39:05 김**
+대표검체 : 세포 cervico-vaginal smear
+세부검체 : 세포 cervico-vaginal smear
+[MOLECULAR PATHOGY]
+     M23-******      HPV(Real-time PCR)              
+     [[SAMPLE ADEQUACY]]
+      
+     
+     [[RESULT]]
+     Positive (Other Type)
+     KEY BLOCK :  
+     COMMENTS
+     22종 HPV DNA Real-time PCR(실시간 중합효소연쇄반응) 검사를 시행하였습니다.
+     분류되지 않은 인유두종 바이러스에 감염되었습니다.
+     담당 의사 선생님과 상담 후 정기적인 검사를 권장합니다.
+     *High risk:16,18,26,31,33,35,39,45,51,52,53,56,58,59,66,68,69,70,73,82 
+     *Low risk:6,11
+     *Other type:30,32,34,40,42,43,44,54,55,61,62,67,74,81,83,84,87,90",False,,,True,"[31, 33, 35, 39, 45, 51, 52, 56, 58, 59, 66, 68]",Other high-risk types detected
+R000000008,2016-10-27,PMO12040,HPV genotyping real-time PCR,분자병리,PMO12040,HPV genotyping real-time PCR,2016-10-27,2016-11-01,"cervico-vaginal smear ,세포검체","cervico-vaginal smear ,세포검체","병리번호 : M16-******
+채 취 일 : 2016-10-27 14:33:16 윤**
+대표검체 : cervico-vaginal smear ,세포검체
+세부검체 : cervico-vaginal smear ,세포검체
+[MOLECULAR PATHOGY]
+     M16-******       HPV genotyping real-time PCR   
+     [[SAMPLE ADEQUACY]]
+     adequate
+     
+     [[RESULT]]
+     Negative
+     COMMENTS
+     본 제품은 19종의 고위험군 HPV 19종 (16, 18, 26, 31, 33, 35, 39, 45, 51, 52, 53, 56, 58, 59, 66, 68, 69, 73, 82형)과 9종의 저위험군 HPV 9종 (6, 11, 40, 42, 43, 44, 54, 61, 70형), 내부대조군(IC, Internal Control)의 타겟 핵산을 동시 또는 단독으로 검출합니다. 
+     본 검사의 검출 한계치는 50 copies/reaction 입니다. 
+     분석 참고치
+     +++ : 100,000 copies/reaction 이상 (Ct value 30 이하)
+     ++ : 100 ~ 100,000 copies/reaction(Ct value 30 ~ 40)
+     +     : 100 copies/reaction 이하 (Ct value 40 ~ 50 ; 검출한계치 이하의 HPV가 포함되어 있을 경우 재현되지 않을 수 있습니다.) 
+     *CT Value: Cycle threshold
+     상기 검사는 검사 방법, 시약의 정도 관리 및 검사결과가 병리과 전문의에 의해 확인 되었습니다.",False,,,False,[],Negative
+R000000008,2016-10-27,PCY10004,"자궁경부세포, 액상",세포병리,PCY10004,"자궁경부세포, 액상",2016-10-27,2016-11-03,cervico-vaginal smear,Cervico-vaginal smear,"병리번호 : C16-******
+채 취 일 : 2016-10-27 14:33:16 윤**
+대표검체 : cervico-vaginal smear
+세부검체 : Cervico-vaginal smear
+[DIAGNOSIS]
+     1) Adequacy of specimen     
+          Satisfactory
+     2) Cytologic diagnosis
+          Negative for Intraepithelial Lesion or Malignancy
+     
+
+[CF]
+     M16-******
+
+Additional Result                        *진  단  일 : 20161101
+[MOLECULAR PATHOGY]
+     M16-******       HPV genotyping real-time PCR   
+     NegativeNegative
+     Comments
+     본 제품은 19종의 고위험군 HPV 19종 (16, 18, 26, 31, 33, 35, 39, 45, 51, 52, 53, 56, 58, 59, 66, 68, 69, 73, 82형)과 9종의 저위험군 HPV 9종 (6, 11, 40, 42, 43, 44, 54, 61, 70형), 내부대조군(IC, Internal Control)의 타겟 핵산을 동시 또는 단독으로 검출합니다. 
+     본 검사의 검출 한계치는 50 copies/reaction 입니다. 
+     분석 참고치
+     +++ : 100,000 copies/reaction 이상 (Ct value 30 이하)
+     ++ : 100 ~ 100,000 copies/reaction(Ct value 30 ~ 40)
+     +     : 100 copies/reaction 이하 (Ct value 40 ~ 50 ; 검출한계치 이하의 HPV가 포함되어 있을 경우 재현되지 않을 수 있습니다.) 
+     *CT Value: Cycle threshold
+     상기 검사는 검사 방법, 시약의 정도 관리 및 검사결과가 병리과 전문의에 의해 확인 되었습니다.
+     ",False,,,False,[],
+R000000009,2019-09-04,PCY10004,Cervico-vaginal Cytology Liquid based,세포병리,PCY10004,"자궁경부세포, 액상",2019-09-05,2019-09-09,cervico-vaginal smear,Cervico-vaginal smear,"병리번호 : C19-******
+채 취 일 : 2019-09-04 11:35:21 안**
+대표검체 : cervico-vaginal smear
+세부검체 : Cervico-vaginal smear
+[DIAGNOSIS]
+     1) Adequacy of specimen     
+          Satisfactory
+               presence of endocervical cell
+     2) Cytologic diagnosis
+          Epithelial cell abnormalities
+               Squamous cell
+                    Atypical squamous cells
+                         Atypical squamous cells of undetermined significance (ASC-US)
+     
+
+[CF]
+     M19-******",False,,,False,[],
+R000000009,2019-09-11,PMO12040,HPV genotyping real-time PCR,분자병리,PMO12040,HPV genotyping real-time PCR,2019-09-16,2019-09-19,uterine cervix,uterine cervix,"병리번호 : M19-******
+채 취 일 : 2019-09-11 11:11:15 안**
+대표검체 : uterine cervix
+세부검체 : uterine cervix
+[MOLECULAR PATHOGY]
+     M19-******       HPV genotyping real-time PCR   
+     [[SAMPLE ADEQUACY]]
+     [검체종류]
+     자궁경부 세포검체
+     
+     [검체적절성]
+     Satisfactory for PCR
+     
+     [검사방법]
+     HPV genotyping Real-time PCR (Roche사의 Cobas 4800 System HPV DNA Test)
+     
+     [[RESULT]]
+     
+     [검사결과]
+     HPV genotyping Real-time PCR: Negative
+     KEY BLOCK :  
+     COMMENTS
+     1.HPV genotyping real-time PCR 검사는 총 14종의 HPV high risk를 detection 합니다.
+      : High risk 14종 (16,18,31,33,35,39,45,51,52,56,58,59,66,68)
+     2.검사 결과에서 'Positive(16)은 HPV 16','Positive(18)은 HPV 18', 
+     'Positive(other)는 HPV 31,33,35,39,45,51,52,56,58,59,66,68’의 유전자형이 있음을 의미합니다,
+     
+     상기 검사는 검사 방법, 시약의 정도 관리 및 검사 결과가 병리과 전문의에 의해 확인되었습니다.
+     (검사자: ***)",False,,,True,"[16, 18, 31, 33, 35, 39, 45, 51, 52, 56, 58, 59, 66, 68]",Other high-risk types detected
+R000000010,2020-10-28,PMO12040,[선] 병리(분자)-HPV genotyping(real-time PCR),HPV,PMO12040,병리(분자)-HPV genotyping(real-time PCR),2020-10-28,2020-11-05,Other,Other,"병리번호 : H20-******
+채 취 일 : 2020-10-29 15:06:49 이**
+대표검체 : Other
+세부검체 : Other
+[MOLECULAR PATHOGY]
+     H20-******      분자 HPV genotyping (real-time PCR)  Sample Type: paraffin embedded tissue (""S20-22291"", uterine cervix)
+     Methods: PANA Real Typer HPV
+     Types: 20 high risk HPV types, 2 low risk types and 18 other types
+     Test: 인천성모병원 분자병리 진단실
+      
+     
+     PANA Real Typer HPV Genotyping RESULT
+     ----------------------------------------------------------------------
+      
+        HPV : POSITIVE (High-risk)
+     
+        Subtype: 52, 53
+     
+     ----------------------------------------------------------------------
+     
+     
+     [임상적 의의]
+         High risk: 16,18,26,31,33,35,39,45,51,52,53,56,58,59,66,68,69,70,73,82
+         Low risk: 6,11
+         Other type: 30,32,34,40,42,43,44,54,55,61,62,67,74,81,83,84,87,90
+     
+     [해석적 보고]
+     1. Persistent infection with high-risk HPV is the main risk factor for development of 
+        cervical cancer. HPV HR DNA test provides one of the important methods to screen for
+        cervical lesions and cervical cancer.
+     2. HPV negative patients need to be retested after one year. If retest results are still
+        negative for HPV, follow-up interval can be extended up to 3-5 years.
+     3. Further clinical assessment and treatment of HPV positive patients will be made in 
+        conjunction with cervical cytology results.
+     4. The test results are applicable only to the current specimen being tested.",True,CERVICAL CANCER,Carcinoma,True,['high_risk_unspecified'],High-risk HPV positive (unspecified type)
+R000000010,2020-10-28,PSU00028,[선] 병리(조직)-LEVEL B,조직,PSU00028,병리(조직)-LEVEL B,2020-10-28,2020-11-05,Uterine cervix,uterine exocervix : 6시방향,"병리번호 : S20-******
+채 취 일 : 2020-10-29 15:06:49 이**
+대표검체 : Uterine cervix
+세부검체 : uterine exocervix : 6시방향
+[GROSS DESCRIPTION]
+     1. Specimens Condition: fresh
+     2. Operation: punch biopsy
+     3. Specimens: 2 pieces, up to 0.3x0.1x0.1 cm
+     4. Slide Keys: totally embedded. (KSH)
+     (BLOCK 1 개)
+
+[DIAGNOSIS]
+     Uterine exocervix, ""6 hr"", punch biopsy:
+     
+          Chronic cervicitis. (exocervix only)
+
+[CF]
+     H21-******,G21-******,H20-******",False,,,False,[],
+R000000010,2021-02-01,PMO12040,[선] 병리(분자)-HPV genotyping(real-time PCR),HPV,PMO12040,병리(분자)-HPV genotyping(real-time PCR),2021-02-01,2021-02-02,세포 cervico-vaginal smear,Cervico-vaginal smear,"병리번호 : H21-******
+채 취 일 : 2021-02-01 15:06:07 박**
+대표검체 : 세포 cervico-vaginal smear
+세부검체 : Cervico-vaginal smear
+[MOLECULAR PATHOGY]
+     H21-******      HPV genotyping (real-time PCR)  Sample Type: Cervical cells
+     Methods: PANA Real Typer HPV
+     Types: 20 high risk HPV types, 2 low risk types and 18 other types
+     Test: 인천성모병원 분자병리 진단실
+      
+     
+     PANA Real Typer HPV Genotyping RESULT
+     ----------------------------------------------------------------------
+      
+        HPV : Not detected
+     
+     ----------------------------------------------------------------------
+     
+     
+     [임상적 의의]
+         High risk: 16,18,26,31,33,35,39,45,51,52,53,56,58,59,66,68,69,70,73,82
+         Low risk: 6,11
+         Other type: 30,32,34,40,42,43,44,54,55,61,62,67,74,81,83,84,87,90
+     
+     [해석적 보고]
+     1. Persistent infection with high-risk HPV is the main risk factor for development of 
+        cervical cancer. HPV HR DNA test provides one of the important methods to screen for
+        cervical lesions and cervical cancer.
+     2. HPV negative patients need to be retested after one year. If retest results are still
+        negative for HPV, follow-up interval can be extended up to 3-5 years.
+     3. Further clinical assessment and treatment of HPV positive patients will be made in 
+        conjunction with cervical cytology results.
+     4. The test results are applicable only to the current specimen being tested.",True,CERVICAL CANCER,Carcinoma,False,[],
+R000000010,2021-02-01,PCY10004,[선] 병리(세포)-자궁질 액상,세포-부인과,PCY10004,병리(세포)-자궁질 액상,2021-02-01,2021-02-05,세포 cervico-vaginal smear,Cervico-vaginal smear,"병리번호 : G21-******
+채 취 일 : 2021-02-01 15:06:07 박**
+대표검체 : 세포 cervico-vaginal smear
+세부검체 : Cervico-vaginal smear
+[DIAGNOSIS]
+     1) Adequacy of specimen     
+          Satisfactory
+     2) Cytologic diagnosis
+          Negative for Intraepithelial Lesion or Malignancy (refrectile artifact)
+     
+
+[CF]
+     H21-******,S20-******,H20-******",False,,,False,[],
+R000000011,2017-09-20,PMO03001,HPV Genotype-HPV DNA Chip,분자병리,PMO03001,HPV Genotype-HPV DNA Chip,2017-09-20,2017-09-25,세포 cervico-vaginal smear,세포검체 cervico-vaginal smear,"병리번호 : M17-******
+채 취 일 : 2017-09-20 15:33:10 김**
+대표검체 : 세포 cervico-vaginal smear
+세부검체 : 세포검체 cervico-vaginal smear
+[MOLECULAR PATHOGY]
+     M17-******      HPV DNA Chip                    
+     [[SAMPLE ADEQUACY]]
+      
+     
+     [[RESULT]]
+     음성 (인유두종 바이러스에 음성입니다.)
+     KEY BLOCK :  
+     COMMENTS
+     19종 HPV DNA Genotyping Chip 검사를 시행하였습니다.
+     검사한 결과 모두 음성으로 판정되었습니다.
+     담당 의사 선생님과 상담 후 정기적인 검사를 권장합니다.
+     *High risk:16,18,31,33,35,39,45,51,52,56,58,59,66,68 *Low risk:6,11,34,40,42",False,,,False,[],
+R000000011,2017-09-20,PCY10004,Liquid-Based Cervicovaginal Cytology,세포병리,PCY10004,Liquid-Based Cervicovaginal Cytology,2017-09-20,2017-09-26,cervico-vaginal smear,Cervico-vaginal smear,"병리번호 : C17-******
+채 취 일 : 2017-09-20 15:33:10 김**
+대표검체 : cervico-vaginal smear
+세부검체 : Cervico-vaginal smear
+[DIAGNOSIS]
+     1) Adequacy of specimen     
+          Satisfactory
+     2) Cytologic diagnosis
+          Negative for Intraepithelial Lesion or Malignancy
+                    Reactive cellular changes associated with inflammation
+     3) Comment :
+          Follow up cytology
+     
+
+[CF]
+     M17-******",False,,,False,[],
+R000000012,2016-03-21,PCY10006,"[선] (예방)자궁경부세포,액상A",세포병리,PCY10006,(예방)액상세포검사-자궁질 세포병리검사A,2016-03-21,2016-03-24,cervico-vaginal smear,Cervico-vaginal smear,"병리번호 : C16-******
+채 취 일 : 2016-03-21 17:17:37 김**
+대표검체 : cervico-vaginal smear
+세부검체 : Cervico-vaginal smear
+[DIAGNOSIS]
+     1) Adequacy of specimen     
+          Satisfactory
+     2) Cytologic diagnosis
+          Epithelial cell abnormalities
+               Squamous cell
+                    Low-grade squamous intraepithelial lesion (LSIL)
+                         HPV infection
+     
+
+[CF]
+     M22-******,C22-******,M21-******,C21-******,M20-******,C20-******,M19-******,C19-******,M18-******,C18-******,C17-******,S17-******,M16-******",False,,,False,[],
+R000000012,2016-03-30,PMO03001,"[선] DNA Chip, HPV, Cytology",분자병리,PMO03001,"DNA Chip, HPV, Cytology",2016-03-30,2016-04-04,세포검체 cervico-vaginal smear,세포검체 cervico-vaginal smear,"병리번호 : M16-******
+채 취 일 : 2016-03-30 14:52:07 도**
+대표검체 : 세포검체 cervico-vaginal smear
+세부검체 : 세포검체 cervico-vaginal smear
+[MOLECULAR PATHOGY]
+     M16-******      DNA Chip, HPV, Cytology         Positive (39)
+     
+     [comment]
+     1. 본 DNA HPV chip검사(HPV 9G kit)는 총 19종의 HPV를 detection 합니다.
+     양성 HPV type cutoff는 형광감도 20,000PMT 이상 입니다.
+     : High risk 14종(16,18,31,33,35,39,45,51,52,56,58,59,66,68)
+     : low risk 5종(6,11,34,40,42) 
+     2. 검사 결과에서  other type(양성)으로 보고되는 것은 검사에 포함된 19종 이외의 유전자형이 있음을 의미합니다.
+     상기 검사는 검사 방법, 시약의 정도 관리 및 검사 결과가 병리과 전문의에 의해 확인 되었습니다. 
+     (검사 담당자: 박현주)",False,,,True,[39],
+R000000012,2017-04-18,PSU00014,"[선] 양성병변절제, 파라핀 블록 6개 이하",조직병리,PSU00014,양성병변절제(파라핀블록 6개이하) ,2017-04-18,2017-04-20,Placenta,"placenta, total","병리번호 : S17-******
+채 취 일 : 2017-04-18 05:12:03 김**
+대표검체 : Placenta
+세부검체 : placenta, total
+[GROSS DESCRIPTION]
+     The submitted specimens consist of a total placenta and a segment of its umbilical cord in 
+     continuity. The placenta measures 18.5 x 14.7 x 2.3 cm and 432.1 gm. 
+     It shows a grayish white smooth fetal surface and a pale brown rough maternal surface. 
+     On section, it shows small foci of necrosis and hemorrhage. The umbilical cord, measuring 17.0 cm 
+     in length, shows grayish white smooth external surface and usual cut surface with two arteries and 
+     a vein. The representative sections are embedded. 
+     (BLOCK 4 개)
+
+[DIAGNOSIS]
+     1. Placenta, total, removal;
+           a) Intervillous fibrin deposition. 
+           b) Focal necrosis with calcification and hemorrhage.
+     2. Umbilical cord;
+           Unremarkable.
+
+[CF]
+     M22-******,C22-******,M21-******,C21-******,M20-******,C20-******,M19-******,C19-******,M18-******,C18-******,C17-******,M16-******,C16-******",False,,,False,[],
+R000000012,2017-05-22,PCY10006,"[선] (예방)자궁경부세포,액상A",세포병리,PCY10006,(예방)액상세포검사-자궁질 세포병리검사A,2017-05-22,2017-05-24,cervico-vaginal smear,Cervico-vaginal smear,"병리번호 : C17-******
+채 취 일 : 2017-05-22 17:15:43 김**
+대표검체 : cervico-vaginal smear
+세부검체 : Cervico-vaginal smear
+[DIAGNOSIS]
+     1) Adequacy of specimen     
+          Satisfactory
+     2) Cytologic diagnosis
+          Negative for Intraepithelial Lesion or Malignancy
+     
+
+[CF]
+     M22-******,C22-******,M21-******,C21-******,M20-******,C20-******,M19-******,C19-******,M18-******,C18-******,S17-******,M16-******,C16-******",False,,,False,[],
+R000000012,2018-05-28,PCY10006,[선] (예방)액상세포검사-자궁질 세포병리검사A,세포병리,PCY10006,(예방)액상세포검사-자궁질 세포병리검사A,2018-05-28,2018-05-30,cervico-vaginal smear,Cervico-vaginal smear,"병리번호 : C18-******
+채 취 일 : 2018-05-28 16:29:44 이**
+대표검체 : cervico-vaginal smear
+세부검체 : Cervico-vaginal smear
+[DIAGNOSIS]
+     1) Adequacy of specimen     
+          Satisfactory
+     2) Cytologic diagnosis
+          Epithelial cell abnormalities
+               Squamous cell
+                    Atypical squamous cells
+                         Atypical squamous cells of undetermined significance (ASC-US)
+     
+
+[CF]
+     M22-******,C22-******,M21-******,C21-******,M20-******,C20-******,M19-******,C19-******,M18-******,C17-******,S17-******,M16-******,C16-******",False,,,False,[],
+R000000012,2018-07-09,PMO12075,HPV PANA RealTyper real-time PCR,분자병리,PMO12075,HPV PANA(급여) RealTyper real-time PCR,2018-07-10,2018-07-11,세포검체 cervico-vaginal smear,세포검체 cervico-vaginal smear,"병리번호 : M18-******
+채 취 일 : 2018-07-09 15:59:22 김**
+대표검체 : 세포검체 cervico-vaginal smear
+세부검체 : 세포검체 cervico-vaginal smear
+[MOLECULAR PATHOGY]
+     M18-******      HPV PANA(급여)                  
+     [[SAMPLE ADEQUACY]]
+     Adequate
+     
+     [[RESULT]]
+     [검사방법]
+     Real-time PCR (PANA RealTyper™  HPV kit)
+     
+     [검사결과]
+     HPV PANA RealTyper real-time PCR
+     High risk HPV: Negative
+     Low  risk HPV: Negative
+     
+     KEY BLOCK :  
+     COMMENTS
+     [comment]
+     1. HPV PANA RealTyper real-time PCR 검사는 총 40종(고위험군 20종,저위험군 20종)의 HPV 유전자형 
+        검출이 가능합니다.
+     
+     2. High risk HPV 20종(16,18,26,31,33,35,39,45,51,52,53,56,58,59,66,68,69,70,73,
+        82)은 모두 genotyping이 되며, Low risk HPV 20종 중 2종(6,11)은 genotyping이 되고 나머지
+        18종(30,32,34,40,42,43,44,54,55,61,62,67,74,81,83,84,87,90)은 Positive(Other)로 
+         통합 보고됩니다.
+     
+     상기 검사는 검사 방법, 시약의 정도 관리 및 검사 결과가 병리과 전문의에 의해 확인되었습니다.
+     (검사 담당자: ***)",False,,,True,"[31, 33, 35, 39, 45, 51, 52, 56, 58, 59, 66, 68]",Other high-risk types detected
+R000000012,2019-01-07,PCY10004,[선] 액상세포검사-자궁질 세포병리검사,세포병리,PCY10004,액상세포검사-자궁질 세포병리검사,2019-01-07,2019-01-10,cervico-vaginal smear,Cervico-vaginal smear,"병리번호 : C19-******
+채 취 일 : 2019-01-07 18:10:09 김**
+대표검체 : cervico-vaginal smear
+세부검체 : Cervico-vaginal smear
+[DIAGNOSIS]
+     1) Adequacy of specimen     
+          Satisfactory
+               absence of endocervical cell
+     2) Cytologic diagnosis
+          Negative for Intraepithelial Lesion or Malignancy
+               Other non-neoplastic findings :
+                    Reactive cellular changes
+     3) Comment :
+          1. Many inflammatory cells.
+          2. 검체 채취시 Endocervical /Transformation zone을 포함해 주십시오.
+
+[CF]
+     M22-******,C22-******,M21-******,C21-******,M20-******,C20-******,M19-******,M18-******,C18-******,C17-******,S17-******,M16-******,C16-******
+
+Additional Result                        *진  단  일 : 20190110
+[MOLECULAR PATHOGY]
+     M19-******      HPV PANA(급여)                  
+     [검사방법]
+     Real-Time PCR (PANA RealTyper HPV kit)
+     
+     [검사결과]
+     HPV PANA realTyper real-time PCR
+     High risk HPV: Negative
+     Low  risk HPV: Positive (Other)
+     
+     Key Block :   
+     Comments
+     1. HPV PANA RealTyper real-time PCR 검사는 총 40 종(고위험군 20 종,저위험군 20 종)의 HPV 유전자형 
+        검출이 가능합니다.
+     2. High risk HPV20 종 (16,18,26,31,33,35,39,45,51,52,53,56,58,59,66,68,69,70,73,
+        82)은 모두 genotyping이 되며, Low risk HPV 20종 중 2종(6,11)은 genotyping이 되고 나머지
+        18종(30,32,34,40,42,43,44,54,55,61,62,67,74,81,83,84,87,90)은 Positive(Other)로 
+         통합 보고됩니다.
+     
+     상기 검사는 검사 방법, 시약의 정도 관리 및 검사 결과가 병리과 전문의에 의해 확인되었습니다.
+     검사담당자 : ***)",False,,,True,"[31, 33, 35, 39, 45, 51, 52, 56, 58, 59, 66, 68]",Other high-risk types detected
+R000000012,2019-01-07,PMO12075,HPV PANA(급여) RealTyper real-time PCR,분자병리,PMO12075,HPV PANA(급여) RealTyper real-time PCR,2019-01-08,2019-01-10,세포검체 cervico-vaginal smear,세포검체 cervico-vaginal smear,"병리번호 : M19-******
+채 취 일 : 2019-01-07 18:10:09 김**
+대표검체 : 세포검체 cervico-vaginal smear
+세부검체 : 세포검체 cervico-vaginal smear
+[MOLECULAR PATHOGY]
+     M19-******      HPV PANA(급여)                  
+     [[SAMPLE ADEQUACY]]
+     Adequate
+     
+     [[RESULT]]
+     [검사방법]
+     Real-Time PCR (PANA RealTyper HPV kit)
+     
+     [검사결과]
+     HPV PANA realTyper real-time PCR
+     High risk HPV: Negative
+     Low  risk HPV: Positive (Other)
+     
+     KEY BLOCK :  
+     COMMENTS
+     1. HPV PANA RealTyper real-time PCR 검사는 총 40 종(고위험군 20 종,저위험군 20 종)의 HPV 유전자형 
+        검출이 가능합니다.
+     2. High risk HPV20 종 (16,18,26,31,33,35,39,45,51,52,53,56,58,59,66,68,69,70,73,
+        82)은 모두 genotyping이 되며, Low risk HPV 20종 중 2종(6,11)은 genotyping이 되고 나머지
+        18종(30,32,34,40,42,43,44,54,55,61,62,67,74,81,83,84,87,90)은 Positive(Other)로 
+         통합 보고됩니다.
+     
+     상기 검사는 검사 방법, 시약의 정도 관리 및 검사 결과가 병리과 전문의에 의해 확인되었습니다.
+     검사담당자 : ***)",False,,,True,"[31, 33, 35, 39, 45, 51, 52, 56, 58, 59, 66, 68]",Other high-risk types detected
+R000000012,2020-04-23,PMO12075,HPV PANA(급여) RealTyper real-time PCR,분자병리,PMO12075,HPV PANA(급여) RealTyper real-time PCR,2020-04-23,2020-04-27,세포검체 cervico-vaginal smear,세포검체 cervico-vaginal smear,"병리번호 : M20-******
+채 취 일 : 2020-04-23 09:55:06 김**
+대표검체 : 세포검체 cervico-vaginal smear
+세부검체 : 세포검체 cervico-vaginal smear
+[MOLECULAR PATHOGY]
+     M20-******      HPV PANA(급여)                  
+     [[SAMPLE ADEQUACY]]
+     Adequate
+     
+     [[RESULT]]
+     [검사방법]
+     Real-Time PCR (PANA RealTyper HPV kit)
+     
+     [검사결과]
+     HPV PANA realTyper real-time PCR
+     High risk HPV: Negative
+     Low  risk HPV: Negative
+     
+     KEY BLOCK :  
+     COMMENTS
+     1. HPV PANA RealTyper real-time PCR 검사는 총 40 종(고위험군 20 종,저위험군 20 종)의 HPV 유전자형 
+        검출이 가능합니다.
+     2. High risk HPV20 종 (16,18,26,31,33,35,39,45,51,52,53,56,58,59,66,68,69,70,73,
+        82)은 모두 genotyping이 되며, Low risk HPV 20종 중 2종(6,11)은 genotyping이 되고 나머지
+        18종(30,32,34,40,42,43,44,54,55,61,62,67,74,81,83,84,87,90)은 Positive(Other)로 
+         통합 보고됩니다.
+     
+     상기 검사는 검사 방법, 시약의 정도 관리 및 검사 결과가 병리과 전문의에 의해 확인되었습니다.
+     (검사담당자 : ***)",False,,,True,"[31, 33, 35, 39, 45, 51, 52, 56, 58, 59, 66, 68]",Other high-risk types detected
+R000000012,2020-04-23,PCY10004,[선] 액상세포검사-자궁질 세포병리검사,세포병리,PCY10004,액상세포검사-자궁질 세포병리검사,2020-04-23,2020-04-27,cervico-vaginal smear,Cervico-vaginal smear,"병리번호 : C20-******
+채 취 일 : 2020-04-23 09:55:06 김**
+대표검체 : cervico-vaginal smear
+세부검체 : Cervico-vaginal smear
+[DIAGNOSIS]
+     1) Adequacy of specimen     
+          Satisfactory
+     2) Cytologic diagnosis
+          Negative for Intraepithelial Lesion or Malignancy
+     3) Comment :
+          Many inflammatory cells
+     
+
+[CF]
+     M22-******,C22-******,M21-******,C21-******,M20-******,M19-******,C19-******,M18-******,C18-******,C17-******,S17-******,M16-******,C16-******
+
+Additional Result                        *진  단  일 : 20200427
+[MOLECULAR PATHOGY]
+     M20-******      HPV PANA(급여)                  
+     [검사방법]
+     Real-Time PCR (PANA RealTyper HPV kit)
+     
+     [검사결과]
+     HPV PANA realTyper real-time PCR
+     High risk HPV: Negative
+     Low  risk HPV: Negative
+     
+     Key Block :  
+     Comments
+     1. HPV PANA RealTyper real-time PCR 검사는 총 40 종(고위험군 20 종,저위험군 20 종)의 HPV 유전자형 
+        검출이 가능합니다.
+     2. High risk HPV20 종 (16,18,26,31,33,35,39,45,51,52,53,56,58,59,66,68,69,70,73,
+        82)은 모두 genotyping이 되며, Low risk HPV 20종 중 2종(6,11)은 genotyping이 되고 나머지
+        18종(30,32,34,40,42,43,44,54,55,61,62,67,74,81,83,84,87,90)은 Positive(Other)로 
+         통합 보고됩니다.
+     
+     상기 검사는 검사 방법, 시약의 정도 관리 및 검사 결과가 병리과 전문의에 의해 확인되었습니다.
+     (검사담당자 : ***)",False,,,True,"[31, 33, 35, 39, 45, 51, 52, 56, 58, 59, 66, 68]",Other high-risk types detected
