@@ -32,7 +32,10 @@ def load_data(data_dir: Path) -> tuple:
     cohort['최종추적일자'] = pd.to_datetime(cohort['최종추적일자'])
 
     # 병리 데이터
-    pathology = pd.read_csv(data_dir / 'pathology.csv', encoding='utf-8')
+    pathology_file = data_dir / 'pathology.csv'
+    if not pathology_file.exists():
+        pathology_file = data_dir / 'pathology_sample.csv'
+    pathology = pd.read_csv(pathology_file, encoding='utf-8')
     pathology['실시일자'] = pd.to_datetime(pathology['실시일자'], format='%Y%m%d', errors='coerce')
 
     # 기초임상정보 (BMI)
@@ -109,9 +112,14 @@ def add_matching_variables(cohort: pd.DataFrame,
     - closest_bmi: Index date와 가장 가까운 BMI
     - surgery_year: 수술 년도 (이미 있음)
     """
+    # 기존 생년월일 컬럼 제거 (있는 경우)
+    if '생년월일' in cohort.columns:
+        cohort = cohort.drop(columns=['생년월일'])
+
     # 생년월일 정보 추가
+    cohort_info_subset = cohort_info[['연구번호', '생년월일']].drop_duplicates(subset='연구번호')
     cohort = cohort.merge(
-        cohort_info[['연구번호', '생년월일']],
+        cohort_info_subset,
         on='연구번호',
         how='left'
     )
