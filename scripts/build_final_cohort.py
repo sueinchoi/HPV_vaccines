@@ -463,8 +463,8 @@ def main():
     print_cohort_flow("[Step 0] 초기 매칭 코호트", cohort)
 
     # Step 1: Index date 필터링
-    cohort_step1 = filter_by_index_date(cohort, '2020-12-31')
-    print_cohort_flow("[Step 1] Index date ≤ 2020-12-31 (5년 추적 확보)",
+    cohort_step1 = filter_by_index_date(cohort, '2023-12-31')
+    print_cohort_flow("[Step 1] Index date ≤ 2023-12-31 (2년 추적 확보)",
                       cohort_step1, step0_n - len(cohort_step1))
 
     # Step 2: 추적 관찰 횟수 필터링
