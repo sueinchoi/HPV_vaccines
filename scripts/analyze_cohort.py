@@ -269,9 +269,13 @@ def log_rank_test(durations1, events1, durations2, events2):
 
 
 def run_cox_analysis(cohort: pd.DataFrame, outcome_var: str,
-                     time_var: str, output_prefix: str, data_dir: Path):
+                     time_var: str, output_prefix: str, data_dir: Path,
+                     strata_var: str = None):
     """
     Cox Proportional Hazards 분석 실행
+
+    Parameters:
+        strata_var: 층화 변수 (예: fine_match_id) - 매칭 쌍 고려
     """
     # statsmodels 사용 시도
     try:
@@ -284,6 +288,8 @@ def run_cox_analysis(cohort: pd.DataFrame, outcome_var: str,
     # 분석용 데이터 준비
     required_cols = ['연구번호', '접종여부', outcome_var, time_var]
     optional_cols = ['index_age', 'closest_bmi', '수술연도', '수술방법']
+    if strata_var and strata_var in cohort.columns:
+        required_cols.append(strata_var)
     available_cols = required_cols + [c for c in optional_cols if c in cohort.columns]
 
     analysis_df = cohort[available_cols].copy()
@@ -307,15 +313,20 @@ def run_cox_analysis(cohort: pd.DataFrame, outcome_var: str,
     if '수술방법' in analysis_df.columns:
         analysis_df['surgery_hysterectomy'] = (analysis_df['수술방법'] == '자궁절제술').astype(int)
 
-    print(f"\n  [{outcome_var} - Cox Proportional Hazards Analysis]")
+    print(f"\n  [{output_prefix.upper()} - Cox Proportional Hazards Analysis]")
     print(f"  - 분석 대상: {len(analysis_df)}명")
     print(f"  - 이벤트 발생: {analysis_df['event'].sum()}건 ({analysis_df['event'].mean()*100:.1f}%)")
+    if strata_var:
+        print(f"  - 층화 변수: {strata_var} (매칭 쌍 고려)")
+
+    # 그룹별 요약
+    vax_data = analysis_df[analysis_df['vaccinated'] == 1]
+    unvax_data = analysis_df[analysis_df['vaccinated'] == 0]
+    print(f"  - 접종군: {len(vax_data)}명, 이벤트 {vax_data['event'].sum()}건 ({vax_data['event'].mean()*100:.1f}%)")
+    print(f"  - 비접종군: {len(unvax_data)}명, 이벤트 {unvax_data['event'].sum()}건 ({unvax_data['event'].mean()*100:.1f}%)")
 
     # 그래프 준비
     fig, axes = plt.subplots(1, 2, figsize=(14, 5))
-
-    vax_data = analysis_df[analysis_df['vaccinated'] == 1]
-    unvax_data = analysis_df[analysis_df['vaccinated'] == 0]
 
     # Kaplan-Meier 곡선
     ax1 = axes[0]
@@ -334,7 +345,7 @@ def run_cox_analysis(cohort: pd.DataFrame, outcome_var: str,
 
         ax1.set_xlabel('Days from Index Date')
         ax1.set_ylabel('Event-free Probability')
-        ax1.set_title(f'Kaplan-Meier Curve: {outcome_var}')
+        ax1.set_title(f'Kaplan-Meier Curve: {output_prefix}')
         ax1.legend()
         ax1.set_ylim(0, 1.05)
 
@@ -357,10 +368,15 @@ def run_cox_analysis(cohort: pd.DataFrame, outcome_var: str,
 
     # Cox 분석용 데이터 준비
     cox_cols = ['duration', 'event', 'vaccinated']
-    if 'index_age' in analysis_df.columns:
-        cox_cols.append('index_age')
-    if 'surgery_hysterectomy' in analysis_df.columns:
-        cox_cols.append('surgery_hysterectomy')
+    # 이벤트 수가 충분하면 공변량 추가 (이벤트 당 최소 10개 권장)
+    n_events = analysis_df['event'].sum()
+    if n_events >= 50:  # 충분한 이벤트 수
+        if 'index_age' in analysis_df.columns:
+            cox_cols.append('index_age')
+        if 'surgery_hysterectomy' in analysis_df.columns:
+            cox_cols.append('surgery_hysterectomy')
+    else:
+        print(f"  - 이벤트 수 부족({n_events}건): 단변량 분석 수행")
 
     cox_df = analysis_df[cox_cols].dropna()
 
@@ -371,7 +387,7 @@ def run_cox_analysis(cohort: pd.DataFrame, outcome_var: str,
             exog = cox_df[exog_cols]
 
             model = PHReg(cox_df['duration'], exog, status=cox_df['event'])
-            result = model.fit()
+            result = model.fit(disp=False)
 
             print("\n  Cox Proportional Hazards Results:")
             print("  " + "-" * 65)
@@ -522,6 +538,7 @@ def main():
 
     # Cox 분석
     print("\n[4. Cox Proportional Hazards 분석]")
+    print("  (매칭 쌍 고려: fine_match_id 층화)")
 
     # 결과 데이터 로드 - 최종 매칭 코호트만 사용
     outcomes_file = data_dir / 'final_matched_outcomes.csv'
@@ -533,18 +550,24 @@ def main():
         outcomes = pd.read_csv(outcomes_file, encoding='utf-8-sig')
         print(f"  - 분석 데이터: {outcomes_file.name} ({len(outcomes)}명)")
 
-        # 병변 재발 분석
-        if 'has_recurrence' in outcomes.columns and 'follow_up_days' in outcomes.columns:
+        # 1. Biopsy 기반 병변 재발 분석
+        if 'has_recurrence' in outcomes.columns and 'days_to_recurrence' in outcomes.columns:
+            # days_to_recurrence가 NaN인 경우 follow_up_days 사용
+            outcomes['time_to_recurrence'] = outcomes['days_to_recurrence'].fillna(outcomes['follow_up_days'])
             recurrence_results = run_cox_analysis(
-                outcomes, 'has_recurrence', 'follow_up_days',
-                'recurrence', data_dir
+                outcomes, 'has_recurrence', 'time_to_recurrence',
+                'Biopsy_Recurrence', data_dir,
+                strata_var='fine_match_id'
             )
 
-        # HPV 감염 분석
-        if 'has_hpv_infection' in outcomes.columns and 'follow_up_days' in outcomes.columns:
+        # 2. HPV 재감염 분석
+        if 'has_hpv_infection' in outcomes.columns and 'days_to_hpv' in outcomes.columns:
+            # days_to_hpv가 NaN인 경우 follow_up_days 사용
+            outcomes['time_to_hpv'] = outcomes['days_to_hpv'].fillna(outcomes['follow_up_days'])
             hpv_results = run_cox_analysis(
-                outcomes, 'has_hpv_infection', 'follow_up_days',
-                'hpv_infection', data_dir
+                outcomes, 'has_hpv_infection', 'time_to_hpv',
+                'HPV_Reinfection', data_dir,
+                strata_var='fine_match_id'
             )
     else:
         print(f"  ⚠️ 결과 데이터 파일을 찾을 수 없습니다: {outcomes_file}")
