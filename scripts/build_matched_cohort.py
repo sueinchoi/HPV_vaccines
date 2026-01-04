@@ -366,8 +366,8 @@ def main():
     output_path = data_dir / 'matched_cohort.csv'
     summary_path = data_dir / 'cohort_summary.csv'
 
-    # 코호트 구축
-    final_cohort = build_cohort(data_dir, matching_ratio=1)
+    # 코호트 구축 (1:5 매칭)
+    final_cohort = build_cohort(data_dir, matching_ratio=5)
 
     if len(final_cohort) == 0:
         print("\n코호트 구축 실패!")
