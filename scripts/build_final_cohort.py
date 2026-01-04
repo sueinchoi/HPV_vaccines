@@ -34,7 +34,7 @@ def load_data(data_dir: Path) -> tuple:
     # 병리 데이터
     pathology_file = data_dir / 'pathology.csv'
     if not pathology_file.exists():
-        pathology_file = data_dir / 'pathology_sample.csv'
+        pathology_file = data_dir / 'pathology.csv'
     pathology = pd.read_csv(pathology_file, encoding='utf-8-sig')
     pathology['실시일자'] = pd.to_datetime(pathology['실시일자'], format='%Y%m%d', errors='coerce')
 
@@ -513,7 +513,7 @@ def main():
             age_tolerance=5.0,
             bmi_tolerance=3.0,
             year_tolerance=1,
-            matching_ratio=5  # 1:5 매칭
+            matching_ratio=3  # 1:5 매칭
         )
 
         print_cohort_flow("[Step 3] Fine Matching 완료",
