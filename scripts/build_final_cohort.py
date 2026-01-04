@@ -18,6 +18,10 @@ from pathlib import Path
 from datetime import datetime
 from typing import Optional
 
+# 재현성을 위한 시드 고정
+RANDOM_SEED = 42
+np.random.seed(RANDOM_SEED)
+
 
 # 고위험 HPV 유형 정의
 HIGH_RISK_HPV_TYPES = [16, 18, 31, 33, 45, 52, 58, 35, 39, 51, 56, 59, 66, 68]
@@ -253,7 +257,8 @@ def perform_fine_matching(vaccinated: pd.DataFrame,
             candidates['year_diff'] = abs(candidates['수술연도'] - vax['수술연도']) / year_tolerance
 
         candidates['total_distance'] = candidates['age_diff'] + candidates['bmi_diff'] + candidates['year_diff']
-        candidates = candidates.sort_values('total_distance')
+        # 재현성을 위해 연구번호로 2차 정렬 (tie-breaking)
+        candidates = candidates.sort_values(['total_distance', '연구번호'])
 
         # 매칭 비율만큼 선택
         selected = candidates.head(matching_ratio)

@@ -16,6 +16,10 @@ from pathlib import Path
 from datetime import datetime
 from typing import Tuple, Optional
 
+# 재현성을 위한 시드 고정
+RANDOM_SEED = 42
+np.random.seed(RANDOM_SEED)
+
 
 def load_data(data_dir: Path) -> Tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
     """데이터 로드"""
@@ -213,7 +217,8 @@ def perform_matching(vaccinated_df: pd.DataFrame,
         candidates['age_diff'] = abs(candidates['수술시나이'] - vax_patient['수술시나이'])
         candidates['year_diff'] = abs(candidates['수술연도'] - vax_patient['수술연도'])
         candidates['total_diff'] = candidates['age_diff'] + candidates['year_diff']
-        candidates = candidates.sort_values('total_diff')
+        # 재현성을 위해 연구번호로 2차 정렬 (tie-breaking)
+        candidates = candidates.sort_values(['total_diff', '연구번호'])
 
         selected = candidates.head(matching_ratio)
 
