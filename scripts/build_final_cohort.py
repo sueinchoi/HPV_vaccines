@@ -34,7 +34,7 @@ def load_data(data_dir: Path) -> tuple:
     # 병리 데이터
     pathology_file = data_dir / 'pathology.csv'
     if not pathology_file.exists():
-        pathology_file = data_dir / 'pathology_sample.csv'
+        pathology_file = data_dir / 'pathology.csv'
     pathology = pd.read_csv(pathology_file, encoding='utf-8')
     pathology['실시일자'] = pd.to_datetime(pathology['실시일자'], format='%Y%m%d', errors='coerce')
 
