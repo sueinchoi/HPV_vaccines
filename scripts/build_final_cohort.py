@@ -513,7 +513,7 @@ def main():
             age_tolerance=5.0,
             bmi_tolerance=3.0,
             year_tolerance=1,
-            matching_ratio=3  # 1:5 매칭
+            matching_ratio=4  # 1:5 매칭
         )
 
         print_cohort_flow("[Step 3] Fine Matching 완료",
