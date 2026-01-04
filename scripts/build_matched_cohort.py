@@ -179,7 +179,7 @@ def find_matching_candidates(vaccinated_patient: pd.Series,
 
 def perform_matching(vaccinated_df: pd.DataFrame,
                      unvaccinated_pool: pd.DataFrame,
-                     matching_ratio: int = 1) -> Tuple[pd.DataFrame, pd.DataFrame]:
+                     matching_ratio: int = 5) -> Tuple[pd.DataFrame, pd.DataFrame]:
     """
     1:N 매칭 수행
 
@@ -246,7 +246,7 @@ def perform_matching(vaccinated_df: pd.DataFrame,
     return matched_vax_df, matched_unvax_df
 
 
-def build_cohort(data_dir: Path, matching_ratio: int = 1) -> pd.DataFrame:
+def build_cohort(data_dir: Path, matching_ratio: int = 5) -> pd.DataFrame:
     """
     전체 코호트 구축 파이프라인
 
