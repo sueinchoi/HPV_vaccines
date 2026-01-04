@@ -95,10 +95,14 @@ def extract_lesion_recurrence(cohort: pd.DataFrame, diag: pd.DataFrame) -> pd.Da
                 break  # 첫 재발만
 
         # 추적 기간 계산
+        # follow_up_days: 전체 추적 기간 (최종 추적일까지)
+        # days_to_recurrence: 재발까지의 시간 (재발 없으면 NaN)
+        follow_up_days = (last_fu_date - index_date).days if pd.notna(last_fu_date) else 0
+
         if recurrence_found and pd.notna(recurrence_date):
-            follow_up_days = (recurrence_date - index_date).days
+            days_to_recurrence = (recurrence_date - index_date).days
         else:
-            follow_up_days = (last_fu_date - index_date).days if pd.notna(last_fu_date) else 0
+            days_to_recurrence = None  # 재발 없으면 NaN (censored)
 
         results.append({
             '연구번호': patient_id,
@@ -108,10 +112,12 @@ def extract_lesion_recurrence(cohort: pd.DataFrame, diag: pd.DataFrame) -> pd.Da
             'closest_bmi': patient.get('closest_bmi'),
             '수술연도': patient.get('수술연도'),
             '수술방법': patient.get('수술방법'),
+            'fine_match_id': patient.get('fine_match_id'),  # 매칭 ID 추가
             'has_recurrence': 1 if recurrence_found else 0,
+            'days_to_recurrence': days_to_recurrence,  # 재발까지 시간 (재발 없으면 NaN)
             'recurrence_date': recurrence_date,
             'recurrence_diagnosis': recurrence_diagnosis,
-            'follow_up_days': max(follow_up_days, 1)  # 최소 1일
+            'follow_up_days': max(follow_up_days, 1)  # 전체 추적기간 (최소 1일)
         })
 
     return pd.DataFrame(results)
@@ -149,10 +155,14 @@ def main():
         n = len(group)
         recurrence = group['has_recurrence'].sum()
         mean_fu = group['follow_up_days'].mean()
+        recurred = group[group['has_recurrence'] == 1]
+        mean_days_to_recur = recurred['days_to_recurrence'].mean() if len(recurred) > 0 else 0
 
         print(f"\n  {group_name} (n={n})")
         print(f"    - 병변 재발: {recurrence}건 ({recurrence/n*100:.1f}%)")
         print(f"    - 평균 추적기간: {mean_fu:.0f}일 ({mean_fu/365:.1f}년)")
+        if recurrence > 0:
+            print(f"    - 재발까지 평균 기간: {mean_days_to_recur:.0f}일 ({mean_days_to_recur/365:.1f}년)")
 
     # 저장
     print("\n[4. 결과 저장]")
