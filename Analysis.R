@@ -5,3 +5,4 @@ data <- read.csv('Data/한국 HPV 코호트 자료를 이용한 자_병리검사
 sample_data <- head(data, 100)
 
 write.csv(sample_data, 'Data/pathology_sample.csv', row.names = F)
+write.csv(data, 'Data/pathology.csv', row.names = F)
