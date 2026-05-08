@@ -108,11 +108,13 @@ def smoke_vec(query_df, ci):
 # Figure 1 — Cohort selection flow
 # =====================================================================
 def figure1():
-    fig, ax = plt.subplots(figsize=(12, 9))
-    ax.set_xlim(0, 12); ax.set_ylim(0, 11.5)
+    """Concise CONSORT flow. Detailed methodology lives in the figure-legend
+    note (docs/Figure1_Note.md), so the boxes carry only step labels and n's."""
+    fig, ax = plt.subplots(figsize=(11, 8))
+    ax.set_xlim(0, 12); ax.set_ylim(0, 10.5)
     ax.axis('off')
 
-    def box(x, y, w, h, text, fc='#ffffff', ec=COL_GREY, fs=11, weight='normal'):
+    def box(x, y, w, h, text, fc='#ffffff', ec=COL_GREY, fs=12, weight='normal'):
         rect = FancyBboxPatch((x-w/2, y-h/2), w, h, boxstyle='round,pad=0.06',
                               facecolor=fc, edgecolor=ec, linewidth=1.2)
         ax.add_patch(rect)
@@ -124,85 +126,63 @@ def figure1():
                            mutation_scale=14, color='#444', lw=1.2)
         ax.add_patch(a)
 
-    box(6, 10.7, 5.4, 0.75,
-        'Source population: Korean HPV cohort\n'
-        '(prospective enrolment 2009–2024)   N = 32,969',
-        fc='#e8f4f8', ec='#1f6f8b', fs=11.5, weight='bold')
+    # Source
+    box(6, 9.7, 5.0, 0.7,
+        'Source population\nN = 32,969',
+        fc='#e8f4f8', ec='#1f6f8b', fs=12, weight='bold')
 
-    arrow(6, 10.32, 6, 10.05)
-    box(6, 9.65, 5.8, 0.65,
-        'HPV vaccine ascertained from prescription file\n'
-        f'Vaccinated  n = 2,156   /   Unvaccinated candidates  n = 30,813',
-        fc='#fff3cd', ec='#856404', fs=11)
+    arrow(6, 9.35, 6, 9.05)
+    box(6, 8.65, 5.6, 0.7,
+        'HPV vaccine ascertained\n'
+        'Vaccinated 2,156  /  Unvaccinated 30,813',
+        fc='#fff3cd', ec='#856404', fs=12)
 
-    arrow(6, 9.32, 3.0, 8.7)
-    arrow(6, 9.32, 9.0, 8.7)
+    arrow(6, 8.30, 3.0, 7.65)
+    arrow(6, 8.30, 9.0, 7.65)
 
-    # Cohort A header (left)
-    box(3.0, 8.35, 4.9, 0.6,
-        'COHORT A — Long-term safety analysis',
-        fc='#d4edda', ec='#155724', fs=11.5, weight='bold')
+    # Cohort A header
+    box(3.0, 7.30, 4.6, 0.6,
+        'COHORT A — Safety',
+        fc='#d4edda', ec='#155724', fs=13, weight='bold')
 
-    # Cohort B header (right)
-    box(9.0, 8.35, 4.9, 0.6,
-        'COHORT B — Post-surgical efficacy analysis',
-        fc='#fde2e4', ec='#9b2226', fs=11.5, weight='bold')
+    # Cohort B header
+    box(9.0, 7.30, 4.6, 0.6,
+        'COHORT B — Efficacy',
+        fc='#fde2e4', ec='#9b2226', fs=13, weight='bold')
 
-    # === Cohort A steps ===
-    arrow(3.0, 8.05, 3.0, 7.75)
-    box(3.0, 7.35, 4.9, 0.75,
-        'Pseudo index date for unvaccinated\n(random sample from vaccine-date distribution)',
-        fc='#eaf6ee', ec='#155724', fs=10.5)
+    # === Cohort A steps (concise) ===
+    arrow(3.0, 7.00, 3.0, 6.70)
+    box(3.0, 6.30, 4.6, 0.7,
+        'Eligibility check\n+ pseudo index date',
+        fc='#eaf6ee', ec='#155724', fs=12)
 
-    arrow(3.0, 6.97, 3.0, 6.7)
-    box(3.0, 6.15, 4.9, 1.05,
-        'Eligibility: alive at index date, ≥ 1 day follow-up\n'
-        'Logistic propensity score model:\n'
-        'age, BMI, SBP, DBP, smoking, residence',
-        fc='#eaf6ee', ec='#155724', fs=10.5)
+    arrow(3.0, 5.95, 3.0, 5.65)
+    box(3.0, 5.20, 4.6, 0.8,
+        'Propensity-score model\n+ 1:1 matching',
+        fc='#eaf6ee', ec='#155724', fs=12)
 
-    arrow(3.0, 5.62, 3.0, 5.35)
-    box(3.0, 4.8, 4.9, 1.05,
-        '1:1 nearest-neighbour matching on logit(PS)\n'
-        'Caliper = 0.2 × SD(logit PS), no replacement',
-        fc='#eaf6ee', ec='#155724', fs=10.5)
+    arrow(3.0, 4.80, 3.0, 4.50)
+    box(3.0, 3.70, 4.6, 1.4,
+        'Final Cohort A   n = 4,102\nVaccinated 2,051\nUnvaccinated 2,051\n\n'
+        'Outcomes: 5 chronic conditions',
+        fc='#a8d5b5', ec='#155724', fs=12, weight='bold')
 
-    arrow(3.0, 4.27, 3.0, 4.0)
-    box(3.0, 3.15, 4.9, 1.5,
-        'Final Cohort A:  n = 4,102\n'
-        'Vaccinated 2,051   /   Unvaccinated 2,051\n\n'
-        'Outcomes: 5 chronic conditions and the\n'
-        'Any-of-5 and MCE composite endpoints',
-        fc='#a8d5b5', ec='#155724', fs=11, weight='bold')
+    # === Cohort B steps (concise) ===
+    arrow(9.0, 7.00, 9.0, 6.70)
+    box(9.0, 6.30, 4.6, 0.7,
+        'Cervical surgery\nn = 6,890',
+        fc='#fdedee', ec='#9b2226', fs=12)
 
-    # === Cohort B steps ===
-    arrow(9.0, 8.05, 9.0, 7.75)
-    box(9.0, 7.35, 4.9, 0.75,
-        'Cervical surgery (conization or hysterectomy)\nN = 6,890',
-        fc='#fdedee', ec='#9b2226', fs=10.5)
+    arrow(9.0, 5.95, 9.0, 5.65)
+    box(9.0, 5.20, 4.6, 0.8,
+        '1:up-to-5 initial match\nVac 411  /  Non-vac 1,815',
+        fc='#fdedee', ec='#9b2226', fs=12)
 
-    arrow(9.0, 6.97, 9.0, 6.7)
-    box(9.0, 6.15, 4.9, 1.15,
-        '1:up-to-5 variable-ratio match (greedy, no replacement):\n'
-        'surgery method (exact), year (±1 yr), age (±5 yr)\n'
-        'Vaccinated 411  /  Unvaccinated 1,815\n'
-        '(mean 4.42 controls per case)',
-        fc='#fdedee', ec='#9b2226', fs=10.5)
-
-    arrow(9.0, 5.57, 9.0, 5.35)
-    box(9.0, 4.8, 4.9, 1.05,
-        'Index date filter: ≤ 31 Dec 2020,  ≥ 2 follow-up records\n'
-        'Vaccinated 411  /  Unvaccinated 1,797   (excluded 18)',
-        fc='#fdedee', ec='#9b2226', fs=10.5)
-
-    arrow(9.0, 4.27, 9.0, 4.0)
-    box(9.0, 3.05, 4.9, 1.65,
-        'Final Cohort B:  n = 1,108\n'
-        'Vaccinated 241   /   Unvaccinated 867\n'
-        '(Fine 1:up-to-4 variable-ratio match\n'
-        'on age, BMI, surgery year; mean 3.60)\n\n'
-        'Outcomes: lesion recurrence, HPV reinfection',
-        fc='#f4a4a8', ec='#9b2226', fs=11, weight='bold')
+    arrow(9.0, 4.80, 9.0, 4.50)
+    box(9.0, 3.70, 4.6, 1.4,
+        'Final Cohort B   n = 1,108\nVaccinated 241\nUnvaccinated 867\n\n'
+        'Outcomes: recurrence, HPV',
+        fc='#f4a4a8', ec='#9b2226', fs=12, weight='bold')
 
     plt.tight_layout()
     plt.savefig('Data/Figure1_CohortSelection.png', dpi=300, bbox_inches='tight', facecolor='white')
