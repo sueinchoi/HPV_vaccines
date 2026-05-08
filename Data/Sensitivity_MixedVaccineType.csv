@@ -1,0 +1,9 @@
+﻿pattern,n_patients
+Single: Gardasil9,892
+Single: Cervarix,859
+Single: Gardasil,372
+Mixed: Gardasil9+Gardasil,21
+Mixed: Gardasil9+Cervarix,10
+Mixed: Gardasil+Cervarix,2
+__ANY mixed (>1 type),33
+__first ≠ last vaccine type,33

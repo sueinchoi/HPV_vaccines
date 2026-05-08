@@ -44,7 +44,7 @@
 |---|---|---|
 | 연구 질문 | Q1: HPV 백신이 장기적으로 만성질환 발생에 영향을 주는가? | Q2: 자궁경부 수술 후 HPV 백신이 병변 재발 및 HPV 재감염을 줄이는가? |
 | 모집단 | 전체 코호트 (n=32,969) | 자궁경부 수술 시행자 (n=6,890) |
-| 기본 매칭 | PSM 1:1 (age, BMI, SBP, DBP, smoking, residence) | 1:5 → fine 1:4 (수술방법 exact, 수술시점, age, BMI, 수술연도) |
+| 기본 매칭 | PSM 1:1 (age, BMI, SBP, DBP, smoking, residence) | 1:up-to-5 → fine 1:up-to-4 (수술방법 exact, 수술시점, age, BMI, 수술연도; variable-ratio greedy) |
 | 최종 표본 | 4,102 (vac 2,051 / ctl 2,051) | 1,108 (vac 241 / ctl 867) |
 | Index date (vac) | 첫 백신 접종일 | 첫 백신 접종일 |
 | Index date (ctl) | 매칭된 접종군 백신일 (pseudo) | 비접종군 수술일 + 매칭 접종군의 수술-접종 간격(T) |
@@ -81,10 +81,11 @@
 - Pseudo index date for non-vaccinated: random sample from vaccinated patients' first-vaccine-date distribution (seed=42)
 - Eligibility: alive at index, ≥1 day of follow-up
 
-**Cohort B — Fine matching (1:4)**
-- Step 1 — 1:5 initial match: 수술방법 (exact: conization vs hysterectomy), 수술시점 (±1 yr), age at surgery (±5 yr)
-- Step 2 — Index date filtering: index ≤ 2020-12-31 (≥5 yr follow-up), ≥2 follow-up records
-- Step 3 — Fine matching to 1:4: index age, index BMI, surgery year
+**Cohort B — Variable-ratio matching (1:up-to-4)**
+- Algorithm note: Both steps use **greedy nearest matching without replacement**; the requested ratio is the *maximum* number of controls per vaccinated case. If fewer eligible controls exist (rare cells, depleted pool), the case is matched with whatever controls remain.
+- Step 1 — 1:up-to-5 initial match: 수술방법 (exact: conization vs hysterectomy), 수술시점 (±1 yr), age at surgery (±5 yr) → 411 vaccinated and 1,815 non-vaccinated (mean ratio 4.42; 256 of 411 cases reached the maximum of 5).
+- Step 2 — Index date filtering: index ≤ 2020-12-31 (≥5 yr follow-up), ≥2 follow-up records → 411 / 1,797 (18 controls excluded).
+- Step 3 — Fine matching to 1:up-to-4: index age (±5 y), index BMI (±3 kg/m²), surgery year (±1 y) → 241 vaccinated and 867 non-vaccinated (mean ratio 3.60; 193 of 241 cases reached the maximum of 4).
 - Pseudo index date for non-vaccinated: surgery date + matched 접종군의 수술-접종 간격 T
 
 ### 1.7 Covariate balance assessment

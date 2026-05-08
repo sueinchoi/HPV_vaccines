@@ -88,7 +88,7 @@ submission/
 | # | Title | Source file (in `Data/`) | Submit as | Format / Resolution |
 |---|---|---|---|---|
 | **S1** | Love plot — covariate balance before and after 1:1 propensity score matching (Cohort A). | `SupFigS1_loveplot_cohortA.png` | `SupFigS1_LovePlot_CohortA.png` | PNG, 200 dpi |
-| **S2** | Love plot — covariate balance before and after fine 1:4 matching (Cohort B). | `SupFigS2_loveplot_cohortB.png` | `SupFigS2_LovePlot_CohortB.png` | PNG, 200 dpi |
+| **S2** | Love plot — covariate balance before and after fine variable-ratio (1:up-to-4) matching (Cohort B). | `SupFigS2_loveplot_cohortB.png` | `SupFigS2_LovePlot_CohortB.png` | PNG, 200 dpi |
 | **S3** | Propensity score density distributions before and after matching (Cohort A). | `SupFigS3_ps_density.png` | `SupFigS3_PropensityScoreDensity.png` | PNG, 200 dpi |
 | **S4** | Subgroup forest plot by age strata for Cohort B (legacy single-figure view; superseded by Figure 5 — retain as supplementary). | `figure3_subgroup_km.png` | `SupFigS4_AgeSubgroupKM.png` | PNG (existing) |
 | **S5a** | Schoenfeld residual diagnostic plot — Cohort A, Any-of-5 endpoint. | `PH_check_A_0.png` | `SupFigS5a_PHCheck_CohortA_AnyOf5.png` | PNG, 130 dpi |

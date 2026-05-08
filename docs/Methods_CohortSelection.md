@@ -50,7 +50,7 @@
 |---|---|---|
 | 연구 질문 | Q1: 백신 ↔ 만성질환 발생 | Q2: 백신 ↔ 병변 재발·HPV 재감염 |
 | 분석 모집단 | 전체 코호트 | 자궁경부 수술 시행자 (n = 6,890) |
-| 매칭 비율 | 1:4 | 1:4 (1차 1:5 후 fine-matching) |
+| 매칭 비율 | 1:up-to-4 (variable ratio, greedy without replacement) | 1:up-to-4 (1차 1:up-to-5 후 fine-matching) |
 | 매칭 변수 | 생년월(±5년), index 시점 관찰가능성 | 수술방법(exact), 수술시점(±1년), 수술시 나이(±5세), Index 시점 나이, BMI, 수술연도 |
 | Index date (접종군) | 첫 백신 접종일 | 첫 백신 접종일 |
 | Index date (비접종군) | 매칭된 접종군의 백신일 (pseudo) | 비접종군 수술일 + 매칭된 접종군의 "수술-접종 간격(T)" |
@@ -74,15 +74,15 @@ flowchart TD
     %% Cohort A: Whole-cohort
     SPLIT --> A1["<b>Cohort A — Whole-cohort analysis</b><br/>Q1: 백신 ↔ 만성질환 발생"]:::ah
     A1 --> A2["적격성 필터<br/>· 생년월 정보 보유<br/>· Index date 시점 생존 및 추적가능"]:::ab
-    A2 --> A3["1:4 Matching<br/>매칭변수: 생년월 ±5년<br/>(greedy nearest, no replacement)"]:::ab
+    A2 --> A3["1:up-to-4 Variable-ratio Matching<br/>매칭변수: 생년월 ±5년<br/>(greedy nearest, no replacement)"]:::ab
     A3 --> A4["<b>Cohort A 최종</b><br/>접종군 2,155 (1명 매칭 실패)<br/>비접종군 8,620<br/><b>Total n = 10,775</b>"]:::af
 
     %% Cohort B: Surgical
     SPLIT --> B1["<b>Cohort B — Surgical efficacy analysis</b><br/>Q2: 백신 ↔ 병변 재발·HPV 재감염"]:::bh
     B1 --> B2["자궁경부 수술 시행자 추출<br/>(원추절제술 또는 자궁절제술)<br/><b>n = 6,890</b>"]:::bb
-    B2 --> B3["1차 매칭 (1:5)<br/>수술방법(exact), 수술시점(±1년),<br/>수술시 나이(±5년)<br/>접종군 411 / 비접종군 1,815"]:::bb
+    B2 --> B3["1차 매칭 (1:up-to-5)<br/>수술방법(exact), 수술시점(±1년),<br/>수술시 나이(±5년)<br/>접종군 411 / 비접종군 1,815<br/>(mean ratio 4.42)"]:::bb
     B3 --> B4["적격성 필터<br/>· Index date ≤ 2020-12-31 (≥5년 추적)<br/>· 추적관찰 ≥2회<br/>접종군 411 / 비접종군 1,797 (제외 18)"]:::bb
-    B4 --> B5["2차 Fine matching (1:4)<br/>Index 시점 나이, BMI, 수술연도"]:::bb
+    B4 --> B5["2차 Fine matching (1:up-to-4)<br/>Index 시점 나이(±5y), BMI(±3), 수술연도(±1y)<br/>(mean ratio 3.60)"]:::bb
     B5 --> B6["<b>Cohort B 최종</b><br/>접종군 241 / 비접종군 867<br/><b>Total n = 1,108</b>"]:::bf
 
     classDef src fill:#e8f4f8,stroke:#1f6f8b,stroke-width:2px,color:#000
@@ -115,7 +115,7 @@ flowchart TD
 
 - **매칭 변수**: 생년월 ±5년
 - **알고리즘**: Greedy nearest matching, without replacement (random seed = 42)
-- **매칭 비율**: 1:4
+- **매칭 비율**: 1:up-to-4 variable-ratio (greedy nearest, no replacement). 매칭 후보가 4명 미만일 경우 가용한 만큼만 사용.
 - **Index date 부여**:
   - 접종군: 첫 백신 접종일
   - 비접종군: 매칭된 접종군의 첫 백신 접종일을 pseudo index date로 부여
@@ -148,18 +148,20 @@ flowchart TD
 
 ### 7.3 Matching procedure (2단계)
 
-**Step 1 — Initial matching (1:5)**
+**Step 1 — Initial matching (1:up-to-5, variable-ratio greedy)**
 - 매칭 변수: 수술방법 (원추절제술/자궁절제술, exact), 수술시점 (calendar year ±1년), 수술시 나이 (±5년)
-- 결과: 접종군 411 / 비접종군 1,815
+- 알고리즘: greedy nearest matching (sorted by combined age + year distance), without replacement. 매칭 후보가 5명 미만이면 가용한 수만 사용.
+- 결과: 접종군 411 / 비접종군 1,815 (mean ratio 4.42; full 5 매칭 256/411 = 62%, 0–4 controls 155/411 = 38%; 부족분은 surgery-method × year × age cell이 희소하거나 no-replacement로 인해 pool이 소진된 경우)
 
 **Step 2 — Index date 부여 및 적격성 필터링**
 - 접종군: 첫 백신 접종일
 - 비접종군: 비접종군 수술일 + 매칭된 접종군의 "수술-접종 간격(T)" → pseudo index date
 - Index date ≤ 2020-12-31 및 추적 ≥2회 충족 여부 확인 → 18명 제외 (접종군 411 / 비접종군 1,797)
 
-**Step 3 — Fine matching (1:4)**
-- 추가 매칭 변수: Index date 시점 나이, Index date에 가장 가까운 BMI, 수술연도
-- **최종**: 접종군 241 / 비접종군 867 (총 1,108명)
+**Step 3 — Fine matching (1:up-to-4, variable-ratio greedy)**
+- 추가 매칭 변수: Index date 시점 나이 (±5년), Index date에 가장 가까운 BMI (±3 kg/m²), 수술연도 (±1년)
+- 알고리즘: 정규화된 합산 거리 (age_diff/5 + bmi_diff/3 + year_diff/1) 기준 greedy nearest matching, without replacement. 매칭 후보가 4명 미만이면 가용한 수만 사용. BMI가 결측이거나 BMI 매칭 후보가 0인 경우 BMI 조건 무시.
+- **최종**: 접종군 241 / 비접종군 867 (총 1,108명; mean ratio 3.60; full 4 매칭 193/241 = 80%, 1–3 controls 48/241 = 20%)
 
 ### 7.4 Cohort B characteristics (post-matching)
 
