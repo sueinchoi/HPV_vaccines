@@ -4,7 +4,8 @@ Publication-level main figures with unified style.
 Outputs (300 dpi PNG, English-only):
   Figure1_CohortSelection.png      — CONSORT-like flow diagram
   Figure2_CohortA_CIF_HR.png       — Aalen-Johansen CIF + forest (Cohort A safety)
-  Figure3_CohortB_KaplanMeier.png  — KM curves with number-at-risk (Cohort B efficacy)
+  Figure3_CohortB_CIF.png          — Cumulative incidence (1−KM) curves with
+                                     number-at-risk tables (Cohort B efficacy)
   Figure4_CohortB_Subgroup.png     — JAMA-style table+forest combining
                                      Overall / by age / by vaccine type
                                      for both primary outcomes (replaces
@@ -486,8 +487,9 @@ def figure3():
         kmf_v.fit(v['time']/365.25, v['event'], label='Vaccinated')
         kmf_c.fit(c['time']/365.25, c['event'], label='Non-vaccinated')
 
-        kmf_v.plot_survival_function(ax=ax, ci_alpha=0.15, color=COL_VAC, lw=LINE_W)
-        kmf_c.plot_survival_function(ax=ax, ci_alpha=0.15, color=COL_CTL, lw=LINE_W)
+        # Cumulative incidence (1 − S(t)) instead of survival
+        kmf_v.plot_cumulative_density(ax=ax, ci_alpha=0.15, color=COL_VAC, lw=LINE_W)
+        kmf_c.plot_cumulative_density(ax=ax, ci_alpha=0.15, color=COL_CTL, lw=LINE_W)
 
         # Cox HR
         d = sub[['time','event','vac','index_age','fine_match_id']].dropna()
@@ -498,21 +500,23 @@ def figure3():
         hr = sm.loc['vac','exp(coef)']
         lo, hi = sm.loc['vac','exp(coef) lower 95%'], sm.loc['vac','exp(coef) upper 95%']
         p = sm.loc['vac','p']
-        ax.text(0.97, 0.97,
+        # HR text in lower-right (curves now rise from lower-left, so
+        # lower-right is the empty quadrant in both panels).
+        ax.text(0.97, 0.04,
                f"HR = {hr:.2f} (95% CI {lo:.2f}–{hi:.2f})\np = {p:.3f}",
-               transform=ax.transAxes, fontsize=10.5, va='top', ha='right',
+               transform=ax.transAxes, fontsize=10.5, va='bottom', ha='right',
                bbox=dict(facecolor='white', edgecolor=COL_LIGHTGREY, boxstyle='round,pad=0.45'))
 
         ax.set_xlim(0, max_year)
         ax.set_xticks(range(0, max_year+1, 2))
         if ev_col == 'has_hpv_infection':
-            ax.set_ylim(0.0, 1.02)
+            ax.set_ylim(0.0, 0.85)
         else:
-            ax.set_ylim(0.7, 1.02)
+            ax.set_ylim(0.0, 0.20)
         ax.set_xlabel('')  # at-risk row carries the time axis
-        ax.set_ylabel('Event-free probability')
+        ax.set_ylabel('Cumulative incidence')
         ax.set_title(title)
-        ax.legend(loc='lower left', fontsize=10)
+        ax.legend(loc='upper left', fontsize=10)
         style_axes(ax)
         panel_label(ax, plabel)
 
@@ -534,9 +538,9 @@ def figure3():
         ax_tab.text(max_year/2, -0.6, 'Years from index date',
                    fontsize=11, ha='center', color='#222')
 
-    plt.savefig('Data/Figure3_CohortB_KaplanMeier.png', dpi=300, bbox_inches='tight', facecolor='white')
+    plt.savefig('Data/Figure3_CohortB_CIF.png', dpi=300, bbox_inches='tight', facecolor='white')
     plt.close()
-    print('Saved: Data/Figure3_CohortB_KaplanMeier.png')
+    print('Saved: Data/Figure3_CohortB_CIF.png')
 
 # =====================================================================
 # Figure 4 — Combined subgroup forest (replaces old Figure 4 + Figure 5)
