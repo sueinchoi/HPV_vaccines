@@ -181,23 +181,25 @@ def figure1():
         fc='#fdedee', ec='#9b2226', fs=10.5)
 
     arrow(9.0, 6.97, 9.0, 6.7)
-    box(9.0, 6.15, 4.9, 1.05,
-        '1:5 initial match: surgery method (exact),\n'
-        'surgery year (±1 yr), age at surgery (±5 yr)\n'
-        'Vaccinated 411  /  Unvaccinated 1,815',
+    box(9.0, 6.15, 4.9, 1.15,
+        '1:up-to-5 variable-ratio match (greedy, no replacement):\n'
+        'surgery method (exact), year (±1 yr), age (±5 yr)\n'
+        'Vaccinated 411  /  Unvaccinated 1,815\n'
+        '(mean 4.42 controls per case)',
         fc='#fdedee', ec='#9b2226', fs=10.5)
 
-    arrow(9.0, 5.62, 9.0, 5.35)
+    arrow(9.0, 5.57, 9.0, 5.35)
     box(9.0, 4.8, 4.9, 1.05,
         'Index date filter: ≤ 31 Dec 2020,  ≥ 2 follow-up records\n'
         'Vaccinated 411  /  Unvaccinated 1,797   (excluded 18)',
         fc='#fdedee', ec='#9b2226', fs=10.5)
 
     arrow(9.0, 4.27, 9.0, 4.0)
-    box(9.0, 3.15, 4.9, 1.5,
+    box(9.0, 3.05, 4.9, 1.65,
         'Final Cohort B:  n = 1,108\n'
         'Vaccinated 241   /   Unvaccinated 867\n'
-        '(Fine 1:4 match on age, BMI, surgery year)\n\n'
+        '(Fine 1:up-to-4 variable-ratio match\n'
+        'on age, BMI, surgery year; mean 3.60)\n\n'
         'Outcomes: lesion recurrence, HPV reinfection',
         fc='#f4a4a8', ec='#9b2226', fs=11, weight='bold')
 
