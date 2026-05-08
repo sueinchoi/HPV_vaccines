@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>methods_cohortselection</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="Methods_CohortSelection_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Methods_CohortSelection_files/libs/quarto-html/quarto.js"></script>
+<script src="Methods_CohortSelection_files/libs/quarto-html/popper.min.js"></script>
+<script src="Methods_CohortSelection_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="Methods_CohortSelection_files/libs/quarto-html/anchor.min.js"></script>
+<link href="Methods_CohortSelection_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Methods_CohortSelection_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="Methods_CohortSelection_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="Methods_CohortSelection_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="Methods_CohortSelection_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+
+
+
+<section id="methods-study-design-and-cohort-selection" class="level1">
+<h1>Methods: Study Design and Cohort Selection</h1>
+<section id="study-design-overview" class="level2">
+<h2 class="anchored" data-anchor-id="study-design-overview">1. Study design overview</h2>
+<p>본 연구는 단일 의료기관 기반 한국 HPV 코호트(2009–2024년 등록)를 활용한 <strong>후향적 매칭 코호트 연구</strong>이다. HPV 백신 접종이 가지는 이중적 임상 가치 — (i) 다양한 만성질환 발생에 대한 광범위한 영향, (ii) 자궁경부 수술 환자에서의 병변 재발 예방 효과 — 를 단일 표본으로 검정하기 위해, 동일한 모집단으로부터 <strong>연구 질문에 따라 두 개의 분석 코호트를 순차적으로 구축</strong>하였다.</p>
+<section id="research-questions" class="level3">
+<h3 class="anchored" data-anchor-id="research-questions">1.1 Research questions</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>Research question</th>
+<th>분석 코호트</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Q1</strong></td>
+<td>HPV 백신 접종은 자궁경부 외 주요 만성질환(심뇌혈관·대사질환) 발생과 연관되어 있는가?</td>
+<td><strong>Cohort A</strong> (전체 코호트 기반)</td>
+</tr>
+<tr class="even">
+<td><strong>Q2</strong></td>
+<td>자궁경부 상피내 병변으로 수술적 치료를 받은 환자에서 HPV 백신 접종은 병변 재발 및 새로운 고위험 HPV 감염을 줄이는가?</td>
+<td><strong>Cohort B</strong> (수술 환자 한정)</td>
+</tr>
+</tbody>
+</table>
+<blockquote class="blockquote">
+<p>Q1을 먼저 평가함으로써 백신 접종군과 비접종군 간의 광범위한 임상적·인구학적 차이를 검토하고, 이어 Q2에서 수술 환자에 한정된 효능을 정밀하게 평가하는 <strong>순차적·계층적 분석 전략</strong>을 채택하였다.</p>
+</blockquote>
+<hr>
+</section>
+</section>
+<section id="source-population" class="level2">
+<h2 class="anchored" data-anchor-id="source-population">2. Source population</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>자료원</td>
+<td>한국 HPV 코호트 (단일 기관)</td>
+</tr>
+<tr class="even">
+<td>등록기간</td>
+<td>2009-01-01 – 2024-12-31</td>
+</tr>
+<tr class="odd">
+<td>모집단</td>
+<td>자궁경부 관련 진단·검사·수술 기록을 보유한 여성</td>
+</tr>
+<tr class="even">
+<td><strong>n (전체)</strong></td>
+<td><strong>32,969명</strong></td>
+</tr>
+<tr class="odd">
+<td>연결 가능한 도메인</td>
+<td>진단정보, 진단검사(Lab), 처방정보, 수술처방, 병리검사, 기초임상정보(키·몸무게·혈압·흡연), 코호트 메타데이터(생년월·사망·추적종료)</td>
+</tr>
+<tr class="even">
+<td>추적 종료일</td>
+<td>2025-12-31 (또는 사망/자격상실일)</td>
+</tr>
+</tbody>
+</table>
+<p>진단정보 파일에는 5개 주요 만성질환에 대한 임상 분류 라벨이 포함되어 있다: (1) 협심증/심근경색, (2) 고혈압, (3) 당뇨, (4) 뇌출혈/뇌경색, (5) 폐색전증.</p>
+<hr>
+</section>
+<section id="exposure-ascertainment" class="level2">
+<h2 class="anchored" data-anchor-id="exposure-ascertainment">3. Exposure ascertainment</h2>
+<p>처방정보 데이터에서 다음 키워드로 HPV 백신 접종 환자를 식별하였다 — <em>Gardasil</em>, <em>Gardasil 9</em>, <em>Cervarix</em>, <em>HPV vaccine</em>, 가다실, 서바릭스. 각 환자의 <strong>첫 접종일</strong>을 노출 시작 시점(index date)으로 정의하였다. 처방 기록이 전혀 없는 환자는 비접종군으로 분류하였다.</p>
+<ul>
+<li><strong>접종군</strong>: 2,156명 (6.5%)
+<ul>
+<li>Gardasil 9 (9가): 1,145 (53.1%)</li>
+<li>Cervarix (2가): 690 (32.0%)</li>
+<li>Gardasil (4가): 321 (14.9%)</li>
+</ul></li>
+<li><strong>비접종 후보군</strong>: 30,813명 (93.5%)</li>
+</ul>
+<hr>
+</section>
+<section id="two-analytic-cohorts" class="level2">
+<h2 class="anchored" data-anchor-id="two-analytic-cohorts">4. Two analytic cohorts</h2>
+<p>전체 코호트(N = 32,969)로부터 연구 질문에 맞춰 다음 두 코호트를 도출하였다.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th><strong>Cohort A</strong> (Whole-cohort)</th>
+<th><strong>Cohort B</strong> (Surgical)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>연구 질문</td>
+<td>Q1: 백신 ↔︎ 만성질환 발생</td>
+<td>Q2: 백신 ↔︎ 병변 재발·HPV 재감염</td>
+</tr>
+<tr class="even">
+<td>분석 모집단</td>
+<td>전체 코호트</td>
+<td>자궁경부 수술 시행자 (n = 6,890)</td>
+</tr>
+<tr class="odd">
+<td>매칭 비율</td>
+<td>1:4</td>
+<td>1:4 (1차 1:5 후 fine-matching)</td>
+</tr>
+<tr class="even">
+<td>매칭 변수</td>
+<td>생년월(±5년), index 시점 관찰가능성</td>
+<td>수술방법(exact), 수술시점(±1년), 수술시 나이(±5세), Index 시점 나이, BMI, 수술연도</td>
+</tr>
+<tr class="odd">
+<td>Index date (접종군)</td>
+<td>첫 백신 접종일</td>
+<td>첫 백신 접종일</td>
+</tr>
+<tr class="even">
+<td>Index date (비접종군)</td>
+<td>매칭된 접종군의 백신일 (pseudo)</td>
+<td>비접종군 수술일 + 매칭된 접종군의 “수술-접종 간격(T)”</td>
+</tr>
+<tr class="odd">
+<td><strong>최종 n</strong></td>
+<td><strong>10,775</strong> (접종 2,155 / 비접종 8,620)</td>
+<td><strong>1,108</strong> (접종 241 / 비접종 867)</td>
+</tr>
+<tr class="even">
+<td>Primary outcome</td>
+<td>5대 만성질환 발생</td>
+<td>병변 재발 (HSIL/CIN3 이상), 새로운 고위험 HPV 감염</td>
+</tr>
+</tbody>
+</table>
+<p>Cohort B는 Cohort A의 부분집합이며, 두 코호트는 <strong>각각 독립적으로 매칭</strong>되었다.</p>
+<hr>
+</section>
+<section id="cohort-selection-flow" class="level2">
+<h2 class="anchored" data-anchor-id="cohort-selection-flow">5. Cohort selection flow</h2>
+<pre class="mermaid"><code>flowchart TD
+    SRC["&lt;b&gt;Source population&lt;/b&gt;&lt;br/&gt;한국 HPV 코호트&lt;br/&gt;&lt;b&gt;N = 32,969&lt;/b&gt;"]:::src
+
+    SRC --&gt; EXP["HPV 백신 처방 이력 식별&lt;br/&gt;(Gardasil9 / Cervarix / Gardasil)&lt;br/&gt;접종군 n = 2,156&lt;br/&gt;비접종 후보 n = 30,813"]:::exp
+
+    EXP --&gt; SPLIT{{"분석 목적에 따른&lt;br/&gt;코호트 분기"}}:::split
+
+    %% Cohort A: Whole-cohort
+    SPLIT --&gt; A1["&lt;b&gt;Cohort A — Whole-cohort analysis&lt;/b&gt;&lt;br/&gt;Q1: 백신 ↔ 만성질환 발생"]:::ah
+    A1 --&gt; A2["적격성 필터&lt;br/&gt;· 생년월 정보 보유&lt;br/&gt;· Index date 시점 생존 및 추적가능"]:::ab
+    A2 --&gt; A3["1:4 Matching&lt;br/&gt;매칭변수: 생년월 ±5년&lt;br/&gt;(greedy nearest, no replacement)"]:::ab
+    A3 --&gt; A4["&lt;b&gt;Cohort A 최종&lt;/b&gt;&lt;br/&gt;접종군 2,155 (1명 매칭 실패)&lt;br/&gt;비접종군 8,620&lt;br/&gt;&lt;b&gt;Total n = 10,775&lt;/b&gt;"]:::af
+
+    %% Cohort B: Surgical
+    SPLIT --&gt; B1["&lt;b&gt;Cohort B — Surgical efficacy analysis&lt;/b&gt;&lt;br/&gt;Q2: 백신 ↔ 병변 재발·HPV 재감염"]:::bh
+    B1 --&gt; B2["자궁경부 수술 시행자 추출&lt;br/&gt;(원추절제술 또는 자궁절제술)&lt;br/&gt;&lt;b&gt;n = 6,890&lt;/b&gt;"]:::bb
+    B2 --&gt; B3["1차 매칭 (1:5)&lt;br/&gt;수술방법(exact), 수술시점(±1년),&lt;br/&gt;수술시 나이(±5년)&lt;br/&gt;접종군 411 / 비접종군 1,815"]:::bb
+    B3 --&gt; B4["적격성 필터&lt;br/&gt;· Index date ≤ 2020-12-31 (≥5년 추적)&lt;br/&gt;· 추적관찰 ≥2회&lt;br/&gt;접종군 411 / 비접종군 1,797 (제외 18)"]:::bb
+    B4 --&gt; B5["2차 Fine matching (1:4)&lt;br/&gt;Index 시점 나이, BMI, 수술연도"]:::bb
+    B5 --&gt; B6["&lt;b&gt;Cohort B 최종&lt;/b&gt;&lt;br/&gt;접종군 241 / 비접종군 867&lt;br/&gt;&lt;b&gt;Total n = 1,108&lt;/b&gt;"]:::bf
+
+    classDef src fill:#e8f4f8,stroke:#1f6f8b,stroke-width:2px,color:#000
+    classDef exp fill:#fff3cd,stroke:#856404,stroke-width:1.5px,color:#000
+    classDef split fill:#f0f0f0,stroke:#333,stroke-width:1.5px,color:#000
+    classDef ah fill:#d4edda,stroke:#155724,stroke-width:2px,color:#000
+    classDef ab fill:#eaf6ee,stroke:#155724,stroke-width:1px,color:#000
+    classDef af fill:#a8d5b5,stroke:#155724,stroke-width:2px,color:#000
+    classDef bh fill:#fde2e4,stroke:#9b2226,stroke-width:2px,color:#000
+    classDef bb fill:#fdedee,stroke:#9b2226,stroke-width:1px,color:#000
+    classDef bf fill:#f4a4a8,stroke:#9b2226,stroke-width:2px,color:#000</code></pre>
+<p><strong>Figure 1.</strong> Cohort selection flow diagram. 단일 모집단(N = 32,969)에서 연구 질문에 따라 Cohort A(전체 코호트, 만성질환 분석)와 Cohort B(수술 환자, 효능 분석)가 도출되었다.</p>
+<hr>
+</section>
+<section id="cohort-a-whole-cohort-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="cohort-a-whole-cohort-analysis">6. Cohort A — Whole-cohort analysis</h2>
+<section id="rationale" class="level3">
+<h3 class="anchored" data-anchor-id="rationale">6.1 Rationale</h3>
+<p>전체 코호트를 활용하여 (a) 통계적 검정력을 최대화하고, (b) 자궁경부 수술이라는 특정 시술에 의존하지 않는 백신 접종 효과의 광범위한 신호 — 특히 안전성 측면의 만성질환 발생 — 를 평가한다.</p>
+</section>
+<section id="eligibility" class="level3">
+<h3 class="anchored" data-anchor-id="eligibility">6.2 Eligibility</h3>
+<ul>
+<li><strong>포함</strong>: 생년월 정보가 확보되고, 접종군의 첫 백신 접종일(또는 매칭에 따른 pseudo index date) 시점에 생존하며 추적 가능한 환자</li>
+<li><strong>제외</strong>: 생년월 결측, Index date 시점 사망 또는 추적 종료</li>
+</ul>
+</section>
+<section id="matching-procedure" class="level3">
+<h3 class="anchored" data-anchor-id="matching-procedure">6.3 Matching procedure</h3>
+<ul>
+<li><strong>매칭 변수</strong>: 생년월 ±5년</li>
+<li><strong>알고리즘</strong>: Greedy nearest matching, without replacement (random seed = 42)</li>
+<li><strong>매칭 비율</strong>: 1:4</li>
+<li><strong>Index date 부여</strong>:
+<ul>
+<li>접종군: 첫 백신 접종일</li>
+<li>비접종군: 매칭된 접종군의 첫 백신 접종일을 pseudo index date로 부여</li>
+</ul></li>
+</ul>
+</section>
+<section id="cohort-a-characteristics-post-matching" class="level3">
+<h3 class="anchored" data-anchor-id="cohort-a-characteristics-post-matching">6.4 Cohort A characteristics (post-matching)</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>변수</th>
+<th>접종군 (n=2,155)</th>
+<th>비접종군 (n=8,620)</th>
+<th>|SMD|</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Age at index, years (mean ± SD)</td>
+<td>33.48 ± 9.15</td>
+<td>34.16 ± 9.22</td>
+<td>0.074</td>
+</tr>
+<tr class="even">
+<td>Birth year (mean ± SD)</td>
+<td>1982.31 ± 10.08</td>
+<td>1981.64 ± 10.07</td>
+<td>0.067</td>
+</tr>
+<tr class="odd">
+<td>Index year (mean ± SD)</td>
+<td>2015.74 ± 4.11</td>
+<td>2015.74 ± 4.11</td>
+<td>0.000</td>
+</tr>
+<tr class="even">
+<td>Follow-up days (mean ± SD)</td>
+<td>2,135 ± 1,733</td>
+<td>2,320 ± 1,567</td>
+<td>0.112</td>
+</tr>
+<tr class="odd">
+<td>Female (%)</td>
+<td>100.0</td>
+<td>100.0</td>
+<td>0.015</td>
+</tr>
+<tr class="even">
+<td>Mortality during follow-up (%)</td>
+<td>0.3</td>
+<td>0.4</td>
+<td>0.022</td>
+</tr>
+</tbody>
+</table>
+<p>매칭 변수(나이·생년월)에서 |SMD| &lt; 0.10으로 양호한 균형이 확인되었다.</p>
+<hr>
+</section>
+</section>
+<section id="cohort-b-surgical-efficacy-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="cohort-b-surgical-efficacy-analysis">7. Cohort B — Surgical efficacy analysis</h2>
+<section id="rationale-1" class="level3">
+<h3 class="anchored" data-anchor-id="rationale-1">7.1 Rationale</h3>
+<p>연구 계획서의 main analysis로, ASCUS/LSIL → HSIL/CIN3 이상으로 진행하여 수술적 치료(원추절제술 또는 자궁절제술)를 받은 환자에서 백신 접종이 병변 재발과 새로운 고위험 HPV 감염을 줄이는지 평가한다. 임상적으로 동질한 수술 환자에 한정함으로써 indication confounding을 줄이고 수술 방법·BMI 등 자궁경부 질환 특이적 변수를 매칭에 반영할 수 있다.</p>
+</section>
+<section id="eligibility-1" class="level3">
+<h3 class="anchored" data-anchor-id="eligibility-1">7.2 Eligibility</h3>
+<ul>
+<li><strong>포함</strong>: 자궁경부 수술 시행자(n = 6,890), Index date ≤ 2020-12-31 (≥5년 추적 확보 목적), 추적관찰 기록 2회 이상</li>
+<li><strong>제외</strong>: Index date 이전 재발, Index date 시점 사망/자격상실, 2020년 이후 백신 접종 완료, 매칭 실패</li>
+</ul>
+</section>
+<section id="matching-procedure-2단계" class="level3">
+<h3 class="anchored" data-anchor-id="matching-procedure-2단계">7.3 Matching procedure (2단계)</h3>
+<p><strong>Step 1 — Initial matching (1:5)</strong> - 매칭 변수: 수술방법 (원추절제술/자궁절제술, exact), 수술시점 (calendar year ±1년), 수술시 나이 (±5년) - 결과: 접종군 411 / 비접종군 1,815</p>
+<p><strong>Step 2 — Index date 부여 및 적격성 필터링</strong> - 접종군: 첫 백신 접종일 - 비접종군: 비접종군 수술일 + 매칭된 접종군의 “수술-접종 간격(T)” → pseudo index date - Index date ≤ 2020-12-31 및 추적 ≥2회 충족 여부 확인 → 18명 제외 (접종군 411 / 비접종군 1,797)</p>
+<p><strong>Step 3 — Fine matching (1:4)</strong> - 추가 매칭 변수: Index date 시점 나이, Index date에 가장 가까운 BMI, 수술연도 - <strong>최종</strong>: 접종군 241 / 비접종군 867 (총 1,108명)</p>
+</section>
+<section id="cohort-b-characteristics-post-matching" class="level3">
+<h3 class="anchored" data-anchor-id="cohort-b-characteristics-post-matching">7.4 Cohort B characteristics (post-matching)</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>변수</th>
+<th>접종군 (n=241)</th>
+<th>비접종군 (n=867)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Age at index, years (mean)</td>
+<td>37.26</td>
+<td>37.17</td>
+</tr>
+<tr class="even">
+<td>BMI, kg/m² (mean)</td>
+<td>22.34</td>
+<td>22.28</td>
+</tr>
+<tr class="odd">
+<td>Surgery year (mean)</td>
+<td>2016.18</td>
+<td>2016.27</td>
+</tr>
+<tr class="even">
+<td>Follow-up days (mean)</td>
+<td>2,234</td>
+<td>2,236</td>
+</tr>
+<tr class="odd">
+<td>원추절제술 (%)</td>
+<td>~99</td>
+<td>~99</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+</section>
+<section id="statistical-analysis-요약" class="level2">
+<h2 class="anchored" data-anchor-id="statistical-analysis-요약">8. Statistical analysis (요약)</h2>
+<p>각 코호트에 대해 다음 분석을 수행한다 (자세한 분석 계획은 별도 문서 참조).</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>분석</th>
+<th>Cohort A</th>
+<th>Cohort B</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Baseline 비교</td>
+<td>매칭 변수 SMD, 인구학·기저질환</td>
+<td>매칭 변수 SMD (Love plot)</td>
+</tr>
+<tr class="even">
+<td>발생률 비교</td>
+<td>Fisher’s exact (5대 만성질환, baseline·신규발생)</td>
+<td>n (%) 발생률</td>
+</tr>
+<tr class="odd">
+<td>Time-to-event</td>
+<td>(해당 없음)</td>
+<td>Kaplan-Meier, log-rank</td>
+</tr>
+<tr class="even">
+<td>다변량 모형</td>
+<td>Cox PH (보정: 잔여 불균형 변수)</td>
+<td>Cox PH (연령 보정), HR (95% CI)</td>
+</tr>
+<tr class="odd">
+<td>Subgroup</td>
+<td>연령군</td>
+<td>연령군, 백신 종류 (Gardasil9/Cervarix/Gardasil)</td>
+</tr>
+<tr class="even">
+<td>민감도</td>
+<td>추적기간 제한</td>
+<td>추적기간 제한, As-treated, Adjusted vs Unadjusted</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="reproducibility" class="level2">
+<h2 class="anchored" data-anchor-id="reproducibility">9. Reproducibility</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>항목</th>
+<th>값</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Random seed</td>
+<td>42 (numpy)</td>
+</tr>
+<tr class="even">
+<td>매칭 알고리즘</td>
+<td>Greedy nearest matching, without replacement</td>
+</tr>
+<tr class="odd">
+<td>Cohort A 빌드 스크립트</td>
+<td><code>scripts/comorbidity_matched_full.py</code></td>
+</tr>
+<tr class="even">
+<td>Cohort B 빌드 스크립트</td>
+<td><code>scripts/build_matched_cohort.py</code> → <code>scripts/build_final_cohort.py</code></td>
+</tr>
+<tr class="odd">
+<td>백신 식별 키워드</td>
+<td>Gardasil, Cervarix, HPV vaccine, 가다실, 서바릭스</td>
+</tr>
+<tr class="even">
+<td>인코딩</td>
+<td>원본 CP949, 가공 UTF-8-SIG</td>
+</tr>
+<tr class="odd">
+<td>산출물</td>
+<td><code>Data/full_cohort_age_matched.csv</code> (Cohort A), <code>Data/final_matched_cohort.csv</code> (Cohort B)</td>
+</tr>
+<tr class="even">
+<td>분석 일자</td>
+<td>2026-04-29</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

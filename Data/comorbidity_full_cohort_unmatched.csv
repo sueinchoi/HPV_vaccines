@@ -1,0 +1,27 @@
+﻿period,class,comorbidity,vac_n,vac_total,vac_pct,ctl_n,ctl_total,ctl_pct,OR,p_value,significant
+any-time,1,Angina/MI (협심증/심근경색),3,2156,0.139,36,30813,0.117,1.191,0.74039,False
+any-time,2,Hypertension (고혈압),18,2156,0.835,267,30813,0.867,0.963,1.0,False
+any-time,3,Diabetes (당뇨),36,2156,1.67,410,30813,1.331,1.259,0.17773,False
+any-time,4,Stroke (뇌출혈/뇌경색),0,2156,0.0,25,30813,0.081,0.0,0.40651,False
+any-time,5,PE (폐색전증),0,2156,0.0,9,30813,0.029,0.0,1.0,False
+any-time,composite,Any of 1-5,54,2156,2.505,646,30813,2.097,1.2,0.21555,False
+pre-vaccine_vs_anytime,1,Angina/MI (협심증/심근경색),0,2156,0.0,36,30813,0.117,0.0,0.17076,False
+pre-vaccine_vs_anytime,2,Hypertension (고혈압),10,2156,0.464,267,30813,0.867,0.533,0.04974,True
+pre-vaccine_vs_anytime,3,Diabetes (당뇨),14,2156,0.649,410,30813,1.331,0.485,0.00532,True
+pre-vaccine_vs_anytime,4,Stroke (뇌출혈/뇌경색),0,2156,0.0,25,30813,0.081,0.0,0.40651,False
+pre-vaccine_vs_anytime,5,PE (폐색전증),0,2156,0.0,9,30813,0.029,0.0,1.0,False
+post-vaccine_vs_anytime,1,Angina/MI (협심증/심근경색),3,2156,0.139,36,30813,0.117,1.191,0.74039,False
+post-vaccine_vs_anytime,2,Hypertension (고혈압),8,2156,0.371,267,30813,0.867,0.426,0.00992,True
+post-vaccine_vs_anytime,3,Diabetes (당뇨),22,2156,1.02,410,30813,1.331,0.764,0.24054,False
+post-vaccine_vs_anytime,4,Stroke (뇌출혈/뇌경색),0,2156,0.0,25,30813,0.081,0.0,0.40651,False
+post-vaccine_vs_anytime,5,PE (폐색전증),0,2156,0.0,9,30813,0.029,0.0,1.0,False
+post-vaccine_vs_pseudo-post,1,Angina/MI (협심증/심근경색),3,2156,0.139,26,30813,0.084,1.65,0.43478,False
+post-vaccine_vs_pseudo-post,2,Hypertension (고혈압),8,2156,0.371,159,30813,0.516,0.718,0.43387,False
+post-vaccine_vs_pseudo-post,3,Diabetes (당뇨),22,2156,1.02,289,30813,0.938,1.089,0.64553,False
+post-vaccine_vs_pseudo-post,4,Stroke (뇌출혈/뇌경색),0,2156,0.0,17,30813,0.055,0.0,0.62317,False
+post-vaccine_vs_pseudo-post,5,PE (폐색전증),0,2156,0.0,9,30813,0.029,0.0,1.0,False
+new-onset_post-index,1,Angina/MI (협심증/심근경색),3,2156,0.139,26,30803,0.084,1.649,0.43486,False
+new-onset_post-index,2,Hypertension (고혈압),8,2146,0.373,159,30705,0.518,0.719,0.43386,False
+new-onset_post-index,3,Diabetes (당뇨),22,2142,1.027,289,30692,0.942,1.092,0.64479,False
+new-onset_post-index,4,Stroke (뇌출혈/뇌경색),0,2156,0.0,17,30805,0.055,0.0,0.62318,False
+new-onset_post-index,5,PE (폐색전증),0,2156,0.0,9,30813,0.029,0.0,1.0,False

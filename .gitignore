@@ -1,2 +1,19 @@
-Data/한국 HPV 코호트 자료를 이용한 자_병리검사 (복구됨).CSV
+# ---- Raw cohort source data (contains PHI; never commit) ----
+Data/한국 HPV 코호트 자료를 이용한 자_*.csv
+Data/한국 HPV 코호트 자료를 이용한 자_*.CSV
+Data/한국 HPV 코호트 자료를 이용한 자_*.xlsx
+Data/한국 HPV 코호트 자료를 이용한 자_*.xls
 Data/pathology.csv
+
+# ---- OS / editor junk ----
+.DS_Store
+**/.DS_Store
+~$*
+**/~$*
+*.tmp
+
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*.pyo
+.ipynb_checkpoints/

@@ -1,0 +1,117 @@
+﻿block,variable,vaccinated,non_vaccinated,p_value,abs_SMD
+CohortA_pre,Demographics,,,,
+CohortA_pre,"  Age at index, years",33.46 ± 9.18,46.90 ± 14.50,<0.001,1.108
+CohortA_pre,  Birth year,1982.32 ± 10.10,1968.93 ± 13.91,<0.001,1.102
+CohortA_pre,  Index year,2015.73 ± 4.11,2015.77 ± 4.11,0.703,0.008
+CohortA_pre,  Residence in Seoul,739 (34.3%),9031 (29.3%),<0.001,0.107
+CohortA_pre,"Anthropometry & Vital signs (closest to index, ±1 yr)",,,,
+CohortA_pre,"  Height, cm",161.37 ± 5.32,158.56 ± 6.63,<0.001,0.468
+CohortA_pre,"  Weight, kg",57.50 ± 9.73,57.82 ± 9.73,0.365,0.033
+CohortA_pre,"  BMI, kg/m²",22.12 ± 3.53,23.34 ± 10.32,<0.001,0.158
+CohortA_pre,"  Systolic BP, mmHg",113.01 ± 13.22,119.72 ± 17.44,<0.001,0.434
+CohortA_pre,"  Diastolic BP, mmHg",70.64 ± 10.65,74.21 ± 15.74,<0.001,0.265
+CohortA_pre,Smoking status,,,,
+CohortA_pre,  Never,675 (31.3%),6582 (21.4%),<0.001,0.227
+CohortA_pre,  Former,10 (0.5%),100 (0.3%),0.248,0.022
+CohortA_pre,  Current,37 (1.7%),246 (0.8%),<0.001,0.082
+CohortA_pre,  Unknown,1434 (66.5%),23885 (77.5%),<0.001,0.247
+CohortA_pre,Pre-existing comorbidities (before index),,,,
+CohortA_pre,  협심증/심근경색,0 (0.0%),12 (0.0%),1.000,0.028
+CohortA_pre,  고혈압,10 (0.5%),115 (0.4%),0.468,0.014
+CohortA_pre,  당뇨,14 (0.6%),128 (0.4%),0.122,0.032
+CohortA_pre,  뇌출혈/뇌경색,0 (0.0%),8 (0.0%),1.000,0.023
+CohortA_pre,  폐색전증,0 (0.0%),1 (0.0%),1.000,0.008
+CohortA_pre,  Composite (any of 5),24 (1.1%),227 (0.7%),0.071,0.039
+CohortA_pre,Follow-up,,,,
+CohortA_pre,"  Follow-up, days",2134.52 ± 1733.35,2058.48 ± 2146.15,0.053,0.039
+CohortA_pre,  Mortality during follow-up,6 (0.3%),283 (0.9%),<0.001,0.083
+CohortA_post,Demographics,,,,
+CohortA_post,"  Age at index, years",33.73 ± 9.14,33.55 ± 11.46,0.570,0.018
+CohortA_post,  Birth year,1982.04 ± 10.06,1981.29 ± 11.21,0.023,0.071
+CohortA_post,  Index year,2015.73 ± 4.12,2014.79 ± 3.81,<0.001,0.238
+CohortA_post,  Residence in Seoul,714 (34.8%),708 (34.5%),0.870,0.006
+CohortA_post,"Anthropometry & Vital signs (closest to index, ±1 yr)",,,,
+CohortA_post,"  Height, cm",161.36 ± 5.33,160.63 ± 5.34,0.005,0.136
+CohortA_post,"  Weight, kg",57.58 ± 9.81,56.87 ± 10.12,0.147,0.071
+CohortA_post,"  BMI, kg/m²",22.15 ± 3.56,22.06 ± 3.69,0.634,0.024
+CohortA_post,"  Systolic BP, mmHg",113.36 ± 13.26,112.64 ± 15.01,0.272,0.051
+CohortA_post,"  Diastolic BP, mmHg",70.86 ± 10.70,70.44 ± 11.03,0.402,0.039
+CohortA_post,Smoking status,,,,
+CohortA_post,  Never,629 (30.6%),624 (30.4%),0.892,0.005
+CohortA_post,  Former,9 (0.4%),7 (0.3%),0.803,0.016
+CohortA_post,  Current,31 (1.5%),35 (1.7%),0.710,0.015
+CohortA_post,  Unknown,1384 (67.4%),1387 (67.6%),0.947,0.003
+CohortA_post,Pre-existing comorbidities (before index),,,,
+CohortA_post,  협심증/심근경색,0 (0.0%),0 (0.0%),1.000,-
+CohortA_post,  고혈압,9 (0.4%),5 (0.2%),0.423,0.033
+CohortA_post,  당뇨,14 (0.7%),10 (0.5%),0.540,0.026
+CohortA_post,  뇌출혈/뇌경색,0 (0.0%),0 (0.0%),1.000,-
+CohortA_post,  폐색전증,0 (0.0%),0 (0.0%),1.000,-
+CohortA_post,  Composite (any of 5),23 (1.1%),15 (0.7%),0.254,0.041
+CohortA_post,Follow-up,,,,
+CohortA_post,"  Follow-up, days",2195.52 ± 1721.94,2725.86 ± 1581.00,<0.001,0.321
+CohortA_post,  Mortality during follow-up,5 (0.2%),23 (1.1%),<0.001,0.107
+CohortB_pre,Demographics,,,,
+CohortB_pre,"  Age at index, years",36.40 ± 9.40,49.31 ± 12.94,<0.001,1.141
+CohortB_pre,  Birth year,1979.96 ± 10.11,1968.29 ± 13.07,<0.001,0.998
+CohortB_pre,  Index year,2016.32 ± 4.24,2017.53 ± 4.01,<0.001,0.295
+CohortB_pre,  Residence in Seoul,164 (29.0%),1320 (20.9%),<0.001,0.188
+CohortB_pre,"Anthropometry & Vital signs (closest to index, ±1 yr)",,,,
+CohortB_pre,"  Height, cm",161.21 ± 5.39,157.99 ± 6.51,<0.001,0.539
+CohortB_pre,"  Weight, kg",57.47 ± 9.65,58.12 ± 9.71,0.229,0.067
+CohortB_pre,"  BMI, kg/m²",22.12 ± 3.54,23.56 ± 9.25,<0.001,0.205
+CohortB_pre,"  Systolic BP, mmHg",113.21 ± 13.44,117.45 ± 15.69,<0.001,0.290
+CohortB_pre,"  Diastolic BP, mmHg",72.17 ± 11.04,73.39 ± 11.73,0.035,0.107
+CohortB_pre,Smoking status,,,,
+CohortB_pre,  Never,207 (36.6%),3380 (53.4%),<0.001,0.344
+CohortB_pre,  Former,3 (0.5%),31 (0.5%),0.756,0.006
+CohortB_pre,  Current,17 (3.0%),146 (2.3%),0.310,0.043
+CohortB_pre,  Unknown,339 (59.9%),2767 (43.8%),<0.001,0.327
+CohortB_pre,Pre-existing comorbidities (before index),,,,
+CohortB_pre,  협심증/심근경색,0 (0.0%),9 (0.1%),1.000,0.053
+CohortB_pre,  고혈압,5 (0.9%),132 (2.1%),0.057,0.100
+CohortB_pre,  당뇨,4 (0.7%),154 (2.4%),0.005,0.139
+CohortB_pre,  뇌출혈/뇌경색,0 (0.0%),11 (0.2%),1.000,0.059
+CohortB_pre,  폐색전증,0 (0.0%),4 (0.1%),1.000,0.036
+CohortB_pre,  Composite (any of 5),9 (1.6%),262 (4.1%),0.001,0.153
+CohortB_pre,Surgery type,,,,
+CohortB_pre,  원추절제술,545 (96.3%),4965 (78.5%),<0.001,0.556
+CohortB_pre,  자궁절제술,21 (3.7%),1359 (21.5%),<0.001,0.556
+CohortB_pre,"  Age at surgery, years",36.81 ± 9.41,48.67 ± 12.91,<0.001,1.049
+CohortB_pre,  Surgery year,2016.72 ± 4.22,2016.89 ± 3.87,0.330,0.044
+CohortB_pre,"  Surgery → index, days",-149.37 ± 954.96,232.33 ± 381.31,<0.001,0.525
+CohortB_pre,Follow-up,,,,
+CohortB_pre,"  Follow-up, days",2082.03 ± 1615.73,1623.30 ± 1491.23,<0.001,0.295
+CohortB_pre,  Mortality during follow-up,1 (0.2%),73 (1.2%),0.030,0.120
+CohortB_post,Demographics,,,,
+CohortB_post,"  Age at index, years",37.26 ± 9.45,37.17 ± 8.53,0.899,0.010
+CohortB_post,  Birth year,1979.56 ± 10.22,1979.57 ± 9.43,0.995,0.000
+CohortB_post,  Index year,2016.76 ± 3.82,2016.69 ± 3.74,0.798,0.019
+CohortB_post,  Residence in Seoul,66 (27.4%),257 (29.6%),0.522,0.050
+CohortB_post,"Anthropometry & Vital signs (closest to index, ±1 yr)",,,,
+CohortB_post,"  Height, cm",160.38 ± 4.95,160.97 ± 5.43,0.203,0.113
+CohortB_post,"  Weight, kg",57.14 ± 9.11,57.14 ± 9.39,0.996,0.000
+CohortB_post,"  BMI, kg/m²",22.19 ± 3.52,22.15 ± 3.44,0.922,0.009
+CohortB_post,"  Systolic BP, mmHg",113.43 ± 13.03,112.72 ± 13.74,0.513,0.053
+CohortB_post,"  Diastolic BP, mmHg",72.06 ± 10.53,71.31 ± 11.83,0.398,0.067
+CohortB_post,Smoking status,,,,
+CohortB_post,  Never,110 (45.6%),379 (43.7%),0.608,0.039
+CohortB_post,  Former,0 (0.0%),6 (0.7%),0.350,0.118
+CohortB_post,  Current,10 (4.1%),29 (3.3%),0.554,0.042
+CohortB_post,  Unknown,121 (50.2%),453 (52.2%),0.610,0.041
+CohortB_post,Pre-existing comorbidities (before index),,,,
+CohortB_post,  협심증/심근경색,0 (0.0%),0 (0.0%),1.000,-
+CohortB_post,  고혈압,4 (1.7%),6 (0.7%),0.238,0.090
+CohortB_post,  당뇨,3 (1.2%),11 (1.3%),1.000,0.002
+CohortB_post,  뇌출혈/뇌경색,0 (0.0%),0 (0.0%),1.000,-
+CohortB_post,  폐색전증,0 (0.0%),0 (0.0%),1.000,-
+CohortB_post,  Composite (any of 5),7 (2.9%),15 (1.7%),0.293,0.078
+CohortB_post,Surgery type,,,,
+CohortB_post,  원추절제술,240 (99.6%),861 (99.3%),1.000,0.037
+CohortB_post,  자궁절제술,1 (0.4%),6 (0.7%),1.000,0.037
+CohortB_post,"  Age at surgery, years",36.68 ± 9.27,36.75 ± 8.51,0.907,0.009
+CohortB_post,  Surgery year,2016.18 ± 3.79,2016.27 ± 3.72,0.754,0.023
+CohortB_post,"  Surgery → index, days",213.25 ± 380.70,153.59 ± 209.66,0.020,0.194
+CohortB_post,Follow-up,,,,
+CohortB_post,"  Follow-up, days",2233.95 ± 1404.53,2236.13 ± 1351.73,0.983,0.002
+CohortB_post,  Mortality during follow-up,0 (0.0%),4 (0.5%),0.582,0.096
