@@ -59,10 +59,18 @@ B = B.merge(pre_summary, on='연구번호', how='left')
 post = hpv_b[hpv_b['실시일자_dt'] > hpv_b['index_date']].copy()
 post['detect']   = post['판독결과'].apply(detect_high_risk_hpv)
 post['post_pos'] = post['detect'].apply(lambda r: r['is_high_risk_hpv_positive'])
-neg = post[~post['post_pos']]
-first_neg = neg.sort_values(['연구번호','실시일자_dt']).groupby('연구번호').first().reset_index()[
-    ['연구번호','실시일자_dt']].rename(columns={'실시일자_dt':'first_neg_date'})
-B = B.merge(first_neg, on='연구번호', how='left')
+post = post.sort_values(['연구번호','실시일자_dt'])
+
+# PRIMARY clearance = first of two consecutive negative records
+def first_two_consecutive_neg(g):
+    g = g.reset_index(drop=True)
+    for i in range(len(g) - 1):
+        if (not g.loc[i, 'post_pos']) and (not g.loc[i+1, 'post_pos']):
+            return g.loc[i, '실시일자_dt']
+    return None
+two_neg = post.groupby('연구번호').apply(first_two_consecutive_neg)
+two_neg = two_neg.dropna().rename('first_neg_date').reset_index()
+B = B.merge(two_neg, on='연구번호', how='left')
 
 # Outcome times
 B['rec_event']  = B['has_recurrence'].astype(int)

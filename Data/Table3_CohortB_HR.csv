@@ -1,7 +1,7 @@
 ﻿Outcome,Favourable direction,Vaccinated events / N,Vaccinated PY (rate /1000 PY),Non-vaccinated events / N,Non-vaccinated PY (rate /1000 PY),HR (95% CI),p value
 Lesion recurrence (≥CIN2 / HSIL+ or invasive carcinoma),HR<1,13 / 241,1405 (9.2),57 / 867,5052 (11.3),0.80 (0.44–1.43),0.445
-hr-HPV clearance / regression (pre-vaccine HPV+ baseline),HR>1,55 / 110,326 (168.9),74 / 182,628 (117.8),1.23 (0.89–1.72),0.214
+hr-HPV clearance / regression (pre-vaccine HPV+ baseline),HR>1,40 / 110,402 (99.5),48 / 182,764 (62.8),1.40 (0.92–2.11),0.114
 "Post-index hr-HPV detection (sensitivity, full cohort)",HR<1,149 / 241,816 (182.7),546 / 867,2693 (202.8),0.91 (0.76–1.08),0.272
 Novel-type acquisition (post-index type not in pre-vaccine baseline),HR<1,46 / 206,969 (47.5),107 / 583,2721 (39.3),1.21 (0.87–1.69),0.248
-HPV-16 clearance (pre-vaccine 16+ baseline),HR>1,47 / 64,113 (414.6),54 / 80,183 (295.0),1.07 (0.76–1.51),0.678
-HPV-18 clearance (pre-vaccine 18+ baseline),HR>1,28 / 45,94 (296.7),36 / 57,125 (289.1),0.90 (0.61–1.32),0.585
+HPV-16 clearance (pre-vaccine 16+ baseline),HR>1,42 / 64,160 (262.2),48 / 80,210 (228.2),1.05 (0.74–1.49),0.785
+HPV-18 clearance (pre-vaccine 18+ baseline),HR>1,25 / 45,123 (204.0),33 / 57,138 (239.8),0.84 (0.56–1.26),0.398

@@ -66,19 +66,31 @@ post['post_types'] = post['detect'].apply(
     lambda r: set(t for t in r['detected_hpv_types'] if isinstance(t, int)))
 post = post.sort_values(['연구번호','실시일자_dt'])
 
-# First HPV-negative test
-neg = post[~post['post_pos']]
-first_neg = neg.groupby('연구번호').first().reset_index()[['연구번호','실시일자_dt']]
-first_neg.columns = ['연구번호','first_neg_date']
-B = B.merge(first_neg, on='연구번호', how='left')
-neg16 = post[~post['post_types'].apply(lambda s: 16 in s)]
-first_neg16 = neg16.groupby('연구번호').first().reset_index()[['연구번호','실시일자_dt']]
-first_neg16.columns = ['연구번호','first_neg16_date']
-B = B.merge(first_neg16, on='연구번호', how='left')
-neg18 = post[~post['post_types'].apply(lambda s: 18 in s)]
-first_neg18 = neg18.groupby('연구번호').first().reset_index()[['연구번호','실시일자_dt']]
-first_neg18.columns = ['연구번호','first_neg18_date']
-B = B.merge(first_neg18, on='연구번호', how='left')
+# PRIMARY clearance event = first of two consecutive negative records
+def first_two_consecutive(g, neg_predicate):
+    g = g.sort_values('실시일자_dt').reset_index(drop=True)
+    flags = neg_predicate(g)
+    for i in range(len(g) - 1):
+        if flags.iloc[i] and flags.iloc[i+1]:
+            return g.loc[i, '실시일자_dt']
+    return None
+
+print('Computing two-consecutive-negative dates...')
+two_neg = post.groupby('연구번호').apply(
+    lambda g: first_two_consecutive(g, lambda gg: ~gg['post_pos'])
+).dropna().rename('first_neg_date').reset_index()
+B = B.merge(two_neg, on='연구번호', how='left')
+
+# Type-specific (16, 18) two-consecutive negatives
+two_neg16 = post.groupby('연구번호').apply(
+    lambda g: first_two_consecutive(g, lambda gg: ~gg['post_types'].apply(lambda s: 16 in s))
+).dropna().rename('first_neg16_date').reset_index()
+B = B.merge(two_neg16, on='연구번호', how='left')
+
+two_neg18 = post.groupby('연구번호').apply(
+    lambda g: first_two_consecutive(g, lambda gg: ~gg['post_types'].apply(lambda s: 18 in s))
+).dropna().rename('first_neg18_date').reset_index()
+B = B.merge(two_neg18, on='연구번호', how='left')
 
 # Novel-type
 post_by_pid = {pid: g for pid, g in post.groupby('연구번호')}

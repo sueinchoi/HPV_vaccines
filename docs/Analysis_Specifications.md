@@ -134,10 +134,11 @@ Two-step variable-ratio greedy matching, **without replacement**. Requested rati
   - **Pre-vaccine baseline** = union of hr-HPV types detected on any molecular pathology record with `실시일자 < index_date`. The pre-vaccine baseline (rather than pre-surgery) anchors the temporal frame to the start of exposure for both arms (the pseudo-index for unvaccinated controls).
   - **Matched-set integrity**: drop fine_match_ids whose vaccinated case lacks the qualifying baseline; drop non-vaccinated members who themselves lack a pre-vaccine HPV+ test.
 - **Source**: `병리검사구분 ∈ {'분자병리','HPV'}` records with `실시일자 > index_date`.
-- **Event**: first post-index molecular pathology record explicitly negative for hr-HPV (`detect_high_risk_hpv` returns `is_high_risk_hpv_positive = False`).
-- **Event date**: `first_neg_date`.
+- **Event**: date of the FIRST of two **consecutive** post-index molecular pathology records explicitly negative for hr-HPV (`detect_high_risk_hpv` returns `is_high_risk_hpv_positive = False` for two adjacent records by date). The two-consecutive-negative requirement follows Bouvard (2009) and Insinga (2010), guarding against single-negative misclassification from imperfect assay sensitivity (~5–10% false-negative rate) or transient viral-load fluctuation.
+- **Event date**: `first_neg_date` (= first of the two consecutive negatives).
 - **Direction**: **HR > 1** favours vaccination (faster clearance).
-- Events 55 vac / 74 non-vac.
+- Events 40 vac / 48 non-vac.
+- A single-negative-test definition is reported as a sensitivity (Sens-M, see §4.5).
 
 ### 4.5 Sensitivity outcomes (Cohort B)
 
@@ -155,7 +156,7 @@ Two-step variable-ratio greedy matching, **without replacement**. Requested rati
 | Sens-J | Restricted follow-up (3-y / 5-y) and unadjusted | Full cohort or clearance subset | Same as primary, censored | Index | – | `Data/sensitivity_analysis_both_outcomes.csv` |
 | Sens-K | Age-stratified lesion recurrence × FU window | Full Cohort B by age stratum | Lesion recurrence censored at window | Index | HR < 1 | `Data/CohortB_age_fu_forest.csv` |
 | Sens-L | Time-stratified clearance HR (0–6, 6–12, 12–24, ≥24 mo) | Clearance subset | Same as P2; restricted to events within each window | Index + window lower bound | HR > 1 | `Data/Sensitivity_HPV_Clearance_TimeStratified.csv` |
-| Sens-M | Two-consecutive-negative clearance | Clearance subset | First of two consecutive post-index hr-HPV-negative records | Index | HR > 1 | `Data/Sensitivity_HPV_Clearance_TwoNegative.csv` |
+| Sens-M | Single-negative clearance (alternative to primary two-negative) | Clearance subset | First single post-index hr-HPV-negative record | Index | HR > 1 | `Data/Sensitivity_HPV_Clearance_SingleNegative.csv` |
 | Sens-N | Lesion recurrence with minimum disease-free interval (3 / 6 / 12 mo) | Full Cohort B, restricted to those without recurrence before the minimum interval | Lesion recurrence after the minimum interval | Index + minimum interval | HR < 1 | `Data/Sensitivity_Recurrence_DFInterval.csv` |
 
 ### 4.6 Statistical model (both co-primary outcomes)
@@ -180,8 +181,8 @@ Two-step variable-ratio greedy matching, **without replacement**. Requested rati
 | Event source | Diagnosis records (5 chronic) | Tissue pathology (조직병리) | Molecular pathology (분자병리/HPV) |
 | Event definition | First post-index ICD-10 group hit | First post-index ≥CIN2 (HSIL+) | First post-index hr-HPV-NEG record |
 | Favourable HR direction | HR < 1 | HR < 1 | **HR > 1** |
-| Primary HR (95% CI) | 1.26 (0.75–2.12) Any-of-5 | 0.80 (0.44–1.43) | 1.23 (0.89–1.72) |
-| p value | 0.38 | 0.45 | 0.21 |
+| Primary HR (95% CI) | 1.26 (0.75–2.12) Any-of-5 | 0.80 (0.44–1.43) | 1.40 (0.92–2.11) |
+| p value | 0.37 | 0.45 | 0.11 |
 
 All point estimates non-significant at the conventional α = 0.05 threshold.
 
