@@ -435,81 +435,101 @@ def figure2(m):
 # Figure 3 — Cohort B Kaplan-Meier with at-risk tables
 # =====================================================================
 def figure3():
-    print('  Building Figure 3 (Cohort B KM)...')
+    """Cohort B co-primary outcomes:
+       a) Cumulative incidence of lesion recurrence (whole cohort)
+       b) Cumulative clearance probability of pre-existing hr-HPV
+          (subset with documented pre-vaccine hr-HPV+ baseline)
+    """
+    print('  Building Figure 3 (Cohort B co-primary CIF)...')
     B = pd.read_csv('Data/final_matched_outcomes.csv', encoding='utf-8-sig')
     B['index_date'] = pd.to_datetime(B['index_date'])
     B['recurrence_date'] = pd.to_datetime(B['recurrence_date'], errors='coerce')
-    B['hpv_infection_date'] = pd.to_datetime(B['hpv_infection_date'], errors='coerce')
     B['vac'] = B['접종여부'].astype(bool).astype(int)
     B['follow_up_days'] = pd.to_numeric(B['follow_up_days'], errors='coerce')
     B['index_age'] = pd.to_numeric(B['index_age'], errors='coerce')
+
+    # Load clearance analytic dataset (pre-vaccine baseline, any-clearance)
+    BC = pd.read_csv('Data/CohortB_Clearance_Analytic.csv', encoding='utf-8-sig')
+    BC['index_date']     = pd.to_datetime(BC['index_date'])
+    BC['first_neg_date'] = pd.to_datetime(BC['first_neg_date'], errors='coerce')
 
     fig = plt.figure(figsize=(14, 8.4))
     gs = GridSpec(2, 2, figure=fig,
                  height_ratios=[3.4, 1.1], hspace=0.32, wspace=0.26,
                  left=0.07, right=0.98, top=0.96, bottom=0.07)
-
-    outcomes = [('a', 'Lesion recurrence (HSIL/CIN3+)', 'recurrence_date', 'has_recurrence', 0),
-                ('b', 'New high-risk HPV infection',     'hpv_infection_date','has_hpv_infection', 1)]
     max_year = 10
 
-    for plabel, title, ev_date, ev_col, col_pos in outcomes:
-        ax = fig.add_subplot(gs[0, col_pos])
-        sub = B.copy()
-        sub['time'] = np.where(sub[ev_date].notna(),
-                              (sub[ev_date]-sub['index_date']).dt.days,
-                              sub['follow_up_days'])
-        sub['event'] = sub[ev_col].astype(int)
-        sub = sub[sub['time'] > 0]
+    # ---- Panel a: Lesion recurrence (cumulative incidence rises) ----
+    ax_a = fig.add_subplot(gs[0, 0])
+    sub_a = B.copy()
+    sub_a['time'] = np.where(sub_a['recurrence_date'].notna(),
+                              (sub_a['recurrence_date']-sub_a['index_date']).dt.days,
+                              sub_a['follow_up_days'])
+    sub_a['event'] = sub_a['has_recurrence'].astype(int)
+    sub_a = sub_a[sub_a['time'] > 0]
+    v_a = sub_a[sub_a['vac']==1]; c_a = sub_a[sub_a['vac']==0]
+    kmf_v = KaplanMeierFitter().fit(v_a['time']/365.25, v_a['event'], label='Vaccinated')
+    kmf_c = KaplanMeierFitter().fit(c_a['time']/365.25, c_a['event'], label='Non-vaccinated')
+    kmf_v.plot_cumulative_density(ax=ax_a, ci_alpha=0.15, color=COL_VAC, lw=LINE_W)
+    kmf_c.plot_cumulative_density(ax=ax_a, ci_alpha=0.15, color=COL_CTL, lw=LINE_W)
 
-        kmf_v = KaplanMeierFitter(); kmf_c = KaplanMeierFitter()
-        v = sub[sub['vac']==1]; c = sub[sub['vac']==0]
-        kmf_v.fit(v['time']/365.25, v['event'], label='Vaccinated')
-        kmf_c.fit(c['time']/365.25, c['event'], label='Non-vaccinated')
+    cph = CoxPHFitter().fit(
+        sub_a[['time','event','vac','index_age','fine_match_id']].dropna(),
+        duration_col='time', event_col='event', cluster_col='fine_match_id', robust=True)
+    sm = cph.summary; hr=sm.loc['vac','exp(coef)']
+    lo=sm.loc['vac','exp(coef) lower 95%']; hi=sm.loc['vac','exp(coef) upper 95%']
+    pv=sm.loc['vac','p']
+    ax_a.text(0.97, 0.04,
+              f"HR = {hr:.2f} (95% CI {lo:.2f}–{hi:.2f})\np = {pv:.3f}",
+              transform=ax_a.transAxes, fontsize=10.5, va='bottom', ha='right',
+              bbox=dict(facecolor='white', edgecolor=COL_LIGHTGREY, boxstyle='round,pad=0.45'))
+    ax_a.set_xlim(0, max_year); ax_a.set_ylim(0.0, 0.20)
+    ax_a.set_xticks(range(0, max_year+1, 2))
+    ax_a.set_xlabel(''); ax_a.set_ylabel('Cumulative incidence')
+    ax_a.set_title('Lesion recurrence (HSIL/CIN3+)')
+    ax_a.legend(loc='upper left', fontsize=10)
+    style_axes(ax_a); panel_label(ax_a, 'a')
 
-        # Cumulative incidence (1 − S(t)) instead of survival
-        kmf_v.plot_cumulative_density(ax=ax, ci_alpha=0.15, color=COL_VAC, lw=LINE_W)
-        kmf_c.plot_cumulative_density(ax=ax, ci_alpha=0.15, color=COL_CTL, lw=LINE_W)
+    # ---- Panel b: hr-HPV clearance (cumulative clearance probability) ----
+    ax_b = fig.add_subplot(gs[0, 1])
+    sub_b = BC.copy()
+    sub_b['time']  = np.where(sub_b['first_neg_date'].notna(),
+                               (sub_b['first_neg_date']-sub_b['index_date']).dt.days,
+                               sub_b['follow_up_days'])
+    sub_b['event'] = sub_b['first_neg_date'].notna().astype(int)
+    sub_b = sub_b[sub_b['time'] > 0]
+    v_b = sub_b[sub_b['vac']==1]; c_b = sub_b[sub_b['vac']==0]
+    kmf_v2 = KaplanMeierFitter().fit(v_b['time']/365.25, v_b['event'], label='Vaccinated')
+    kmf_c2 = KaplanMeierFitter().fit(c_b['time']/365.25, c_b['event'], label='Non-vaccinated')
+    kmf_v2.plot_cumulative_density(ax=ax_b, ci_alpha=0.15, color=COL_VAC, lw=LINE_W)
+    kmf_c2.plot_cumulative_density(ax=ax_b, ci_alpha=0.15, color=COL_CTL, lw=LINE_W)
 
-        # Cox HR
-        d = sub[['time','event','vac','index_age','fine_match_id']].dropna()
-        cph = CoxPHFitter()
-        cph.fit(d, duration_col='time', event_col='event',
-               cluster_col='fine_match_id', robust=True)
-        sm = cph.summary
-        hr = sm.loc['vac','exp(coef)']
-        lo, hi = sm.loc['vac','exp(coef) lower 95%'], sm.loc['vac','exp(coef) upper 95%']
-        p = sm.loc['vac','p']
-        # HR text in lower-right (curves now rise from lower-left, so
-        # lower-right is the empty quadrant in both panels).
-        ax.text(0.97, 0.04,
-               f"HR = {hr:.2f} (95% CI {lo:.2f}–{hi:.2f})\np = {p:.3f}",
-               transform=ax.transAxes, fontsize=10.5, va='bottom', ha='right',
-               bbox=dict(facecolor='white', edgecolor=COL_LIGHTGREY, boxstyle='round,pad=0.45'))
+    cph2 = CoxPHFitter().fit(
+        sub_b[['time','event','vac','index_age','fine_match_id']].dropna(),
+        duration_col='time', event_col='event', cluster_col='fine_match_id', robust=True)
+    sm2 = cph2.summary; hr2=sm2.loc['vac','exp(coef)']
+    lo2=sm2.loc['vac','exp(coef) lower 95%']; hi2=sm2.loc['vac','exp(coef) upper 95%']
+    pv2=sm2.loc['vac','p']
+    ax_b.text(0.55, 0.05,
+              f"HR = {hr2:.2f} (95% CI {lo2:.2f}–{hi2:.2f})\np = {pv2:.3f}",
+              transform=ax_b.transAxes, fontsize=10.5, va='bottom', ha='center',
+              bbox=dict(facecolor='white', edgecolor=COL_LIGHTGREY, boxstyle='round,pad=0.45'))
+    ax_b.set_xlim(0, max_year); ax_b.set_ylim(0.0, 0.85)
+    ax_b.set_xticks(range(0, max_year+1, 2))
+    ax_b.set_xlabel(''); ax_b.set_ylabel('Cumulative clearance probability')
+    ax_b.set_title('hr-HPV clearance (pre-vaccine baseline+)')
+    ax_b.legend(loc='upper right', fontsize=10)
+    style_axes(ax_b); panel_label(ax_b, 'b')
 
-        ax.set_xlim(0, max_year)
-        ax.set_xticks(range(0, max_year+1, 2))
-        if ev_col == 'has_hpv_infection':
-            ax.set_ylim(0.0, 0.85)
-        else:
-            ax.set_ylim(0.0, 0.20)
-        ax.set_xlabel('')  # at-risk row carries the time axis
-        ax.set_ylabel('Cumulative incidence')
-        ax.set_title(title)
-        ax.legend(loc='upper left', fontsize=10)
-        style_axes(ax)
-        panel_label(ax, plabel)
-
-        # At-risk table — own x-axis, with row labels in left margin
+    # ---- At-risk tables (one per panel) ----
+    for col_pos, (v_d, c_d) in enumerate([(v_a, c_a), (v_b, c_b)]):
         ax_tab = fig.add_subplot(gs[1, col_pos])
-        ax_tab.set_xlim(-3.6, max_year)   # negative space for row labels
-        ax_tab.set_ylim(0, 3)
-        ax_tab.axis('off')
+        ax_tab.set_xlim(-3.6, max_year); ax_tab.set_ylim(0, 3); ax_tab.axis('off')
         years_list = list(range(0, max_year+1, 2))
         ax_tab.text(-3.5, 2.4, 'No. at risk', fontsize=10.5, fontweight='bold', ha='left')
         for yr in years_list:
-            n_v_ = int((v['time']/365.25 >= yr).sum())
-            n_c_ = int((c['time']/365.25 >= yr).sum())
+            n_v_ = int((v_d['time']/365.25 >= yr).sum())
+            n_c_ = int((c_d['time']/365.25 >= yr).sum())
             ax_tab.text(yr, 2.4, str(yr), fontsize=10.5, ha='center', fontweight='bold')
             ax_tab.text(yr, 1.4, str(n_v_), fontsize=10, ha='center', color=COL_VAC)
             ax_tab.text(yr, 0.4, str(n_c_), fontsize=10, ha='center', color=COL_CTL)
@@ -544,23 +564,40 @@ def figure4_subgroup():
     B['age_grp'] = pd.cut(B['index_age'], bins=[-np.inf, 40, 50, np.inf],
                           labels=['<40', '40-49', '≥50'])
 
-    def hr_subset(d, ev_col):
-        n_v = int((d['vac']==1).sum()); n_c = int((d['vac']==0).sum())
-        ev_v = int(((d['vac']==1) & (d[ev_col]==1)).sum())
-        ev_c = int(((d['vac']==0) & (d[ev_col]==1)).sum())
+    # ----- Time variables: event-time for events, follow-up otherwise -----
+    B['days_to_recurrence'] = pd.to_numeric(B['days_to_recurrence'], errors='coerce')
+    B['rec_time'] = np.where(B['has_recurrence'].astype(bool),
+                              B['days_to_recurrence'], B['follow_up_days'])
+
+    # Add clearance event/time per patient (pre-vaccine baseline)
+    BC = pd.read_csv('Data/CohortB_Clearance_Analytic.csv', encoding='utf-8-sig')
+    BC['index_date']     = pd.to_datetime(BC['index_date'])
+    BC['first_neg_date'] = pd.to_datetime(BC['first_neg_date'], errors='coerce')
+    BC['days_to_clear']  = (BC['first_neg_date'] - BC['index_date']).dt.days
+    BC['clear_event']    = BC['first_neg_date'].notna().astype(int)
+    BC['clear_time']     = np.where(BC['clear_event']==1, BC['days_to_clear'],
+                                     BC['follow_up_days'])
+    B = B.merge(BC[['연구번호','clear_event','clear_time']], on='연구번호', how='left')
+
+    def hr_subset(d, ev_col, time_col='follow_up_days'):
+        """Generic Cox HR with cluster on fine_match_id and age adjustment.
+        For lesion recurrence: ev_col='has_recurrence', time_col='follow_up_days'.
+        For clearance:        ev_col='clear_event',    time_col='clear_time'.
+        """
+        df_fit = d[[time_col, ev_col, 'vac', 'index_age', 'fine_match_id']].dropna().rename(
+            columns={time_col:'time', ev_col:'event'})
+        df_fit['event'] = df_fit['event'].astype(int)
+        df_fit = df_fit[df_fit['time'] > 0]
+        n_v = int((df_fit['vac']==1).sum()); n_c = int((df_fit['vac']==0).sum())
+        ev_v = int(((df_fit['vac']==1) & (df_fit['event']==1)).sum())
+        ev_c = int(((df_fit['vac']==0) & (df_fit['event']==1)).sum())
         out = dict(n_v=n_v, n_c=n_c, ev_v=ev_v, ev_c=ev_c,
                    HR=np.nan, CIlo=np.nan, CIhi=np.nan, p=np.nan)
-        if ev_v + ev_c < 3 or n_v < 2 or n_c < 2:
-            return out
-        df_fit = d[['follow_up_days', ev_col, 'vac', 'index_age', 'fine_match_id']].dropna().rename(
-            columns={'follow_up_days':'time', ev_col:'event'})
-        df_fit['event'] = df_fit['event'].astype(int)
-        if df_fit['event'].sum() < 3:
+        if ev_v + ev_c < 3 or n_v < 2 or n_c < 2 or df_fit['event'].sum() < 3:
             return out
         try:
-            cph = CoxPHFitter()
-            cph.fit(df_fit, duration_col='time', event_col='event',
-                   cluster_col='fine_match_id', robust=True)
+            cph = CoxPHFitter().fit(df_fit, duration_col='time', event_col='event',
+                                    cluster_col='fine_match_id', robust=True)
             r = cph.summary.loc['vac']
             out.update(HR=float(r['exp(coef)']),
                        CIlo=float(r['exp(coef) lower 95%']),
@@ -570,44 +607,73 @@ def figure4_subgroup():
             pass
         return out
 
-    def age_interaction_p(ev_col):
-        d = B[['follow_up_days', ev_col, 'vac', 'index_age', 'age_grp', 'fine_match_id']].dropna().copy()
-        d = d.rename(columns={'follow_up_days':'time', ev_col:'event'})
-        d['event'] = d['event'].astype(int)
-        d['ag_4049'] = (d['age_grp']=='40-49').astype(int)
-        d['ag_50p']  = (d['age_grp']=='≥50').astype(int)
-        d['vac_x_4049'] = d['vac'] * d['ag_4049']
-        d['vac_x_50p']  = d['vac'] * d['ag_50p']
+    def age_interaction_p(d, ev_col, time_col='follow_up_days'):
+        df = d[[time_col, ev_col, 'vac', 'index_age', 'age_grp', 'fine_match_id']].dropna().copy()
+        df = df.rename(columns={time_col:'time', ev_col:'event'})
+        df['event'] = df['event'].astype(int)
+        df = df[df['time'] > 0]
+        df['ag_4049']      = (df['age_grp']=='40-49').astype(int)
+        df['ag_50p']       = (df['age_grp']=='≥50').astype(int)
+        df['vac_x_4049']   = df['vac'] * df['ag_4049']
+        df['vac_x_50p']    = df['vac'] * df['ag_50p']
         full_cols = ['time','event','vac','index_age','ag_4049','ag_50p',
                      'vac_x_4049','vac_x_50p','fine_match_id']
         red_cols  = ['time','event','vac','index_age','ag_4049','ag_50p','fine_match_id']
         try:
-            full = CoxPHFitter().fit(d[full_cols], duration_col='time', event_col='event',
+            full = CoxPHFitter().fit(df[full_cols], duration_col='time', event_col='event',
                                      cluster_col='fine_match_id', robust=True)
-            red  = CoxPHFitter().fit(d[red_cols], duration_col='time', event_col='event',
+            red  = CoxPHFitter().fit(df[red_cols], duration_col='time', event_col='event',
                                      cluster_col='fine_match_id', robust=True)
             lrt = 2*(full.log_likelihood_ - red.log_likelihood_)
             return float(1 - chi2.cdf(lrt, df=2))
         except Exception:
             return np.nan
 
-    vint = pd.read_csv('Data/CohortB_vaccine_interaction.csv', encoding='utf-8-sig')
+    def vacc_interaction_p(d, ev_col, time_col='follow_up_days'):
+        df = d[[time_col, ev_col, 'vac', 'index_age', 'vacc_type', 'fine_match_id']].dropna().copy()
+        df = df.rename(columns={time_col:'time', ev_col:'event'})
+        df['event'] = df['event'].astype(int)
+        df = df[df['time'] > 0]
+        df['type_Cervarix']   = (df['vacc_type']=='Cervarix').astype(int)
+        df['type_Gardasil']   = (df['vacc_type']=='Gardasil').astype(int)
+        df['vac_x_Cervarix']  = df['vac'] * df['type_Cervarix']
+        df['vac_x_Gardasil']  = df['vac'] * df['type_Gardasil']
+        full_cols = ['time','event','vac','index_age','type_Cervarix','type_Gardasil',
+                     'vac_x_Cervarix','vac_x_Gardasil','fine_match_id']
+        red_cols  = ['time','event','vac','index_age','type_Cervarix','type_Gardasil','fine_match_id']
+        try:
+            full = CoxPHFitter().fit(df[full_cols], duration_col='time', event_col='event',
+                                     cluster_col='fine_match_id', robust=True)
+            red  = CoxPHFitter().fit(df[red_cols], duration_col='time', event_col='event',
+                                     cluster_col='fine_match_id', robust=True)
+            lrt = 2*(full.log_likelihood_ - red.log_likelihood_)
+            return float(1 - chi2.cdf(lrt, df=2))
+        except Exception:
+            return np.nan
 
-    # ----- Build per-outcome row list -----
-    outcomes = [('a', 'Lesion recurrence (HSIL/CIN3+)', 'has_recurrence', 'Lesion recurrence'),
-                ('b', 'New high-risk HPV infection',     'has_hpv_infection', 'HPV reinfection')]
+    # ----- Outcome specifications -----
+    # Panel a: lesion recurrence on full Cohort B    (HR < 1 favourable)
+    # Panel b: hr-HPV clearance on pre-vaccine HPV+   (HR > 1 favourable)
+    outcome_specs = [
+        ('a', 'Lesion recurrence (HSIL/CIN3+)',      'has_recurrence', 'rec_time', B,
+         'protective_lt1'),
+        ('b', 'hr-HPV clearance (pre-vaccine HPV+)', 'clear_event',    'clear_time',
+         B[B['clear_event'].notna()].copy(), 'protective_gt1'),
+    ]
 
     panel_data = {}
-    for plabel, ttl, ev_col, vint_key in outcomes:
+    for plabel, ttl, ev_col, time_col, sub, direction in outcome_specs:
         rows = []
-        rows.append(('Overall', hr_subset(B, ev_col), 'data'))
+        rows.append(('Overall', hr_subset(sub, ev_col, time_col), 'data'))
         rows.append(('', None, 'spacer'))
         rows.append(('By age at index', None, 'header'))
         for grp_key, grp_lab in [('<40', '<40 years'),
                                   ('40-49', '40–49 years'),
                                   ('≥50', '≥50 years')]:
-            rows.append((grp_lab, hr_subset(B[B['age_grp']==grp_key], ev_col), 'data'))
-        ap = age_interaction_p(ev_col)
+            rows.append((grp_lab,
+                         hr_subset(sub[sub['age_grp']==grp_key], ev_col, time_col),
+                         'data'))
+        ap = age_interaction_p(sub, ev_col, time_col)
         rows.append((f'P for interaction = {ap:.3f}' if not np.isnan(ap) else
                      'P for interaction = NA', None, 'pval'))
         rows.append(('', None, 'spacer'))
@@ -615,13 +681,16 @@ def figure4_subgroup():
         for vt_key, vt_lab in [('Gardasil9', 'Gardasil 9 (9-valent)'),
                                 ('Cervarix',  'Cervarix (2-valent)'),
                                 ('Gardasil',  'Gardasil (4-valent)')]:
-            rows.append((vt_lab, hr_subset(B[B['vacc_type']==vt_key], ev_col), 'data'))
-        vp = float(vint.loc[vint['outcome']==vint_key, 'LRT_p'].values[0])
-        rows.append((f'P for interaction = {vp:.3f}', None, 'pval'))
-        panel_data[plabel] = (ttl, rows)
+            rows.append((vt_lab,
+                         hr_subset(sub[sub['vacc_type']==vt_key], ev_col, time_col),
+                         'data'))
+        vp = vacc_interaction_p(sub, ev_col, time_col)
+        rows.append((f'P for interaction = {vp:.3f}' if not np.isnan(vp) else
+                     'P for interaction = NA', None, 'pval'))
+        panel_data[plabel] = (ttl, rows, direction)
 
     # ----- Plot -----
-    n_rows = max(len(rows) for _, rows in panel_data.values())
+    n_rows = max(len(rows) for _, rows, _ in panel_data.values())
     fig_h = max(7.5, 0.45 * n_rows + 2.8)
     fig, axes = plt.subplots(1, 2, figsize=(20.0, fig_h),
                              gridspec_kw={'left':0.025, 'right':0.995,
@@ -645,9 +714,10 @@ def figure4_subgroup():
         return XCOL['forest_lo'] + (np.log10(hr) - np.log10(X_LO))/\
                (np.log10(X_HI) - np.log10(X_LO)) * (XCOL['forest_hi'] - XCOL['forest_lo'])
 
-    for idx, (plabel, (ttl, rows)) in enumerate(panel_data.items()):
+    for idx, (plabel, (ttl, rows, direction)) in enumerate(panel_data.items()):
         ax = axes[idx]
         n = len(rows)
+        favourable_lt1 = (direction == 'protective_lt1')
         ax.set_xlim(0, 1); ax.set_ylim(n + 1.6, HEADER_Y - 0.6)
         ax.axis('off')
 
@@ -697,8 +767,9 @@ def figure4_subgroup():
                         fontsize=10.5, ha='center', va='center')
                 if not np.isnan(data['HR']):
                     sig = (data['CIlo'] > 1) or (data['CIhi'] < 1)
-                    color = (COL_VAC if (data['HR']<1 and sig)
-                             else COL_CTL if (data['HR']>1 and sig)
+                    favourable = ((data['HR']<1) == favourable_lt1)
+                    color = (COL_VAC if (favourable and sig)
+                             else COL_CTL if ((not favourable) and sig)
                              else '#333')
                     x_hr   = x_to_axes(data['HR'])
                     x_clo  = x_to_axes(max(X_LO, data['CIlo']))
