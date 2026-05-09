@@ -154,6 +154,7 @@ Two-step variable-ratio greedy matching, **without replacement**. Requested rati
 | Sens-I | Vaccine-type × calendar period | Strata of clearance subset by index year | Clearance | Index | HR > 1 | `Data/Sensitivity_VaccineType_ByCalendar.csv` |
 | Sens-J | Restricted follow-up (3-y / 5-y) and unadjusted | Full cohort or clearance subset | Same as primary, censored | Index | – | `Data/sensitivity_analysis_both_outcomes.csv` |
 | Sens-K | Age-stratified lesion recurrence × FU window | Full Cohort B by age stratum | Lesion recurrence censored at window | Index | HR < 1 | `Data/CohortB_age_fu_forest.csv` |
+| Sens-L | Time-stratified clearance HR (0–6, 6–12, 12–24, ≥24 mo) | Clearance subset | Same as P2; restricted to events within each window | Index + window lower bound | HR > 1 | `Data/Sensitivity_HPV_Clearance_TimeStratified.csv` |
 
 ### 4.6 Statistical model (both co-primary outcomes)
 
