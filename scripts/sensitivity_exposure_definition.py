@@ -188,10 +188,11 @@ for ev_label, ev_col in [('Lesion recurrence', 'has_recurrence'),
     for thr_label, thr in [('≥1 dose (primary)', 1),
                             ('≥2 doses', 2),
                             ('≥3 doses (complete)', 3)]:
-        # Restrict the vaccinated arm to those meeting threshold;
-        # keep all unvaccinated controls (non-vaccinated have total_doses == 0).
-        keep = (B['vac']==0) | ((B['vac']==1) & (B['total_doses'] >= thr))
-        sub = B[keep].copy()
+        # Drop vaccinated cases below the threshold AND their attached
+        # non-vaccinated participants (preserve the matched-set structure).
+        bad_match_ids = set(
+            B.loc[(B['vac']==1) & (B['total_doses'] < thr), 'fine_match_id'])
+        sub = B[~B['fine_match_id'].isin(bad_match_ids)].copy()
         r = cox_HR(sub, ev_col)
         r.update(cohort='B', outcome=ev_label, definition=thr_label, threshold=thr)
         cohortB_rows.append(r)
