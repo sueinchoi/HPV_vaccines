@@ -37,7 +37,7 @@ The following points are *not* required in the figure caption itself but should 
 - HPV = human papillomavirus
 - CDW = clinical data warehouse
 - PSM = propensity-score matching
-- HSIL/CIN3+ = high-grade squamous intraepithelial lesion / cervical intraepithelial neoplasia grade 3 or higher
+- HSIL/CIN2+ = high-grade squamous intraepithelial lesion / cervical intraepithelial neoplasia grade 2 or higher (post-index recurrence outcome). Surgical eligibility for entry was confirmed HSIL/CIN3+, the standard threshold for cervical excision.
 - BMI = body-mass index
 - SBP / DBP = systolic / diastolic blood pressure
 - SD = standard deviation

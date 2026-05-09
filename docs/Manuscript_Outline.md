@@ -48,7 +48,7 @@
 | 최종 표본 | 4,102 (vac 2,051 / ctl 2,051) | 1,108 (vac 241 / ctl 867) |
 | Index date (vac) | 첫 백신 접종일 | 첫 백신 접종일 |
 | Index date (ctl) | 매칭된 접종군 백신일 (pseudo) | 비접종군 수술일 + 매칭 접종군의 수술-접종 간격(T) |
-| Primary outcome | 5대 만성질환 발생, MCE, Any-of-5 | 병변 재발 (HSIL/CIN3+), 새로운 고위험 HPV 감염 |
+| Primary outcome | 5대 만성질환 발생, MCE, Any-of-5 | 병변 재발 (CIN2 이상 / HSIL+), hr-HPV clearance |
 | Secondary | (없음) | 백신 종류별 subgroup (Gardasil9 / Cervarix / Gardasil) |
 
 ### 1.4 Exposure ascertainment
@@ -70,7 +70,7 @@
 - Prevalent (baseline 진단 보유) 환자는 해당 outcome 분석에서 제외
 
 **Cohort B (Efficacy)**
-- **Primary**: 병변 재발 — index date 이후 첫 HSIL/CIN3 이상 조직검사 진단
+- **Primary**: 병변 재발 — index date 이후 첫 조직검사에서 ≥CIN2 (HSIL+) 또는 invasive cervical cancer 진단
 - **Primary**: 고위험 HPV 재감염 — index date 이후 14개 고위험 유형 (16, 18, 31, 33, 35, 39, 45, 51, 52, 56, 58, 59, 66, 68) 양성 전환
 
 ### 1.6 Matching procedures
@@ -144,7 +144,7 @@
 
 #### 2.3.1 Outcome rates
 **Table 3.** Vaccinated vs non-vaccinated event rates and Cox-adjusted hazard ratios for:
-- Lesion recurrence (HSIL/CIN3+)
+- Lesion recurrence (≥CIN2 / HSIL+ or invasive cervical cancer)
 - High-risk HPV reinfection
 
 #### 2.3.2 Survival curves

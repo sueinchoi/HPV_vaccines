@@ -486,7 +486,7 @@ def figure3():
     ax_a.set_xlim(0, max_year); ax_a.set_ylim(0.0, 0.20)
     ax_a.set_xticks(range(0, max_year+1, 2))
     ax_a.set_xlabel(''); ax_a.set_ylabel('Cumulative incidence')
-    ax_a.set_title('Lesion recurrence (HSIL/CIN3+)')
+    ax_a.set_title('Lesion recurrence (≥CIN2)')
     ax_a.legend(loc='upper left', fontsize=10)
     style_axes(ax_a); panel_label(ax_a, 'a')
 
@@ -655,7 +655,7 @@ def figure4_subgroup():
     # Panel a: lesion recurrence on full Cohort B    (HR < 1 favourable)
     # Panel b: hr-HPV clearance on pre-vaccine HPV+   (HR > 1 favourable)
     outcome_specs = [
-        ('a', 'Lesion recurrence (HSIL/CIN3+)',      'has_recurrence', 'rec_time', B,
+        ('a', 'Lesion recurrence (≥CIN2)',           'has_recurrence', 'rec_time', B,
          'protective_lt1'),
         ('b', 'hr-HPV clearance (pre-vaccine HPV+)', 'clear_event',    'clear_time',
          B[B['clear_event'].notna()].copy(), 'protective_gt1'),
