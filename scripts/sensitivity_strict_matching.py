@@ -26,9 +26,22 @@ B_strict = B[B['fine_match_id'].isin(full4_ids)].copy()
 
 
 def cox_hr(d, ev_col):
-    df = d[['follow_up_days', ev_col, 'vac', 'index_age', 'fine_match_id']].dropna().rename(
-        columns={'follow_up_days': 'time', ev_col: 'event'})
+    """Cox HR with proper survival time: days_to_event for events, follow_up_days otherwise."""
+    df = d.copy()
+    if ev_col == 'has_recurrence':
+        df['time'] = np.where(df['has_recurrence'].astype(bool),
+                               pd.to_numeric(df['days_to_recurrence'], errors='coerce'),
+                               df['follow_up_days'])
+    elif ev_col == 'has_hpv_infection':
+        df['time'] = np.where(df['has_hpv_infection'].astype(bool),
+                               pd.to_numeric(df['days_to_hpv'], errors='coerce'),
+                               df['follow_up_days'])
+    else:
+        df['time'] = df['follow_up_days']
+    df = df[['time', ev_col, 'vac', 'index_age', 'fine_match_id']].dropna().rename(
+        columns={ev_col: 'event'})
     df['event'] = df['event'].astype(int)
+    df = df[df['time'] > 0]
     n_v = int((df['vac'] == 1).sum()); n_c = int((df['vac'] == 0).sum())
     e_v = int(((df['vac'] == 1) & (df['event'] == 1)).sum())
     e_c = int(((df['vac'] == 0) & (df['event'] == 1)).sum())

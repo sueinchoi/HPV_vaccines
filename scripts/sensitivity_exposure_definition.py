@@ -158,10 +158,23 @@ print('  vaccinated dose distribution in Cohort B:')
 print(B.loc[B['vac']==1, 'total_doses'].value_counts().sort_index().to_string())
 
 def cox_HR(d, ev_col):
-    """Cox HR for vaccinated vs non-vaccinated, age-adjusted, cluster on match id."""
-    df = d[['follow_up_days', ev_col, 'vac', 'index_age', 'fine_match_id']].dropna().copy()
-    df = df.rename(columns={'follow_up_days':'time', ev_col:'event'})
+    """Cox HR for vaccinated vs non-vaccinated, age-adjusted, cluster on match id.
+    Time is days_to_event when an event occurred, follow_up_days otherwise."""
+    df = d.copy()
+    if ev_col == 'has_recurrence':
+        df['time'] = np.where(df['has_recurrence'].astype(bool),
+                               pd.to_numeric(df['days_to_recurrence'], errors='coerce'),
+                               df['follow_up_days'])
+    elif ev_col == 'has_hpv_infection':
+        df['time'] = np.where(df['has_hpv_infection'].astype(bool),
+                               pd.to_numeric(df['days_to_hpv'], errors='coerce'),
+                               df['follow_up_days'])
+    else:
+        df['time'] = df['follow_up_days']
+    df = df[['time', ev_col, 'vac', 'index_age', 'fine_match_id']].dropna()
+    df = df.rename(columns={ev_col:'event'})
     df['event'] = df['event'].astype(int)
+    df = df[df['time'] > 0]
     n_v = int((df['vac']==1).sum()); n_c = int((df['vac']==0).sum())
     e_v = int(((df['vac']==1) & (df['event']==1)).sum())
     e_c = int(((df['vac']==0) & (df['event']==1)).sum())

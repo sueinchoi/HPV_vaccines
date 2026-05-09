@@ -15,5 +15,7 @@ A,PE,Vaccinated,2051,2051,1742,1533,1342,1151,974,850,747,654
 A,PE,Non-vaccinated,2051,2051,1916,1781,1661,1518,1363,1216,1057,929
 B,Lesion recurrence,Vaccinated,241,241,228,209,181,149,106,89,74,60
 B,Lesion recurrence,Non-vaccinated,867,867,805,730,657,547,406,338,282,233
-B,HPV reinfection,Vaccinated,241,241,138,114,97,78,56,47,40,32
-B,HPV reinfection,Non-vaccinated,867,867,455,384,326,260,192,158,136,116
+B,Post-index hr-HPV detection (sensitivity),Vaccinated,241,241,138,114,97,78,56,47,40,32
+B,Post-index hr-HPV detection (sensitivity),Non-vaccinated,867,867,455,384,326,260,192,158,136,116
+B,hr-HPV clearance (pre-vaccine HPV+),Vaccinated,110,110,72,54,43,34,19,14,10,7
+B,hr-HPV clearance (pre-vaccine HPV+),Non-vaccinated,182,182,126,99,91,70,53,37,28,19
