@@ -115,3 +115,20 @@ CohortB_post,"  Surgery → index, days",213.25 ± 380.70,153.59 ± 209.66,0.020
 CohortB_post,Follow-up,,,,
 CohortB_post,"  Follow-up, days",2233.95 ± 1404.53,2236.13 ± 1351.73,0.983,0.002
 CohortB_post,  Mortality during follow-up,0 (0.0%),4 (0.5%),0.582,0.096
+CohortB_clearance,"N (analytic subset, pre-vaccine hr-HPV+)",110,182,,
+CohortB_clearance,Demographics,,,,
+CohortB_clearance,"  Age at index, years",35.49 ± 8.11,35.78 ± 7.40,0.760,0.037
+CohortB_clearance,  Birth year,1981.25 ± 9.12,1981.42 ± 8.14,0.867,0.021
+CohortB_clearance,  Index year,2016.70 ± 3.58,2017.20 ± 3.33,0.238,0.144
+CohortB_clearance,Anthropometry,,,,
+CohortB_clearance,"  BMI, kg/m² (closest to index)",22.21 ± 3.27,21.78 ± 3.00,0.301,0.137
+CohortB_clearance,  BMI missing,18 (16.4%),19 (10.4%),0.150,0.175
+CohortB_clearance,Surgery,,,,
+CohortB_clearance,  Hysterectomy,0 (0.0%),1 (0.5%),1.000,0.105
+CohortB_clearance,  Conization,110 (100.0%),181 (99.5%),1.000,0.105
+CohortB_clearance,"  Age at surgery, years",34.94 ± 8.03,35.27 ± 7.38,0.724,0.043
+CohortB_clearance,  Surgery year,2016.05 ± 3.59,2016.64 ± 3.28,0.163,0.171
+CohortB_clearance,  Days surgery → index,202.43 ± 268.29,187.03 ± 233.92,0.619,0.061
+CohortB_clearance,Follow-up,,,,
+CohortB_clearance,  Follow-up days,2264.60 ± 1396.24,2111.74 ± 1228.42,0.344,0.116
+CohortB_clearance,  Death during follow-up,0 (0.0%),0 (0.0%),1.000,-
