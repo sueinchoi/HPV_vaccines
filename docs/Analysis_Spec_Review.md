@@ -127,6 +127,8 @@ substantive change.
 | # | Item | Priority | Action |
 |---|---|---|---|
 | 1 | Time-stratified clearance HR | High | ✅ Done (Sup S17, manuscript Results updated) |
+| 1b | Two-consecutive-negative HPV clearance | High | ✅ Done (Sup S18, HR 1.40 [0.92–2.11] vs primary 1.23) |
+| 1c | ≥6-month disease-free interval for recurrence | High | ✅ Done (Sup S19, HR 0.86 [0.41–1.78], primary 0.80 robust) |
 | 2 | ICH E9(R1) estimand framing | Medium | Add 1 sentence to Methods §Statistical analysis |
 | 3 | E-value for residual confounding | Medium | Compute and report in Limitations or Sup |
 | 4 | RMST difference at 1y / 2y | Low | Optional complement to PH-violated clearance HR |

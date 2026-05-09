@@ -155,6 +155,8 @@ Two-step variable-ratio greedy matching, **without replacement**. Requested rati
 | Sens-J | Restricted follow-up (3-y / 5-y) and unadjusted | Full cohort or clearance subset | Same as primary, censored | Index | – | `Data/sensitivity_analysis_both_outcomes.csv` |
 | Sens-K | Age-stratified lesion recurrence × FU window | Full Cohort B by age stratum | Lesion recurrence censored at window | Index | HR < 1 | `Data/CohortB_age_fu_forest.csv` |
 | Sens-L | Time-stratified clearance HR (0–6, 6–12, 12–24, ≥24 mo) | Clearance subset | Same as P2; restricted to events within each window | Index + window lower bound | HR > 1 | `Data/Sensitivity_HPV_Clearance_TimeStratified.csv` |
+| Sens-M | Two-consecutive-negative clearance | Clearance subset | First of two consecutive post-index hr-HPV-negative records | Index | HR > 1 | `Data/Sensitivity_HPV_Clearance_TwoNegative.csv` |
+| Sens-N | Lesion recurrence with minimum disease-free interval (3 / 6 / 12 mo) | Full Cohort B, restricted to those without recurrence before the minimum interval | Lesion recurrence after the minimum interval | Index + minimum interval | HR < 1 | `Data/Sensitivity_Recurrence_DFInterval.csv` |
 
 ### 4.6 Statistical model (both co-primary outcomes)
 
