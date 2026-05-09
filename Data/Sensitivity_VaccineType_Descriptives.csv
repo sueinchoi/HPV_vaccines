@@ -1,0 +1,4 @@
+﻿vacc_type,n,median_index_year,min_index_year,max_index_year,median_surg_to_vac_days,mean_surg_to_vac_days
+Cervarix,77,2013.0,2010,2019,138.0,148.41558441558442
+Gardasil,36,2014.0,2010,2017,133.5,167.66666666666666
+Gardasil9,128,2020.0,2017,2023,71.5,265.0703125
