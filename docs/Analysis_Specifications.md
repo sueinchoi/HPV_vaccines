@@ -140,24 +140,36 @@ Two-step variable-ratio greedy matching, **without replacement**. Requested rati
 - Events 40 vac / 48 non-vac.
 - A single-negative-test definition is reported as a sensitivity (Sens-M, see §4.5).
 
-### 4.5 Sensitivity outcomes (Cohort B)
+### 4.5 Sensitivity analyses
 
-| ID | Outcome | Cohort | Event | Time anchor | Direction | Output |
-|---|---|---|---|---|---|---|
-| Sens-A | Post-index hr-HPV detection (any) | Full Cohort B (n = 1,108) | First post-index molecular record with `is_high_risk_hpv_positive = True` | Index | HR < 1 | `Data/CohortB_HR_revised.csv` row 3 |
-| Sens-B | Post-index detection landmark (6/12/24 mo) | Patients still at risk at landmark | First HPV+ after landmark | Landmark date | HR < 1 | `Data/Sensitivity_HPV_Landmark.csv` |
-| Sens-C | Novel-type acquisition | Pre-vaccine HPV-test available; matched-set integrity | First post-index record with type **not** in pre-vaccine type set | Index | HR < 1 | `Data/Sensitivity_HPV_NovelType.csv` |
-| Sens-D | HPV-16 clearance | Pre-vaccine HPV-16+ baseline | First post-index molecular record without HPV 16 | Index | HR > 1 | `Data/Sensitivity_HPV_Clearance.csv` C2 |
-| Sens-E | HPV-18 clearance | Pre-vaccine HPV-18+ baseline | First post-index molecular record without HPV 18 | Index | HR > 1 | `Data/Sensitivity_HPV_Clearance.csv` C3 |
-| Sens-F | Dose threshold (≥2 / ≥3) | Drop matched sets where vac case fails threshold | Same as primary | Index | HR < 1 | `Data/Sensitivity_DoseThreshold_HR.csv` |
-| Sens-G | Strict 1:4 fine matching | Drop matched sets where vac case has < 4 controls | Same as primary | Index | HR < 1 (recurrence) | `Data/Sensitivity_StrictMatching.csv` |
-| Sens-H | Vaccine-type interaction (LRT) on each outcome | Full or clearance subset depending on outcome | Same as primary | Index | – | `Data/CohortB_vaccine_interaction.csv` |
-| Sens-I | Vaccine-type × calendar period | Strata of clearance subset by index year | Clearance | Index | HR > 1 | `Data/Sensitivity_VaccineType_ByCalendar.csv` |
-| Sens-J | Restricted follow-up (3-y / 5-y) and unadjusted | Full cohort or clearance subset | Same as primary, censored | Index | – | `Data/sensitivity_analysis_both_outcomes.csv` |
-| Sens-K | Age-stratified lesion recurrence × FU window | Full Cohort B by age stratum | Lesion recurrence censored at window | Index | HR < 1 | `Data/CohortB_age_fu_forest.csv` |
-| Sens-L | Time-stratified clearance HR (0–6, 6–12, 12–24, ≥24 mo) | Clearance subset | Same as P2; restricted to events within each window | Index + window lower bound | HR > 1 | `Data/Sensitivity_HPV_Clearance_TimeStratified.csv` |
-| Sens-M | Single-negative clearance (alternative to primary two-negative) | Clearance subset | First single post-index hr-HPV-negative record | Index | HR > 1 | `Data/Sensitivity_HPV_Clearance_SingleNegative.csv` |
-| Sens-N | Lesion recurrence with minimum disease-free interval (3 / 6 / 12 mo) | Full Cohort B, restricted to those without recurrence before the minimum interval | Lesion recurrence after the minimum interval | Index + minimum interval | HR < 1 | `Data/Sensitivity_Recurrence_DFInterval.csv` |
+The 14 candidate sensitivity analyses are partitioned into **five essential analyses** that defend the principal Cohort B inferences (reported in the main text and in **Supplementary Figure S6**) and **nine appendix-only analyses** that provide additional robustness or descriptive context (reported in supplementary tables only). The pruning was made on the rationale that ① clearance event-definition robustness, ② clearance time-stratified PH decomposition, ③ exposure-dose threshold, ④ matching-structure robustness, and ⑤ recurrence event-timing robustness collectively cover the four largest sources of inferential uncertainty (outcome definition, model specification, exposure misclassification, residual confounding).
+
+#### 4.5.1 Essential sensitivity analyses (main text)
+
+| ID | Description | Defends | Cohort | Direction | Output |
+|---|---|---|---|---|---|
+| **Sens-A** | Single-negative test vs two-consecutive-negative clearance event definition | P2 outcome-definition robustness | Clearance subset (n = 292) | HR > 1 | `Data/Sensitivity_HPV_Clearance_SingleNegative.csv` |
+| **Sens-B** | Time-stratified clearance HR (0–6, 6–12, 12–24, ≥24 mo; left-truncation at each window's lower bound) | P2 PH-violation decomposition | Clearance subset | HR > 1 | `Data/Sensitivity_HPV_Clearance_TimeStratified.csv` |
+| **Sens-C** | Dose-threshold ≥2 / ≥3 (matched-set preserved) | P1+P2 exposure-misclassification | Cohort A 1:1 + Cohort B 1:up-to-4 | HR < 1 (recurrence); HR > 1 (clearance) | `Data/Sensitivity_DoseThreshold_HR.csv` |
+| **Sens-D** | Strict 1:4 fine matching | P1 matching-structure robustness | Cohort B (strict subset) | HR < 1 | `Data/Sensitivity_StrictMatching.csv` |
+| **Sens-E** | Lesion recurrence with ≥6-month minimum disease-free interval (3- and 12-month variants reported in Sens-E.1, Sens-E.2 supplementary rows) | P1 incomplete-excision artefact | Full Cohort B | HR < 1 | `Data/Sensitivity_Recurrence_DFInterval.csv` |
+
+#### 4.5.2 Appendix-only sensitivity analyses (supplementary tables only)
+
+These analyses are retained in the supplementary material for reviewer transparency and as supportive context for the Discussion narrative; they are not reported in the main Results sensitivity paragraph and are not included in Supplementary Figure S6.
+
+| ID | Description | Status | Output |
+|---|---|---|---|
+| App-1 | Post-index hr-HPV detection (any) — supportive context for clearance interpretation | Discussion only; Table only | `Data/CohortB_HR_revised.csv` row 3 |
+| App-2 | Post-index detection landmark (6/12/24 mo) — superseded by Sens-B time-stratified clearance | Table only | `Data/Sensitivity_HPV_Landmark.csv` |
+| App-3 | Novel-type acquisition | Discussion only; Table only | `Data/Sensitivity_HPV_NovelType.csv` |
+| App-4 | HPV-16 clearance (type-specific) | Table only | `Data/Sensitivity_HPV_Clearance.csv` C2 |
+| App-5 | HPV-18 clearance (type-specific) | Table only | `Data/Sensitivity_HPV_Clearance.csv` C3 |
+| App-6 | Vaccine-type interaction (LRT) — already reported via Figure 4 | Discussion only; Table only | `Data/CohortB_vaccine_interaction.csv` |
+| App-7 | Vaccine-type × calendar period — Discussion narrative only | Discussion only; Table only | `Data/Sensitivity_VaccineType_ByCalendar.csv` |
+| App-8 | Restricted follow-up (3-y / 5-y) and unadjusted | Table only | `Data/sensitivity_analysis_both_outcomes.csv` |
+| App-9 | Age-stratified recurrence × FU grid (the 30–52 y, 2-y window finding lives here) | Table only; flagged in Limitations | `Data/CohortB_age_fu_forest.csv` |
+| App-10 | Prescription-code vs drug-name exposure ascertainment cross-check | Table only | `Data/Sensitivity_PrescriptionCode.csv` |
 
 ### 4.6 Statistical model (both co-primary outcomes)
 
