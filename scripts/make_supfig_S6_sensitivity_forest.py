@@ -140,21 +140,22 @@ def main() -> None:
                f"{r['ev_v']}/{r['n_v']} vs {r['ev_c']}/{r['n_c']}; p={float(r['p']):.2f}")
         se_rows.append((label, hr, lo, hi, ann))
 
-    # Layout: 5 panels stacked, sized by row count
+    # Layout: 5 panels stacked, sized by row count.
+    # Panel descriptions live in the figure legend (Sup Fig S6).
     panel_specs = [
-        ("Sens-A. hr-HPV clearance — event-definition robustness", sa_rows,
+        ("Sens-A", sa_rows,
          "Hazard ratio (HR > 1 favours vaccinated)", False,
          (0.5, 4.0), [0.5, 1.0, 2.0, 4.0]),
-        ("Sens-B. hr-HPV clearance — time-stratified piecewise Cox", sb_rows,
+        ("Sens-B", sb_rows,
          "Hazard ratio (HR > 1 favours vaccinated)", False,
          (0.15, 30.0), [0.25, 0.5, 1.0, 2.0, 5.0, 10.0]),
-        ("Sens-C. Lesion recurrence — exposure dose threshold", sc_rows,
+        ("Sens-C", sc_rows,
          "Hazard ratio (HR < 1 favours vaccinated)", True,
          (0.2, 2.5), [0.25, 0.5, 1.0, 2.0]),
-        ("Sens-D. Lesion recurrence — strict 1:4 vs variable-ratio matching", sd_rows,
+        ("Sens-D", sd_rows,
          "Hazard ratio (HR < 1 favours vaccinated)", True,
          (0.25, 2.0), [0.25, 0.5, 1.0, 2.0]),
-        ("Sens-E. Lesion recurrence — minimum disease-free interval", se_rows,
+        ("Sens-E", se_rows,
          "Hazard ratio (HR < 1 favours vaccinated)", True,
          (0.25, 2.5), [0.25, 0.5, 1.0, 2.0]),
     ]
