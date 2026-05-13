@@ -17,3 +17,7 @@ __pycache__/
 *.py[cod]
 *.pyo
 .ipynb_checkpoints/
+
+# ---- Local backup snapshots created during edits (not for version control) ----
+*.backup.docx
+*.preslim.docx

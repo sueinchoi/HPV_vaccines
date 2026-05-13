@@ -16,7 +16,7 @@
 4. **"Dual-cohort analysis of HPV vaccination effects: chronic disease incidence and lesion recurrence in a Korean cervical cancer screening cohort"**
    - Dual-cohort design 강조
 
-5. **"Post-surgery HPV vaccination and downstream outcomes: lesion recurrence, HPV reinfection, and chronic comorbidities in a 15-year Korean prospective cohort"**
+5. **"Post-surgery HPV vaccination and downstream outcomes: lesion recurrence, hr-HPV clearance (pre-vaccine HPV+ subset), and chronic comorbidities in a 15-year Korean prospective cohort"**
    - Long-term f/up 측면 부각
 
 > **추천: #1** — 두 결과 축, prospective+retrospective hybrid, 지역 (Korean), 모집단 특성 (cervical intraepithelial lesions) 모두 반영. 부제로 "A Korean Cohort Study"는 옵션.
@@ -145,10 +145,10 @@
 #### 2.3.1 Outcome rates
 **Table 3.** Vaccinated vs non-vaccinated event rates and Cox-adjusted hazard ratios for:
 - Lesion recurrence (≥CIN2 / HSIL+ or invasive cervical cancer)
-- High-risk HPV reinfection
+- High-risk hr-HPV clearance (pre-vaccine HPV+ subset)
 
 #### 2.3.2 Survival curves
-**Figure 3.** Kaplan-Meier curves for (a) recurrence and (b) HPV reinfection with log-rank p-value, number-at-risk table.
+**Figure 3.** Kaplan-Meier curves for (a) recurrence and (b) hr-HPV clearance (pre-vaccine HPV+ subset) with log-rank p-value, number-at-risk table.
 
 #### 2.3.3 Vaccine-type subgroup
 **Figure 4.** Forest plot of HRs by vaccine type (Gardasil 9 / Cervarix / Gardasil) for both primary outcomes.
@@ -169,7 +169,7 @@
 |---|---|---|---|
 | **Table 1** | Baseline characteristics of analytic cohorts (post-matching) | Demographics, BMI/BP, smoking, comorbidities, follow-up — Cohort A + Cohort B columns | `Table1_BaselineCharacteristics_unified.docx` (post 행만 추출) |
 | **Table 2** | Hazard ratios for chronic comorbidities (Cohort A) | Cause-specific HR + Fine-Gray sHR, events/n, p — Any-of-5 / MCE / individual 5 | `cohort_a_psm_hr_results.csv` |
-| **Table 3** | Vaccine effectiveness on lesion recurrence and HPV reinfection (Cohort B) | n events, HR (95% CI), p, by overall and adjusted | (기존 `vaccine_type_analysis.csv` + `final_matched_summary.csv` 기반) |
+| **Table 3** | Vaccine effectiveness on lesion recurrence and hr-HPV clearance (pre-vaccine HPV+ subset) (Cohort B) | n events, HR (95% CI), p, by overall and adjusted | (기존 `vaccine_type_analysis.csv` + `final_matched_summary.csv` 기반) |
 
 ### 3.2 Main Figures
 
@@ -177,7 +177,7 @@
 |---|---|---|---|
 | **Figure 1** | Cohort selection flow diagram | CONSORT-style. Single source → two analytic cohorts | Mermaid (`Methods_CohortSelection.md`) → export to PNG |
 | **Figure 2** | Cohort A: cumulative incidence and hazard ratios | 9-panel: Any-of-5, MCE, 5 individual, forest plot | `cohort_a_psm_cif_hr.png` |
-| **Figure 3** | Cohort B: Kaplan-Meier survival curves | (a) recurrence, (b) HPV reinfection + risk table | `figure1_kaplan_meier.png` |
+| **Figure 3** | Cohort B: Kaplan-Meier survival curves | (a) recurrence, (b) hr-HPV clearance (pre-vaccine HPV+ subset) + risk table | `figure1_kaplan_meier.png` |
 | **Figure 4** | Cohort B: Forest plot by vaccine type | Subgroup HRs (Gardasil9/Cervarix/Gardasil) for both outcomes | `figure5_vaccine_forest.png` |
 
 ### 3.3 Supplementary Tables

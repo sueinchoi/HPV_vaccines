@@ -177,7 +177,7 @@ These analyses are retained in the supplementary material for reviewer transpare
 - **Cluster-robust standard errors** clustered on `fine_match_id`.
 - **Time** = `days_to_event` if event observed (i.e. `days_to_recurrence` for P1 and `(first_neg_date − index_date).days` for P2), else `follow_up_days = 최종추적일자 − index_date`.
 - **Censoring** at last follow-up, death, loss to follow-up, or 31 December 2025, whichever first.
-- **Schoenfeld residual rank test** reported on the vaccinated covariate; lesion recurrence p = 0.82 (no PH violation), hr-HPV clearance p = 0.007 (interpreted as biologically expected non-constancy of any vaccine effect on clearance over follow-up).
+- **Schoenfeld residual rank test** reported on the vaccinated covariate; lesion recurrence p = 0.82 (no PH violation), hr-HPV clearance p = 0.028 (interpreted as biologically expected non-constancy of any vaccine effect on clearance over follow-up — decomposed by the pre-specified Sens-B time-stratified piecewise Cox model in Supplementary Table S17).
 
 ---
 

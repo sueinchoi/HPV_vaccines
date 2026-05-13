@@ -26,12 +26,16 @@ submission/
 └── supplementary/
     ├── SupTableS1_Baseline_PreMatching.docx
     ├── SupTableS2_PropensityScoreCoefficients.docx
-    ├── SupTableS3_Sensitivity.csv
-    ├── SupTableS4_AgeFollowUpSubgroup.docx
-    ├── SupTableS5_NumberAtRisk.docx
-    ├── SupTableS6_VaccineTypeDetails.csv
-    ├── SupTableS7_ClusterRobustHRs.docx
-    ├── SupTableS8_PseudoIndexSensitivity.csv
+    ├── SupTableS3_AgeFollowUpSubgroup.docx
+    ├── SupTableS4_NumberAtRisk.docx
+    ├── SupTableS5_VaccineTypeDetails.docx
+    ├── SupTableS6_ClusterRobustHRs.docx
+    ├── SupTableS7_PseudoIndexSensitivity.docx
+    ├── SupTableS8_DoseThreshold_SensC.docx
+    ├── SupTableS9_StrictMatching_SensD.docx
+    ├── SupTableS10_TimeStratifiedClearance_SensB.docx
+    ├── SupTableS11_SingleNegativeClearance_SensA.docx
+    ├── SupTableS12_DiseaseFreeInterval_SensE.docx
     ├── SupFigS1_LovePlot_CohortA.png
     ├── SupFigS2_LovePlot_CohortB.png
     ├── SupFigS3_PropensityScoreDensity.png
@@ -39,7 +43,7 @@ submission/
     ├── SupFigS5a_PHCheck_CohortA_AnyOf5.png
     ├── SupFigS5b_PHCheck_CohortA_Diabetes.png
     ├── SupFigS6a_PHCheck_CohortB_Recurrence.png
-    └── SupFigS6b_PHCheck_CohortB_HPVReinfection.png
+    └── SupFigS6b_PHCheck_CohortB_HPVClearance.png
 ```
 
 ---
@@ -50,9 +54,9 @@ submission/
 |---|---|---|---|---|
 | **Table 1** | Baseline characteristics of analytic cohorts (post-matching). Demographics, anthropometry, vital signs, smoking, comorbidities, and follow-up for Cohort A and Cohort B with absolute standardised mean differences. | `Table1_BaselineCharacteristics_unified.docx` (post-matching blocks (b) and (d) only — keep page breaks; remove pre-matching blocks (a)·(c) before submission) | `Table1_BaselineCharacteristics.docx` | DOCX |
 | **Table 2** | Cohort A — Cluster-robust cause-specific and Fine–Gray subdistribution hazard ratios with person-years and incidence rates for the Any-of-5 composite, MCE composite, and five individual chronic conditions. | `Methodology_Revisions.docx` (Table R1 only) **OR** rebuild from `CohortA_HR_revised.csv` | `Table2_CohortA_HazardRatios.docx` | DOCX |
-| **Table 3** | Cohort B — Age-adjusted Cox cluster-robust hazard ratios with person-years and incidence rates for biopsy-confirmed lesion recurrence and high-risk HPV reinfection. | `Methodology_Revisions.docx` (Table R2 only) **OR** rebuild from `CohortB_HR_revised.csv` (preferred — the standalone `Table3_CohortB_HR.docx` is from the older non-clustered model) | `Table3_CohortB_HazardRatios.docx` | DOCX |
+| **Table 3** | Cohort B — Age-adjusted Cox cluster-robust hazard ratios with person-years and incidence rates for the two co-primary outcomes: biopsy-confirmed lesion recurrence (n = 1,108) and hr-HPV clearance defined as two consecutive post-index negatives among women with documented pre-vaccine hr-HPV positivity (n = 292). | `Methodology_Revisions.docx` (Table R2 only) **OR** rebuild from `CohortB_HR_revised.csv` (preferred — the standalone `Table3_CohortB_HR.docx` is from the older non-clustered model) | `Table3_CohortB_HazardRatios.docx` | DOCX |
 
-> **Note for Table 3**: The earlier `Data/Table3_CohortB_HR.docx` was generated before cluster-robust SE was applied. Use the values in `CohortB_HR_revised.csv` (HR 0.76 for recurrence, 0.97 for HPV reinfection) — these match the manuscript text. Bonferroni-adjusted columns and 97.5% CIs were dropped per the final analysis plan and should not appear in the table.
+> **Note for Table 3**: The earlier `Data/Table3_CohortB_HR.docx` was generated before cluster-robust SE was applied and reflected the legacy post-index hr-HPV detection endpoint. Use the values in `CohortB_HR_revised.csv` (HR 0.80, 95% CI 0.44–1.43 for lesion recurrence; HR 1.40, 95% CI 0.92–2.11 for hr-HPV clearance) — these are the two co-primary results that match the manuscript text. The legacy "post-index hr-HPV detection" row (HR 0.91, 95% CI 0.76–1.08) is retained in the CSV as descriptive context only and must **not** appear in Table 3. Bonferroni-adjusted columns and 97.5% CIs were dropped per the final analysis plan and should not appear in the table.
 
 ---
 
@@ -62,7 +66,7 @@ submission/
 |---|---|---|---|---|
 | **Figure 1** | Cohort selection flow diagram — single source population (N = 32,969) → Cohort A (whole-cohort safety, n = 4,102) and Cohort B (post-surgical efficacy, n = 1,108). | `Figure1_cohort_selection.png` | `Figure1_CohortSelection.png` | PNG, 200 dpi |
 | **Figure 2** | Cohort A — Aalen–Johansen cumulative incidence functions and cause-specific / Fine–Gray hazard ratio forest plot for Any-of-5, MCE, and five individual comorbidities. | `cohort_a_psm_cif_hr.png` | `Figure2_CohortA_CIF_HR.png` | PNG, 150 dpi |
-| **Figure 3** | Cohort B — Kaplan–Meier curves for biopsy-confirmed lesion recurrence and high-risk HPV reinfection. | `figure1_kaplan_meier.png` | `Figure3_CohortB_KaplanMeier.png` | PNG (existing) |
+| **Figure 3** | Cohort B — Kaplan–Meier curves for the two co-primary outcomes: biopsy-confirmed lesion recurrence (full cohort B, n = 1,108) and hr-HPV clearance among women with documented pre-vaccine hr-HPV positivity (n = 292). | `figure1_kaplan_meier.png` | `Figure3_CohortB_KaplanMeier.png` | PNG (existing) |
 | **Figure 4** | Cohort B — Forest plot of hazard ratios by vaccine type (Gardasil 9, Cervarix, Gardasil) for both primary outcomes. | `figure5_vaccine_forest.png` | `Figure4_CohortB_VaccineType.png` | PNG (existing) |
 | **Figure 5** | Cohort B — Forest plot of age stratum × follow-up window (1 / 2 / 4 yr / Full) subgroup analysis for lesion recurrence. | `CohortB_age_fu_forest.png` | `Figure5_CohortB_AgeFollowUp.png` | PNG, 200 dpi |
 
@@ -76,12 +80,16 @@ submission/
 |---|---|---|---|---|
 | **S1** | Pre-matching baseline characteristics (full variable list as Table 1, before matching for both cohorts). | `Table1_BaselineCharacteristics_unified.docx` (pre-matching blocks (a) and (c) only) | `SupTableS1_Baseline_PreMatching.docx` | DOCX |
 | **S2** | Cohort A propensity score model — logistic regression coefficients (original-scale and standardised), odds ratios, and intercept. | `SupTableS2_ps_coefficients.docx` | `SupTableS2_PropensityScoreCoefficients.docx` | DOCX |
-| **S3** | Cohort B sensitivity analyses — restricted follow-up (3 yr, 5 yr) and adjusted vs. unadjusted Cox models. | `sensitivity_analysis_results.csv` | `SupTableS3_Sensitivity.csv` | CSV (or convert to DOCX) |
-| **S4** | Cohort B subgroup analysis — pre-specified age strata (<40, 40–49, ≥50, plus 30–52 post-hoc) × follow-up windows (1, 2, 4 yr, full) for lesion recurrence. | `SupTableS4_revised_age_fu_forest.docx` | `SupTableS4_AgeFollowUpSubgroup.docx` | DOCX |
-| **S5** | Number-at-risk tables for Kaplan–Meier and Aalen–Johansen curves by group at yearly intervals (0–8 yr). | `SupTableS5_number_at_risk.docx` | `SupTableS5_NumberAtRisk.docx` | DOCX |
-| **S6** | Per-vaccine-type detailed results — pairwise subgroup hazard ratios and single-model interaction-derived hazard ratios with the LRT for vaccine-type heterogeneity. | `vaccine_type_analysis.csv` + `CohortB_vaccine_interaction.csv` (concatenate) | `SupTableS6_VaccineTypeDetails.csv` | CSV (or convert to DOCX) |
-| **S7** | Cluster-robust hazard ratios with person-years, incidence rates, and Schoenfeld residual p-values for both cohorts. | `Methodology_Revisions.docx` (Tables R1 + R2) | `SupTableS7_ClusterRobustHRs.docx` | DOCX |
-| **S8** | Pseudo-index assignment sensitivity analysis for Cohort A (Any-of-5 endpoint) — random sample, calendar-year-matched, and risk-set sampling strategies. | `CohortA_pseudoindex_sensitivity.csv` | `SupTableS8_PseudoIndexSensitivity.csv` | CSV |
+| **S3** | Cohort B subgroup analysis — pre-specified age strata (<40, 40–49, ≥50, plus 30–52 post-hoc) × follow-up windows (1, 2, 4 yr, full) for lesion recurrence. | `SupTableS4_revised_age_fu_forest.docx` | `SupTableS3_AgeFollowUpSubgroup.docx` | DOCX |
+| **S4** | Number-at-risk tables for Kaplan–Meier and Aalen–Johansen curves by group at yearly intervals (0–8 yr). | `SupTableS5_number_at_risk.docx` | `SupTableS4_NumberAtRisk.docx` | DOCX |
+| **S5** | Per-vaccine-type detailed results — pairwise subgroup hazard ratios and single-model interaction-derived hazard ratios with the LRT for vaccine-type heterogeneity. Sensitivity outcome rows (post-index hr-HPV detection) included for transparency. | `vaccine_type_analysis.csv` + `CohortB_vaccine_interaction.csv` | `SupTableS5_VaccineTypeDetails.docx` | DOCX |
+| **S6** | Cluster-robust hazard ratios with person-years, incidence rates, and Schoenfeld residual p-values for both cohorts (Cohort A Any-of-5 / MCE / 5 individual chronic conditions; Cohort B lesion recurrence + hr-HPV clearance co-primary + post-index detection sensitivity). | `Methodology_Revisions.docx` (Tables R1 + R2) | `SupTableS6_ClusterRobustHRs.docx` | DOCX |
+| **S7** | Pseudo-index assignment sensitivity analysis for Cohort A (Any-of-5 endpoint) — random sample, calendar-year-matched, and risk-set sampling strategies. | `CohortA_pseudoindex_sensitivity.csv` | `SupTableS7_PseudoIndexSensitivity.docx` | DOCX |
+| **S8** *(Sens-C)* | Dose-threshold sensitivity for both cohorts — re-fitted hazard ratios under ≥1, ≥2, and ≥3 (complete schedule) dose definitions with matched-set integrity preserved. | `Sensitivity_DoseThreshold_HR.csv` | `SupTableS8_DoseThreshold_SensC.docx` | DOCX |
+| **S9** *(Sens-D)* | Strict 1:4 fine-matching sensitivity for Cohort B lesion recurrence — variable-ratio (1:up-to-4, primary) vs strict (sensitivity) specifications. | `Sensitivity_StrictMatching.csv` | `SupTableS9_StrictMatching_SensD.docx` | DOCX |
+| **S10** *(Sens-B)* | Time-stratified hr-HPV clearance hazard ratios decomposed into 0–6, 6–12, 12–24, and ≥24-month windows post-index (clearance subset, n = 292). | `Sensitivity_HPV_Clearance_TimeStratified.csv` | `SupTableS10_TimeStratifiedClearance_SensB.docx` | DOCX |
+| **S11** *(Sens-A)* | Single-negative HPV clearance sensitivity — alternative event definition using the FIRST single post-index hr-HPV-negative record vs the two-consecutive-negative primary. | `Sensitivity_HPV_Clearance_SingleNegative.csv` | `SupTableS11_SingleNegativeClearance_SensA.docx` | DOCX |
+| **S12** *(Sens-E)* | Disease-free-interval sensitivity for lesion recurrence — minimum 3-, 6-, and 12-month buffer from the index date before counting a recurrence event. | `Sensitivity_Recurrence_DFInterval.csv` | `SupTableS12_DiseaseFreeInterval_SensE.docx` | DOCX |
 
 ### 3.2 Supplementary Figures
 
@@ -94,7 +102,7 @@ submission/
 | **S5a** | Schoenfeld residual diagnostic plot — Cohort A, Any-of-5 endpoint. | `PH_check_A_0.png` | `SupFigS5a_PHCheck_CohortA_AnyOf5.png` | PNG, 130 dpi |
 | **S5b** | Schoenfeld residual diagnostic plot — Cohort A, Diabetes endpoint. | `PH_check_A_1.png` | `SupFigS5b_PHCheck_CohortA_Diabetes.png` | PNG, 130 dpi |
 | **S6a** | Schoenfeld residual diagnostic plot — Cohort B, lesion recurrence. | `PH_check_B_has_recurrence.png` | `SupFigS6a_PHCheck_CohortB_Recurrence.png` | PNG, 130 dpi |
-| **S6b** | Schoenfeld residual diagnostic plot — Cohort B, HPV reinfection. | `PH_check_B_has_hpv_infection.png` | `SupFigS6b_PHCheck_CohortB_HPVReinfection.png` | PNG, 130 dpi |
+| **S6b** | Schoenfeld residual diagnostic plot — Cohort B, hr-HPV clearance co-primary (n = 292, two-consecutive-negative event). | `PH_check_B_clearance.png` | `SupFigS6b_PHCheck_CohortB_HPVClearance.png` | PNG, 130 dpi |
 
 ---
 
