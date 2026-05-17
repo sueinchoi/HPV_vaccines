@@ -196,24 +196,80 @@ def cox_HR(d, ev_col):
     return res
 
 cohortB_rows = []
-for ev_label, ev_col in [('Lesion recurrence', 'has_recurrence'),
-                          ('HPV reinfection',  'has_hpv_infection')]:
-    for thr_label, thr in [('≥1 dose (primary)', 1),
-                            ('≥2 doses', 2),
-                            ('≥3 doses (complete)', 3)]:
-        # Drop vaccinated cases below the threshold AND their attached
-        # non-vaccinated participants (preserve the matched-set structure).
-        bad_match_ids = set(
-            B.loc[(B['vac']==1) & (B['total_doses'] < thr), 'fine_match_id'])
-        sub = B[~B['fine_match_id'].isin(bad_match_ids)].copy()
-        r = cox_HR(sub, ev_col)
-        r.update(cohort='B', outcome=ev_label, definition=thr_label, threshold=thr)
-        cohortB_rows.append(r)
-        print(f'  {ev_label:20s} {thr_label:22s} '
+# Lesion recurrence — full Cohort B
+for thr_label, thr in [('≥1 dose (primary)', 1),
+                        ('≥2 doses', 2),
+                        ('≥3 doses (complete)', 3)]:
+    bad_match_ids = set(
+        B.loc[(B['vac']==1) & (B['total_doses'] < thr), 'fine_match_id'])
+    sub = B[~B['fine_match_id'].isin(bad_match_ids)].copy()
+    r = cox_HR(sub, 'has_recurrence')
+    r.update(cohort='B', outcome='Lesion recurrence',
+             definition=thr_label, threshold=thr)
+    cohortB_rows.append(r)
+    if not np.isnan(r['HR']):
+        print(f'  Lesion recurrence    {thr_label:22s} '
               f'n_v={r["n_v"]:>3}/n_c={r["n_c"]:>3}  '
-              f"HR={r['HR']:.2f} ({r['CIlo']:.2f}–{r['CIhi']:.2f})  p={r['p']:.3f}"
-              if not np.isnan(r['HR']) else
-              f'  {ev_label:20s} {thr_label:22s} insufficient events')
+              f"HR={r['HR']:.2f} ({r['CIlo']:.2f}–{r['CIhi']:.2f})  p={r['p']:.3f}")
+
+# hr-HPV clearance — pre-vaccine HPV-positive subset (n = 292)
+BC = pd.read_csv('Data/CohortB_Clearance_Analytic.csv', encoding='utf-8-sig')
+BC['index_date']     = pd.to_datetime(BC['index_date'])
+BC['first_neg_date'] = pd.to_datetime(BC['first_neg_date'], errors='coerce')
+BC['vac']            = BC['vac'].astype(int)
+BC['index_age']      = pd.to_numeric(BC['index_age'], errors='coerce')
+BC['follow_up_days'] = pd.to_numeric(BC['follow_up_days'], errors='coerce')
+BC['has_clearance']  = BC['first_neg_date'].notna().astype(int)
+BC['days_to_clear']  = (BC['first_neg_date'] - BC['index_date']).dt.days
+BC = BC.merge(doses_long[['total_doses']], left_on='연구번호',
+              right_index=True, how='left')
+BC['total_doses'] = BC['total_doses'].fillna(0).astype(int)
+
+
+def cox_HR_clearance(d):
+    df = d.copy()
+    df['time'] = np.where(df['has_clearance'].astype(bool),
+                          df['days_to_clear'],
+                          df['follow_up_days'])
+    df = df[['time', 'has_clearance', 'vac', 'index_age', 'fine_match_id']].dropna(
+        ).rename(columns={'has_clearance': 'event'})
+    df['event'] = df['event'].astype(int)
+    df = df[df['time'] > 0]
+    n_v = int((df['vac']==1).sum()); n_c = int((df['vac']==0).sum())
+    e_v = int(((df['vac']==1) & (df['event']==1)).sum())
+    e_c = int(((df['vac']==0) & (df['event']==1)).sum())
+    res = dict(n_v=n_v, n_c=n_c, ev_v=e_v, ev_c=e_c,
+               HR=np.nan, CIlo=np.nan, CIhi=np.nan, p=np.nan)
+    if e_v + e_c < 3 or n_v < 2 or n_c < 2:
+        return res
+    try:
+        cph = CoxPHFitter()
+        cph.fit(df, duration_col='time', event_col='event',
+                cluster_col='fine_match_id', robust=True)
+        r = cph.summary.loc['vac']
+        res.update(HR=float(r['exp(coef)']),
+                   CIlo=float(r['exp(coef) lower 95%']),
+                   CIhi=float(r['exp(coef) upper 95%']),
+                   p=float(r['p']))
+    except Exception as e:
+        print(f'    Cox fit failed for clearance: {e}')
+    return res
+
+
+for thr_label, thr in [('≥1 dose (primary)', 1),
+                        ('≥2 doses', 2),
+                        ('≥3 doses (complete)', 3)]:
+    bad_match_ids = set(
+        BC.loc[(BC['vac']==1) & (BC['total_doses'] < thr), 'fine_match_id'])
+    sub = BC[~BC['fine_match_id'].isin(bad_match_ids)].copy()
+    r = cox_HR_clearance(sub)
+    r.update(cohort='B', outcome='hr-HPV clearance',
+             definition=thr_label, threshold=thr)
+    cohortB_rows.append(r)
+    if not np.isnan(r['HR']):
+        print(f'  hr-HPV clearance     {thr_label:22s} '
+              f'n_v={r["n_v"]:>3}/n_c={r["n_c"]:>3}  '
+              f"HR={r['HR']:.2f} ({r['CIlo']:.2f}–{r['CIhi']:.2f})  p={r['p']:.3f}")
 
 # ===========================================================================
 # S1b. Dose-threshold sensitivity for Cohort A (safety)

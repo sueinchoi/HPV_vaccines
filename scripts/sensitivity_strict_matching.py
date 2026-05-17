@@ -6,7 +6,13 @@ Strict 1:4 retains only those vaccinated cases that received the full 4
 controls in the original fine-matching step; cases with 1–3 controls and
 their attached non-vaccinated participants are dropped. Cox HRs (age-
 adjusted, cluster-robust on fine_match_id) are re-estimated under the
-strict definition for both primary outcomes.
+strict definition for both Cohort B CO-PRIMARY outcomes:
+
+  - Lesion recurrence  (HR < 1 favours vaccinated)
+  - hr-HPV clearance  on the pre-vaccine HPV-positive subset (HR > 1 favours
+    vaccinated)  — event = FIRST of two consecutive post-index hr-HPV-
+    negative molecular pathology records (`first_neg_date` in the clearance
+    analytic dataset).
 
 Output: Data/Sensitivity_StrictMatching.csv
 """
@@ -14,32 +20,53 @@ import warnings; warnings.filterwarnings('ignore')
 import pandas as pd, numpy as np
 from lifelines import CoxPHFitter
 
+# --- Lesion recurrence cohort (full Cohort B) ---
 B = pd.read_csv('Data/final_matched_outcomes.csv', encoding='utf-8-sig')
 B['vac'] = B['접종여부'].astype(bool).astype(int)
 B['follow_up_days'] = pd.to_numeric(B['follow_up_days'], errors='coerce')
 B['index_age'] = pd.to_numeric(B['index_age'], errors='coerce')
 
+# Identify match-ids where the vaccinated case received the full 4 controls.
 n_ctl_per_match = (B.groupby('fine_match_id')['vac']
                     .apply(lambda s: int((s == 0).sum())))
-full4_ids = n_ctl_per_match[n_ctl_per_match == 4].index
+full4_ids = set(n_ctl_per_match[n_ctl_per_match == 4].index)
+
 B_strict = B[B['fine_match_id'].isin(full4_ids)].copy()
 
+# --- Clearance subset (pre-vaccine HPV+; n = 292) ---
+BC = pd.read_csv('Data/CohortB_Clearance_Analytic.csv', encoding='utf-8-sig')
+BC['index_date']     = pd.to_datetime(BC['index_date'])
+BC['first_neg_date'] = pd.to_datetime(BC['first_neg_date'], errors='coerce')
+BC['vac']            = BC['vac'].astype(int)
+BC['index_age']      = pd.to_numeric(BC['index_age'], errors='coerce')
+BC['follow_up_days'] = pd.to_numeric(BC['follow_up_days'], errors='coerce')
+BC['has_clearance']  = BC['first_neg_date'].notna().astype(int)
+BC['days_to_clear']  = (BC['first_neg_date'] - BC['index_date']).dt.days
 
-def cox_hr(d, ev_col):
-    """Cox HR with proper survival time: days_to_event for events, follow_up_days otherwise."""
+BC_strict = BC[BC['fine_match_id'].isin(full4_ids)].copy()
+
+
+def cox_hr_recurrence(d):
     df = d.copy()
-    if ev_col == 'has_recurrence':
-        df['time'] = np.where(df['has_recurrence'].astype(bool),
-                               pd.to_numeric(df['days_to_recurrence'], errors='coerce'),
-                               df['follow_up_days'])
-    elif ev_col == 'has_hpv_infection':
-        df['time'] = np.where(df['has_hpv_infection'].astype(bool),
-                               pd.to_numeric(df['days_to_hpv'], errors='coerce'),
-                               df['follow_up_days'])
-    else:
-        df['time'] = df['follow_up_days']
-    df = df[['time', ev_col, 'vac', 'index_age', 'fine_match_id']].dropna().rename(
-        columns={ev_col: 'event'})
+    df['time'] = np.where(df['has_recurrence'].astype(bool),
+                          pd.to_numeric(df['days_to_recurrence'], errors='coerce'),
+                          df['follow_up_days'])
+    df = df[['time', 'has_recurrence', 'vac', 'index_age', 'fine_match_id']].dropna(
+        ).rename(columns={'has_recurrence': 'event'})
+    return _cox_fit(df)
+
+
+def cox_hr_clearance(d):
+    df = d.copy()
+    df['time'] = np.where(df['has_clearance'].astype(bool),
+                          df['days_to_clear'],
+                          df['follow_up_days'])
+    df = df[['time', 'has_clearance', 'vac', 'index_age', 'fine_match_id']].dropna(
+        ).rename(columns={'has_clearance': 'event'})
+    return _cox_fit(df)
+
+
+def _cox_fit(df):
     df['event'] = df['event'].astype(int)
     df = df[df['time'] > 0]
     n_v = int((df['vac'] == 1).sum()); n_c = int((df['vac'] == 0).sum())
@@ -67,11 +94,13 @@ def detectable_hr_80(events_total):
 
 
 rows = []
-for ev_label, ev_col in [('Lesion recurrence', 'has_recurrence'),
-                          ('HPV reinfection',  'has_hpv_infection')]:
-    for design, sub in [('variable-ratio (1:up-to-4, primary)', B),
-                         ('strict 1:4 (sensitivity)', B_strict)]:
-        r = cox_hr(sub, ev_col)
+for ev_label, fitter, full_ds, strict_ds in [
+    ('Lesion recurrence',  cox_hr_recurrence, B,  B_strict),
+    ('hr-HPV clearance',   cox_hr_clearance,  BC, BC_strict),
+]:
+    for design, sub in [('variable-ratio (1:up-to-4, primary)', full_ds),
+                         ('strict 1:4 (sensitivity)', strict_ds)]:
+        r = fitter(sub)
         e_total = r['ev_v'] + r['ev_c']
         r.update(outcome=ev_label, design=design,
                  detectable_HR_80pct_power=detectable_hr_80(e_total))
