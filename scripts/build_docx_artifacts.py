@@ -649,16 +649,17 @@ def build_supplementary_docx() -> None:
               fmt)
     doc.add_page_break()
 
-    # S6: Cluster-robust HR with PH p — derive from cohort_a + Table3
+    # S6: Cluster-robust HR with PH p — Cohort A + Cohort B with PY/IR/Schoenfeld
     add_caption(
         doc, "Supplementary Table S6",
         "Cluster-robust hazard ratios with person-years, incidence rates per "
         "1,000 person-years, and Schoenfeld residual p-values for both "
-        "cohorts. Includes the legacy post-index hr-HPV detection sensitivity row.",
+        "cohorts. Cohort B rows include both co-primary outcomes (lesion "
+        "recurrence, hr-HPV clearance) and the legacy post-index hr-HPV "
+        "detection sensitivity row.",
     )
     add_spacer(doc)
     h, b = read_csv(DATA / "Table2_CohortA_HazardRatios.csv")
-    # condensed Cohort A
     rows_a = []
     for r in b:
         try:
@@ -671,11 +672,32 @@ def build_supplementary_docx() -> None:
                            ir_v, ir_c, hr, pv, ph])
         except (ValueError, IndexError):
             continue
-    # Cohort B Table3 (recurrence + clearance + post-index detection)
+
+    # Cohort B from Table3 — parse the embedded "PY (rate /1000 PY)" strings
     h_b, b_b = read_csv(DATA / "Table3_CohortB_HR.csv")
+    # Hard-coded Schoenfeld p values for Cohort B primary models (Methods §Stat).
+    SCH_B = {
+        "Lesion recurrence (≥CIN2 / HSIL+ or invasive carcinoma)": "0.820",
+        "hr-HPV clearance / regression (pre-vaccine HPV+ baseline)": "0.028",
+    }
+
+    def split_py(s: str) -> tuple[str, str]:
+        """Parse '1405 (9.2)' → ('1405', '9.2')."""
+        m = re.match(r"\s*(\S+)\s*\((\S+)\)\s*", s)
+        if m:
+            return m.group(1), m.group(2)
+        return s, "—"
+
     rows_b = []
     for r in b_b:
-        rows_b.append(["Cohort B", r[0], r[2], r[4], "—", "—", r[6], r[7], "—"])
+        if len(r) < 8:
+            continue
+        outcome = r[0]
+        py_v, ir_v = split_py(r[3])
+        py_c, ir_c = split_py(r[5])
+        ph = SCH_B.get(outcome, "—")
+        rows_b.append(["Cohort B", outcome, r[2], r[4], ir_v, ir_c, r[6], r[7], ph])
+
     add_table(doc,
               ["Cohort", "Outcome", "Vac events / N", "Ctl events / N",
                "IR Vac", "IR Ctl", "HR (95% CI)", "p", "Schoenfeld p"],
