@@ -738,12 +738,13 @@ def build_supplementary_docx() -> None:
     add_table(doc, s7_header, s7_rows)
     doc.add_page_break()
 
-    # S8: Dose threshold (Sens-C)
+    # S8A: Dose threshold (Sens-C, primary)
     add_caption(
-        doc, "Supplementary Table S8",
-        "(Sens-C) Dose-threshold sensitivity for both cohorts — re-fitted "
-        "hazard ratios under ≥1, ≥2, and ≥3 (complete schedule) dose definitions; "
-        "matched-set integrity preserved.",
+        doc, "Supplementary Table S8A",
+        "(Sens-C, primary) Dose-threshold sensitivity for both cohorts — "
+        "re-fitted hazard ratios under ≥1, ≥2, and ≥3 (complete schedule) "
+        "dose definitions; matched-set integrity preserved by dropping the "
+        "entire matched set when the vaccinated case fails the threshold.",
     )
     add_spacer(doc)
     h, b = read_csv(DATA / "Sensitivity_DoseThreshold_HR.csv")
@@ -762,6 +763,36 @@ def build_supplementary_docx() -> None:
                "Vac events / N", "Ctl events / N", "HR (95% CI)", "p"],
               rows,
               col_widths_in=[0.5, 1.6, 1.5, 0.8, 0.8, 1.1, 0.4])
+    doc.add_page_break()
+
+    # S8B: Dose threshold with landmark (immortal-time-corrected)
+    add_caption(
+        doc, "Supplementary Table S8B",
+        "(Sens-C, landmark) Immortal-time-bias-corrected dose-threshold "
+        "sensitivity for Cohort B. Landmarks reflect the standard HPV-vaccine "
+        "0–2–6 month schedule plus grace: ≥1 dose at 30 days, ≥2 doses at "
+        "90 days, ≥3 doses at 240 days. Patients (both arms) must be alive "
+        "and event-free at the landmark to enter the analysis; for vaccinated "
+        "cases, the k-th dose must additionally have been received by the "
+        "landmark. Time is left-truncated at the landmark.",
+    )
+    add_spacer(doc)
+    h, b = read_csv(DATA / "Sensitivity_DoseThreshold_Landmark.csv")
+    rows = []
+    for r in b:
+        try:
+            outcome, definition, threshold, lm, n_v, n_c, ev_v, ev_c, hr, lo, hi, p = r[:12]
+            hr_txt = (f"{float(hr):.2f} ({float(lo):.2f}–{float(hi):.2f})" if hr else "—")
+            pv = fmt_p(p)
+            rows.append([outcome, definition,
+                         f"{ev_v}/{n_v}", f"{ev_c}/{n_c}", hr_txt, pv])
+        except (ValueError, IndexError):
+            continue
+    add_table(doc,
+              ["Outcome", "Definition (landmark)",
+               "Vac events / N", "Ctl events / N", "HR (95% CI)", "p"],
+              rows,
+              col_widths_in=[1.5, 2.0, 0.9, 0.9, 1.1, 0.4])
     doc.add_page_break()
 
     # S9: Strict matching (Sens-D)
