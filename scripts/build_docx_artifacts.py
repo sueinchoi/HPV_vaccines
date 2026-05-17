@@ -528,27 +528,37 @@ def build_supplementary_docx() -> None:
     # ---- Supplementary Tables ----
     add_heading(doc, "Supplementary Tables", level=2)
 
-    # S1: pre-matching baseline (use long unified CSV but the pre blocks)
-    add_caption(
-        doc, "Supplementary Table S1",
-        "Pre-matching baseline characteristics (same variable list as Table 1).",
-    )
-    add_spacer(doc)
+    # S1: pre-matching baseline — split by cohort
     h, body = read_csv(DATA / "Table1_BaselineCharacteristics_unified.csv")
-    keep = {"CohortA_pre", "CohortB_pre"}
-    rows = []
+    rows_a, rows_b = [], []
     for r in body:
         if len(r) < 6:
             continue
-        if r[0] not in keep:
-            continue
-        rows.append([
-            {"CohortA_pre": "Cohort A (pre-PSM)",
-             "CohortB_pre": "Cohort B (pre fine match)"}[r[0]],
-            translate_korean(r[1]), r[2], r[3], r[4], r[5]
-        ])
-    add_table(doc, ["Block", "Variable", "Vaccinated", "Non-vaccinated", "p", "|SMD|"],
-              rows, col_widths_in=[1.2, 1.9, 1.0, 1.1, 0.6, 0.6])
+        if r[0] == "CohortA_pre":
+            rows_a.append([translate_korean(r[1]), r[2], r[3], r[4], r[5]])
+        elif r[0] == "CohortB_pre":
+            rows_b.append([translate_korean(r[1]), r[2], r[3], r[4], r[5]])
+
+    add_caption(
+        doc, "Supplementary Table S1A",
+        "Pre-matching baseline characteristics — Cohort A (full source "
+        "population, before 1:1 propensity-score matching).",
+    )
+    add_spacer(doc)
+    add_table(doc,
+              ["Variable", "Vaccinated", "Non-vaccinated", "p", "|SMD|"],
+              rows_a, col_widths_in=[2.5, 1.1, 1.2, 0.6, 0.6])
+    doc.add_page_break()
+
+    add_caption(
+        doc, "Supplementary Table S1B",
+        "Pre-matching baseline characteristics — Cohort B (post-surgical "
+        "population, before 1:up-to-4 fine matching).",
+    )
+    add_spacer(doc)
+    add_table(doc,
+              ["Variable", "Vaccinated", "Non-vaccinated", "p", "|SMD|"],
+              rows_b, col_widths_in=[2.5, 1.1, 1.2, 0.6, 0.6])
     doc.add_page_break()
 
     # S2: PS coefficients
