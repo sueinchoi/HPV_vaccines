@@ -91,6 +91,61 @@ def read_csv(path: Path) -> tuple[list[str], list[list[str]]]:
     return rows[0], rows[1:]
 
 
+# ---------------------------------------------------------------------------
+# Translation + formatting helpers
+# ---------------------------------------------------------------------------
+
+KOR2ENG = {
+    "협심증/심근경색": "Angina / Myocardial infarction",
+    "고혈압": "Hypertension",
+    "당뇨": "Diabetes",
+    "뇌출혈/뇌경색": "Stroke",
+    "폐색전증": "Pulmonary embolism",
+    "원추절제술": "Conization",
+    "자궁절제술": "Hysterectomy",
+}
+
+
+def translate_korean(s: str) -> str:
+    out = s
+    # Match Korean span (trim leading spaces but preserve them in output)
+    leading_ws = len(out) - len(out.lstrip())
+    body = out.strip()
+    if body in KOR2ENG:
+        return " " * leading_ws + KOR2ENG[body]
+    return out
+
+
+def fmt_num(v: str, decimals: int = 2) -> str:
+    """Round a numeric string to `decimals` places; pass through non-numerics."""
+    if v in ("", None):
+        return ""
+    try:
+        f = float(v)
+    except (TypeError, ValueError):
+        return v
+    return f"{f:.{decimals}f}"
+
+
+def fmt_p(v: str) -> str:
+    if v in ("", None):
+        return ""
+    try:
+        f = float(v)
+    except (TypeError, ValueError):
+        return v
+    if f < 0.001:
+        return "<0.001"
+    return f"{f:.3f}"
+
+
+def fmt_hr_triplet(hr: str, lo: str, hi: str) -> str:
+    try:
+        return f"{float(hr):.2f} ({float(lo):.2f}–{float(hi):.2f})"
+    except (TypeError, ValueError):
+        return "—"
+
+
 def add_heading(doc: Document, text: str, level: int = 1) -> None:
     doc.add_heading(text, level=level)
 
@@ -164,13 +219,12 @@ def table1_rows() -> tuple[list[str], list[list[str]]]:
         block, var, vac, ctl, p, smd = r[0], r[1], r[2], r[3], r[4], r[5]
         if block not in keep:
             continue
-        # Pretty block labels
         block_label = {
             "CohortA_post": "Cohort A (post-PSM)",
             "CohortB_post": "Cohort B (post fine match)",
             "CohortB_clearance": "Cohort B — clearance subset",
         }[block]
-        out.append([block_label, var, vac, ctl, p, smd])
+        out.append([block_label, translate_korean(var), vac, ctl, p, smd])
     return out_header, out
 
 
@@ -491,7 +545,7 @@ def build_supplementary_docx() -> None:
         rows.append([
             {"CohortA_pre": "Cohort A (pre-PSM)",
              "CohortB_pre": "Cohort B (pre fine match)"}[r[0]],
-            r[1], r[2], r[3], r[4], r[5]
+            translate_korean(r[1]), r[2], r[3], r[4], r[5]
         ])
     add_table(doc, ["Block", "Variable", "Vaccinated", "Non-vaccinated", "p", "|SMD|"],
               rows, col_widths_in=[1.2, 1.9, 1.0, 1.1, 0.6, 0.6])
@@ -504,7 +558,20 @@ def build_supplementary_docx() -> None:
     )
     add_spacer(doc)
     h, b = read_csv(DATA / "SupTableS2_ps_coefficients.csv")
-    add_table(doc, h, b)
+    # Round means to 2 dp, coefficients to 3 dp, ORs to 2 dp.
+    rows = []
+    for r in b:
+        if len(r) < 6:
+            continue
+        rows.append([
+            r[0],
+            fmt_num(r[1], 2),
+            fmt_num(r[2], 2),
+            fmt_num(r[3], 3),
+            fmt_num(r[4], 3),
+            fmt_num(r[5], 2),
+        ])
+    add_table(doc, h, rows)
     doc.add_page_break()
 
     # S3: Age × FU forest data
@@ -514,8 +581,23 @@ def build_supplementary_docx() -> None:
         "follow-up windows.",
     )
     add_spacer(doc)
-    h, b = read_csv(DATA / "CohortB_age_fu_forest.csv")
-    add_table(doc, h, b)
+    h_src, b_src = read_csv(DATA / "CohortB_age_fu_forest.csv")
+    s3_header = ["Stratum", "Follow-up window", "n total",
+                 "Vac events / N", "Ctl events / N", "HR (95% CI)", "p"]
+    s3_rows = []
+    for r in b_src:
+        try:
+            (n, n_vac, n_ctl, ev_vac, ev_ctl, hr, lo, hi, p,
+             stratum, fu_label, _fu_yr) = r[:12]
+            s3_rows.append([
+                stratum, fu_label, n,
+                f"{ev_vac} / {n_vac}", f"{ev_ctl} / {n_ctl}",
+                fmt_hr_triplet(hr, lo, hi), fmt_p(p),
+            ])
+        except (ValueError, IndexError):
+            continue
+    add_table(doc, s3_header, s3_rows,
+              col_widths_in=[1.1, 1.3, 0.6, 1.0, 1.0, 1.2, 0.5])
     doc.add_page_break()
 
     # S4: Number at risk — generate inline from Figure 3 source if available
@@ -546,18 +628,18 @@ def build_supplementary_docx() -> None:
     )
     add_spacer(doc)
     h, b = read_csv(DATA / "CohortB_vaccine_interaction.csv")
-    # Format numeric columns
+    # CSV column order: outcome, LRT_chi2, df, LRT_p, then HR/CI/CI triplets.
     fmt = []
     for r in b:
-        new = [r[0]]
-        new.append(r[1])  # df
-        new.append(r[2])  # LRT chi2 (string)
-        new.append(r[3])  # LRT p
+        try:
+            outcome, lrt_chi2, df_, lrt_p = r[0], r[1], r[2], r[3]
+        except IndexError:
+            continue
+        new = [outcome, fmt_num(lrt_chi2, 2), df_, fmt_p(lrt_p)]
         for i in (4, 7, 10):
             try:
-                hr = float(r[i]); lo = float(r[i+1]); hi = float(r[i+2])
-                new.append(f"{hr:.2f} ({lo:.2f}–{hi:.2f})")
-            except (ValueError, IndexError):
+                new.append(fmt_hr_triplet(r[i], r[i+1], r[i+2]))
+            except IndexError:
                 new.append("—")
         fmt.append(new)
     add_table(doc,
@@ -608,8 +690,20 @@ def build_supplementary_docx() -> None:
         "random sampling, calendar-year-matched, and risk-set sampling strategies.",
     )
     add_spacer(doc)
-    h, b = read_csv(DATA / "CohortA_pseudoindex_sensitivity.csv")
-    add_table(doc, h, b)
+    h_src, b_src = read_csv(DATA / "CohortA_pseudoindex_sensitivity.csv")
+    s7_header = ["Strategy", "Vac events / N", "Ctl events / N", "HR (95% CI)", "p"]
+    s7_rows = []
+    for r in b_src:
+        try:
+            strategy, n_vac, n_ctl, ev_vac, ev_ctl, hr, lo, hi, p = r[:9]
+            s7_rows.append([
+                strategy,
+                f"{ev_vac} / {n_vac}", f"{ev_ctl} / {n_ctl}",
+                fmt_hr_triplet(hr, lo, hi), fmt_p(p),
+            ])
+        except (ValueError, IndexError):
+            continue
+    add_table(doc, s7_header, s7_rows)
     doc.add_page_break()
 
     # S8: Dose threshold (Sens-C)
