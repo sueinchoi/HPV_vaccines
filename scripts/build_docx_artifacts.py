@@ -71,10 +71,11 @@ def run_pandoc(md: str, out_path: Path) -> None:
     print(f"wrote {out_path.relative_to(ROOT)}")
 
 
-def build_manuscript_docx() -> None:
+def build_manuscript_docx(suffix: str = "") -> None:
     text = SRC_MD.read_text(encoding="utf-8")
     parts = split_sections(text)
-    run_pandoc(normalise(parts["manuscript"]), DOCS / "HPV_manuscript.docx")
+    run_pandoc(normalise(parts["manuscript"]),
+               DOCS / f"HPV_manuscript{suffix}.docx")
 
 
 # ---------------------------------------------------------------------------
@@ -209,7 +210,6 @@ def add_spacer(doc: Document) -> None:
 def table1_rows() -> tuple[list[str], list[list[str]]]:
     """Reshape Table1_BaselineCharacteristics_unified.csv (long → wide-ish)."""
     header, body = read_csv(DATA / "Table1_BaselineCharacteristics_unified.csv")
-    # Keep the post-matching blocks: CohortA_post, CohortB_post, CohortB_clearance
     keep = {"CohortA_post", "CohortB_post", "CohortB_clearance"}
     out_header = ["Block", "Variable", "Vaccinated", "Non-vaccinated", "p value", "|SMD|"]
     out = []
@@ -226,6 +226,17 @@ def table1_rows() -> tuple[list[str], list[list[str]]]:
         }[block]
         out.append([block_label, translate_korean(var), vac, ctl, p, smd])
     return out_header, out
+
+
+def table1_split_rows() -> dict[str, list[list[str]]]:
+    """Return {block_id: rows_without_block_column} for the three Table 1 splits."""
+    _h, body = read_csv(DATA / "Table1_BaselineCharacteristics_unified.csv")
+    out = {"CohortA_post": [], "CohortB_post": [], "CohortB_clearance": []}
+    for r in body:
+        if len(r) < 6 or r[0] not in out:
+            continue
+        out[r[0]].append([translate_korean(r[1]), r[2], r[3], r[4], r[5]])
+    return out
 
 
 def table2_rows() -> tuple[list[str], list[list[str]]]:
@@ -374,7 +385,7 @@ def hr_table(path: Path, label_col: str, extra_cols: list[tuple[str, str]]
 # ---------------------------------------------------------------------------
 
 
-def build_tables_figures_docx() -> None:
+def build_tables_figures_docx(suffix: str = "") -> None:
     doc = Document()
     # Body width ~6.5"
     for section in doc.sections:
@@ -438,17 +449,45 @@ def build_tables_figures_docx() -> None:
     )
     doc.add_page_break()
 
-    # ---- Table 1 ----
+    # ---- Table 1 — split by cohort (A / B / B-clearance), N in caption ----
+    splits = table1_split_rows()
+    t1_header = ["Variable", "Vaccinated", "Non-vaccinated", "p value", "|SMD|"]
+    t1_widths = [2.4, 1.1, 1.2, 0.6, 0.6]
+
     add_caption(
-        doc, "Table 1",
-        "Baseline characteristics of analytic cohorts after matching, with "
-        "absolute standardised mean differences. Cohort A (1:1 PSM), Cohort B "
-        "(1:up-to-4 fine match), and the Cohort B clearance subset (pre-vaccine "
-        "HPV-positive women).",
+        doc, "Table 1A",
+        "Baseline characteristics after 1:1 propensity-score matching — "
+        "Cohort A (long-term safety analysis). N = 4,102 "
+        "(2,051 vaccinated / 2,051 unvaccinated). Absolute standardised "
+        "mean differences (|SMD|) < 0.10 indicate adequate balance.",
     )
     add_spacer(doc)
-    h, b = table1_rows()
-    add_table(doc, h, b, col_widths_in=[1.1, 1.9, 1.0, 1.1, 0.7, 0.6])
+    add_table(doc, t1_header, splits["CohortA_post"], col_widths_in=t1_widths)
+    doc.add_page_break()
+
+    add_caption(
+        doc, "Table 1B",
+        "Baseline characteristics after 1:up-to-4 fine matching — Cohort B "
+        "(post-surgical efficacy analysis). N = 1,108 "
+        "(241 vaccinated / 867 unvaccinated; mean realised ratio 3.60). "
+        "Absolute standardised mean differences (|SMD|) < 0.10 indicate "
+        "adequate balance.",
+    )
+    add_spacer(doc)
+    add_table(doc, t1_header, splits["CohortB_post"], col_widths_in=t1_widths)
+    doc.add_page_break()
+
+    add_caption(
+        doc, "Table 1C",
+        "Baseline characteristics — Cohort B clearance subset (women with "
+        "documented pre-vaccine hr-HPV positivity; analytic population for "
+        "the hr-HPV clearance co-primary outcome). N = 292 "
+        "(110 vaccinated / 182 unvaccinated). Matched-set integrity preserved "
+        "by dropping fine_match_ids whose vaccinated case lacked a "
+        "pre-vaccine molecular pathology record.",
+    )
+    add_spacer(doc)
+    add_table(doc, t1_header, splits["CohortB_clearance"], col_widths_in=t1_widths)
     doc.add_page_break()
 
     # ---- Table 2 ----
@@ -473,7 +512,7 @@ def build_tables_figures_docx() -> None:
     h, b = table3_rows()
     add_table(doc, h, b, col_widths_in=[2.2, 0.7, 1.1, 0.5, 1.1, 0.5, 1.1, 0.4])
 
-    out = DOCS / "HPV_tables_figures.docx"
+    out = DOCS / f"HPV_tables_figures{suffix}.docx"
     doc.save(out)
     print(f"wrote {out.relative_to(ROOT)}")
 
@@ -483,7 +522,7 @@ def build_tables_figures_docx() -> None:
 # ---------------------------------------------------------------------------
 
 
-def build_supplementary_docx() -> None:
+def build_supplementary_docx(suffix: str = "") -> None:
     doc = Document()
     for section in doc.sections:
         section.left_margin = Cm(2.0)
@@ -889,15 +928,18 @@ def build_supplementary_docx() -> None:
                "HR (95% CI)", "p"],
               rows)
 
-    out = DOCS / "HPV_supplementary.docx"
+    out = DOCS / f"HPV_supplementary{suffix}.docx"
     doc.save(out)
     print(f"wrote {out.relative_to(ROOT)}")
 
 
 def main() -> None:
-    build_manuscript_docx()
-    build_tables_figures_docx()
-    build_supplementary_docx()
+    # Emit both the canonical filenames and the _v2 set so legacy paths
+    # keep working while the new cohort-split Table 1 ships under v2.
+    for suffix in ("", "_v2"):
+        build_manuscript_docx(suffix)
+        build_tables_figures_docx(suffix)
+        build_supplementary_docx(suffix)
 
 
 if __name__ == "__main__":
