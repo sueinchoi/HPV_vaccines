@@ -449,10 +449,19 @@ def build_tables_figures_docx(suffix: str = "") -> None:
     )
     doc.add_page_break()
 
-    # ---- Table 1 — split by cohort (A / B / B-clearance), N in caption ----
+    # ---- Table 1 — split by cohort (A / B), N in caption ----
     splits = table1_split_rows()
     t1_header = ["Variable", "Vaccinated", "Non-vaccinated", "p value", "|SMD|"]
     t1_widths = [2.4, 1.1, 1.2, 0.6, 0.6]
+
+    # Append a single "Pre-vaccine hr-HPV+" row to the Cohort B block in lieu
+    # of a separate clearance-subset table. Counts/p/SMD precomputed against
+    # CohortB_Clearance_Analytic.csv (n_v=110/241, n_c=182/867).
+    cohortB_rows = splits["CohortB_post"] + [
+        ["HPV history", "", "", "", ""],
+        ["  Pre-vaccine hr-HPV+ (clearance analytic subset)",
+         "110 (45.6%)", "182 (21.0%)", "<0.001", "0.542"],
+    ]
 
     add_caption(
         doc, "Table 1A",
@@ -471,23 +480,14 @@ def build_tables_figures_docx(suffix: str = "") -> None:
         "(post-surgical efficacy analysis). N = 1,108 "
         "(241 vaccinated / 867 unvaccinated; mean realised ratio 3.60). "
         "Absolute standardised mean differences (|SMD|) < 0.10 indicate "
-        "adequate balance.",
+        "adequate balance. The final row (Pre-vaccine hr-HPV+) defines the "
+        "clearance co-primary analytic subset (n = 292: 110 vaccinated / "
+        "182 unvaccinated); the large |SMD| on this row reflects differential "
+        "pre-vaccine molecular-pathology test frequency rather than a "
+        "balance failure of the fine matching on the other covariates.",
     )
     add_spacer(doc)
-    add_table(doc, t1_header, splits["CohortB_post"], col_widths_in=t1_widths)
-    doc.add_page_break()
-
-    add_caption(
-        doc, "Table 1C",
-        "Baseline characteristics — Cohort B clearance subset (women with "
-        "documented pre-vaccine hr-HPV positivity; analytic population for "
-        "the hr-HPV clearance co-primary outcome). N = 292 "
-        "(110 vaccinated / 182 unvaccinated). Matched-set integrity preserved "
-        "by dropping fine_match_ids whose vaccinated case lacked a "
-        "pre-vaccine molecular pathology record.",
-    )
-    add_spacer(doc)
-    add_table(doc, t1_header, splits["CohortB_clearance"], col_widths_in=t1_widths)
+    add_table(doc, t1_header, cohortB_rows, col_widths_in=t1_widths)
     doc.add_page_break()
 
     # ---- Table 2 ----
