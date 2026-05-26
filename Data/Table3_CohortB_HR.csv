@@ -1,9 +1,10 @@
 Outcome,Favourable direction,Vaccinated events / N,Vaccinated PY (rate /1000 PY),Non-vaccinated events / N,Non-vaccinated PY (rate /1000 PY),HR (95% CI),p value
 Lesion recurrence (≥CIN2 / HSIL+ or invasive carcinoma) — ≥2 dose + 3-mo landmark PRIMARY,HR<1,10 / 204,1132 (8.8),33 / 730,3947 (8.4),1.01 (0.49–2.06),0.985
 hr-HPV clearance (two consecutive negatives; pre-vaccine HPV+ baseline) — ≥2 dose + 3-mo landmark PRIMARY,HR>1,31 / 92,324 (95.7),28 / 143,617 (45.4),1.85 (1.09–3.17),0.024
-"Sustained clearance — KM median (years; vaccinated)",—,"31 clearance, 13 reversion, 18 censored",—,—,—,10.79 (Q25 2.31; Q75 NR),—
-"Sustained clearance — KM median (years; non-vaccinated)",—,—,—,"28 clearance, 13 reversion, 15 censored",—,5.67 (Q25 1.91; Q75 NR),—
+"Sustained clearance — vaccinated†",—,"31 clearance, 13 reversion, 18 censored",—,—,—,KM median 10.79 (Q25 2.31; Q75 NR); 5-yr S = 0.569,—
+"Sustained clearance — non-vaccinated†",—,—,—,"28 clearance, 13 reversion, 15 censored",—,KM median 5.67 (Q25 1.91; Q75 NR); 5-yr S = 0.533,—
 "Sustained clearance — log-rank (vac vs non-vac, reversion-free)",—,—,—,—,—,χ² = 1.00,0.317
 "Sensitivity (Sens-C): ≥1 dose, no landmark — lesion recurrence",HR<1,13 / 241,1405 (9.2),57 / 867,5052 (11.3),0.80 (0.44–1.43),0.445
 "Sensitivity (Sens-C): ≥3 dose, no landmark — lesion recurrence",HR<1,7 / 167,935 (7.5),40 / 601,3206 (12.5),0.58 (0.27–1.26),0.168
 "Sensitivity (Sens-C): ≥1 dose, no landmark — hr-HPV clearance",HR>1,40 / 110,402 (99.5),48 / 182,764 (62.8),1.40 (0.92–2.11),0.114
+"†KM median estimates unstable (small reversion count; 3-year plateau near S(t)=0.5; length-biased selection toward longer-FU patients). 5-year reversion-free probability is reported as a more stable summary; arms differ <4 percentage points at 5 y.",,,,,,,

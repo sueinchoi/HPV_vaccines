@@ -1,4 +1,4 @@
-﻿group,n_clearance_events,reversion_events,censored,KM_median_sustained_years,KM_q25_years,KM_q75_years
-Vaccinated,31,13,18,10.79,2.31,NR
-Non-vaccinated,28,13,15,5.67,1.91,NR
-Log-rank (vac vs non-vac),,,,χ²=1.00,,p=0.317
+﻿group,n_clearance_events,reversion_events,censored,KM_median_sustained_years,KM_q25_years,KM_q75_years,five_yr_reversion_free_prob
+Vaccinated,31,13,18,10.79,2.31,NR,0.569
+Non-vaccinated,28,13,15,5.67,1.91,NR,0.533
+Log-rank (vac vs non-vac),,,,χ²=1.00,,p=0.317,

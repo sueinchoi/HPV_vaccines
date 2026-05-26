@@ -96,7 +96,7 @@ for _, s in sc.iterrows():
         continue
     rows.append(
         {
-            'Outcome': f'  {s["group"]} — KM median sustained clearance (years)',
+            'Outcome': f'  {s["group"]} — KM median sustained clearance (years)†',
             'Vaccinated, n (events)': (
                 f'{int(s["n_clearance_events"])} clearance / '
                 f'{int(s["reversion_events"])} reversion / '
@@ -111,7 +111,8 @@ for _, s in sc.iterrows():
             'IR per 1000 PY (vac / non)': '',
             'HR (95% CI)': (
                 f'{s["KM_median_sustained_years"]} '
-                f'(Q25–Q75 {s["KM_q25_years"]}–{s["KM_q75_years"]} yr)'
+                f'(Q25–Q75 {s["KM_q25_years"]}–{s["KM_q75_years"]} yr); '
+                f'5-yr reversion-free P = {s["five_yr_reversion_free_prob"]}'
             ),
             'p': '',
         }
@@ -186,7 +187,17 @@ for i, row in enumerate(tbl.itertuples(index=False), start=1):
 
 note = doc.add_paragraph()
 note.add_run(
-    '\nPrimary exposure: ≥2 distinct HPV-vaccine prescription dates. '
+    '\n†KM median sustained-clearance estimates are reported for transparency '
+    'but should be interpreted with caution: the analysis is conditional on '
+    'clearance achievement and therefore length-biased toward patients with '
+    'longer follow-up (median total FU 8.67 y in vaccinated achievers vs 4.87 y '
+    'in the full v3 cohort), the reversion event count is small (13 per arm), '
+    'and the KM survival curves show 3-year plateaus near S(t)=0.5 that make '
+    'median estimates unstable. The 5-year reversion-free probability is '
+    'reported alongside the median as a more stable summary at a clinically '
+    'interpretable horizon; the two arms are nearly identical at 5 years '
+    '(56.9% vs 53.3%), and the log-rank test is non-significant (p = 0.317).\n\n'
+    'Primary exposure: ≥2 distinct HPV-vaccine prescription dates. '
     '3-month landmark applied symmetrically across arms: index date shifted to index + 90 days; '
     'patients with <90 days follow-up or with outcome event in first 90 days excluded; '
     'matched non-vaccinated controls of excluded vaccinated cases dropped (matched-set integrity). '

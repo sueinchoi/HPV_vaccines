@@ -231,6 +231,20 @@ def main():
             }
         )
 
+    # 5-year reversion-free probability per arm (more stable than KM median
+    # when event count is small and survival curves have long plateaus)
+    for grp_val, label in [(True, 'Vaccinated'), (False, 'Non-vaccinated')]:
+        sub = sub_groups.get(label)
+        if sub is None:
+            continue
+        kmf = KaplanMeierFitter().fit(sub['sus_yrs'], event_observed=sub['reversion'])
+        s5 = float(kmf.survival_function_at_times([5.0]).iloc[0])
+        # row in sc_rows that matches the group
+        for r in sc_rows:
+            if r['group'] == label:
+                r['five_yr_reversion_free_prob'] = round(s5, 3)
+                break
+
     # Log-rank test (vac vs non-vac, sustained clearance time)
     if 'Vaccinated' in sub_groups and 'Non-vaccinated' in sub_groups:
         v_, n_ = sub_groups['Vaccinated'], sub_groups['Non-vaccinated']
@@ -246,6 +260,7 @@ def main():
                 'KM_median_sustained_years': f'χ²={lr.test_statistic:.2f}',
                 'KM_q25_years': '',
                 'KM_q75_years': f'p={lr.p_value:.3f}',
+                'five_yr_reversion_free_prob': '',
             }
         )
 
