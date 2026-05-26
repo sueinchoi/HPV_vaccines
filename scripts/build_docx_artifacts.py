@@ -406,8 +406,10 @@ def build_tables_figures_docx(suffix: str = "") -> None:
         "score matching to a final n = 4,102 (2,051 vaccinated / 2,051 "
         "unvaccinated); and Cohort B (post-surgical efficacy analysis) through "
         "the cervical-surgery filter (n = 6,890), 1:up-to-5 initial matching "
-        "(411 / 1,815), index-date eligibility, and 1:up-to-4 fine matching to "
-        "a final n = 1,108 (241 / 867).",
+        "(411 / 1,815), index-date eligibility, 1:up-to-4 fine matching to "
+        "1,108 (241 / 867; legacy intermediate), and finally the ≥2-dose + "
+        "3-month landmark filter with matched-set integrity yielding the v3 "
+        "primary cohort n = 934 (204 vaccinated / 730 unvaccinated).",
     )
     doc.add_page_break()
 
@@ -428,11 +430,13 @@ def build_tables_figures_docx(suffix: str = "") -> None:
     add_image(doc, DATA / "Figure3_CohortB_CIF.png", width_in=6.5)
     add_caption(
         doc, "Figure 3",
-        "Cohort B co-primary outcomes — cumulative incidence curves with "
-        "number-at-risk tables. (a) lesion recurrence (≥CIN2) in the full "
-        "Cohort B (n = 1,108); (b) cumulative clearance of pre-vaccine hr-HPV "
-        "(two-consecutive-negative event) in the n = 292 pre-vaccine HPV-"
-        "positive subset. For clearance, HR > 1 favours vaccinated.",
+        "Cohort B co-primary outcomes under the v3 primary (≥2-dose + 3-month "
+        "landmark) — cumulative incidence curves with number-at-risk tables. "
+        "(a) lesion recurrence (≥CIN2) in the v3 Cohort B (n = 934; 204 "
+        "vaccinated / 730 controls); (b) cumulative clearance of pre-vaccine "
+        "hr-HPV (two-consecutive-negative event) in the v3 pre-vaccine HPV+ "
+        "subset (n = 235; 92 / 143). X-axis is years from landmark (index + 90 "
+        "days). For clearance, HR > 1 favours vaccinated.",
     )
     doc.add_page_break()
 
