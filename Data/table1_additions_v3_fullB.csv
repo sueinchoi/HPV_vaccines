@@ -1,0 +1,1109 @@
+﻿연구번호,접종여부,fine_match_id,pre_surg_hpv,post_surg_hpv_anytime,post_surg_hpv_prevac,surg_severity
+R000000065,True,0,No test,HR-HPV+,No test,HSIL/CIN3
+R000000190,True,1,HR-HPV+,HPV negative,No test,Other/unclassified
+R000000234,True,2,HPV negative,HR-HPV+,No test,HSIL/CIN3
+R000000572,True,3,No test,HPV negative,HPV negative,HSIL/CIN3
+R000000606,True,4,HR-HPV+,HR-HPV+,No test,Other/unclassified
+R000000749,True,5,HR-HPV+,HR-HPV+,HR-HPV+,HSIL/CIN3
+R000000770,True,6,No test,No test,No test,Other/unclassified
+R000000822,True,7,No test,HR-HPV+,No test,HSIL/CIN3
+R000000932,True,8,No test,HR-HPV+,HR-HPV+,HSIL/CIN3
+R000000979,True,9,No test,HPV negative,No test,Other/unclassified
+R000001055,True,10,non-HR HPV+,HPV negative,No test,HSIL/CIN3
+R000001134,True,11,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000001196,True,12,No test,HPV negative,HPV negative,Other/unclassified
+R000001242,True,13,HPV negative,HPV negative,No test,Other/unclassified
+R000001422,True,14,HR-HPV+,HPV negative,No test,Invasive cancer
+R000001717,True,15,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000001793,True,16,HPV negative,HPV negative,No test,HSIL/CIN3
+R000001890,True,17,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000002039,True,18,HPV negative,HPV negative,No test,Other/unclassified
+R000002124,True,19,HR-HPV+,HPV negative,HPV negative,Other/unclassified
+R000002162,True,20,non-HR HPV+,non-HR HPV+,non-HR HPV+,Other/unclassified
+R000002181,True,21,HPV negative,HPV negative,HPV negative,Other/unclassified
+R000002229,True,22,non-HR HPV+,HR-HPV+,HR-HPV+,Other/unclassified
+R000002412,True,23,No test,HPV negative,HPV negative,Other/unclassified
+R000002419,True,24,HR-HPV+,HR-HPV+,No test,Other/unclassified
+R000002696,True,25,HPV negative,HPV negative,No test,Other/unclassified
+R000002733,True,26,HR-HPV+,HR-HPV+,No test,Invasive cancer
+R000002839,True,27,non-HR HPV+,HR-HPV+,HR-HPV+,HSIL/CIN3
+R000002907,True,28,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000003058,True,29,HR-HPV+,HR-HPV+,No test,Other/unclassified
+R000003373,True,30,No test,HR-HPV+,No test,Other/unclassified
+R000003498,True,31,No test,HPV negative,No test,Other/unclassified
+R000003635,True,32,No test,HR-HPV+,No test,Other/unclassified
+R000003663,True,33,No test,HPV negative,HPV negative,Invasive cancer
+R000003703,True,34,No test,HR-HPV+,No test,Invasive cancer
+R000003913,True,35,non-HR HPV+,HR-HPV+,HR-HPV+,Other/unclassified
+R000004029,True,36,non-HR HPV+,non-HR HPV+,non-HR HPV+,Other/unclassified
+R000004127,True,37,HR-HPV+,HPV negative,No test,Invasive cancer
+R000004214,True,38,No test,HPV negative,No test,Other/unclassified
+R000004595,True,39,HR-HPV+,HR-HPV+,No test,Other/unclassified
+R000004641,True,40,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000004733,True,41,non-HR HPV+,HPV negative,No test,HSIL/CIN3
+R000005067,True,42,No test,HR-HPV+,No test,Other/unclassified
+R000005120,True,43,No test,HPV negative,No test,Other/unclassified
+R000005286,True,44,No test,HPV negative,HPV negative,Other/unclassified
+R000005310,True,45,non-HR HPV+,non-HR HPV+,non-HR HPV+,HSIL/CIN3
+R000005316,True,46,non-HR HPV+,HPV negative,No test,HSIL/CIN3
+R000005409,True,47,non-HR HPV+,non-HR HPV+,No test,HSIL/CIN3
+R000005710,True,48,HR-HPV+,HPV negative,HPV negative,Other/unclassified
+R000005923,True,49,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000006054,True,50,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000006108,True,51,HR-HPV+,HPV negative,No test,Other/unclassified
+R000006118,True,52,No test,HPV negative,No test,HSIL/CIN3
+R000006280,True,53,HR-HPV+,HR-HPV+,HR-HPV+,HSIL/CIN3
+R000006340,True,54,HPV negative,HPV negative,No test,Other/unclassified
+R000006407,True,55,No test,HPV negative,No test,HSIL/CIN3
+R000006526,True,56,No test,HR-HPV+,No test,HSIL/CIN3
+R000006577,True,57,No test,HR-HPV+,No test,HSIL/CIN3
+R000006597,True,58,No test,HPV negative,HPV negative,Other/unclassified
+R000006897,True,59,No test,HPV negative,No test,Other/unclassified
+R000006923,True,60,HPV negative,HPV negative,HPV negative,HSIL/CIN3
+R000007007,True,61,HPV negative,HPV negative,HPV negative,Other/unclassified
+R000007161,True,62,No test,HPV negative,HPV negative,HSIL/CIN3
+R000007239,True,63,HPV negative,HPV negative,No test,Invasive cancer
+R000007343,True,64,HPV negative,HPV negative,HPV negative,Other/unclassified
+R000007608,True,65,HPV negative,HPV negative,No test,HSIL/CIN3
+R000007846,True,66,non-HR HPV+,HPV negative,No test,Other/unclassified
+R000007850,True,67,No test,HPV negative,HPV negative,Other/unclassified
+R000007950,True,68,HR-HPV+,HR-HPV+,HR-HPV+,HSIL/CIN3
+R000007982,True,69,HR-HPV+,HR-HPV+,No test,Other/unclassified
+R000008024,True,70,No test,HPV negative,HPV negative,Other/unclassified
+R000008300,True,71,No test,HPV negative,HPV negative,Other/unclassified
+R000008445,True,72,No test,HR-HPV+,No test,Other/unclassified
+R000008850,True,73,No test,HR-HPV+,HR-HPV+,Other/unclassified
+R000008851,True,74,No test,HPV negative,HPV negative,HSIL/CIN3
+R000008931,True,75,HR-HPV+,non-HR HPV+,No test,Other/unclassified
+R000009190,True,76,HPV negative,HPV negative,HPV negative,HSIL/CIN3
+R000009203,True,77,HPV negative,HPV negative,No test,HSIL/CIN3
+R000009251,True,78,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000009933,True,79,HR-HPV+,HR-HPV+,No test,Other/unclassified
+R000010129,True,80,HR-HPV+,HPV negative,HPV negative,Other/unclassified
+R000010381,True,81,No test,HPV negative,HPV negative,HSIL/CIN3
+R000010411,True,82,No test,HPV negative,No test,Other/unclassified
+R000010626,True,83,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000010785,True,84,HR-HPV+,HR-HPV+,No test,Other/unclassified
+R000011108,True,85,HPV negative,HPV negative,No test,Invasive cancer
+R000011407,True,86,No test,HPV negative,HPV negative,HSIL/CIN3
+R000011537,True,87,HPV negative,HPV negative,HPV negative,HSIL/CIN3
+R000011654,True,88,non-HR HPV+,HPV negative,No test,HSIL/CIN3
+R000012595,True,89,HR-HPV+,HPV negative,HPV negative,Invasive cancer
+R000012628,True,90,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000012786,True,91,non-HR HPV+,HPV negative,No test,Other/unclassified
+R000012836,True,92,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000013280,True,93,No test,HPV negative,No test,HSIL/CIN3
+R000013324,True,94,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000013487,True,95,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000013588,True,96,HR-HPV+,HR-HPV+,HR-HPV+,HSIL/CIN3
+R000013926,True,97,No test,HPV negative,HPV negative,Other/unclassified
+R000013937,True,98,No test,HPV negative,HPV negative,HSIL/CIN3
+R000013967,True,99,HR-HPV+,HR-HPV+,HR-HPV+,Other/unclassified
+R000014060,True,100,HPV negative,HPV negative,No test,HSIL/CIN3
+R000014135,True,101,No test,HPV negative,HPV negative,Invasive cancer
+R000014223,True,102,No test,HPV negative,HPV negative,HSIL/CIN3
+R000014346,True,103,No test,HPV negative,No test,Other/unclassified
+R000014385,True,104,HPV negative,HPV negative,No test,Other/unclassified
+R000014454,True,105,HR-HPV+,HPV negative,HPV negative,Other/unclassified
+R000014457,True,106,No test,HPV negative,HPV negative,HSIL/CIN3
+R000014519,True,107,HPV negative,HPV negative,No test,Other/unclassified
+R000014526,True,108,No test,HPV negative,No test,HSIL/CIN3
+R000014584,True,109,No test,HPV negative,No test,Other/unclassified
+R000014674,True,110,No test,HPV negative,HPV negative,Invasive cancer
+R000014852,True,111,No test,HPV negative,HPV negative,HSIL/CIN3
+R000015097,True,112,HR-HPV+,HPV negative,HPV negative,Other/unclassified
+R000015155,True,113,HR-HPV+,HR-HPV+,No test,Other/unclassified
+R000015184,True,114,HR-HPV+,HR-HPV+,HR-HPV+,HSIL/CIN3
+R000015327,True,115,non-HR HPV+,non-HR HPV+,non-HR HPV+,HSIL/CIN3
+R000015632,True,116,non-HR HPV+,HPV negative,No test,HSIL/CIN3
+R000015633,True,117,HR-HPV+,HPV negative,HPV negative,HSIL/CIN3
+R000016095,True,118,No test,HR-HPV+,HR-HPV+,Other/unclassified
+R000016134,True,119,No test,HPV negative,HPV negative,Other/unclassified
+R000016156,True,120,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000016177,True,121,HR-HPV+,HR-HPV+,HR-HPV+,HSIL/CIN3
+R000016186,True,122,HPV negative,HPV negative,No test,HSIL/CIN3
+R000016264,True,123,No test,HPV negative,No test,Other/unclassified
+R000016498,True,124,HR-HPV+,HR-HPV+,HR-HPV+,Other/unclassified
+R000016665,True,125,HR-HPV+,HPV negative,No test,Other/unclassified
+R000016737,True,126,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000016773,True,127,HPV negative,HPV negative,No test,Other/unclassified
+R000016935,True,128,HR-HPV+,HR-HPV+,HR-HPV+,Other/unclassified
+R000017045,True,129,No test,HR-HPV+,No test,HSIL/CIN3
+R000017216,True,130,HR-HPV+,HR-HPV+,HR-HPV+,Invasive cancer
+R000017367,True,131,No test,HPV negative,HPV negative,Other/unclassified
+R000017403,True,132,HR-HPV+,HR-HPV+,HR-HPV+,Other/unclassified
+R000017667,True,133,non-HR HPV+,HPV negative,HPV negative,Other/unclassified
+R000017884,True,134,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000017899,True,135,HR-HPV+,HR-HPV+,HR-HPV+,HSIL/CIN3
+R000017961,True,136,No test,HR-HPV+,No test,Other/unclassified
+R000018004,True,137,HR-HPV+,HR-HPV+,HR-HPV+,HSIL/CIN3
+R000018329,True,138,HR-HPV+,HR-HPV+,HR-HPV+,HSIL/CIN3
+R000018338,True,139,No test,non-HR HPV+,non-HR HPV+,Other/unclassified
+R000018348,True,140,HR-HPV+,HR-HPV+,HR-HPV+,Other/unclassified
+R000018416,True,141,No test,HPV negative,No test,Other/unclassified
+R000018445,True,142,No test,HPV negative,No test,Other/unclassified
+R000018494,True,143,No test,HPV negative,No test,Other/unclassified
+R000018652,True,144,No test,HR-HPV+,No test,Other/unclassified
+R000019007,True,145,HR-HPV+,HR-HPV+,HR-HPV+,HSIL/CIN3
+R000019012,True,146,HR-HPV+,HPV negative,HPV negative,HSIL/CIN3
+R000019156,True,147,No test,HPV negative,HPV negative,HSIL/CIN3
+R000019194,True,149,non-HR HPV+,HR-HPV+,No test,HSIL/CIN3
+R000019357,True,150,No test,HPV negative,No test,Other/unclassified
+R000019653,True,151,No test,No test,No test,Other/unclassified
+R000019923,True,152,HPV negative,HR-HPV+,HR-HPV+,Other/unclassified
+R000019994,True,153,HPV negative,HPV negative,No test,HSIL/CIN3
+R000019998,True,154,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000020188,True,155,HR-HPV+,HPV negative,No test,Other/unclassified
+R000020325,True,156,No test,HPV negative,No test,HSIL/CIN3
+R000020357,True,157,non-HR HPV+,HR-HPV+,No test,Other/unclassified
+R000020477,True,158,No test,HPV negative,HPV negative,HSIL/CIN3
+R000020542,True,159,HPV negative,HPV negative,No test,Other/unclassified
+R000020776,True,160,No test,HPV negative,HPV negative,Invasive cancer
+R000021114,True,161,HR-HPV+,HR-HPV+,HR-HPV+,Other/unclassified
+R000021136,True,162,HPV negative,non-HR HPV+,No test,Other/unclassified
+R000021138,True,163,No test,HPV negative,No test,Other/unclassified
+R000021358,True,164,HPV negative,HPV negative,No test,HSIL/CIN3
+R000021410,True,165,non-HR HPV+,HPV negative,No test,HSIL/CIN3
+R000021481,True,166,HR-HPV+,HPV negative,HPV negative,HSIL/CIN3
+R000021592,True,167,HPV negative,HPV negative,HPV negative,Other/unclassified
+R000021720,True,168,HR-HPV+,HR-HPV+,HR-HPV+,HSIL/CIN3
+R000022035,True,169,HR-HPV+,HPV negative,HPV negative,HSIL/CIN3
+R000022083,True,170,non-HR HPV+,HR-HPV+,HR-HPV+,Invasive cancer
+R000022140,True,171,HPV negative,HPV negative,HPV negative,HSIL/CIN3
+R000022240,True,172,HPV negative,HPV negative,No test,Invasive cancer
+R000022330,True,173,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000022794,True,174,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000022918,True,175,non-HR HPV+,HPV negative,No test,HSIL/CIN3
+R000023012,True,176,HPV negative,HPV negative,HPV negative,HSIL/CIN3
+R000023041,True,177,HPV negative,No test,No test,Other/unclassified
+R000023117,True,178,HPV negative,HPV negative,HPV negative,Other/unclassified
+R000023168,True,179,HPV negative,HPV negative,HPV negative,Other/unclassified
+R000023232,True,180,No test,HR-HPV+,No test,Invasive cancer
+R000023542,True,181,HR-HPV+,HPV negative,HPV negative,Other/unclassified
+R000023566,True,182,HPV negative,HPV negative,No test,Other/unclassified
+R000023619,True,183,No test,HPV negative,HPV negative,Other/unclassified
+R000023960,True,184,No test,HPV negative,HPV negative,HSIL/CIN3
+R000023982,True,185,HPV negative,HPV negative,HPV negative,Other/unclassified
+R000024428,True,186,non-HR HPV+,HPV negative,No test,Other/unclassified
+R000024578,True,187,HR-HPV+,HR-HPV+,No test,Other/unclassified
+R000024771,True,188,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000024897,True,189,HR-HPV+,HR-HPV+,HR-HPV+,HSIL/CIN3
+R000024941,True,190,HR-HPV+,No test,No test,HSIL/CIN3
+R000025000,True,191,No test,HR-HPV+,No test,Other/unclassified
+R000025186,True,192,HR-HPV+,HPV negative,No test,HSIL/CIN3
+R000025804,True,193,HR-HPV+,HR-HPV+,HR-HPV+,Invasive cancer
+R000025930,True,194,No test,HPV negative,HPV negative,Other/unclassified
+R000026109,True,195,No test,HPV negative,HPV negative,Other/unclassified
+R000026345,True,196,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000026428,True,197,No test,HPV negative,No test,Other/unclassified
+R000026453,True,198,HR-HPV+,HPV negative,HPV negative,HSIL/CIN3
+R000026591,True,199,HPV negative,HPV negative,No test,Other/unclassified
+R000026657,True,200,No test,HR-HPV+,No test,Invasive cancer
+R000026998,True,201,non-HR HPV+,HPV negative,HPV negative,Other/unclassified
+R000027102,True,202,No test,HR-HPV+,No test,HSIL/CIN3
+R000027346,True,203,No test,HPV negative,No test,Other/unclassified
+R000027451,True,204,non-HR HPV+,HPV negative,No test,HSIL/CIN3
+R000027633,True,205,non-HR HPV+,non-HR HPV+,No test,HSIL/CIN3
+R000027805,True,206,HPV negative,HPV negative,HPV negative,Other/unclassified
+R000027929,True,207,No test,HPV negative,No test,Invasive cancer
+R000027949,True,208,No test,HPV negative,HPV negative,Other/unclassified
+R000028064,True,209,HPV negative,HPV negative,HPV negative,HSIL/CIN3
+R000028090,True,210,HPV negative,HPV negative,No test,Invasive cancer
+R000028295,True,211,HR-HPV+,HR-HPV+,HR-HPV+,Invasive cancer
+R000028547,True,212,HPV negative,HPV negative,No test,HSIL/CIN3
+R000028664,True,213,No test,HPV negative,HPV negative,HSIL/CIN3
+R000028793,True,214,HR-HPV+,HPV negative,HPV negative,Other/unclassified
+R000028932,True,215,No test,HPV negative,HPV negative,Other/unclassified
+R000029048,True,216,non-HR HPV+,HPV negative,No test,HSIL/CIN3
+R000029251,True,217,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000029279,True,218,No test,HPV negative,HPV negative,Other/unclassified
+R000029314,True,219,HPV negative,HPV negative,HPV negative,Other/unclassified
+R000029353,True,220,No test,HR-HPV+,No test,HSIL/CIN3
+R000029409,True,221,HPV negative,HPV negative,No test,Other/unclassified
+R000029815,True,222,HPV negative,HPV negative,No test,Other/unclassified
+R000029898,True,223,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000030022,True,224,HPV negative,HR-HPV+,HR-HPV+,Other/unclassified
+R000030357,True,225,No test,No test,No test,Invasive cancer
+R000030376,True,226,No test,HR-HPV+,HR-HPV+,Other/unclassified
+R000030503,True,227,HPV negative,HPV negative,HPV negative,HSIL/CIN3
+R000030676,True,228,HR-HPV+,HPV negative,No test,Other/unclassified
+R000031045,True,229,non-HR HPV+,HPV negative,HPV negative,HSIL/CIN3
+R000031133,True,230,HPV negative,HPV negative,No test,Other/unclassified
+R000031205,True,231,No test,HR-HPV+,No test,HSIL/CIN3
+R000031336,True,232,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000031595,True,233,No test,HPV negative,HPV negative,Invasive cancer
+R000031653,True,234,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000031790,True,235,non-HR HPV+,non-HR HPV+,non-HR HPV+,HSIL/CIN3
+R000032196,True,237,HR-HPV+,HR-HPV+,No test,Other/unclassified
+R000032327,True,238,HPV negative,HPV negative,HPV negative,Other/unclassified
+R000032505,True,239,HR-HPV+,HR-HPV+,HR-HPV+,Other/unclassified
+R000032514,True,240,HR-HPV+,non-HR HPV+,No test,HSIL/CIN3
+R000032535,True,241,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000032608,True,242,No test,HPV negative,No test,Other/unclassified
+R000004325,False,0,HPV negative,HPV negative,No test,Other/unclassified
+R000027607,False,0,No test,HPV negative,HPV negative,Other/unclassified
+R000016794,False,0,HPV negative,HPV negative,No test,Other/unclassified
+R000021925,False,0,HPV negative,HPV negative,No test,Other/unclassified
+R000031036,False,1,No test,HPV negative,No test,Other/unclassified
+R000000831,False,1,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000028848,False,1,HR-HPV+,non-HR HPV+,No test,Other/unclassified
+R000029664,False,1,No test,HPV negative,HPV negative,Other/unclassified
+R000032825,False,2,HR-HPV+,HR-HPV+,HR-HPV+,Invasive cancer
+R000009518,False,2,No test,HR-HPV+,No test,HSIL/CIN3
+R000021995,False,2,HPV negative,HPV negative,No test,Other/unclassified
+R000009702,False,2,HPV negative,HPV negative,HPV negative,HSIL/CIN3
+R000003902,False,3,HR-HPV+,HPV negative,HPV negative,HSIL/CIN3
+R000016757,False,3,No test,HPV negative,No test,Other/unclassified
+R000029182,False,3,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000000738,False,3,HPV negative,HPV negative,HPV negative,Other/unclassified
+R000004609,False,4,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000030014,False,4,non-HR HPV+,HPV negative,No test,Other/unclassified
+R000020922,False,4,No test,HR-HPV+,No test,HSIL/CIN3
+R000018631,False,4,HPV negative,HPV negative,HPV negative,HSIL/CIN3
+R000002225,False,5,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000032239,False,5,HR-HPV+,HPV negative,No test,Invasive cancer
+R000030350,False,5,No test,HR-HPV+,No test,HSIL/CIN3
+R000020434,False,5,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000023952,False,6,HR-HPV+,HR-HPV+,HR-HPV+,Other/unclassified
+R000015913,False,6,HR-HPV+,non-HR HPV+,No test,Other/unclassified
+R000009168,False,6,No test,HPV negative,No test,Other/unclassified
+R000022600,False,6,No test,HPV negative,No test,Invasive cancer
+R000026557,False,7,HR-HPV+,HPV negative,No test,HSIL/CIN3
+R000028820,False,7,HR-HPV+,HR-HPV+,HR-HPV+,HSIL/CIN3
+R000023305,False,7,HR-HPV+,HPV negative,No test,Other/unclassified
+R000026296,False,7,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000015780,False,8,HR-HPV+,HR-HPV+,HR-HPV+,Other/unclassified
+R000003170,False,8,HR-HPV+,HR-HPV+,HR-HPV+,Other/unclassified
+R000000453,False,8,No test,HR-HPV+,No test,Invasive cancer
+R000015637,False,8,No test,HPV negative,No test,Other/unclassified
+R000003718,False,9,No test,HPV negative,HPV negative,Invasive cancer
+R000016477,False,9,No test,HR-HPV+,HR-HPV+,Other/unclassified
+R000023398,False,9,No test,No test,No test,Other/unclassified
+R000024536,False,9,No test,HR-HPV+,No test,Other/unclassified
+R000025719,False,10,non-HR HPV+,HPV negative,HPV negative,HSIL/CIN3
+R000032735,False,10,No test,HPV negative,HPV negative,Other/unclassified
+R000001106,False,10,No test,HR-HPV+,No test,Other/unclassified
+R000007164,False,10,No test,HR-HPV+,No test,HSIL/CIN3
+R000020034,False,11,No test,HPV negative,No test,Other/unclassified
+R000007019,False,11,HR-HPV+,HR-HPV+,No test,Other/unclassified
+R000020414,False,11,HPV negative,HPV negative,No test,HSIL/CIN3
+R000018321,False,11,non-HR HPV+,HR-HPV+,No test,Other/unclassified
+R000017714,False,12,HPV negative,HPV negative,No test,Other/unclassified
+R000005232,False,12,HR-HPV+,HR-HPV+,HR-HPV+,Other/unclassified
+R000024127,False,12,non-HR HPV+,HPV negative,No test,HSIL/CIN3
+R000008493,False,12,No test,HR-HPV+,No test,HSIL/CIN3
+R000027288,False,13,HR-HPV+,HR-HPV+,No test,Invasive cancer
+R000027430,False,13,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000026275,False,13,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000003589,False,13,HR-HPV+,HR-HPV+,HR-HPV+,Invasive cancer
+R000021936,False,14,HPV negative,HPV negative,No test,Other/unclassified
+R000015975,False,14,HPV negative,HPV negative,No test,HSIL/CIN3
+R000023980,False,14,HPV negative,HR-HPV+,No test,HSIL/CIN3
+R000011030,False,14,No test,HPV negative,HPV negative,HSIL/CIN3
+R000032588,False,15,HR-HPV+,HR-HPV+,No test,Invasive cancer
+R000003381,False,15,HR-HPV+,HR-HPV+,HR-HPV+,HSIL/CIN3
+R000003978,False,15,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000012056,False,15,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000026335,False,16,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000016667,False,16,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000022880,False,16,No test,non-HR HPV+,No test,HSIL/CIN3
+R000022661,False,16,HR-HPV+,HR-HPV+,No test,Invasive cancer
+R000017063,False,17,HR-HPV+,HR-HPV+,HR-HPV+,Invasive cancer
+R000014718,False,17,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000000990,False,17,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000003815,False,17,HR-HPV+,HR-HPV+,HR-HPV+,HSIL/CIN3
+R000024123,False,18,No test,HPV negative,No test,Invasive cancer
+R000010507,False,18,HR-HPV+,HPV negative,HPV negative,Other/unclassified
+R000025758,False,19,HR-HPV+,HPV negative,No test,Other/unclassified
+R000011862,False,19,No test,HR-HPV+,No test,Invasive cancer
+R000018299,False,19,No test,HPV negative,No test,Other/unclassified
+R000022635,False,19,HPV negative,HPV negative,HPV negative,Other/unclassified
+R000015656,False,20,HR-HPV+,No test,No test,HSIL/CIN3
+R000016619,False,20,No test,HPV negative,HPV negative,Other/unclassified
+R000017735,False,20,HPV negative,HPV negative,HPV negative,HSIL/CIN3
+R000025863,False,20,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000010686,False,21,HPV negative,non-HR HPV+,No test,Other/unclassified
+R000032395,False,22,HR-HPV+,HR-HPV+,HR-HPV+,HSIL/CIN3
+R000003725,False,22,No test,HPV negative,No test,Other/unclassified
+R000003719,False,22,HPV negative,HPV negative,HPV negative,Other/unclassified
+R000024332,False,22,No test,HPV negative,HPV negative,Other/unclassified
+R000024366,False,23,non-HR HPV+,HR-HPV+,No test,Other/unclassified
+R000006937,False,23,HR-HPV+,HR-HPV+,HR-HPV+,Other/unclassified
+R000024877,False,23,No test,HR-HPV+,No test,Other/unclassified
+R000002866,False,23,No test,HR-HPV+,No test,Other/unclassified
+R000001920,False,24,No test,HR-HPV+,No test,HSIL/CIN3
+R000022341,False,24,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000012476,False,24,HPV negative,HPV negative,HPV negative,HSIL/CIN3
+R000017427,False,24,HR-HPV+,HPV negative,HPV negative,Invasive cancer
+R000019157,False,25,HPV negative,HPV negative,No test,Other/unclassified
+R000027913,False,25,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000012662,False,25,HPV negative,HPV negative,No test,Other/unclassified
+R000014598,False,25,HPV negative,HPV negative,HPV negative,HSIL/CIN3
+R000007937,False,26,non-HR HPV+,HPV negative,No test,Invasive cancer
+R000028896,False,26,HPV negative,HPV negative,No test,Other/unclassified
+R000013871,False,26,HPV negative,HPV negative,No test,HSIL/CIN3
+R000017161,False,26,HR-HPV+,HPV negative,No test,HSIL/CIN3
+R000027173,False,27,HR-HPV+,HR-HPV+,HR-HPV+,HSIL/CIN3
+R000026896,False,27,HR-HPV+,HPV negative,No test,HSIL/CIN3
+R000002301,False,27,HR-HPV+,HR-HPV+,No test,Other/unclassified
+R000002043,False,27,HPV negative,HPV negative,No test,Other/unclassified
+R000005446,False,28,No test,HR-HPV+,No test,HSIL/CIN3
+R000029065,False,28,non-HR HPV+,HPV negative,No test,HSIL/CIN3
+R000024529,False,28,non-HR HPV+,HPV negative,No test,HSIL/CIN3
+R000016740,False,29,HR-HPV+,HR-HPV+,HR-HPV+,HSIL/CIN3
+R000026028,False,29,HR-HPV+,HR-HPV+,No test,Invasive cancer
+R000027798,False,29,HR-HPV+,HPV negative,HPV negative,HSIL/CIN3
+R000019427,False,29,HPV negative,HPV negative,No test,HSIL/CIN3
+R000017729,False,30,non-HR HPV+,HPV negative,No test,Other/unclassified
+R000032446,False,30,non-HR HPV+,HR-HPV+,HR-HPV+,Other/unclassified
+R000004034,False,30,No test,HPV negative,HPV negative,Other/unclassified
+R000015868,False,30,No test,No test,No test,Other/unclassified
+R000022869,False,31,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000030769,False,31,No test,HPV negative,No test,Invasive cancer
+R000005445,False,31,HR-HPV+,HPV negative,HPV negative,Other/unclassified
+R000027132,False,31,HR-HPV+,HR-HPV+,HR-HPV+,Other/unclassified
+R000027372,False,32,No test,HR-HPV+,No test,HSIL/CIN3
+R000024191,False,32,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000004449,False,32,HPV negative,HPV negative,HPV negative,HSIL/CIN3
+R000029290,False,32,No test,HPV negative,HPV negative,Invasive cancer
+R000020009,False,33,non-HR HPV+,non-HR HPV+,non-HR HPV+,Other/unclassified
+R000017898,False,34,No test,HR-HPV+,No test,Other/unclassified
+R000012608,False,34,No test,HR-HPV+,No test,HSIL/CIN3
+R000016601,False,34,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000021348,False,34,HR-HPV+,HR-HPV+,No test,Other/unclassified
+R000012989,False,35,HR-HPV+,HR-HPV+,HR-HPV+,Other/unclassified
+R000024015,False,35,non-HR HPV+,non-HR HPV+,No test,Other/unclassified
+R000013451,False,35,HR-HPV+,HPV negative,No test,Other/unclassified
+R000026697,False,35,HR-HPV+,HR-HPV+,HR-HPV+,Other/unclassified
+R000001216,False,36,HR-HPV+,HPV negative,HPV negative,Other/unclassified
+R000024703,False,36,HPV negative,HPV negative,HPV negative,Invasive cancer
+R000025751,False,36,HR-HPV+,HR-HPV+,No test,Other/unclassified
+R000004149,False,36,No test,HR-HPV+,No test,Invasive cancer
+R000031455,False,37,non-HR HPV+,HPV negative,No test,Other/unclassified
+R000028109,False,37,HPV negative,HPV negative,No test,Other/unclassified
+R000023040,False,37,non-HR HPV+,HPV negative,No test,Other/unclassified
+R000002815,False,37,HR-HPV+,HPV negative,No test,Other/unclassified
+R000029811,False,38,No test,HR-HPV+,No test,Other/unclassified
+R000022261,False,38,HR-HPV+,HR-HPV+,HR-HPV+,HSIL/CIN3
+R000030500,False,38,No test,HPV negative,No test,HSIL/CIN3
+R000000601,False,38,HPV negative,HPV negative,No test,Other/unclassified
+R000023222,False,39,HR-HPV+,HPV negative,No test,HSIL/CIN3
+R000012073,False,39,HPV negative,HPV negative,No test,HSIL/CIN3
+R000030993,False,39,No test,HR-HPV+,HR-HPV+,HSIL/CIN3
+R000017430,False,39,HR-HPV+,HPV negative,HPV negative,HSIL/CIN3
+R000027134,False,40,HPV negative,HPV negative,No test,HSIL/CIN3
+R000011121,False,40,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000000884,False,40,No test,HR-HPV+,No test,HSIL/CIN3
+R000026794,False,40,HR-HPV+,HPV negative,No test,Other/unclassified
+R000007264,False,41,HPV negative,HPV negative,No test,HSIL/CIN3
+R000019384,False,41,No test,HR-HPV+,No test,Invasive cancer
+R000010086,False,41,HR-HPV+,HR-HPV+,No test,Other/unclassified
+R000000760,False,41,non-HR HPV+,HPV negative,No test,HSIL/CIN3
+R000024185,False,42,No test,HPV negative,HPV negative,Invasive cancer
+R000011685,False,42,HPV negative,HPV negative,No test,Other/unclassified
+R000031127,False,42,HPV negative,HPV negative,HPV negative,Other/unclassified
+R000004198,False,42,HPV negative,HPV negative,No test,HSIL/CIN3
+R000002066,False,43,HR-HPV+,HR-HPV+,No test,Invasive cancer
+R000020608,False,43,HR-HPV+,HR-HPV+,HR-HPV+,HSIL/CIN3
+R000000218,False,43,No test,HR-HPV+,HR-HPV+,HSIL/CIN3
+R000012674,False,43,No test,HPV negative,No test,Other/unclassified
+R000007493,False,44,HR-HPV+,HPV negative,No test,HSIL/CIN3
+R000019795,False,44,HPV negative,HPV negative,HPV negative,Invasive cancer
+R000025058,False,44,No test,HPV negative,No test,HSIL/CIN3
+R000018611,False,44,HR-HPV+,HPV negative,No test,HSIL/CIN3
+R000015377,False,45,HR-HPV+,HR-HPV+,No test,Other/unclassified
+R000017919,False,45,HR-HPV+,HR-HPV+,HR-HPV+,HSIL/CIN3
+R000023493,False,45,No test,HPV negative,HPV negative,Other/unclassified
+R000019470,False,45,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000001594,False,46,HPV negative,HPV negative,HPV negative,Other/unclassified
+R000017710,False,46,No test,HR-HPV+,No test,Other/unclassified
+R000019268,False,46,non-HR HPV+,non-HR HPV+,No test,HSIL/CIN3
+R000018185,False,46,No test,HPV negative,No test,HSIL/CIN3
+R000027215,False,47,No test,HR-HPV+,No test,HSIL/CIN3
+R000017459,False,47,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000026607,False,47,No test,HPV negative,No test,HSIL/CIN3
+R000003033,False,47,HPV negative,HPV negative,No test,Other/unclassified
+R000001619,False,48,No test,HPV negative,No test,Other/unclassified
+R000019361,False,48,No test,HPV negative,No test,Other/unclassified
+R000002713,False,48,HR-HPV+,No test,No test,Other/unclassified
+R000018960,False,48,No test,HPV negative,No test,Other/unclassified
+R000019318,False,49,No test,HR-HPV+,No test,HSIL/CIN3
+R000010775,False,49,HR-HPV+,HPV negative,No test,Invasive cancer
+R000029008,False,49,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000017777,False,49,HR-HPV+,HPV negative,No test,HSIL/CIN3
+R000017945,False,50,No test,HR-HPV+,No test,Invasive cancer
+R000000590,False,50,No test,HR-HPV+,No test,Invasive cancer
+R000018257,False,50,No test,HR-HPV+,No test,HSIL/CIN3
+R000027900,False,50,HR-HPV+,HR-HPV+,HR-HPV+,HSIL/CIN3
+R000009952,False,51,No test,HR-HPV+,No test,HSIL/CIN3
+R000005643,False,51,HR-HPV+,HR-HPV+,HR-HPV+,Other/unclassified
+R000010103,False,51,No test,non-HR HPV+,non-HR HPV+,Invasive cancer
+R000016373,False,51,HR-HPV+,HR-HPV+,HR-HPV+,HSIL/CIN3
+R000025377,False,52,HPV negative,HPV negative,No test,Other/unclassified
+R000005819,False,52,No test,HR-HPV+,No test,Other/unclassified
+R000010845,False,52,No test,HPV negative,No test,Other/unclassified
+R000008656,False,52,No test,HPV negative,HPV negative,HSIL/CIN3
+R000024273,False,53,No test,HR-HPV+,No test,Other/unclassified
+R000004456,False,53,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000005909,False,53,No test,HR-HPV+,No test,HSIL/CIN3
+R000015010,False,53,HR-HPV+,HR-HPV+,HR-HPV+,HSIL/CIN3
+R000021302,False,54,HPV negative,HPV negative,HPV negative,Other/unclassified
+R000028447,False,54,HR-HPV+,HR-HPV+,HR-HPV+,HSIL/CIN3
+R000027695,False,54,HR-HPV+,HR-HPV+,No test,Other/unclassified
+R000006095,False,54,HPV negative,HPV negative,No test,Other/unclassified
+R000021038,False,55,No test,non-HR HPV+,No test,Invasive cancer
+R000013438,False,55,HPV negative,No test,No test,Invasive cancer
+R000010835,False,55,No test,HPV negative,No test,Other/unclassified
+R000004541,False,55,HPV negative,HPV negative,HPV negative,Other/unclassified
+R000009138,False,56,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000006652,False,56,HPV negative,HPV negative,HPV negative,Other/unclassified
+R000031084,False,56,No test,HR-HPV+,No test,Other/unclassified
+R000006933,False,56,No test,HPV negative,HPV negative,Other/unclassified
+R000012785,False,57,HPV negative,HPV negative,No test,HSIL/CIN3
+R000023011,False,57,HR-HPV+,HR-HPV+,No test,Other/unclassified
+R000025689,False,57,non-HR HPV+,HPV negative,No test,HSIL/CIN3
+R000014236,False,57,non-HR HPV+,HPV negative,No test,HSIL/CIN3
+R000013847,False,58,No test,HR-HPV+,No test,Other/unclassified
+R000003711,False,58,HR-HPV+,HR-HPV+,No test,Other/unclassified
+R000005552,False,58,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000006253,False,58,HR-HPV+,HR-HPV+,HR-HPV+,Other/unclassified
+R000007874,False,59,HR-HPV+,HPV negative,No test,Other/unclassified
+R000021836,False,59,HR-HPV+,HR-HPV+,No test,Other/unclassified
+R000032602,False,59,HR-HPV+,HPV negative,No test,Other/unclassified
+R000012479,False,59,No test,HPV negative,No test,Other/unclassified
+R000018796,False,60,HPV negative,HPV negative,No test,Other/unclassified
+R000009106,False,60,HR-HPV+,HPV negative,No test,Other/unclassified
+R000013677,False,60,HR-HPV+,HR-HPV+,No test,Other/unclassified
+R000016066,False,60,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000009801,False,61,No test,HPV negative,HPV negative,Other/unclassified
+R000001161,False,61,HR-HPV+,HR-HPV+,No test,Other/unclassified
+R000028323,False,61,non-HR HPV+,HPV negative,No test,Other/unclassified
+R000002057,False,61,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000025728,False,62,HPV negative,HPV negative,HPV negative,Other/unclassified
+R000001187,False,62,No test,HPV negative,No test,Other/unclassified
+R000020554,False,62,HPV negative,HPV negative,HPV negative,HSIL/CIN3
+R000008664,False,62,No test,HR-HPV+,No test,HSIL/CIN3
+R000030451,False,63,non-HR HPV+,non-HR HPV+,No test,Other/unclassified
+R000032275,False,63,No test,HR-HPV+,No test,Other/unclassified
+R000007447,False,63,No test,HPV negative,HPV negative,Invasive cancer
+R000013146,False,63,HR-HPV+,HPV negative,No test,Other/unclassified
+R000020826,False,64,HR-HPV+,HPV negative,HPV negative,Other/unclassified
+R000029194,False,64,HR-HPV+,HR-HPV+,HR-HPV+,Invasive cancer
+R000001698,False,64,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000028076,False,64,HR-HPV+,HR-HPV+,HR-HPV+,HSIL/CIN3
+R000016632,False,65,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000026660,False,65,non-HR HPV+,non-HR HPV+,No test,HSIL/CIN3
+R000018744,False,65,No test,HR-HPV+,No test,HSIL/CIN3
+R000010861,False,65,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000000431,False,66,HR-HPV+,non-HR HPV+,No test,Other/unclassified
+R000027748,False,66,HR-HPV+,HR-HPV+,No test,Other/unclassified
+R000030223,False,66,non-HR HPV+,non-HR HPV+,No test,Other/unclassified
+R000002488,False,66,non-HR HPV+,HPV negative,No test,Invasive cancer
+R000020246,False,67,HPV negative,non-HR HPV+,No test,HSIL/CIN3
+R000013171,False,67,No test,HPV negative,No test,Other/unclassified
+R000027448,False,68,No test,HPV negative,HPV negative,Other/unclassified
+R000023235,False,68,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000022538,False,68,No test,HR-HPV+,No test,Other/unclassified
+R000018635,False,68,No test,HR-HPV+,No test,HSIL/CIN3
+R000019301,False,69,No test,HPV negative,HPV negative,Invasive cancer
+R000015945,False,69,No test,HPV negative,HPV negative,HSIL/CIN3
+R000001607,False,69,HR-HPV+,HR-HPV+,HR-HPV+,HSIL/CIN3
+R000022632,False,69,non-HR HPV+,non-HR HPV+,No test,HSIL/CIN3
+R000022914,False,70,HR-HPV+,HR-HPV+,No test,Other/unclassified
+R000002625,False,70,HPV negative,HPV negative,HPV negative,Other/unclassified
+R000005977,False,70,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000003237,False,70,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000030429,False,71,non-HR HPV+,No test,No test,Other/unclassified
+R000014452,False,71,No test,HPV negative,No test,Other/unclassified
+R000001320,False,71,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000032544,False,71,No test,HR-HPV+,HR-HPV+,Invasive cancer
+R000011025,False,72,No test,HPV negative,HPV negative,Invasive cancer
+R000017335,False,72,No test,No test,No test,Other/unclassified
+R000002240,False,72,No test,HR-HPV+,No test,Invasive cancer
+R000007799,False,72,No test,HPV negative,No test,Invasive cancer
+R000004662,False,73,No test,HPV negative,No test,Other/unclassified
+R000013237,False,73,HR-HPV+,HR-HPV+,HR-HPV+,Invasive cancer
+R000003868,False,73,No test,HR-HPV+,No test,Other/unclassified
+R000002641,False,73,non-HR HPV+,HPV negative,No test,Other/unclassified
+R000004835,False,74,No test,HPV negative,HPV negative,Other/unclassified
+R000001916,False,74,HPV negative,HPV negative,HPV negative,Other/unclassified
+R000009812,False,74,HPV negative,HPV negative,HPV negative,HSIL/CIN3
+R000008113,False,74,No test,HPV negative,No test,Other/unclassified
+R000032039,False,75,HR-HPV+,HPV negative,No test,Other/unclassified
+R000021941,False,75,HR-HPV+,HPV negative,HPV negative,Other/unclassified
+R000012773,False,75,No test,HPV negative,No test,Other/unclassified
+R000004832,False,76,No test,HPV negative,No test,HSIL/CIN3
+R000021234,False,76,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000008104,False,76,HR-HPV+,non-HR HPV+,No test,HSIL/CIN3
+R000026197,False,76,HR-HPV+,HR-HPV+,HR-HPV+,HSIL/CIN3
+R000029500,False,77,No test,HR-HPV+,No test,Other/unclassified
+R000015889,False,77,No test,HPV negative,No test,Other/unclassified
+R000017791,False,77,No test,HR-HPV+,No test,Other/unclassified
+R000014006,False,77,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000027184,False,78,non-HR HPV+,HPV negative,No test,Other/unclassified
+R000009677,False,78,HR-HPV+,HR-HPV+,HR-HPV+,HSIL/CIN3
+R000012316,False,78,HPV negative,HPV negative,HPV negative,Other/unclassified
+R000029891,False,78,non-HR HPV+,HPV negative,No test,HSIL/CIN3
+R000016631,False,79,HPV negative,HPV negative,No test,Other/unclassified
+R000008103,False,79,No test,HR-HPV+,No test,Other/unclassified
+R000030081,False,79,HPV negative,HPV negative,HPV negative,Other/unclassified
+R000024141,False,79,No test,HR-HPV+,No test,HSIL/CIN3
+R000015708,False,80,No test,HPV negative,No test,Other/unclassified
+R000012684,False,81,No test,HR-HPV+,No test,Other/unclassified
+R000027945,False,81,HR-HPV+,HR-HPV+,HR-HPV+,HSIL/CIN3
+R000015410,False,81,HPV negative,HPV negative,No test,HSIL/CIN3
+R000032225,False,81,No test,HR-HPV+,No test,HSIL/CIN3
+R000006806,False,82,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000020125,False,82,HR-HPV+,HR-HPV+,No test,Other/unclassified
+R000021949,False,82,No test,HPV negative,No test,HSIL/CIN3
+R000031905,False,82,HR-HPV+,HR-HPV+,No test,Other/unclassified
+R000018808,False,83,No test,HR-HPV+,No test,HSIL/CIN3
+R000030273,False,83,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000004032,False,83,HR-HPV+,HR-HPV+,No test,Other/unclassified
+R000015264,False,83,HPV negative,HPV negative,HPV negative,Other/unclassified
+R000023354,False,84,HR-HPV+,HR-HPV+,No test,Other/unclassified
+R000024259,False,84,HR-HPV+,HPV negative,No test,Other/unclassified
+R000026520,False,84,No test,HR-HPV+,No test,Other/unclassified
+R000024266,False,84,No test,HPV negative,No test,Other/unclassified
+R000011327,False,85,HR-HPV+,HR-HPV+,No test,Other/unclassified
+R000006272,False,85,No test,HPV negative,No test,Other/unclassified
+R000012153,False,85,HPV negative,HR-HPV+,No test,Other/unclassified
+R000009709,False,85,No test,non-HR HPV+,No test,Invasive cancer
+R000027657,False,86,No test,HPV negative,HPV negative,Other/unclassified
+R000021650,False,86,HR-HPV+,HR-HPV+,HR-HPV+,HSIL/CIN3
+R000004515,False,86,HR-HPV+,HPV negative,HPV negative,Other/unclassified
+R000004344,False,86,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000002382,False,87,No test,HPV negative,No test,Other/unclassified
+R000002454,False,87,No test,HPV negative,No test,Other/unclassified
+R000014051,False,87,HPV negative,HPV negative,HPV negative,HSIL/CIN3
+R000023150,False,87,No test,HR-HPV+,No test,HSIL/CIN3
+R000017686,False,88,HPV negative,HPV negative,No test,HSIL/CIN3
+R000029509,False,88,non-HR HPV+,HR-HPV+,HR-HPV+,Invasive cancer
+R000016138,False,88,HR-HPV+,HR-HPV+,No test,Other/unclassified
+R000000445,False,88,non-HR HPV+,HPV negative,No test,HSIL/CIN3
+R000018965,False,89,HPV negative,HPV negative,HPV negative,HSIL/CIN3
+R000032406,False,89,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000023149,False,89,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000028610,False,89,HPV negative,HPV negative,HPV negative,Invasive cancer
+R000010782,False,90,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000014024,False,90,No test,HPV negative,HPV negative,HSIL/CIN3
+R000011795,False,90,non-HR HPV+,non-HR HPV+,No test,HSIL/CIN3
+R000018021,False,90,non-HR HPV+,non-HR HPV+,No test,Other/unclassified
+R000027237,False,91,No test,HPV negative,No test,Other/unclassified
+R000022753,False,91,No test,HPV negative,No test,Other/unclassified
+R000021298,False,91,No test,HR-HPV+,No test,Other/unclassified
+R000011849,False,91,HR-HPV+,HPV negative,No test,Other/unclassified
+R000014403,False,92,No test,HPV negative,HPV negative,Other/unclassified
+R000007423,False,92,HR-HPV+,HR-HPV+,HR-HPV+,HSIL/CIN3
+R000015985,False,92,HPV negative,HPV negative,HPV negative,Other/unclassified
+R000009971,False,92,HPV negative,HPV negative,HPV negative,Other/unclassified
+R000019153,False,93,HR-HPV+,non-HR HPV+,non-HR HPV+,Other/unclassified
+R000011489,False,93,non-HR HPV+,HPV negative,HPV negative,Other/unclassified
+R000013443,False,93,No test,HR-HPV+,No test,Invasive cancer
+R000006014,False,93,HR-HPV+,HR-HPV+,No test,Other/unclassified
+R000017621,False,94,HR-HPV+,HR-HPV+,No test,Invasive cancer
+R000005906,False,94,HPV negative,HPV negative,HPV negative,Other/unclassified
+R000000070,False,94,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000015625,False,94,No test,HR-HPV+,No test,HSIL/CIN3
+R000005077,False,95,non-HR HPV+,HPV negative,HPV negative,Other/unclassified
+R000009141,False,95,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000015883,False,95,HPV negative,HPV negative,No test,Other/unclassified
+R000013954,False,95,No test,HR-HPV+,No test,Other/unclassified
+R000020738,False,96,No test,HPV negative,HPV negative,HSIL/CIN3
+R000021085,False,96,HR-HPV+,HR-HPV+,HR-HPV+,HSIL/CIN3
+R000011775,False,96,HR-HPV+,HR-HPV+,HR-HPV+,Other/unclassified
+R000007034,False,96,HPV negative,HPV negative,HPV negative,HSIL/CIN3
+R000003174,False,97,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000003722,False,97,HR-HPV+,HPV negative,No test,Invasive cancer
+R000010011,False,97,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000032458,False,97,non-HR HPV+,HPV negative,No test,HSIL/CIN3
+R000014494,False,98,No test,HPV negative,No test,HSIL/CIN3
+R000000898,False,98,No test,HR-HPV+,No test,Other/unclassified
+R000029396,False,98,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000008911,False,98,HPV negative,HPV negative,HPV negative,HSIL/CIN3
+R000019377,False,99,No test,HR-HPV+,No test,Other/unclassified
+R000031691,False,99,HPV negative,HPV negative,No test,Other/unclassified
+R000009885,False,99,No test,HPV negative,No test,Invasive cancer
+R000026075,False,99,HPV negative,HPV negative,No test,HSIL/CIN3
+R000032528,False,100,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000010046,False,100,HR-HPV+,HR-HPV+,HR-HPV+,HSIL/CIN3
+R000009651,False,100,HR-HPV+,HR-HPV+,HR-HPV+,HSIL/CIN3
+R000021749,False,100,HPV negative,HPV negative,No test,Other/unclassified
+R000007621,False,101,No test,HR-HPV+,No test,Other/unclassified
+R000020105,False,101,non-HR HPV+,non-HR HPV+,No test,HSIL/CIN3
+R000030545,False,101,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000026531,False,101,HPV negative,HPV negative,No test,Other/unclassified
+R000032761,False,102,HR-HPV+,HR-HPV+,HR-HPV+,HSIL/CIN3
+R000025116,False,102,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000028739,False,102,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000020149,False,102,HR-HPV+,HR-HPV+,HR-HPV+,HSIL/CIN3
+R000004661,False,103,HR-HPV+,HR-HPV+,No test,Invasive cancer
+R000017281,False,103,HR-HPV+,HPV negative,HPV negative,Other/unclassified
+R000000314,False,103,HPV negative,HR-HPV+,No test,Other/unclassified
+R000000089,False,103,HR-HPV+,non-HR HPV+,No test,Invasive cancer
+R000021761,False,104,HR-HPV+,No test,No test,HSIL/CIN3
+R000019187,False,104,No test,HPV negative,No test,Other/unclassified
+R000027897,False,104,HR-HPV+,HPV negative,No test,Other/unclassified
+R000020168,False,104,HR-HPV+,HPV negative,No test,HSIL/CIN3
+R000018176,False,105,No test,HR-HPV+,HR-HPV+,Other/unclassified
+R000020285,False,105,HR-HPV+,HPV negative,HPV negative,Other/unclassified
+R000023277,False,105,No test,HPV negative,No test,Other/unclassified
+R000003395,False,105,No test,HPV negative,No test,Other/unclassified
+R000012237,False,106,No test,HR-HPV+,HR-HPV+,HSIL/CIN3
+R000006171,False,106,HR-HPV+,HPV negative,HPV negative,HSIL/CIN3
+R000000297,False,106,HPV negative,HPV negative,HPV negative,HSIL/CIN3
+R000003312,False,106,No test,HPV negative,HPV negative,HSIL/CIN3
+R000015721,False,107,non-HR HPV+,non-HR HPV+,non-HR HPV+,HSIL/CIN3
+R000006723,False,107,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000031028,False,107,No test,HR-HPV+,No test,HSIL/CIN3
+R000026801,False,107,No test,HPV negative,No test,Other/unclassified
+R000031019,False,108,HR-HPV+,HR-HPV+,HR-HPV+,HSIL/CIN3
+R000005070,False,108,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000031734,False,108,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000031514,False,108,HR-HPV+,HPV negative,No test,HSIL/CIN3
+R000015901,False,109,No test,HPV negative,No test,Other/unclassified
+R000025508,False,109,non-HR HPV+,HR-HPV+,No test,Other/unclassified
+R000002475,False,109,non-HR HPV+,HPV negative,No test,Other/unclassified
+R000017498,False,109,No test,HPV negative,HPV negative,Other/unclassified
+R000014694,False,110,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000016181,False,110,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000031974,False,110,No test,HPV negative,No test,HSIL/CIN3
+R000019799,False,110,No test,HPV negative,No test,HSIL/CIN3
+R000018475,False,111,No test,HR-HPV+,No test,Other/unclassified
+R000014751,False,111,No test,HPV negative,No test,Other/unclassified
+R000023114,False,111,No test,non-HR HPV+,No test,HSIL/CIN3
+R000000785,False,112,No test,HR-HPV+,No test,Other/unclassified
+R000010611,False,112,HR-HPV+,HPV negative,No test,Other/unclassified
+R000012345,False,112,No test,HPV negative,No test,Other/unclassified
+R000022068,False,112,No test,HPV negative,No test,Other/unclassified
+R000012232,False,113,HPV negative,HPV negative,No test,HSIL/CIN3
+R000031259,False,113,non-HR HPV+,HPV negative,No test,HSIL/CIN3
+R000011977,False,113,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000004916,False,113,No test,HPV negative,No test,Other/unclassified
+R000031411,False,114,non-HR HPV+,HR-HPV+,No test,HSIL/CIN3
+R000011848,False,114,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000001527,False,114,No test,HPV negative,No test,Other/unclassified
+R000010555,False,114,HR-HPV+,HR-HPV+,No test,Invasive cancer
+R000029761,False,115,HR-HPV+,HR-HPV+,No test,Invasive cancer
+R000014107,False,115,HPV negative,non-HR HPV+,non-HR HPV+,HSIL/CIN3
+R000021999,False,115,HPV negative,HPV negative,HPV negative,Other/unclassified
+R000004995,False,115,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000005319,False,116,No test,HR-HPV+,No test,HSIL/CIN3
+R000019293,False,116,No test,HPV negative,HPV negative,Other/unclassified
+R000028625,False,116,No test,HPV negative,HPV negative,HSIL/CIN3
+R000015052,False,116,HR-HPV+,HR-HPV+,No test,Other/unclassified
+R000031861,False,117,No test,HPV negative,No test,Other/unclassified
+R000014033,False,117,No test,HPV negative,No test,Other/unclassified
+R000001379,False,117,HR-HPV+,HPV negative,HPV negative,Invasive cancer
+R000027847,False,117,HPV negative,HPV negative,HPV negative,Other/unclassified
+R000027349,False,118,HPV negative,HPV negative,No test,Invasive cancer
+R000004599,False,118,non-HR HPV+,HPV negative,HPV negative,Invasive cancer
+R000025354,False,118,HPV negative,HPV negative,No test,Other/unclassified
+R000030082,False,118,No test,HPV negative,No test,Other/unclassified
+R000011820,False,119,No test,HPV negative,HPV negative,Other/unclassified
+R000002689,False,119,No test,HPV negative,HPV negative,HSIL/CIN3
+R000001651,False,119,HR-HPV+,HR-HPV+,HR-HPV+,HSIL/CIN3
+R000024834,False,119,HPV negative,HPV negative,No test,Other/unclassified
+R000018303,False,120,HR-HPV+,HR-HPV+,HR-HPV+,HSIL/CIN3
+R000013099,False,120,No test,HR-HPV+,No test,HSIL/CIN3
+R000023765,False,120,HR-HPV+,HR-HPV+,No test,Invasive cancer
+R000014434,False,120,HPV negative,HPV negative,No test,Other/unclassified
+R000028719,False,121,HPV negative,HPV negative,HPV negative,HSIL/CIN3
+R000024581,False,121,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000025642,False,121,HPV negative,HPV negative,No test,Other/unclassified
+R000000509,False,122,HR-HPV+,HPV negative,No test,HSIL/CIN3
+R000031064,False,122,HPV negative,HPV negative,HPV negative,HSIL/CIN3
+R000023835,False,122,non-HR HPV+,HPV negative,HPV negative,HSIL/CIN3
+R000007011,False,122,No test,HR-HPV+,HR-HPV+,Invasive cancer
+R000031443,False,123,HR-HPV+,HR-HPV+,No test,Other/unclassified
+R000000231,False,123,No test,HR-HPV+,No test,Other/unclassified
+R000024334,False,123,HR-HPV+,HPV negative,No test,Other/unclassified
+R000012929,False,123,HR-HPV+,HPV negative,No test,Other/unclassified
+R000013951,False,124,HR-HPV+,non-HR HPV+,non-HR HPV+,Other/unclassified
+R000024138,False,124,HR-HPV+,HPV negative,HPV negative,Other/unclassified
+R000009045,False,124,No test,HPV negative,No test,Other/unclassified
+R000025195,False,124,No test,HR-HPV+,HR-HPV+,Other/unclassified
+R000031503,False,125,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000026043,False,125,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000000751,False,125,HR-HPV+,HR-HPV+,HR-HPV+,Invasive cancer
+R000028146,False,125,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000020418,False,126,non-HR HPV+,HPV negative,No test,HSIL/CIN3
+R000020143,False,126,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000003947,False,126,HPV negative,HPV negative,HPV negative,HSIL/CIN3
+R000017466,False,126,HR-HPV+,HR-HPV+,No test,Other/unclassified
+R000013179,False,127,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000015617,False,127,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000028542,False,127,HR-HPV+,HR-HPV+,No test,Other/unclassified
+R000019531,False,127,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000014571,False,128,non-HR HPV+,non-HR HPV+,non-HR HPV+,Other/unclassified
+R000026970,False,128,non-HR HPV+,non-HR HPV+,No test,Other/unclassified
+R000022197,False,128,No test,HPV negative,No test,Other/unclassified
+R000027829,False,128,No test,HPV negative,No test,Invasive cancer
+R000003944,False,129,HR-HPV+,HR-HPV+,HR-HPV+,HSIL/CIN3
+R000007639,False,129,HPV negative,HPV negative,HPV negative,Other/unclassified
+R000025691,False,129,No test,HPV negative,HPV negative,HSIL/CIN3
+R000002053,False,129,HPV negative,HPV negative,HPV negative,HSIL/CIN3
+R000018265,False,130,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000030840,False,130,non-HR HPV+,HPV negative,HPV negative,HSIL/CIN3
+R000014703,False,130,HR-HPV+,HR-HPV+,HR-HPV+,HSIL/CIN3
+R000027777,False,130,No test,HR-HPV+,HR-HPV+,HSIL/CIN3
+R000032479,False,131,No test,HPV negative,No test,Other/unclassified
+R000028020,False,131,No test,No test,No test,Invasive cancer
+R000009174,False,131,HR-HPV+,non-HR HPV+,non-HR HPV+,Other/unclassified
+R000028265,False,131,No test,HPV negative,No test,Other/unclassified
+R000030636,False,132,No test,HR-HPV+,No test,Other/unclassified
+R000009811,False,132,HR-HPV+,HPV negative,HPV negative,Other/unclassified
+R000001897,False,132,No test,HPV negative,No test,HSIL/CIN3
+R000014040,False,132,HPV negative,HPV negative,HPV negative,Invasive cancer
+R000003529,False,133,HR-HPV+,HPV negative,HPV negative,Other/unclassified
+R000007270,False,133,HR-HPV+,HPV negative,No test,Other/unclassified
+R000007434,False,133,HPV negative,HR-HPV+,No test,Other/unclassified
+R000028630,False,133,No test,HR-HPV+,No test,Invasive cancer
+R000010988,False,134,No test,HR-HPV+,No test,HSIL/CIN3
+R000001144,False,134,No test,HPV negative,HPV negative,Other/unclassified
+R000008247,False,134,No test,HR-HPV+,No test,Other/unclassified
+R000017817,False,134,No test,HPV negative,HPV negative,HSIL/CIN3
+R000016852,False,135,No test,HR-HPV+,HR-HPV+,Other/unclassified
+R000029743,False,135,HR-HPV+,HR-HPV+,HR-HPV+,HSIL/CIN3
+R000028562,False,135,No test,HPV negative,HPV negative,HSIL/CIN3
+R000023899,False,135,HR-HPV+,HR-HPV+,HR-HPV+,HSIL/CIN3
+R000030000,False,136,non-HR HPV+,non-HR HPV+,No test,Other/unclassified
+R000017346,False,136,non-HR HPV+,HR-HPV+,No test,Other/unclassified
+R000032462,False,137,HR-HPV+,HPV negative,No test,HSIL/CIN3
+R000028800,False,137,HPV negative,HPV negative,No test,HSIL/CIN3
+R000022091,False,137,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000019705,False,137,No test,HPV negative,No test,Other/unclassified
+R000022058,False,138,HR-HPV+,HR-HPV+,No test,Other/unclassified
+R000002205,False,138,HR-HPV+,HR-HPV+,No test,Other/unclassified
+R000022818,False,138,HR-HPV+,HR-HPV+,HR-HPV+,HSIL/CIN3
+R000015238,False,138,HR-HPV+,HR-HPV+,HR-HPV+,HSIL/CIN3
+R000011587,False,139,No test,HPV negative,No test,Other/unclassified
+R000016060,False,139,No test,HR-HPV+,No test,Other/unclassified
+R000024139,False,139,non-HR HPV+,non-HR HPV+,non-HR HPV+,Invasive cancer
+R000021414,False,139,No test,HPV negative,No test,Other/unclassified
+R000018192,False,140,HR-HPV+,HR-HPV+,HR-HPV+,HSIL/CIN3
+R000028974,False,140,HPV negative,HPV negative,HPV negative,Other/unclassified
+R000011653,False,140,HPV negative,HPV negative,HPV negative,HSIL/CIN3
+R000019684,False,140,HR-HPV+,HR-HPV+,HR-HPV+,Other/unclassified
+R000008082,False,141,No test,HPV negative,No test,Other/unclassified
+R000011646,False,141,HR-HPV+,HPV negative,HPV negative,Other/unclassified
+R000003789,False,141,non-HR HPV+,HPV negative,No test,Other/unclassified
+R000029781,False,141,No test,HPV negative,No test,Other/unclassified
+R000012047,False,142,HR-HPV+,HPV negative,No test,Other/unclassified
+R000005027,False,142,non-HR HPV+,HPV negative,No test,Invasive cancer
+R000020460,False,142,HR-HPV+,No test,No test,Invasive cancer
+R000002962,False,142,No test,HPV negative,No test,Other/unclassified
+R000020919,False,143,HR-HPV+,HR-HPV+,No test,Other/unclassified
+R000018245,False,143,non-HR HPV+,HR-HPV+,HR-HPV+,Other/unclassified
+R000027542,False,143,non-HR HPV+,HR-HPV+,No test,Other/unclassified
+R000028458,False,143,No test,HPV negative,No test,Other/unclassified
+R000032127,False,144,non-HR HPV+,HPV negative,No test,Other/unclassified
+R000008806,False,145,HR-HPV+,HR-HPV+,HR-HPV+,Other/unclassified
+R000004575,False,146,No test,HPV negative,No test,Other/unclassified
+R000032095,False,146,HR-HPV+,HR-HPV+,No test,Other/unclassified
+R000020181,False,146,No test,HR-HPV+,No test,Other/unclassified
+R000019644,False,146,HPV negative,HPV negative,No test,Other/unclassified
+R000023750,False,147,No test,HR-HPV+,No test,Other/unclassified
+R000010127,False,147,No test,HPV negative,No test,Other/unclassified
+R000003130,False,147,non-HR HPV+,HPV negative,No test,Other/unclassified
+R000000653,False,147,No test,HR-HPV+,No test,Other/unclassified
+R000006344,False,149,No test,HR-HPV+,No test,Other/unclassified
+R000002405,False,149,HR-HPV+,HPV negative,No test,Other/unclassified
+R000017150,False,149,non-HR HPV+,non-HR HPV+,No test,Other/unclassified
+R000029642,False,149,No test,HPV negative,No test,Other/unclassified
+R000032379,False,150,HPV negative,HPV negative,No test,Other/unclassified
+R000023151,False,150,HPV negative,HR-HPV+,HR-HPV+,Other/unclassified
+R000026176,False,150,non-HR HPV+,non-HR HPV+,No test,Other/unclassified
+R000009365,False,150,non-HR HPV+,non-HR HPV+,non-HR HPV+,Invasive cancer
+R000014574,False,151,No test,HPV negative,No test,Other/unclassified
+R000032432,False,151,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000024902,False,151,No test,HPV negative,No test,Other/unclassified
+R000007754,False,151,No test,No test,No test,Other/unclassified
+R000001343,False,152,No test,HR-HPV+,HR-HPV+,Other/unclassified
+R000009135,False,152,non-HR HPV+,HPV negative,No test,Other/unclassified
+R000021988,False,152,No test,HPV negative,No test,Other/unclassified
+R000032903,False,152,No test,HPV negative,No test,HSIL/CIN3
+R000016829,False,153,No test,HPV negative,HPV negative,Other/unclassified
+R000004755,False,154,No test,HPV negative,No test,HSIL/CIN3
+R000027271,False,154,HR-HPV+,HR-HPV+,HR-HPV+,HSIL/CIN3
+R000022217,False,154,HPV negative,HPV negative,No test,Other/unclassified
+R000003505,False,154,No test,HPV negative,HPV negative,Other/unclassified
+R000028201,False,155,HPV negative,non-HR HPV+,No test,Other/unclassified
+R000028598,False,155,non-HR HPV+,HPV negative,No test,Other/unclassified
+R000027435,False,155,No test,HPV negative,No test,Invasive cancer
+R000028692,False,155,HR-HPV+,HR-HPV+,HR-HPV+,Other/unclassified
+R000021482,False,156,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000020682,False,156,HPV negative,HPV negative,No test,Other/unclassified
+R000032310,False,156,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000017302,False,156,non-HR HPV+,non-HR HPV+,No test,Invasive cancer
+R000031569,False,157,HR-HPV+,HR-HPV+,No test,Other/unclassified
+R000003653,False,157,HR-HPV+,HPV negative,No test,Other/unclassified
+R000015274,False,158,No test,HPV negative,No test,Other/unclassified
+R000021370,False,158,HPV negative,HPV negative,HPV negative,Other/unclassified
+R000013422,False,158,HPV negative,HPV negative,HPV negative,HSIL/CIN3
+R000030759,False,158,No test,HPV negative,HPV negative,Other/unclassified
+R000011800,False,159,HPV negative,HPV negative,No test,HSIL/CIN3
+R000002629,False,159,HPV negative,HPV negative,HPV negative,HSIL/CIN3
+R000029268,False,159,HPV negative,HPV negative,No test,Other/unclassified
+R000001462,False,159,HPV negative,HPV negative,HPV negative,HSIL/CIN3
+R000019312,False,160,non-HR HPV+,HPV negative,HPV negative,Other/unclassified
+R000009551,False,160,No test,HR-HPV+,No test,Other/unclassified
+R000025162,False,160,No test,HPV negative,No test,Other/unclassified
+R000017237,False,160,No test,HPV negative,No test,Other/unclassified
+R000002306,False,161,No test,HR-HPV+,No test,Other/unclassified
+R000024033,False,161,No test,non-HR HPV+,No test,Other/unclassified
+R000011938,False,161,No test,HPV negative,No test,Invasive cancer
+R000019918,False,161,No test,HR-HPV+,No test,Other/unclassified
+R000014068,False,162,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000028725,False,162,No test,HR-HPV+,No test,HSIL/CIN3
+R000003615,False,162,No test,HR-HPV+,No test,HSIL/CIN3
+R000030061,False,162,non-HR HPV+,non-HR HPV+,No test,HSIL/CIN3
+R000027650,False,163,HR-HPV+,HPV negative,No test,Other/unclassified
+R000028491,False,163,HR-HPV+,HPV negative,No test,Other/unclassified
+R000019570,False,163,No test,HR-HPV+,No test,Other/unclassified
+R000010641,False,163,HR-HPV+,HPV negative,HPV negative,Invasive cancer
+R000023704,False,164,No test,HPV negative,HPV negative,HSIL/CIN3
+R000020505,False,164,HR-HPV+,HR-HPV+,HR-HPV+,HSIL/CIN3
+R000009595,False,164,HR-HPV+,HR-HPV+,HR-HPV+,HSIL/CIN3
+R000021870,False,164,No test,HPV negative,No test,Other/unclassified
+R000018853,False,165,HPV negative,HPV negative,No test,Invasive cancer
+R000015583,False,165,non-HR HPV+,HPV negative,No test,HSIL/CIN3
+R000030539,False,165,No test,non-HR HPV+,non-HR HPV+,HSIL/CIN3
+R000011979,False,165,non-HR HPV+,HPV negative,No test,Other/unclassified
+R000006334,False,166,No test,HPV negative,No test,Other/unclassified
+R000018332,False,166,non-HR HPV+,HPV negative,No test,Other/unclassified
+R000008195,False,166,non-HR HPV+,HR-HPV+,No test,Other/unclassified
+R000016280,False,166,HPV negative,HPV negative,HPV negative,Other/unclassified
+R000007459,False,167,HPV negative,HPV negative,No test,Other/unclassified
+R000019315,False,167,HR-HPV+,HR-HPV+,HR-HPV+,HSIL/CIN3
+R000025378,False,167,HPV negative,HPV negative,HPV negative,HSIL/CIN3
+R000032240,False,167,HPV negative,HPV negative,HPV negative,Other/unclassified
+R000028536,False,168,No test,HPV negative,HPV negative,Invasive cancer
+R000027637,False,168,HR-HPV+,HR-HPV+,HR-HPV+,HSIL/CIN3
+R000012616,False,168,HR-HPV+,HR-HPV+,HR-HPV+,Other/unclassified
+R000011923,False,168,No test,HPV negative,No test,HSIL/CIN3
+R000004023,False,169,No test,HR-HPV+,HR-HPV+,Invasive cancer
+R000014216,False,170,No test,HPV negative,No test,HSIL/CIN3
+R000021952,False,170,No test,HPV negative,No test,Other/unclassified
+R000003754,False,170,HR-HPV+,HPV negative,HPV negative,Other/unclassified
+R000008502,False,170,HR-HPV+,HPV negative,No test,Other/unclassified
+R000005600,False,171,non-HR HPV+,HPV negative,No test,HSIL/CIN3
+R000011247,False,171,HR-HPV+,HR-HPV+,HR-HPV+,Other/unclassified
+R000006881,False,171,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000023443,False,171,HPV negative,HPV negative,No test,Other/unclassified
+R000022862,False,172,HR-HPV+,HPV negative,No test,HSIL/CIN3
+R000016013,False,172,No test,HPV negative,No test,Other/unclassified
+R000007898,False,172,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000022093,False,172,No test,HPV negative,No test,Other/unclassified
+R000001504,False,173,HPV negative,HPV negative,No test,HSIL/CIN3
+R000006719,False,173,HR-HPV+,HR-HPV+,No test,Invasive cancer
+R000027797,False,173,No test,HR-HPV+,HR-HPV+,Other/unclassified
+R000028273,False,173,HR-HPV+,HPV negative,No test,HSIL/CIN3
+R000027401,False,174,HR-HPV+,HR-HPV+,HR-HPV+,HSIL/CIN3
+R000004880,False,174,HR-HPV+,HR-HPV+,No test,Other/unclassified
+R000014603,False,175,HPV negative,HPV negative,No test,HSIL/CIN3
+R000012641,False,175,No test,HPV negative,No test,Other/unclassified
+R000001705,False,175,HPV negative,HPV negative,No test,Other/unclassified
+R000000241,False,175,HPV negative,HPV negative,HPV negative,Other/unclassified
+R000008563,False,176,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000029398,False,176,HR-HPV+,HR-HPV+,HR-HPV+,HSIL/CIN3
+R000006238,False,176,No test,non-HR HPV+,non-HR HPV+,Other/unclassified
+R000016628,False,176,HPV negative,HPV negative,HPV negative,HSIL/CIN3
+R000023118,False,177,No test,HPV negative,No test,HSIL/CIN3
+R000031533,False,178,HPV negative,HPV negative,No test,Other/unclassified
+R000015966,False,178,HR-HPV+,HR-HPV+,HR-HPV+,Other/unclassified
+R000002764,False,178,HR-HPV+,HR-HPV+,No test,Other/unclassified
+R000032035,False,179,HPV negative,HPV negative,HPV negative,Other/unclassified
+R000008047,False,180,HR-HPV+,HPV negative,No test,HSIL/CIN3
+R000006016,False,180,HPV negative,HPV negative,HPV negative,HSIL/CIN3
+R000025747,False,180,No test,HPV negative,HPV negative,HSIL/CIN3
+R000020110,False,180,No test,No test,No test,Other/unclassified
+R000009165,False,181,HR-HPV+,HPV negative,No test,Other/unclassified
+R000010628,False,181,No test,No test,No test,Other/unclassified
+R000016620,False,181,No test,HR-HPV+,No test,Other/unclassified
+R000008310,False,181,HR-HPV+,HR-HPV+,No test,Other/unclassified
+R000025355,False,182,HPV negative,HPV negative,No test,HSIL/CIN3
+R000004349,False,182,HR-HPV+,HR-HPV+,No test,Other/unclassified
+R000023731,False,182,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000015443,False,182,No test,HPV negative,No test,Invasive cancer
+R000011414,False,183,non-HR HPV+,HPV negative,HPV negative,Other/unclassified
+R000011963,False,183,No test,HR-HPV+,No test,HSIL/CIN3
+R000008286,False,183,HR-HPV+,HPV negative,No test,HSIL/CIN3
+R000010851,False,183,HPV negative,HPV negative,No test,Other/unclassified
+R000007456,False,184,No test,HPV negative,No test,Other/unclassified
+R000012850,False,184,HPV negative,non-HR HPV+,non-HR HPV+,Other/unclassified
+R000032942,False,184,No test,HPV negative,HPV negative,Other/unclassified
+R000022130,False,184,No test,non-HR HPV+,non-HR HPV+,Other/unclassified
+R000017913,False,185,non-HR HPV+,HR-HPV+,No test,HSIL/CIN3
+R000000116,False,185,HPV negative,HPV negative,HPV negative,Other/unclassified
+R000025152,False,185,HR-HPV+,HR-HPV+,HR-HPV+,HSIL/CIN3
+R000014648,False,185,HPV negative,HPV negative,No test,Other/unclassified
+R000017975,False,186,HR-HPV+,HR-HPV+,No test,Other/unclassified
+R000013975,False,186,HPV negative,HPV negative,HPV negative,Other/unclassified
+R000026181,False,186,HR-HPV+,HR-HPV+,No test,Other/unclassified
+R000022582,False,186,No test,non-HR HPV+,No test,Other/unclassified
+R000032467,False,187,HR-HPV+,HR-HPV+,No test,Other/unclassified
+R000001471,False,187,No test,HR-HPV+,No test,HSIL/CIN3
+R000006566,False,187,HPV negative,HPV negative,HPV negative,Other/unclassified
+R000008412,False,187,HR-HPV+,HR-HPV+,HR-HPV+,Other/unclassified
+R000009508,False,188,HPV negative,HPV negative,HPV negative,Other/unclassified
+R000026875,False,188,non-HR HPV+,non-HR HPV+,non-HR HPV+,Other/unclassified
+R000002453,False,188,No test,HR-HPV+,No test,HSIL/CIN3
+R000022928,False,188,No test,HR-HPV+,No test,HSIL/CIN3
+R000022365,False,189,HR-HPV+,HR-HPV+,HR-HPV+,HSIL/CIN3
+R000016625,False,189,HR-HPV+,HR-HPV+,HR-HPV+,Other/unclassified
+R000003125,False,189,HR-HPV+,HR-HPV+,No test,Other/unclassified
+R000018415,False,189,HR-HPV+,HR-HPV+,HR-HPV+,Invasive cancer
+R000007747,False,190,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000032383,False,190,non-HR HPV+,HPV negative,No test,HSIL/CIN3
+R000023281,False,191,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000016093,False,192,No test,HR-HPV+,No test,Invasive cancer
+R000032157,False,192,No test,HR-HPV+,HR-HPV+,HSIL/CIN3
+R000002491,False,192,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000013497,False,192,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000032420,False,193,HPV negative,HPV negative,HPV negative,Other/unclassified
+R000023133,False,193,HR-HPV+,HR-HPV+,No test,Invasive cancer
+R000010073,False,193,No test,HR-HPV+,No test,HSIL/CIN3
+R000011394,False,194,No test,HR-HPV+,No test,Other/unclassified
+R000010448,False,194,No test,HR-HPV+,No test,Other/unclassified
+R000027673,False,195,No test,HPV negative,No test,Other/unclassified
+R000025465,False,195,No test,HPV negative,HPV negative,Other/unclassified
+R000001215,False,195,HR-HPV+,HPV negative,No test,Invasive cancer
+R000009975,False,195,HPV negative,HPV negative,No test,Other/unclassified
+R000002170,False,196,HR-HPV+,HR-HPV+,No test,Other/unclassified
+R000016867,False,196,HR-HPV+,HR-HPV+,No test,Invasive cancer
+R000005348,False,196,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000022809,False,197,No test,HPV negative,No test,Other/unclassified
+R000015852,False,197,No test,HPV negative,HPV negative,Other/unclassified
+R000003670,False,197,No test,HPV negative,No test,Other/unclassified
+R000007633,False,197,HPV negative,HPV negative,HPV negative,HSIL/CIN3
+R000028243,False,198,HPV negative,HPV negative,HPV negative,Other/unclassified
+R000027452,False,198,No test,HPV negative,HPV negative,Other/unclassified
+R000023975,False,198,HR-HPV+,HR-HPV+,No test,Invasive cancer
+R000018748,False,198,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000015218,False,199,HR-HPV+,HR-HPV+,No test,Other/unclassified
+R000014335,False,200,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000026036,False,200,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000006050,False,200,HR-HPV+,HPV negative,No test,Other/unclassified
+R000023902,False,201,HR-HPV+,HPV negative,HPV negative,Other/unclassified
+R000026283,False,201,No test,No test,No test,Other/unclassified
+R000016364,False,201,HR-HPV+,HPV negative,No test,Other/unclassified
+R000008872,False,201,HPV negative,HPV negative,HPV negative,Other/unclassified
+R000013350,False,202,No test,HPV negative,HPV negative,Other/unclassified
+R000007954,False,202,HPV negative,HPV negative,HPV negative,HSIL/CIN3
+R000017812,False,202,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000004080,False,202,No test,HPV negative,No test,HSIL/CIN3
+R000032407,False,203,No test,HR-HPV+,No test,Other/unclassified
+R000002634,False,203,No test,HR-HPV+,No test,Other/unclassified
+R000011636,False,204,non-HR HPV+,HPV negative,No test,Other/unclassified
+R000018656,False,204,No test,HPV negative,HPV negative,Other/unclassified
+R000006329,False,204,non-HR HPV+,non-HR HPV+,No test,HSIL/CIN3
+R000002935,False,204,No test,HPV negative,HPV negative,HSIL/CIN3
+R000013802,False,205,No test,HPV negative,No test,Other/unclassified
+R000008912,False,205,No test,HR-HPV+,No test,Invasive cancer
+R000002679,False,205,No test,HPV negative,HPV negative,Other/unclassified
+R000013643,False,205,HR-HPV+,HR-HPV+,No test,Other/unclassified
+R000002765,False,206,No test,HPV negative,HPV negative,Other/unclassified
+R000013668,False,206,HR-HPV+,HR-HPV+,HR-HPV+,Other/unclassified
+R000006063,False,206,No test,HR-HPV+,No test,Invasive cancer
+R000006940,False,206,No test,HR-HPV+,No test,Other/unclassified
+R000001614,False,207,No test,HR-HPV+,No test,HSIL/CIN3
+R000031117,False,208,No test,HR-HPV+,No test,Invasive cancer
+R000008187,False,208,HR-HPV+,HR-HPV+,No test,Other/unclassified
+R000027686,False,208,HR-HPV+,HR-HPV+,No test,Other/unclassified
+R000007274,False,208,No test,HPV negative,No test,Other/unclassified
+R000032322,False,209,No test,HPV negative,No test,Other/unclassified
+R000011935,False,209,No test,HPV negative,No test,Other/unclassified
+R000023009,False,209,No test,HPV negative,No test,Other/unclassified
+R000032853,False,209,HR-HPV+,HPV negative,HPV negative,Invasive cancer
+R000020184,False,210,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000031759,False,210,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000031917,False,210,non-HR HPV+,HPV negative,No test,HSIL/CIN3
+R000011132,False,210,No test,HR-HPV+,No test,HSIL/CIN3
+R000000886,False,211,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000009042,False,211,HR-HPV+,HR-HPV+,No test,Other/unclassified
+R000003425,False,211,HPV negative,HPV negative,HPV negative,Other/unclassified
+R000028682,False,212,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000021827,False,212,HR-HPV+,HR-HPV+,No test,Other/unclassified
+R000006576,False,212,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000028088,False,212,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000028188,False,213,HR-HPV+,HR-HPV+,No test,Other/unclassified
+R000015425,False,213,HPV negative,HPV negative,No test,Other/unclassified
+R000002761,False,213,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000027700,False,214,HR-HPV+,HR-HPV+,HR-HPV+,HSIL/CIN3
+R000018401,False,214,HPV negative,HPV negative,HPV negative,Other/unclassified
+R000025249,False,214,No test,HR-HPV+,No test,Other/unclassified
+R000001564,False,215,HR-HPV+,HPV negative,HPV negative,HSIL/CIN3
+R000018128,False,215,HPV negative,HPV negative,No test,Other/unclassified
+R000006593,False,215,HR-HPV+,HPV negative,No test,HSIL/CIN3
+R000013316,False,215,No test,HR-HPV+,HR-HPV+,HSIL/CIN3
+R000028785,False,216,HR-HPV+,HR-HPV+,HR-HPV+,HSIL/CIN3
+R000005048,False,216,No test,HR-HPV+,No test,HSIL/CIN3
+R000022426,False,216,HR-HPV+,HR-HPV+,No test,Other/unclassified
+R000016846,False,216,HR-HPV+,HR-HPV+,No test,Other/unclassified
+R000032319,False,217,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000005973,False,217,No test,HR-HPV+,No test,HSIL/CIN3
+R000024142,False,217,No test,HR-HPV+,No test,HSIL/CIN3
+R000013986,False,217,HPV negative,No test,No test,Invasive cancer
+R000022504,False,218,HPV negative,HPV negative,HPV negative,Other/unclassified
+R000017530,False,218,No test,HPV negative,No test,Other/unclassified
+R000028473,False,218,HPV negative,HPV negative,No test,Other/unclassified
+R000005234,False,218,No test,HPV negative,HPV negative,Other/unclassified
+R000014650,False,219,No test,HPV negative,HPV negative,Other/unclassified
+R000014307,False,219,HR-HPV+,HR-HPV+,HR-HPV+,Other/unclassified
+R000018469,False,220,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000030977,False,220,HR-HPV+,HR-HPV+,No test,Invasive cancer
+R000011841,False,220,No test,HR-HPV+,No test,HSIL/CIN3
+R000003074,False,221,HPV negative,HPV negative,HPV negative,HSIL/CIN3
+R000006432,False,222,HR-HPV+,HR-HPV+,No test,Invasive cancer
+R000020511,False,223,No test,HR-HPV+,No test,HSIL/CIN3
+R000003829,False,223,non-HR HPV+,HPV negative,No test,HSIL/CIN3
+R000010031,False,223,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000023218,False,223,No test,HR-HPV+,HR-HPV+,Other/unclassified
+R000006790,False,224,HR-HPV+,HR-HPV+,HR-HPV+,HSIL/CIN3
+R000023373,False,225,HR-HPV+,non-HR HPV+,non-HR HPV+,HSIL/CIN3
+R000020326,False,225,No test,HPV negative,HPV negative,Other/unclassified
+R000018236,False,225,No test,No test,No test,Invasive cancer
+R000008295,False,226,No test,HR-HPV+,HR-HPV+,Other/unclassified
+R000007469,False,226,non-HR HPV+,HPV negative,No test,Other/unclassified
+R000001494,False,226,non-HR HPV+,HPV negative,No test,Other/unclassified
+R000019110,False,226,non-HR HPV+,HPV negative,No test,HSIL/CIN3
+R000005808,False,227,HPV negative,HPV negative,HPV negative,HSIL/CIN3
+R000022976,False,228,HR-HPV+,HPV negative,HPV negative,Other/unclassified
+R000003732,False,228,No test,HR-HPV+,No test,HSIL/CIN3
+R000000101,False,229,HPV negative,HPV negative,HPV negative,Invasive cancer
+R000018752,False,229,HPV negative,HPV negative,No test,HSIL/CIN3
+R000026100,False,229,No test,HR-HPV+,HR-HPV+,Invasive cancer
+R000010853,False,230,HR-HPV+,HPV negative,HPV negative,Other/unclassified
+R000020777,False,231,No test,HPV negative,HPV negative,HSIL/CIN3
+R000030119,False,231,No test,HPV negative,No test,HSIL/CIN3
+R000007921,False,231,No test,HPV negative,No test,HSIL/CIN3
+R000022884,False,231,HR-HPV+,HPV negative,HPV negative,HSIL/CIN3
+R000004037,False,232,HPV negative,HPV negative,HPV negative,HSIL/CIN3
+R000032304,False,233,HPV negative,HPV negative,No test,Other/unclassified
+R000016170,False,234,No test,HPV negative,HPV negative,Other/unclassified
+R000006779,False,234,No test,HPV negative,No test,HSIL/CIN3
+R000002860,False,234,HPV negative,HPV negative,No test,HSIL/CIN3
+R000022011,False,234,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000014217,False,235,HPV negative,HPV negative,HPV negative,Other/unclassified
+R000008695,False,235,No test,HPV negative,No test,HSIL/CIN3
+R000004223,False,235,HR-HPV+,HR-HPV+,HR-HPV+,HSIL/CIN3
+R000028579,False,235,No test,HPV negative,No test,HSIL/CIN3
+R000018707,False,237,non-HR HPV+,HPV negative,HPV negative,HSIL/CIN3
+R000024779,False,237,HPV negative,HPV negative,No test,HSIL/CIN3
+R000012014,False,237,HPV negative,HPV negative,No test,Other/unclassified
+R000021768,False,237,HPV negative,HPV negative,HPV negative,HSIL/CIN3
+R000000803,False,238,HPV negative,HPV negative,HPV negative,Other/unclassified
+R000022300,False,238,No test,HR-HPV+,HR-HPV+,Other/unclassified
+R000005608,False,238,non-HR HPV+,non-HR HPV+,No test,HSIL/CIN3
+R000014308,False,239,HR-HPV+,HR-HPV+,No test,HSIL/CIN3
+R000006910,False,239,No test,HR-HPV+,No test,HSIL/CIN3
+R000018523,False,239,No test,HPV negative,HPV negative,Invasive cancer
+R000007414,False,240,No test,HPV negative,HPV negative,HSIL/CIN3
+R000010797,False,240,HR-HPV+,HR-HPV+,No test,Other/unclassified
+R000007721,False,240,HPV negative,HPV negative,No test,Other/unclassified
+R000028433,False,241,HR-HPV+,HR-HPV+,No test,Other/unclassified
+R000000906,False,241,HPV negative,HPV negative,HPV negative,Other/unclassified
+R000010015,False,242,HR-HPV+,HPV negative,No test,Other/unclassified
+R000013727,False,242,non-HR HPV+,No test,No test,Other/unclassified
+R000027982,False,242,No test,HR-HPV+,No test,Other/unclassified

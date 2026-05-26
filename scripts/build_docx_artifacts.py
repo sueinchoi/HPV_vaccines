@@ -210,7 +210,7 @@ def add_spacer(doc: Document) -> None:
 def table1_rows() -> tuple[list[str], list[list[str]]]:
     """Reshape Table1_BaselineCharacteristics_unified.csv (long → wide-ish)."""
     header, body = read_csv(DATA / "Table1_BaselineCharacteristics_unified.csv")
-    keep = {"CohortA_post", "CohortB_post", "CohortB_clearance"}
+    keep = {"CohortA_post", "CohortB_post", "CohortB_post_v3", "CohortB_clearance"}
     out_header = ["Block", "Variable", "Vaccinated", "Non-vaccinated", "p value", "|SMD|"]
     out = []
     for r in body:
@@ -221,17 +221,18 @@ def table1_rows() -> tuple[list[str], list[list[str]]]:
             continue
         block_label = {
             "CohortA_post": "Cohort A (post-PSM)",
-            "CohortB_post": "Cohort B (post fine match)",
-            "CohortB_clearance": "Cohort B — clearance subset",
+            "CohortB_post": "Cohort B (post fine match — ≥1 dose, no landmark; legacy)",
+            "CohortB_post_v3": "Cohort B (≥2 dose + 3-mo landmark; PRIMARY)",
+            "CohortB_clearance": "Cohort B — clearance subset (≥1 dose, no landmark)",
         }[block]
         out.append([block_label, translate_korean(var), vac, ctl, p, smd])
     return out_header, out
 
 
 def table1_split_rows() -> dict[str, list[list[str]]]:
-    """Return {block_id: rows_without_block_column} for the three Table 1 splits."""
+    """Return {block_id: rows_without_block_column} for the four Table 1 splits."""
     _h, body = read_csv(DATA / "Table1_BaselineCharacteristics_unified.csv")
-    out = {"CohortA_post": [], "CohortB_post": [], "CohortB_clearance": []}
+    out = {"CohortA_post": [], "CohortB_post": [], "CohortB_post_v3": [], "CohortB_clearance": []}
     for r in body:
         if len(r) < 6 or r[0] not in out:
             continue
@@ -477,7 +478,8 @@ def build_tables_figures_docx(suffix: str = "") -> None:
     add_caption(
         doc, "Table 1B",
         "Baseline characteristics after 1:up-to-4 fine matching — Cohort B "
-        "(post-surgical efficacy analysis). N = 1,108 "
+        "(post-surgical efficacy analysis; ≥1-dose, no-landmark legacy "
+        "exposure definition retained for reference). N = 1,108 "
         "(241 vaccinated / 867 unvaccinated; mean realised ratio 3.60). "
         "Absolute standardised mean differences (|SMD|) < 0.10 indicate "
         "adequate balance. The final row (Pre-vaccine hr-HPV+) defines the "
@@ -488,6 +490,22 @@ def build_tables_figures_docx(suffix: str = "") -> None:
     )
     add_spacer(doc)
     add_table(doc, t1_header, cohortB_rows, col_widths_in=t1_widths)
+    doc.add_page_break()
+
+    add_caption(
+        doc, "Table 1C",
+        "Baseline characteristics under the ≥2-dose + 3-month landmark PRIMARY "
+        "exposure definition — Cohort B (post-surgical efficacy analysis). "
+        "N = 934 (204 vaccinated / 730 fine-matched controls). Matched-set "
+        "integrity preserved: vaccinated cases failing the ≥2-dose or "
+        "landmark filter had their full fine-matched set removed. Additional "
+        "variables — pre-surgery / post-surgery HPV test status (any-time and "
+        "pre-vaccine windowed) and surgical-pathology severity (HSIL/CIN3 vs "
+        "invasive cancer vs lower-grade) — are added to support cohort "
+        "characterisation requested at revision.",
+    )
+    add_spacer(doc)
+    add_table(doc, t1_header, splits["CohortB_post_v3"], col_widths_in=t1_widths)
     doc.add_page_break()
 
     # ---- Table 2 ----

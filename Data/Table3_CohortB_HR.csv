@@ -1,7 +1,10 @@
-﻿Outcome,Favourable direction,Vaccinated events / N,Vaccinated PY (rate /1000 PY),Non-vaccinated events / N,Non-vaccinated PY (rate /1000 PY),HR (95% CI),p value
-Lesion recurrence (≥CIN2 / HSIL+ or invasive carcinoma),HR<1,13 / 241,1405 (9.2),57 / 867,5052 (11.3),0.80 (0.44–1.43),0.445
-hr-HPV clearance / regression (pre-vaccine HPV+ baseline),HR>1,40 / 110,402 (99.5),48 / 182,764 (62.8),1.40 (0.92–2.11),0.114
-"Post-index hr-HPV detection (sensitivity, full cohort)",HR<1,149 / 241,816 (182.7),546 / 867,2693 (202.8),0.91 (0.76–1.08),0.272
-Novel-type acquisition (post-index type not in pre-vaccine baseline),HR<1,46 / 206,969 (47.5),107 / 583,2721 (39.3),1.21 (0.87–1.69),0.248
-HPV-16 clearance (pre-vaccine 16+ baseline),HR>1,42 / 64,160 (262.2),48 / 80,210 (228.2),1.05 (0.74–1.49),0.785
-HPV-18 clearance (pre-vaccine 18+ baseline),HR>1,25 / 45,123 (204.0),33 / 57,138 (239.8),0.84 (0.56–1.26),0.398
+Outcome,Favourable direction,Vaccinated events / N,Vaccinated PY (rate /1000 PY),Non-vaccinated events / N,Non-vaccinated PY (rate /1000 PY),HR (95% CI),p value
+Lesion recurrence (≥CIN2 / HSIL+ or invasive carcinoma) — ≥2 dose + 3-mo landmark PRIMARY,HR<1,10 / 204,1132 (8.8),33 / 730,3947 (8.4),1.01 (0.49–2.06),0.985
+hr-HPV clearance (two consecutive negatives; pre-vaccine HPV+ baseline) — ≥2 dose + 3-mo landmark PRIMARY,HR>1,31 / 92,324 (95.7),28 / 143,617 (45.4),1.85 (1.09–3.17),0.024
+"Sustained clearance duration — vaccinated (median, IQR years)",—,31 clearance events,—,—,—,3.20 (2.14–7.53),—
+"Sustained clearance duration — non-vaccinated (median, IQR years)",—,—,—,28 clearance events,—,2.59 (1.69–4.76),—
+Reversion (HR-HPV+ reappears) — vaccinated,—,13 / 31 (41.9%),—,—,—,—,—
+Reversion (HR-HPV+ reappears) — non-vaccinated,—,—,—,13 / 28 (46.4%),—,—,—
+"Sensitivity (Sens-C): ≥1 dose, no landmark — lesion recurrence",HR<1,13 / 241,1405 (9.2),57 / 867,5052 (11.3),0.80 (0.44–1.43),0.445
+"Sensitivity (Sens-C): ≥3 dose, no landmark — lesion recurrence",HR<1,7 / 167,935 (7.5),40 / 601,3206 (12.5),0.58 (0.27–1.26),0.168
+"Sensitivity (Sens-C): ≥1 dose, no landmark — hr-HPV clearance",HR>1,40 / 110,402 (99.5),48 / 182,764 (62.8),1.40 (0.92–2.11),0.114

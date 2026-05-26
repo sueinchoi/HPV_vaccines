@@ -1,0 +1,13 @@
+﻿Outcome,"Vaccinated, n (events)","Non-vaccinated, n (events)",PY (vac / non),IR per 1000 PY (vac / non),HR (95% CI),p
+Lesion recurrence (≥CIN2/HSIL+ or invasive carcinoma),203 (10),709 (33),1132 / 3947,8.8 / 8.4,1.01 (0.49–2.06),0.985
+hr-HPV clearance (two consecutive post-index negatives),92 (31),143 (28),324 / 617,95.7 / 45.4,1.85 (1.09–3.17),0.024
+,,,,,,
+Sustained clearance duration (among patients with clearance event),,,,,,
+"  Vaccinated — median (IQR), years",31 clearance events,,,,3.20 (IQR 2.14–7.53),
+  Vaccinated — reversion (HR-HPV+ reappearance after clearance),,,,,13 (41.9%),
+"  Non-vaccinated — median (IQR), years",28 clearance events,,,,2.59 (IQR 1.69–4.76),
+  Non-vaccinated — reversion (HR-HPV+ reappearance after clearance),,,,,13 (46.4%),
+,,,,,,
+Sensitivity (lesion recurrence): exposure-definition,,,,,,
+"  ≥1 dose, no landmark",241 (13),867 (57),1405 / 5052,9.2 / 11.3,0.80 (0.44–1.43),0.445
+"  ≥3 dose, no landmark",167 (7),601 (40),935 / 3206,7.5 / 12.5,0.58 (0.27–1.25),0.168

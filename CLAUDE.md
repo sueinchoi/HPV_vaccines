@@ -1,99 +1,117 @@
 # CLAUDE.md
 
-이 저장소는 한국 HPV 코호트 데이터를 이용해 자궁경부 수술 후 **HPV 백신 접종의 병변 재발 및 HPV 재감염 예방 효과**를 평가한 후향적 매칭 코호트 연구의 분석 코드와 결과물 저장소이다. (목표: 2026 부인종양학회 포스터 발표)
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-## 프로젝트 개요
+이 저장소는 한국 임상데이터웨어하우스(CDW)를 이용한 HPV 백신 효과·안전성에 대한 후향적 매칭 코호트 연구의 분석 코드와 원고/공급자료 산출 파이프라인이다. 목표 산출물은 동료 심사용 manuscript (`docs/HPV_manuscript.docx`)와 부속 자료 (`docs/HPV_tables_figures.docx`, `docs/HPV_supplementary.docx`).
 
-- **연구 설계**: Retrospective matched cohort study
-- **연구 대상**: 자궁경부 상피내 병변(ASCUS/LSIL → HSIL/CIN3 또는 자궁경부암 진행) 수술(원추절제술/자궁절제술) 환자
-- **노출**: 수술 후 HPV 예방접종 여부
-- **Index date**: 접종군은 백신 접종일, 비접종군은 매칭된 접종군의 "수술-접종 간격(T)"을 적용한 pseudo index date
-- **추적 종료**: outcome 발생일 / 사망 / 자격상실 / 2025-12-31 중 가장 빠른 날짜
+## 권위 있는 사양 문서
 
-### 결과변수
-- **Primary**: ① 병변 재발(HSIL/CIN3 이상 조직검사 확인), ② 새로운 고위험 HPV 감염 (유형 16, 18, 31, 33, 45, 52, 58, 35, 39, 51, 56, 59, 66, 68)
-- **Secondary**: 당뇨(HbA1c ≥ 6.5%), 고혈압(SBP≥140 또는 DBP≥90, 2회 이상)
+코호트 정의·index date·outcome·매칭 규칙·민감도 분석 ID에 대한 single source of truth는 **`docs/Analysis_Specifications.md`** 이다. 분석 변경 시 이 파일을 먼저 확인·갱신하고, README.md (초기 연구계획서)와 본 CLAUDE.md는 보조 자료로 취급한다. 제출용 산출물 명명·매핑은 `docs/Submission_File_Manifest.md` 참고.
 
-### 매칭 전략
-모든 매칭은 **variable-ratio greedy nearest matching, without replacement** — 요청 비율(N)은 *최대값*이며 후보가 N명 미만이면 가용한 만큼만 사용.
-1. **1차 매칭 (1:up-to-5)**: 수술시점(±1년), 나이(±5세), 수술방법(exact) → 접종군 411 / 비접종군 1,815 (mean ratio 4.42; 256/411 = 62%가 full 5 매칭)
-2. **Index date 필터링**: 접종군 411 / 비접종군 1,797 (18명 제외)
-3. **2차 Fine Matching (1:up-to-4)**: Index 시점 나이(±5y), BMI(±3 kg/m²), 수술연도(±1y) → **최종 접종군 241 / 비접종군 867 (총 1,108명)**; mean ratio 3.60; 193/241 = 80%가 full 4 매칭
+## 두 개의 코호트
 
-## 디렉토리 구조
-
-```
-HPV_vaccines/
-├── README.md                  # 연구 계획서 (목적, 설계, 매칭, 분석 방법)
-├── Run.R                      # R 파이프라인 진입점 (pathology outcomes)
-├── Analysis.R                 # 원본 CP949 CSV → UTF-8 변환 + 샘플 추출
-├── Data/                      # 원본 CSV (CP949), 가공 CSV, 결과 figure/표
-├── scripts/                   # Python/R 분석 스크립트
-└── .gitignore                 # 원본 병리 CSV는 git 제외
-```
-
-### 핵심 데이터 파일 (`Data/`)
-- 원본 (CP949): `한국 HPV 코호트 자료를 이용한 자_*.csv` (코호트, 진단정보, 수술처방, 처방정보, 진단검사Lab, 병리검사, 기초임상정보)
-- `한국 HPV 코호트 자료를 이용한 자_수술처방_수술종류구분완료.csv` — 원추절제술/자궁절제술/제외 분류 완료된 버전
-- 가공: `matched_cohort.csv` (1차 매칭) → `final_matched_cohort.csv` (Fine matching) → `final_matched_outcomes.csv` (결과 변수 결합)
-- 보고서: `HPV_vaccine_study_report_vaccine.docx` ⭐ **최종 보고서 (백신 종류별 분석 포함)**, `HPV_vaccine_study_report.docx` (이전 버전)
-
-### 스크립트 실행 순서 (`scripts/`)
-1. `build_matched_cohort.py` — 1차 매칭 코호트 구축 (수술시점/나이/수술방법)
-2. `build_final_cohort.py` — Index date 필터링 + Fine Matching (나이/BMI/수술연도)
-3. `extract_pathology_outcomes.py` (또는 `.R`) — 병리 데이터에서 HSIL/CIN3+ 재발, 고위험 HPV 추출
-4. `extract_outcomes_after_index.py` — Index date 이후 outcome 추출
-5. `extract_outcomes_from_diagnosis.py` — 진단 데이터 기반 보조 outcome
-6. `analyze_cohort.py` — SMD/Love plot, Cox PH 메인 분석
-7. `vaccine_type_analysis.py` — Gardasil9/Cervarix/Gardasil 백신 종류별 분석
-8. 민감도 분석: `sensitivity_analysis.py`, `sensitivity_analysis_v2.py`, `sensitivity_analysis_both.py`, `sensitivity_age_cutoff.py`, `sensitivity_unadjusted.py`
-
-모든 Python 스크립트에 `RANDOM_SEED = 42` 고정. 매칭/분석은 한글 컬럼명을 그대로 사용하며 인코딩 일관성에 주의 (`utf-8-sig` for 가공, `cp949` for 원본).
-
-## 최종 결과 요약 (`HPV_vaccine_study_report_vaccine.docx`)
-
-### 1. 코호트
-- 전체 수술 환자 6,890명 → 1차 매칭 후 2,226명 → 최종 **1,108명** (접종 241 / 비접종 867)
-- 평균 Index 나이 37.2세, 평균 BMI 22.3, 평균 수술연도 2016, 평균 추적 ~2,236일
-
-### 2. 백신 종류 분포 (접종군 241명)
-| 백신 | N (%) | 평균 수술-접종 간격 |
+| | Cohort A — 장기 안전성 | Cohort B — 수술 후 효과 (**v3 primary**) |
 |---|---|---|
-| Gardasil9 (9가) | 128 (53.1%) | 265.1일 (8.8개월) |
-| Cervarix (2가) | 77 (32.0%) | 148.4일 (4.9개월) |
-| Gardasil (4가) | 36 (14.9%) | 167.7일 (5.6개월) |
-| **전체** | **241** | **213.2일 (7.1개월)** |
+| 모집단 | 전체 cohort (N = 32,969) | 자궁경부 수술(원추절제술/자궁절제술) 환자 (N_pool = 6,890) |
+| 노출 (primary) | HPV 백신 접종(어느 시점이든) | **수술 이후 ≥2 dose** HPV 백신 접종 |
+| Time zero (primary) | Index | **Index + 90 days (3-mo landmark, symmetric)** |
+| Index (vac) | 첫 백신일 | 수술 이후 첫 백신일 |
+| Index (non-vac) | 접종군 백신일 분포에서 random pseudo-date (seed=42) | 수술일 + 매칭 접종군의 (수술→접종 간격 T) |
+| 매칭 | PSM 1:1, caliper 0.2 × SD logit(PS); 변수: 연령, BMI, SBP, DBP, 흡연, 서울 거주 | Step1: 수술방법(exact)/수술년(±1y)/수술시 연령(±5y) 1:up-to-5 → Step2: index ≤2020-12-31 + 추적≥2건 → Step3: index 연령(±5y)/BMI(±3 kg/m²)/수술년(±1y) 1:up-to-4 (BMI 결측 시 완화) → **Step4: ≥2 dose + 3-mo landmark filter w/ matched-set integrity** |
+| 최종 N (v3 primary) | 4,102 (2,051/2,051) | **934 (204/730)**; clearance subset **235 (92/143)** |
+| Outcome | 5개 만성질환 (협심증/MI, HTN, DM, 뇌졸중, PE) + Any-of-5 + MCE; **첫 post-index ICD-10 hit** | P1: 병변 재발(≥CIN2/HSIL+/암; **CIN2** 임계임을 주의); P2: hr-HPV clearance (post-index 분자병리 2건 연속 음성 중 첫 음성일자) |
+| 효과 방향 | **HR < 1 유리** | P1: **HR < 1 유리** / P2: **HR > 1 유리** (clearance) |
+| Primary HR (95% CI) | 1.26 (0.75–2.12) Any-of-5 | P1 **1.01 (0.49–2.06), p=0.99 (null collapse)** / P2 **1.85 (1.09–3.17), p=0.024 ✅** |
+| Sensitivity (≥1 dose, no landmark) | n/a | P1 0.80 (0.44–1.43), p=0.45 / P2 1.40 (0.92–2.11), p=0.11 |
+| Sustained clearance (median IQR) | — | vac **3.20y (2.14–7.53)** / non-vac 2.59y (1.69–4.76); 반전 41.9% / 46.4% |
 
-### 3. 메인 결과 (Cox PH, 연령 보정)
-| Outcome | 접종군 | 비접종군 | HR (95% CI) | p |
-|---|---|---|---|---|
-| 병변 재발 | 13/241 (5.4%) | 57/867 (6.6%) | 0.795 (0.435–1.454) | 0.4566 |
-| HPV 재감염 | 149/241 (61.8%) | 546/867 (63.0%) | 0.908 (0.757–1.088) | 0.2963 |
+⚠ Cohort B의 hr-HPV baseline은 **pre-vaccine** (records with `실시일자 < index_date`)으로 두 군 공통 — pre-surgery가 **아니다**. Matched-set 무결성: vaccinated case에 baseline HPV+ 기록이 없으면 그 `fine_match_id` 전체를 drop.
 
-→ 전체 코호트에서는 **유의한 보호 효과 없음**
+⚠ **v3 primary (이번 revision)**: ≥2 dose + 3-mo landmark를 적용하면 vaccinated 36명 (1 dose만 받은) + 그들의 매칭 control 132명 + landmark 실패 5명 추가 drop → 최종 934명. **이전 ≥1 dose, no-landmark는 Sens-C로 강등** (Analysis_Specifications.md §4.5b 참고). 본문의 lesion-recurrence "null collapse" (0.80 → 1.01)는 immortal-time selection을 정직하게 보고하는 형태로 Limitations에 명시.
 
-### 4. 유의한 Subgroup
-- **연령별 (병변 재발, 2년 추적)**: 30–52세 HR=0.230 (0.055–0.963), p=0.044 / 20–52세 HR=0.299, p=0.045 / 30–50세 HR=0.238, p=0.050
-- **백신 종류별 (HPV 재감염)**: **Gardasil(4가) HR=0.395 (0.209–0.745), p=0.004** ← 유일한 유의 결과
-  - Gardasil9: HR=0.909, p=0.434 (NS)
-  - Cervarix: HR=1.276, p=0.126 (NS)
+## 통계 규약 (`Analysis_Specifications.md` §4.6)
 
-### 5. 결론 및 제한점
-- 전체 코호트에서는 통계적으로 유의한 보호 효과 미관찰
-- 30–52세 2년 추적에서 병변 재발 유의 감소
-- **Gardasil(4가)에서 HPV 재감염 유의 보호 효과**, Gardasil9/Cervarix는 NS
-- 한계: 후향적 설계, 적은 사건 수로 검정력 한계, 다중 비교 문제, Gardasil 표본 작음(n=36), 백신 접종 동기 정보 부재
+- Cox PH, 보정공변량 = **age at index만** (PSM/fine-matching이 잔여 교란을 잡았다는 가정).
+- **Cluster-robust SE**: Cohort A는 `pair_id`, Cohort B는 `fine_match_id` 단위 클러스터.
+- Time = `days_to_event` (이벤트 발생 시) / `follow_up_days = 최종추적일자 − index_date` (검열).
+- 검열: 마지막 추적, 사망, 자격상실, 2025-12-31 중 최초.
+- 사망은 competing event (Aalen–Johansen CIF, Fine–Gray subdistribution).
+- 모든 매칭/sampling: `random seed = 42`, **without replacement**, variable-ratio는 *상한* (가용 통제군 < 상한이면 가용한 만큼만; `1:up-to-N` 표기).
 
-## 작업 시 유의사항
+## 노출 정의 (HPV 백신, `Analysis_Specifications.md` §2)
 
-- **인코딩**: 원본 CSV는 `cp949` (encoding='cp949'), 가공 CSV는 `utf-8-sig`. `Analysis.R`이 변환을 담당하지만 `pathology.csv`는 git 제외(`.gitignore`)
-- **날짜 컬럼**: 원본은 `YYYYMMDD` 정수형 (`format='%Y%m%d'`로 파싱), 가공 후 datetime
-- **고위험 HPV 유형**: `[16, 18, 31, 33, 45, 52, 58, 35, 39, 51, 56, 59, 66, 68]` (스크립트 상수)
-- **재현성**: 모든 매칭/sampling은 `np.random.seed(42)`
-- **수술 분류**: `_수술처방_수술종류구분완료.csv` 사용 (수동 분류 완료본). "제외" 분류는 코호트에서 빠짐
-- **한글 폰트**: `matplotlib`에 `AppleGothic`/`NanumGothic` fallback 설정됨
+처방 레코드가 다음 중 하나라도 만족:
+- `처방명` ∼ `/Gardasil|Cervarix|HPV vaccine/i`
+- `처방한글명` ∼ `/가다실|서바릭스/`
+- `처방코드`가 `DV-9HPF` (Gardasil 9) / `DV-HPF` (Gardasil 4가) / `DV-JHP` (Cervarix) 로 시작 (`-FR` 무료, `-FJ` 직원/가족, legacy `DV-HPJ` 포함)
 
-## 미해결 사항 (README §11)
-- 수술 코드 구분(원추/자궁절제술) 추가 검토 — 현재는 _수술종류구분완료.csv로 갈음
-- HPV 지속감염 정의 (협의 필요)
-- CAD 관련 진단 추가 (IRB 연장 심의 후)
+`first_vaccine_date` = 자격 충족 처방의 최초 `처방일자`. 다종 접종(33명) 시 vaccine-type은 **첫 dose** 기준.
+
+## 핵심 데이터 파일 (`Data/`)
+
+원본 (cp949, PHI, gitignored) — 파일명 그대로 한글 컬럼 사용:
+- `한국 HPV 코호트 자료를 이용한 자_코호트.csv` — 모집단 (N=32,969)
+- `한국 HPV 코호트 자료를 이용한 자_수술처방_수술종류구분완료.csv` — 수동 분류 (`수술 종류`: 1=원추절제, 3=자궁절제, `제외`)
+- `한국 HPV 코호트 자료를 이용한 자_처방정보.csv` — 백신 식별용
+- `한국 HPV 코호트 자료를 이용한 자_진단정보_기저질환추가_unlocked.xlsx` — 사전 분류된 5개 만성질환 tag (1=협심증/MI, 2=HTN, 3=DM, 4=뇌졸중, 5=PE)
+- `한국 HPV 코호트 자료를 이용한 자_병리검사 (복구됨).CSV` — `병리검사구분`: `조직병리`=재발, `분자병리`/`HPV`=HPV 결과
+- `한국 HPV 코호트 자료를 이용한 자_기초임상정보.csv` — height/weight/BP/smoking + `기록일자`
+
+가공 (utf-8-sig, gitignored이 아님): `matched_cohort.csv` → `final_matched_cohort.csv` → `final_matched_outcomes.csv` (Cohort B); Cohort A는 `make_main_figures.py::build_cohort_a_matched`가 in-memory 구성.
+
+## 인코딩·형식 규약
+
+- 원본 CSV: `cp949` (`encoding='cp949'`), 가공 CSV: `utf-8-sig`. `Analysis.R`이 `pathology.csv`로 변환하지만 git 제외.
+- 원본 날짜: `YYYYMMDD` 정수 → `pd.to_datetime(..., format='%Y%m%d')`.
+- 고위험 HPV 유형 상수: `[16, 18, 31, 33, 45, 52, 58, 35, 39, 51, 56, 59, 66, 68]` (`extract_pathology_outcomes.py::HR_HPV_TYPES`).
+- matplotlib 한글: `font.family = ['DejaVu Sans', 'AppleGothic']`, `axes.unicode_minus = False`.
+
+## 스크립트 파이프라인 (`scripts/`)
+
+**전처리 / 매칭** — 순서대로:
+1. `build_matched_cohort.py` — Cohort B Step 1 (수술시점/연령/수술방법 1:up-to-5)
+2. `build_final_cohort.py` — Cohort B Step 2+3 (index 필터 + fine matching)
+3. `extract_pathology_outcomes.py` (또는 `.R`) — 조직병리에서 HSIL/CIN3+ 재발, 분자병리에서 hr-HPV 추출 (`detect_hsil_cin3_recurrence`, `detect_high_risk_hpv`)
+4. `extract_outcomes_after_index.py` — Index date 이후 outcome 결합
+5. `extract_outcomes_from_diagnosis.py` — 진단 기반 보조 outcome
+
+**일차 분석**:
+- `cohort_a_psm.py` / `cohort_a_psm_hr_cif.py` — Cohort A PSM + Fine–Gray + Aalen–Johansen
+- `analyze_cohortB_clearance_primary.py` — **Cohort B 공동 일차 결과 (P1 재발 + P2 clearance)**. P2는 pre-vaccine hr-HPV+ subset에 한정, 2-연속음성 정의.
+- `rebuild_table2.py` / `rebuild_table3.py` — Cohort A / B HR 표 재생성 (cluster-robust)
+
+**Baseline / Figures**:
+- `baseline_table1_unified.py` — Pre/Post matching baseline (A·B 모두, 동일 변수 행)
+- `append_table1_clearance_subset.py` — clearance subset baseline append
+- `make_main_figures.py` — Figure 1–5 통합 생성 (cohort flow, CIF+forest, KM, vaccine-type, age×FU)
+- `make_supfig_S6_sensitivity_forest.py`, `regenerate_love_plots.py`, `make_figure1_pptx.py`
+
+**민감도 분석** — Essential (Sens-A∼E, 본문) vs Appendix (App-1∼10, 부록만). 매핑은 `Analysis_Specifications.md §4.5`:
+- `sensitivity_hpv_clearance.py` / `sensitivity_clearance_time_stratified.py` (Sens-A/B)
+- `sensitivity_dose_threshold_landmark.py` (Sens-C; immortal-time 보정 landmark)
+- `sensitivity_strict_matching.py` (Sens-D)
+- `sensitivity_outcome_definition_rigour.py` (Sens-E recurrence DF-interval)
+- `sensitivity_exposure_definition.py` — S2 (Rx-code) / S3 (mixed vaccine)
+- `sensitivity_hpv_landmark.py`, `sensitivity_hpv_novel_type.py`, `sensitivity_hpv_refined_definition.py`, `sensitivity_vaccine_type_calendar.py`, `sensitivity_analysis*.py`, `sensitivity_age_cutoff.py`, `sensitivity_unadjusted.py`
+
+**보충 파일 / DOCX 빌드**:
+- `rebuild_supplementary_clearance.py`, `rebuild_supplementary_misc.py`, `promote_two_negative_primary.py`, `relabel_supplementary*.py`, `slim_supplementary.py`
+- `build_docx_artifacts.py` — `docs/Manuscript_Draft.md`를 pandoc으로 manuscript.docx, `Data/*.csv` 표/`Data/*.png` 그림을 묶어 `HPV_tables_figures.docx`, `HPV_supplementary.docx` 생성
+- `build_manuscript_docx.py`, `sync_manuscript_docx*.py` — 원고-표/그림 일치 유지
+
+## R 파이프라인 (별도)
+
+`Run.R` → `scripts/extract_pathology_outcomes.R::main()` — Python 버전과 동일 outcome 정의의 R 구현. 원본 → `Data/pathology.csv` 변환은 `Analysis.R` (CP949 → UTF-8).
+
+## 일반 작업 시 유의사항
+
+- **`fine_match_id` 보존**: Cohort B 분석에서 fine-matching 단위가 깨지면 cluster-robust SE와 matched-set 무결성 둘 다 무너진다. 필터링·outcome 결합 시 `fine_match_id` 컬럼을 끝까지 유지.
+- **HR 방향 footgun**: P2 (clearance)는 HR > 1이 vaccine-favourable. P1·Cohort A 모든 outcome은 HR < 1이 favourable. 표/그림 라벨링·민감도 비교 시 혼동 주의 (`Analysis_Specifications.md §5` 표).
+- **Cohort B 재발 outcome 임계**: 수술 적격은 **HSIL/CIN3+**, post-index 재발 outcome은 **CIN2+** (HSIL+ 또는 invasive). 다른 임계라는 점이 표/원고에 명시되어야 함.
+- **Vaccine-type subgroup (n=36 Gardasil 4가)**: 검정력 한계로 본문에서는 forest plot만 사용, "유의 효과"로 해석하지 않음 (예전 CLAUDE.md/legacy 보고서의 `HR=0.395, p=0.004` 결과는 다중비교 미보정·소표본 결과이므로 그대로 인용 금지).
+- **Backup docx 처리**: `.gitignore`가 `*.backup.docx`, `*.preslim.docx` 제외. `docs/HPV_manuscript.docx`·`HPV_tables_figures.docx`·`HPV_supplementary.docx`가 정본; 편집 전 backup 생성하는 스크립트들이 있으므로 덮어쓰기 시 git diff 확인.
+
+## 미해결 / 후속
+
+- README §11 항목 (수술 코드 미세 구분, HPV 지속감염 정의 합의, CAD IRB 연장) — 현재 분석은 모두 잠정 정의로 진행.
+- App-9 (연령×추적 grid의 30–52y / 2y window 유의 신호) — 표·Limitations로만 보고, 해석 주의.

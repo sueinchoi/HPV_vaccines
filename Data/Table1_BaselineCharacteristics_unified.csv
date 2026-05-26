@@ -132,3 +132,43 @@ CohortB_clearance,  Days surgery → index,202.43 ± 268.29,187.03 ± 233.92,0.6
 CohortB_clearance,Follow-up,,,,
 CohortB_clearance,  Follow-up days,2264.60 ± 1396.24,2111.74 ± 1228.42,0.344,0.116
 CohortB_clearance,  Death during follow-up,0 (0.0%),0 (0.0%),1.000,-
+CohortB_post_v3,— ≥2 DOSE + 3-MO LANDMARK PRIMARY (n=934: 204 vac / 730 non-vac) —,,,,
+CohortB_post_v3,"  Age at index, years",36.96 ± 9.41,36.92 ± 8.37,0.959,0.004
+CohortB_post_v3,"  BMI, kg/m²",22.49 ± 3.64,22.38 ± 3.88,0.733,0.030
+CohortB_post_v3,"  Systolic BP, mmHg",113.50 ± 13.42,112.90 ± 13.73,0.616,0.045
+CohortB_post_v3,"  Diastolic BP, mmHg",72.15 ± 10.46,71.58 ± 11.96,0.555,0.051
+CohortB_post_v3,  Smoking: Never,36 (17.6%),76 (10.4%),0.007,0.210
+CohortB_post_v3,  Smoking: Former,0 (0.0%),3 (0.4%),1.000,0.091
+CohortB_post_v3,  Smoking: Current,5 (2.5%),6 (0.8%),0.069,0.129
+CohortB_post_v3,  Smoking: Unknown,163 (79.9%),645 (88.4%),0.003,0.233
+CohortB_post_v3,  Seoul residence,50 (24.5%),209 (28.6%),0.288,0.093
+CohortB_post_v3,"  Follow-up, years (from index)",6.10 ± 3.84,5.98 ± 3.57,0.677,0.034
+CohortB_post_v3,  Surgery year,2016.37 ± 3.68,2016.50 ± 3.61,0.652,0.036
+CohortB_post_v3,  Surgery type: Conization,203 (99.5%),725 (99.3%),1.000,0.025
+CohortB_post_v3,  Surgery type: Hysterectomy,1 (0.5%),5 (0.7%),1.000,0.025
+CohortB_post_v3,  Comorbidity (pre-index): Angina/MI,0 (0.0%),0 (0.0%),1.000,-
+CohortB_post_v3,  Comorbidity (pre-index): Hypertension,4 (2.0%),6 (0.8%),0.238,0.097
+CohortB_post_v3,  Comorbidity (pre-index): Diabetes,2 (1.0%),10 (1.4%),1.000,0.036
+CohortB_post_v3,  Comorbidity (pre-index): Stroke,0 (0.0%),0 (0.0%),1.000,-
+CohortB_post_v3,  Comorbidity (pre-index): PE,0 (0.0%),0 (0.0%),1.000,-
+CohortB_post_v3,  Comorbidity (pre-index): Any of 5,6 (2.9%),14 (1.9%),0.410,0.067
+CohortB_post_v3,  — HPV testing history —,,,,
+CohortB_post_v3,  Pre-surgery HPV status: HR-HPV+,72 (35.3%),277 (37.9%),0.513,0.055
+CohortB_post_v3,  Pre-surgery HPV status: non-HR HPV+,26 (12.7%),67 (9.2%),0.146,0.114
+CohortB_post_v3,  Pre-surgery HPV status: HPV negative,39 (19.1%),131 (17.9%),0.683,0.030
+CohortB_post_v3,  Pre-surgery HPV status: No test,67 (32.8%),255 (34.9%),0.618,0.044
+CohortB_post_v3,"  Post-surgery HPV (first test, any time): HR-HPV+",77 (37.7%),319 (43.7%),0.149,0.121
+CohortB_post_v3,"  Post-surgery HPV (first test, any time): non-HR HPV+",11 (5.4%),37 (5.1%),0.858,0.015
+CohortB_post_v3,"  Post-surgery HPV (first test, any time): HPV negative",113 (55.4%),360 (49.3%),0.133,0.122
+CohortB_post_v3,"  Post-surgery HPV (first test, any time): No test",3 (1.5%),14 (1.9%),1.000,0.035
+CohortB_post_v3,"  Post-surgery HPV (first test, before vaccine/index): HR-HPV+",26 (12.7%),87 (11.9%),0.717,0.025
+CohortB_post_v3,"  Post-surgery HPV (first test, before vaccine/index): non-HR HPV+",6 (2.9%),14 (1.9%),0.410,0.067
+CohortB_post_v3,"  Post-surgery HPV (first test, before vaccine/index): HPV negative",55 (27.0%),145 (19.9%),0.034,0.168
+CohortB_post_v3,"  Post-surgery HPV (first test, before vaccine/index): No test",117 (57.4%),484 (66.3%),0.021,0.185
+CohortB_post_v3,  — Surgical pathology severity —,,,,
+CohortB_post_v3,  Surgical pathology: Invasive cancer,20 (9.8%),79 (10.8%),0.797,0.033
+CohortB_post_v3,  Surgical pathology: HSIL/CIN3,95 (46.6%),317 (43.4%),0.426,0.063
+CohortB_post_v3,  Surgical pathology: CIN2 / moderate dysplasia,16 (7.8%),45 (6.2%),0.423,0.066
+CohortB_post_v3,  Surgical pathology: CIN1 / LSIL / mild dysplasia,20 (9.8%),83 (11.4%),0.613,0.051
+CohortB_post_v3,  Surgical pathology: Benign / other,53 (26.0%),206 (28.2%),0.596,0.050
+CohortB_post_v3,  Pre-vaccine hr-HPV+ (clearance subset eligibility),95 (46.6%),323 (44.2%),0.578,0.047

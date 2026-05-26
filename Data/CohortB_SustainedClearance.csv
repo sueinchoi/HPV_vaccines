@@ -1,0 +1,3 @@
+﻿group,n_clearance_events,median_sustained_years,IQR_lower_years,IQR_upper_years,reversion_n,reversion_pct
+Vaccinated,31,3.2,2.14,7.53,13,41.9
+Non-vaccinated,28,2.59,1.69,4.76,13,46.4

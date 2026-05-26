@@ -542,13 +542,30 @@ def figure3():
 #   Subgroups: Overall, by age at index, by vaccine type.
 # =====================================================================
 def figure4_subgroup():
-    print('  Building Figure 4 (combined subgroup forest)...')
-    B = pd.read_csv('Data/final_matched_outcomes.csv', encoding='utf-8-sig')
+    """Subgroup forest under v3 primary cohort (≥2 dose + 3-mo landmark).
+    Subgroups for vaccine type are dropped because vaccinated n=204 leaves
+    too few events per type stratum; only age subgroups are retained.
+    """
+    print('  Building Figure 4 (combined subgroup forest, v3 primary)...')
+    LANDMARK_DAYS = 90
+    B = pd.read_csv('Data/primary_cohort_v3.csv', encoding='utf-8-sig')
+    B['index_date']      = pd.to_datetime(B['index_date'])
+    B['최종추적일자']      = pd.to_datetime(B['최종추적일자'])
+    B['recurrence_date'] = pd.to_datetime(B['recurrence_date'], errors='coerce')
+    B['lm_zero'] = B['index_date'] + pd.Timedelta(days=LANDMARK_DAYS)
     Bc = pd.read_csv('Data/final_matched_cohort.csv', encoding='utf-8-sig')
     B = B.merge(Bc[['연구번호','백신종류']], on='연구번호', how='left')
     B['vac'] = B['접종여부'].astype(bool).astype(int)
-    B['follow_up_days'] = pd.to_numeric(B['follow_up_days'], errors='coerce')
     B['index_age'] = pd.to_numeric(B['index_age'], errors='coerce')
+    # Apply landmark to recurrence event-time
+    B['rec_pre_lm'] = (B['has_recurrence']==True) & (B['recurrence_date'] < B['lm_zero'])
+    bad_p1 = B[(B['vac']==1) & B['rec_pre_lm']]['fine_match_id'].unique()
+    B = B[~B['fine_match_id'].isin(bad_p1)].copy()
+    B = B[~B['rec_pre_lm']].copy()
+    B['rec_time_lm'] = np.where(B['has_recurrence']==True,
+                                 (B['recurrence_date'] - B['lm_zero']).dt.days,
+                                 (B['최종추적일자']      - B['lm_zero']).dt.days)
+    B['follow_up_days'] = (B['최종추적일자'] - B['lm_zero']).dt.days  # for clearance default
 
     # Inherit vaccine type from matched vaccinated participant to controls
     vt_by_match = B.loc[B['vac']==1].groupby('fine_match_id')['백신종류'].first()
@@ -558,20 +575,54 @@ def figure4_subgroup():
     B['age_grp'] = pd.cut(B['index_age'], bins=[-np.inf, 40, 50, np.inf],
                           labels=['<40', '40-49', '≥50'])
 
-    # ----- Time variables: event-time for events, follow-up otherwise -----
-    B['days_to_recurrence'] = pd.to_numeric(B['days_to_recurrence'], errors='coerce')
-    B['rec_time'] = np.where(B['has_recurrence'].astype(bool),
-                              B['days_to_recurrence'], B['follow_up_days'])
+    # rec_time = landmark-adjusted (already set above as rec_time_lm)
+    B['rec_time'] = B['rec_time_lm']
 
-    # Add clearance event/time per patient (pre-vaccine baseline)
-    BC = pd.read_csv('Data/CohortB_Clearance_Analytic.csv', encoding='utf-8-sig')
-    BC['index_date']     = pd.to_datetime(BC['index_date'])
-    BC['first_neg_date'] = pd.to_datetime(BC['first_neg_date'], errors='coerce')
-    BC['days_to_clear']  = (BC['first_neg_date'] - BC['index_date']).dt.days
-    BC['clear_event']    = BC['first_neg_date'].notna().astype(int)
-    BC['clear_time']     = np.where(BC['clear_event']==1, BC['days_to_clear'],
-                                     BC['follow_up_days'])
-    B = B.merge(BC[['연구번호','clear_event','clear_time']], on='연구번호', how='left')
+    # Add clearance event/time per patient — recompute from molecular pathology
+    # with pre-vaccine baseline (HR+ before index) + 2-consecutive-negative event +
+    # 3-mo landmark.
+    import sys as _sys; _sys.path.insert(0, 'scripts')
+    from extract_pathology_outcomes import detect_high_risk_hpv
+    _path = pd.read_csv(
+        'Data/한국 HPV 코호트 자료를 이용한 자_병리검사 (복구됨).CSV',
+        encoding='cp949', low_memory=False)
+    _path['실시일자'] = pd.to_datetime(_path['실시일자'], format='%Y%m%d', errors='coerce')
+    _mol = _path[_path['병리검사구분'].isin(['분자병리','HPV'])].dropna(subset=['실시일자','판독결과'])
+    _res = _mol['판독결과'].apply(detect_high_risk_hpv)
+    _mol = _mol.assign(hpv_pos=_res.apply(lambda d: d['is_high_risk_hpv_positive']))
+    _mol_by_pid = {pid: g.sort_values('실시일자') for pid, g in _mol.groupby('연구번호')}
+    def _prevac_hr(pid, idx_dt):
+        sub = _mol_by_pid.get(pid)
+        return False if sub is None else bool((sub[sub['실시일자']<idx_dt]['hpv_pos']==True).any())
+    def _first_two_neg(pid, idx_dt):
+        sub = _mol_by_pid.get(pid)
+        if sub is None: return None
+        sub = sub[sub['실시일자']>idx_dt]
+        if len(sub)<2: return None
+        pos = sub['hpv_pos'].values; dates = sub['실시일자'].values
+        for i in range(len(pos)-1):
+            if (not pos[i]) and (not pos[i+1]):
+                return pd.Timestamp(dates[i])
+        return None
+    B['prevac_hr'] = B.apply(lambda r: _prevac_hr(r['연구번호'], r['index_date']), axis=1)
+    B['first_neg_date'] = B.apply(
+        lambda r: _first_two_neg(r['연구번호'], r['index_date']) if r['prevac_hr'] else None,
+        axis=1)
+    B['has_clearance'] = B['first_neg_date'].notna()
+    B['clr_pre_lm'] = B['has_clearance'] & (B['first_neg_date'] < B['lm_zero'])
+    bad_p2 = B[(B['vac']==1) & B['clr_pre_lm']]['fine_match_id'].unique()
+    B = B[~B['fine_match_id'].isin(bad_p2)].copy()
+    # Drop early clearance events; preserve set
+    B.loc[B['clr_pre_lm'], 'has_clearance'] = False
+    B.loc[B['clr_pre_lm'], 'first_neg_date'] = pd.NaT
+    B['clear_event'] = B['has_clearance'].astype(int)
+    B['clear_time']  = np.where(
+        B['has_clearance'],
+        (B['first_neg_date'] - B['lm_zero']).dt.days,
+        (B['최종추적일자']     - B['lm_zero']).dt.days)
+    # Restrict clearance analyses to prevac HR+ subset; non-HR+ rows get NaN
+    B.loc[~B['prevac_hr'].astype(bool), 'clear_event'] = np.nan
+    B.loc[~B['prevac_hr'].astype(bool), 'clear_time']  = np.nan
 
     def hr_subset(d, ev_col, time_col='follow_up_days'):
         """Generic Cox HR with cluster on fine_match_id and age adjustment.
