@@ -1,0 +1,5 @@
+﻿definition,n_v,n_c,ev_v,ev_c,HR,CIlo,CIhi,p
+Primary (no DFI buffer; landmark 90 d only),203,709,10,33,1.007,0.493,2.056,0.9849
+DFI ≥3 months from landmark,201,694,8,28,0.959,0.455,2.024,0.9132
+DFI ≥6 months from landmark,198,686,7,26,0.917,0.408,2.057,0.8327
+DFI ≥12 months from landmark,192,651,6,21,0.973,0.398,2.378,0.9522

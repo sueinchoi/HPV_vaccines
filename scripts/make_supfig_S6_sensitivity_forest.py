@@ -88,8 +88,8 @@ def panel(
 
 
 def main() -> None:
-    # Sens-A — single-negative vs two-consecutive clearance
-    sa = read_csv(DATA / "Sensitivity_HPV_Clearance_SingleNegative.csv")
+    # Sens-A — single-negative vs two-consecutive clearance (v3)
+    sa = read_csv(DATA / "Sensitivity_HPV_Clearance_SingleNegative_v3.csv")
     sa_rows = []
     for r in sa:
         label = r["definition"]
@@ -98,8 +98,8 @@ def main() -> None:
                f"{r['ev_v']}/{r['n_v']} vs {r['ev_c']}/{r['n_c']}; p={float(r['p']):.2f}")
         sa_rows.append((label, hr, lo, hi, ann))
 
-    # Sens-B — time-stratified clearance
-    sb = read_csv(DATA / "Sensitivity_HPV_Clearance_TimeStratified.csv")
+    # Sens-B — time-stratified clearance (v3)
+    sb = read_csv(DATA / "Sensitivity_HPV_Clearance_TimeStratified_v3.csv")
     sb_rows = []
     for r in sb:
         label = r["period"]
@@ -130,8 +130,8 @@ def main() -> None:
                    f"{r['ev_v']}/{r['n_v']} vs {r['ev_c']}/{r['n_c']}; p={float(r['p']):.2f}")
             sd_rows.append((label, hr, lo, hi, ann))
 
-    # Sens-E — disease-free interval (lesion recurrence)
-    se = read_csv(DATA / "Sensitivity_Recurrence_DFInterval.csv")
+    # Sens-E — disease-free interval (lesion recurrence) (v3)
+    se = read_csv(DATA / "Sensitivity_Recurrence_DFInterval_v3.csv")
     se_rows = []
     for r in se:
         label = r["definition"]

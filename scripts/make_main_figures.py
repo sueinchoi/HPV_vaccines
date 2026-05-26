@@ -167,19 +167,29 @@ def figure1():
         fc='#a8d5b5', ec='#155724', fs=12, weight='bold')
 
     # === Cohort B steps (concise) ===
-    arrow(9.0, 7.00, 9.0, 6.70)
-    box(9.0, 6.30, 4.6, 0.7,
+    arrow(9.0, 7.00, 9.0, 6.78)
+    box(9.0, 6.45, 4.6, 0.55,
         'Cervical surgery\nn = 6,890',
-        fc='#fdedee', ec='#9b2226', fs=12)
+        fc='#fdedee', ec='#9b2226', fs=11)
 
-    arrow(9.0, 5.95, 9.0, 5.65)
-    box(9.0, 5.20, 4.6, 0.8,
-        '1:up-to-5 initial match\nVac 411  /  Non-vac 1,815',
-        fc='#fdedee', ec='#9b2226', fs=12)
+    arrow(9.0, 6.17, 9.0, 5.95)
+    box(9.0, 5.62, 4.6, 0.55,
+        '1:up-to-5 initial match\nVac 411 / Non-vac 1,815',
+        fc='#fdedee', ec='#9b2226', fs=11)
 
-    arrow(9.0, 4.80, 9.0, 4.50)
-    box(9.0, 3.85, 4.6, 1.1,
-        'Final Cohort B   n = 1,108\nVaccinated 241\nUnvaccinated 867',
+    arrow(9.0, 5.35, 9.0, 5.13)
+    box(9.0, 4.80, 4.6, 0.55,
+        '1:up-to-4 fine match\nVac 241 / Non-vac 867 (n = 1,108)',
+        fc='#fdedee', ec='#9b2226', fs=11)
+
+    arrow(9.0, 4.52, 9.0, 4.30)
+    box(9.0, 3.97, 4.6, 0.55,
+        '≥2-dose + 3-month landmark\n(matched-set integrity preserved)',
+        fc='#fdedee', ec='#9b2226', fs=11)
+
+    arrow(9.0, 3.69, 9.0, 3.47)
+    box(9.0, 3.00, 4.6, 0.95,
+        'Final Cohort B (PRIMARY)\nn = 934\nVaccinated 204 / Non-vac 730',
         fc='#f4a4a8', ec='#9b2226', fs=12, weight='bold')
 
     plt.tight_layout()

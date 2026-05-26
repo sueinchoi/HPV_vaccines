@@ -884,7 +884,7 @@ def build_supplementary_docx(suffix: str = "") -> None:
         "each window's lower bound.",
     )
     add_spacer(doc)
-    h, b = read_csv(DATA / "Sensitivity_HPV_Clearance_TimeStratified.csv")
+    h, b = read_csv(DATA / "Sensitivity_HPV_Clearance_TimeStratified_v3.csv")
     rows = []
     for r in b:
         try:
@@ -907,7 +907,7 @@ def build_supplementary_docx(suffix: str = "") -> None:
         "contrasted with the two-consecutive-negative primary.",
     )
     add_spacer(doc)
-    h, b = read_csv(DATA / "Sensitivity_HPV_Clearance_SingleNegative.csv")
+    h, b = read_csv(DATA / "Sensitivity_HPV_Clearance_SingleNegative_v3.csv")
     rows = []
     for r in b:
         try:
@@ -931,7 +931,7 @@ def build_supplementary_docx(suffix: str = "") -> None:
         "a recurrence event.",
     )
     add_spacer(doc)
-    h, b = read_csv(DATA / "Sensitivity_Recurrence_DFInterval.csv")
+    h, b = read_csv(DATA / "Sensitivity_Recurrence_DFInterval_v3.csv")
     rows = []
     for r in b:
         try:
