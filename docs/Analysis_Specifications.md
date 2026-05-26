@@ -187,6 +187,23 @@ The previous `≥1-dose, no-landmark` definition is retained as **Sens-C exposur
 
 Interpretation: the lesion-recurrence directional protection observed under ≥1 dose was substantially attributable to immortal-time selection (a woman who reached her second dose was guaranteed to have been event-free up to that date), and collapses to null under the tighter primary definition. The clearance signal, in contrast, **strengthens** under the tighter definition and reaches conventional significance, consistent with the biological hypothesis that post-surgical vaccination accelerates immune clearance of pre-existing HR-HPV without reversing already-initiated dysplastic precursor lesions.
 
+### 4.5c Follow-up time reporting
+
+All follow-up duration statistics in the manuscript are reported using the **reverse Kaplan–Meier method of Schemper and Smith** (Control Clin Trials 1996;17:343-346). The event indicator is inverted (censoring becomes the "event", outcome becomes the censoring) and the Kaplan–Meier estimator is applied to the resulting series; the resulting median is the unbiased estimate of the *median potential follow-up time*. The naïve median of observed follow-up time is systematically biased downward when outcome events truncate observation; the difference is small in this study (≈0.07 y in Cohort B v3) but the reverse-KM is the methodologically preferred reporting convention and is used uniformly across cohorts and subsets.
+
+| Cohort | Group | n | reverse-KM median FU (y) | IQR (y) | Origin |
+|---|---|---|---|---|---|
+| Cohort A (PSM) | Vac | 2,050 | 4.68 | 1.95–9.92 | Index |
+| Cohort A (PSM) | Non | 2,110 | 6.99 | 3.73–11.21 | Index |
+| Cohort A (PSM) | Combined | 4,160 | **5.93** | 2.78–10.75 | Index |
+| Cohort B legacy (≥1 dose) | Vac | 241 | 4.97 | 3.36–8.84 | Index |
+| Cohort B legacy (≥1 dose) | Non | 867 | 5.26 | 3.52–9.32 | Index |
+| Cohort B legacy (≥1 dose) | Combined | 1,108 | **5.10** | 3.48–9.23 | Index |
+| **Cohort B v3 PRIMARY** | Vac | 204 | 4.94 | 3.30–8.90 | Index |
+| **Cohort B v3 PRIMARY** | Non | 730 | 5.02 | 3.48–8.93 | Index |
+| **Cohort B v3 PRIMARY** | Combined | 934 | **4.97** | 3.44–8.91 | Index |
+| Cohort B v3 PRIMARY | Combined | 934 | 4.73 | 3.20–8.67 | Landmark (+90 d) |
+
 ### 4.6 Statistical model (both co-primary outcomes)
 
 - **Cox proportional-hazards** with **age at index** as the only adjustment covariate.

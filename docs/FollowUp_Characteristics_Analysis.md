@@ -6,17 +6,28 @@
 
 ## 1. 전체 follow-up 분포
 
-### 1.1 Cohort B v3 (PRIMARY, n = 934)
+**보고 표준**: 본 연구는 follow-up time을 **reverse Kaplan–Meier (Schemper–Smith 1996)** 방식으로 보고한다. Reverse-KM은 event indicator를 invert하여 censoring distribution에 KM을 적용함으로써 **median potential follow-up time**을 unbiased로 추정한다. Naïve median (단순 관찰 FU)은 event가 일찍 일어난 환자가 짧은 시간으로 잘려 들어가 systematic하게 underestimate된다.
 
-| Time origin | Group | n | Median (y) | IQR (y) | Mean ± SD (y) | Range (y) |
+### 1.1 Cohort B v3 (PRIMARY, n = 934) — **reverse-KM**
+
+| Time origin | Group | n | reverse-KM median (y) | IQR (y) | Naïve median (참고) | Max observed (y) |
 |---|---|---|---|---|---|---|
-| From index | Vaccinated | 204 | **4.87** | 3.29–8.62 | 6.10 ± 3.84 | 0.59–15.09 |
-| From index | Non-vaccinated | 730 | **4.90** | 3.40–8.41 | 5.98 ± 3.57 | 0.34–15.73 |
-| From landmark (index + 90 d) | Vaccinated | 204 | 4.63 | 3.04–8.38 | 5.85 ± 3.84 | 0.35–14.84 |
-| From landmark (index + 90 d) | Non-vaccinated | 730 | 4.65 | 3.15–8.16 | 5.73 ± 3.57 | 0.09–15.48 |
+| From index | Vaccinated | 204 | **4.94** | 3.30–8.90 | 4.87 | 15.09 |
+| From index | Non-vaccinated | 730 | **5.02** | 3.48–8.93 | 4.90 | 15.73 |
+| From index | **Combined** | 934 | **4.97** | 3.44–8.91 | — | — |
+| From landmark (index + 90 d) | Vaccinated | 204 | 4.69 | 3.05–8.65 | 4.63 | 14.84 |
+| From landmark (index + 90 d) | Non-vaccinated | 730 | 4.78 | 3.23–8.68 | 4.65 | 15.48 |
+| From landmark (index + 90 d) | **Combined** | 934 | **4.73** | 3.20–8.67 | — | — |
 
-**Reverse Kaplan–Meier (administrative censoring distribution, 곧 "potential FU")**:
-- Vac 4.94 y / Non-vac 5.02 y — 두 군 거의 동일.
+### 1.2 Cohort A (PSM, n = 4,160) — **reverse-KM**
+
+| Group | n | reverse-KM median (y) | IQR (y) |
+|---|---|---|---|
+| Vaccinated | 2,050 | **4.68** | 1.95–9.92 |
+| Non-vaccinated | 2,110 | **6.99** | 3.73–11.21 |
+| Combined | 4,160 | **5.93** | 2.78–10.75 |
+
+⚠ Cohort A는 두 군 reverse-KM median이 다소 차이남 (4.68 vs 6.99 y). 이는 vaccinated의 pseudo-vaccine date 분포가 calendar 시점상 더 최근 (2018–2021 peak)이어서 administrative censoring까지 남은 시간이 더 짧기 때문 — PSM 매칭 자체가 calendar-period을 직접 묶지 않음.
 
 **해석**: 두 군의 follow-up은 잘 균형되어 있다. 중간 추적 5년 + 평균 6년 + 최장 15년이라는 분포는 **CDW 기반 후향 cohort study로서는 매우 긴 편**이며, KOSIS·국내 HPV 백신 효과 연구 중 가장 긴 FU 범위에 속한다.
 
