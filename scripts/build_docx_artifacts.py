@@ -892,7 +892,8 @@ def build_supplementary_docx(suffix: str = "") -> None:
     rows = []
     for r in b:
         try:
-            period, _tlow, _thigh, n_v, n_c, ev_v, ev_c, hr, lo, hi, p = r[:11]
+            # v3 schema: period, n_v, n_c, ev_v, ev_c, HR, CIlo, CIhi, p
+            period, n_v, n_c, ev_v, ev_c, hr, lo, hi, p = r[:9]
             hr_txt = f"{float(hr):.2f} ({float(lo):.2f}–{float(hi):.2f})"
             pv = f"{float(p):.3f}"
             rows.append([period, f"{ev_v}/{n_v}", f"{ev_c}/{n_c}", hr_txt, pv])
