@@ -1,3 +1,4 @@
-﻿group,n_clearance_events,median_sustained_years,IQR_lower_years,IQR_upper_years,reversion_n,reversion_pct
-Vaccinated,31,3.2,2.14,7.53,13,41.9
-Non-vaccinated,28,2.59,1.69,4.76,13,46.4
+﻿group,n_clearance_events,reversion_events,censored,KM_median_sustained_years,KM_q25_years,KM_q75_years
+Vaccinated,31,13,18,10.79,2.31,NR
+Non-vaccinated,28,13,15,5.67,1.91,NR
+Log-rank (vac vs non-vac),,,,χ²=1.00,,p=0.317

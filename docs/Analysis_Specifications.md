@@ -214,9 +214,11 @@ Interpretation: the lesion-recurrence directional protection observed under ≥1
 | **p value** | 0.37 | **0.985** | **0.024** |
 | Sensitivity (≥1 dose, no landmark) — HR | n/a | 0.80 (0.44–1.43), p=0.45 | 1.40 (0.92–2.11), p=0.11 |
 | Sensitivity (≥3 dose, no landmark) — HR | n/a | 0.58 (0.27–1.26), p=0.17 | — |
-| Sustained clearance duration (median, IQR) — vaccinated | — | — | **3.20y (2.14–7.53)** |
-| Sustained clearance duration (median, IQR) — non-vac | — | — | 2.59y (1.69–4.76) |
-| Reversion after clearance (%) | — | — | 41.9% vac / 46.4% non-vac |
+| Sustained clearance — KM median (Q25, Q75) — vaccinated | — | — | **10.79y (2.31, NR)** |
+| Sustained clearance — KM median (Q25, Q75) — non-vac | — | — | 5.67y (1.91, NR) |
+| Reversion events / censored — vaccinated | — | — | 13 / 18 (n=31 cleared) |
+| Reversion events / censored — non-vac | — | — | 13 / 15 (n=28 cleared) |
+| Log-rank (reversion-free) | — | — | χ²=1.00, p=0.317 |
 
 Clearance co-primary reaches conventional significance under the new primary definition; lesion-recurrence null is honest collapse of the legacy ≥1-dose directional signal once immortal-time selection is removed.
 

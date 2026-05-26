@@ -23,7 +23,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 | 효과 방향 | **HR < 1 유리** | P1: **HR < 1 유리** / P2: **HR > 1 유리** (clearance) |
 | Primary HR (95% CI) | 1.26 (0.75–2.12) Any-of-5 | P1 **1.01 (0.49–2.06), p=0.99 (null collapse)** / P2 **1.85 (1.09–3.17), p=0.024 ✅** |
 | Sensitivity (≥1 dose, no landmark) | n/a | P1 0.80 (0.44–1.43), p=0.45 / P2 1.40 (0.92–2.11), p=0.11 |
-| Sustained clearance (median IQR) | — | vac **3.20y (2.14–7.53)** / non-vac 2.59y (1.69–4.76); 반전 41.9% / 46.4% |
+| Sustained clearance (KM median, Q25/Q75) | — | vac **10.79y (2.31, NR)** / non-vac 5.67y (1.91, NR); log-rank p=0.317 (reversion 13/31 vs 13/28) |
 
 ⚠ Cohort B의 hr-HPV baseline은 **pre-vaccine** (records with `실시일자 < index_date`)으로 두 군 공통 — pre-surgery가 **아니다**. Matched-set 무결성: vaccinated case에 baseline HPV+ 기록이 없으면 그 `fine_match_id` 전체를 drop.
 

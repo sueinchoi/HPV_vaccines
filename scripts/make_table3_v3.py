@@ -56,7 +56,7 @@ for label, key in [
         }
     )
 
-# Sustained clearance duration — supplementary block at bottom of Table 3
+# Sustained clearance duration — KM-based, supplementary block at bottom of Table 3
 rows.append(
     {
         'Outcome': '',
@@ -70,7 +70,8 @@ rows.append(
 )
 rows.append(
     {
-        'Outcome': 'Sustained clearance duration (among patients with clearance event)',
+        'Outcome': 'Sustained clearance — KM analysis of reversion-free time '
+                   'among patients with clearance event',
         'Vaccinated, n (events)': '',
         'Non-vaccinated, n (events)': '',
         'PY (vac / non)': '',
@@ -80,28 +81,38 @@ rows.append(
     }
 )
 for _, s in sc.iterrows():
+    if s['group'].startswith('Log-rank'):
+        rows.append(
+            {
+                'Outcome': '  Log-rank (vac vs non-vac, reversion-free)',
+                'Vaccinated, n (events)': '',
+                'Non-vaccinated, n (events)': '',
+                'PY (vac / non)': '',
+                'IR per 1000 PY (vac / non)': '',
+                'HR (95% CI)': str(s['KM_median_sustained_years']),
+                'p': str(s['KM_q75_years']).replace('p=', ''),
+            }
+        )
+        continue
     rows.append(
         {
-            'Outcome': f'  {s["group"]} — median (IQR), years',
-            'Vaccinated, n (events)': f'{int(s["n_clearance_events"])} clearance events',
-            'Non-vaccinated, n (events)': '',
+            'Outcome': f'  {s["group"]} — KM median sustained clearance (years)',
+            'Vaccinated, n (events)': (
+                f'{int(s["n_clearance_events"])} clearance / '
+                f'{int(s["reversion_events"])} reversion / '
+                f'{int(s["censored"])} censored' if s['group'] == 'Vaccinated' else ''
+            ),
+            'Non-vaccinated, n (events)': (
+                f'{int(s["n_clearance_events"])} clearance / '
+                f'{int(s["reversion_events"])} reversion / '
+                f'{int(s["censored"])} censored' if s['group'] == 'Non-vaccinated' else ''
+            ),
             'PY (vac / non)': '',
             'IR per 1000 PY (vac / non)': '',
             'HR (95% CI)': (
-                f'{s["median_sustained_years"]:.2f} '
-                f'(IQR {s["IQR_lower_years"]:.2f}–{s["IQR_upper_years"]:.2f})'
+                f'{s["KM_median_sustained_years"]} '
+                f'(Q25–Q75 {s["KM_q25_years"]}–{s["KM_q75_years"]} yr)'
             ),
-            'p': '',
-        }
-    )
-    rows.append(
-        {
-            'Outcome': f'  {s["group"]} — reversion (HR-HPV+ reappearance after clearance)',
-            'Vaccinated, n (events)': '',
-            'Non-vaccinated, n (events)': '',
-            'PY (vac / non)': '',
-            'IR per 1000 PY (vac / non)': '',
-            'HR (95% CI)': f'{int(s["reversion_n"])} ({s["reversion_pct"]:.1f}%)',
             'p': '',
         }
     )

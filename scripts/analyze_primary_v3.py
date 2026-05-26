@@ -167,48 +167,88 @@ def main():
     rows.append(fit_cox(o3[o3['t'] > 0].copy(), 't', 'has_recurrence',
                          'Sens — Lesion recurrence; ≥3 dose, no landmark'))
 
-    # ===== Sustained clearance duration =====
-    def sustained(row):
+    # ===== Sustained clearance duration — Kaplan–Meier =====
+    # Among patients who achieved clearance (first_neg_date observed),
+    # time-to-reversion is analysed by KM. Time origin = first_neg_date.
+    # Event = first subsequent HR-HPV+ molecular pathology record (reversion).
+    # Censoring = last follow-up date (clearance still sustained).
+    from lifelines import KaplanMeierFitter
+    from lifelines.statistics import logrank_test
+
+    def time_and_event(row):
         if not row['has_clearance']:
-            return None
+            return pd.Series({'sus_days': np.nan, 'reversion': np.nan})
         pid = row['연구번호']
         fd = row['first_neg_date']
         sub = mol_by_pid.get(pid)
-        if sub is None:
-            return (row['최종추적일자'] - fd).days
-        post = sub[(sub['실시일자'] > fd) & (sub['hpv_pos'] == True)]
-        end = post['실시일자'].min() if len(post) else row['최종추적일자']
-        return (end - fd).days
+        post_pos = sub[(sub['실시일자'] > fd) & (sub['hpv_pos'] == True)] if sub is not None else pd.DataFrame()
+        if len(post_pos) > 0:
+            ev_date = post_pos['실시일자'].min()
+            return pd.Series({'sus_days': (ev_date - fd).days, 'reversion': 1})
+        else:
+            return pd.Series({'sus_days': (row['최종추적일자'] - fd).days, 'reversion': 0})
 
-    clr2['sustained_days'] = clr2.apply(sustained, axis=1)
-    clr2['sustained_yrs'] = clr2['sustained_days'] / 365.25
+    clr2[['sus_days', 'reversion']] = clr2.apply(time_and_event, axis=1)
+    clr2['sus_yrs'] = clr2['sus_days'] / 365.25
+
     sc_rows = []
+    sub_groups = {}
     for grp_val, label in [(True, 'Vaccinated'), (False, 'Non-vaccinated')]:
         sub = clr2[(clr2['접종여부'] == grp_val) & (clr2['has_clearance'])].copy()
+        sub = sub[sub['sus_days'] > 0].copy()
         if len(sub) == 0:
             continue
-        d = sub['sustained_yrs'].dropna()
-        # Reversion: any HR+ test after first_neg_date
-        rev = 0
-        for _, r in sub.iterrows():
-            pid = r['연구번호']
-            fd = r['first_neg_date']
-            sb = mol_by_pid.get(pid)
-            if sb is None:
-                continue
-            if (sb[(sb['실시일자'] > fd)]['hpv_pos'] == True).any():
-                rev += 1
+        sub_groups[label] = sub
+        kmf = KaplanMeierFitter()
+        kmf.fit(sub['sus_yrs'], event_observed=sub['reversion'], label=label)
+        med = kmf.median_survival_time_
+        # IQR from KM: time when S(t) = 0.75 and 0.25
+        try:
+            ci = kmf.median_survival_times_.iloc[0]
+        except Exception:
+            ci = None
+        # Compute 25th and 75th percentiles from KM survival function
+        sf = kmf.survival_function_.iloc[:, 0]
+
+        def percentile_t(target):
+            # smallest t where S(t) <= target
+            below = sf[sf <= target]
+            return float(below.index[0]) if len(below) > 0 else np.nan
+
+        q25 = percentile_t(0.75)  # 25th percentile of reversion time = S(t)=0.75
+        q75 = percentile_t(0.25)  # 75th percentile = S(t)=0.25
+        med_str = (f'{med:.2f}' if not (isinstance(med, float) and (np.isinf(med) or np.isnan(med)))
+                   else 'NR (not reached)')
         sc_rows.append(
             {
                 'group': label,
                 'n_clearance_events': int(len(sub)),
-                'median_sustained_years': round(d.median(), 2),
-                'IQR_lower_years': round(d.quantile(0.25), 2),
-                'IQR_upper_years': round(d.quantile(0.75), 2),
-                'reversion_n': rev,
-                'reversion_pct': round(100 * rev / len(sub), 1),
+                'reversion_events': int(sub['reversion'].sum()),
+                'censored': int((sub['reversion'] == 0).sum()),
+                'KM_median_sustained_years': med_str,
+                'KM_q25_years': round(q25, 2) if not np.isnan(q25) else 'NR',
+                'KM_q75_years': round(q75, 2) if not np.isnan(q75) else 'NR',
             }
         )
+
+    # Log-rank test (vac vs non-vac, sustained clearance time)
+    if 'Vaccinated' in sub_groups and 'Non-vaccinated' in sub_groups:
+        v_, n_ = sub_groups['Vaccinated'], sub_groups['Non-vaccinated']
+        lr = logrank_test(v_['sus_yrs'], n_['sus_yrs'],
+                           event_observed_A=v_['reversion'],
+                           event_observed_B=n_['reversion'])
+        sc_rows.append(
+            {
+                'group': 'Log-rank (vac vs non-vac)',
+                'n_clearance_events': '',
+                'reversion_events': '',
+                'censored': '',
+                'KM_median_sustained_years': f'χ²={lr.test_statistic:.2f}',
+                'KM_q25_years': '',
+                'KM_q75_years': f'p={lr.p_value:.3f}',
+            }
+        )
+
     pd.DataFrame(sc_rows).to_csv(OUT_SC, index=False, encoding='utf-8-sig')
     print(f'Wrote {OUT_SC.relative_to(ROOT)}')
 
