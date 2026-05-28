@@ -175,6 +175,13 @@ These analyses are retained in the supplementary material for reviewer transpare
 
 Effective with this revision, the **primary Cohort B exposure** requires **≥2 distinct HPV-vaccine prescription dates** (counted from the prescription file using the same identification rules as §2; identical-day records collapse to one dose). A **symmetric 3-month landmark** is applied across arms: the at-risk clock is shifted to `index + 90 days`, patients with < 90 days follow-up or with an outcome event in the first 90 days are excluded, and matched non-vaccinated controls of any vaccinated case dropped by the dose or landmark filter are removed in the same step to preserve matched-set integrity.
 
+**v3 primary applies symmetrically to BOTH cohorts** for methodological consistency:
+
+| Cohort | Pre-v3 matched n | After ≥2-dose filter | After 3-mo landmark | v3 PRIMARY cohort |
+|---|---|---|---|---|
+| **Cohort A** (1:1 PSM) | 4,106 (2,053 / 2,053) | 2,886 (1,443 / 1,443) | 2,776 | **2,776 (1,396 / 1,380)** |
+| **Cohort B** (1:up-to-4 fine) | 1,108 (241 / 867) | 974 (205 / 769) | 934 | **934 (204 / 730)** |
+
 Final Cohort B primary **cohort** n = **934 (204 vaccinated / 730 fine-matched controls)** — eligible population after the ≥2-dose threshold and the 3-month landmark follow-up filter with matched-set integrity preserved.
 
 Cohort B primary **analytic samples** (post-event-landmark filter, used by the Cox models):

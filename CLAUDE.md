@@ -13,12 +13,13 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 | | Cohort A — 장기 안전성 | Cohort B — 수술 후 효과 (**v3 primary**) |
 |---|---|---|
 | 모집단 | 전체 cohort (N = 32,969) | 자궁경부 수술(원추절제술/자궁절제술) 환자 (N_pool = 6,890) |
-| 노출 (primary) | HPV 백신 접종(어느 시점이든) | **수술 이후 ≥2 dose** HPV 백신 접종 |
-| Time zero (primary) | Index | **Index + 90 days (3-mo landmark, symmetric)** |
+| 노출 (primary) | **≥2 dose** HPV 백신 접종 (v3 symmetric) | **수술 이후 ≥2 dose** HPV 백신 접종 |
+| Time zero (primary) | **Index + 90 days (3-mo landmark, symmetric)** | **Index + 90 days (3-mo landmark, symmetric)** |
 | Index (vac) | 첫 백신일 | 수술 이후 첫 백신일 |
 | Index (non-vac) | 접종군 백신일 분포에서 random pseudo-date (seed=42) | 수술일 + 매칭 접종군의 (수술→접종 간격 T) |
 | 매칭 | PSM 1:1, caliper 0.2 × SD logit(PS); 변수: 연령, BMI, SBP, DBP, 흡연, 서울 거주 | Step1: 수술방법(exact)/수술년(±1y)/수술시 연령(±5y) 1:up-to-5 → Step2: index ≤2020-12-31 + 추적≥2건 → Step3: index 연령(±5y)/BMI(±3 kg/m²)/수술년(±1y) 1:up-to-4 (BMI 결측 시 완화) → **Step4: ≥2 dose + 3-mo landmark filter w/ matched-set integrity** |
-| 최종 N (v3 primary cohort) | 4,102 (2,051/2,051) | **934 (204/730)** cohort; **P1 analytic 912 (203/709)** (early-event matched-set drop); P2 clearance subset **235 (92/143)** |
+| 최종 N (v3 primary cohort) | **2,776 (1,396/1,380)** (1:1 PSM 4,106 → ≥2 dose + 3-mo landmark) | **934 (204/730)** cohort; **P1 analytic 912 (203/709)** (early-event matched-set drop); P2 clearance subset **235 (92/143)** |
+| Primary HR (v3) | Any-of-5 **1.28 (0.66–2.48), p=0.47** | P1 **1.01 (0.49–2.06), p=0.99** / P2 **1.85 (1.09–3.17), p=0.024 ✅** |
 | Outcome | 5개 만성질환 (협심증/MI, HTN, DM, 뇌졸중, PE) + Any-of-5 + MCE; **첫 post-index ICD-10 hit** | P1: 병변 재발(≥CIN2/HSIL+/암; **CIN2** 임계임을 주의); P2: hr-HPV clearance (post-index 분자병리 2건 연속 음성 중 첫 음성일자) |
 | 효과 방향 | **HR < 1 유리** | P1: **HR < 1 유리** / P2: **HR > 1 유리** (clearance) |
 | Primary HR (95% CI) | 1.26 (0.75–2.12) Any-of-5 | P1 **1.01 (0.49–2.06), p=0.99 (null collapse)** / P2 **1.85 (1.09–3.17), p=0.024 ✅** |
