@@ -553,8 +553,11 @@ def figure3():
 # =====================================================================
 def figure4_subgroup():
     """Subgroup forest under v3 primary cohort (≥2 dose + 3-mo landmark).
-    Subgroups for vaccine type are dropped because vaccinated n=204 leaves
-    too few events per type stratum; only age subgroups are retained.
+    Includes age-at-index subgroups (<40 / 40–49 / ≥50 yrs) and vaccine-type
+    subgroups (Gardasil 9 / Cervarix / quadrivalent Gardasil) for both
+    co-primary outcomes. Vaccine-type subgroup confidence intervals are
+    expectedly wide because the v3 vaccinated n=204 yields ≤30 doses
+    per vaccine-type stratum.
     """
     print('  Building Figure 4 (combined subgroup forest, v3 primary)...')
     LANDMARK_DAYS = 90
