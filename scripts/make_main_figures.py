@@ -391,6 +391,9 @@ def figure2(m):
         ('e', 'Angina / Myocardial infarction', 'Angina/MI', gs[1,1]),
     ]
     max_year = 10
+    legend_handles_recorded = False
+    legend_handles = []
+    legend_labels = []
     for plabel, title, key, gs_pos in panel_specs:
         ax = fig.add_subplot(gs_pos)
         for grp_name, color, lbl in [('vac', COL_VAC, 'Vaccinated'),
@@ -401,18 +404,21 @@ def figure2(m):
             col_name = cif.columns[0]
             t = cif.index.values / 365.25
             y = cif[col_name].values
-            ax.step(t, y, where='post', color=color, label=lbl, lw=LINE_W)
+            line, = ax.step(t, y, where='post', color=color, label=lbl, lw=LINE_W)
+            if not legend_handles_recorded:
+                legend_handles.append(line)
+                legend_labels.append(lbl)
             try:
                 lo = ci_band.iloc[:,0].values; hi = ci_band.iloc[:,1].values
                 ax.fill_between(t, lo, hi, alpha=0.15, color=color, step='post')
             except Exception:
                 pass
+        legend_handles_recorded = True
         ax.set_xlim(0, max_year); ax.set_ylim(bottom=0)
         ax.set_xlabel('Years')
         ax.set_ylabel('Cumulative incidence')
-        if plabel == 'a':
-            ax.legend(loc='lower right', fontsize=9)
         style_axes(ax)
+        panel_label(ax, plabel)
 
     # Forest plot panel (bottom-right)
     ax_f = fig.add_subplot(gs[1, 2])
@@ -440,25 +446,16 @@ def figure2(m):
     ax_f.set_ylim(len(forest_order)-0.3, -0.7)  # explicit padding both ends
     ax_f.set_xlabel('Hazard ratio (95% CI)')
     style_axes(ax_f); ax_f.grid(axis='x', alpha=0.25, linestyle=':')
+    panel_label(ax_f, 'f')
 
-    # ---- Horizontal panel labels (a–f) below the figure ----
-    panel_letters = ['a', 'b', 'c', 'd', 'e', 'f']
-    panel_titles = ['Any-of-5 composite',
-                    'MCE composite',
-                    'Diabetes',
-                    'Hypertension',
-                    'Angina / MI',
-                    'Forest plot — cluster-robust HR (95% CI)']
-    label_y = 0.025
-    n_labels = len(panel_letters)
-    for i, (lt, ttl) in enumerate(zip(panel_letters, panel_titles)):
-        x_center = (i + 0.5) / n_labels
-        fig.text(x_center, label_y + 0.018, f'({lt})',
-                 ha='center', va='bottom', fontsize=12, fontweight='bold')
-        fig.text(x_center, label_y - 0.002, ttl,
-                 ha='center', va='top', fontsize=10)
+    # ---- Shared horizontal legend below all panels ----
+    if legend_handles:
+        fig.legend(legend_handles, legend_labels,
+                   loc='lower center', ncol=len(legend_labels),
+                   bbox_to_anchor=(0.5, 0.005),
+                   fontsize=11, frameon=False, columnspacing=2.0)
+        plt.subplots_adjust(bottom=0.10)
 
-    plt.subplots_adjust(bottom=0.11)
     plt.savefig('Data/Figure2_CohortA_CIF_HR.png', dpi=300, bbox_inches='tight', facecolor='white')
     plt.close()
     print('Saved: Data/Figure2_CohortA_CIF_HR.png')
@@ -761,9 +758,9 @@ def figure4_subgroup():
     # ----- Plot -----
     n_rows = max(len(rows) for _, rows, _ in panel_data.values())
     fig_h = max(7.5, 0.45 * n_rows + 2.8)
-    fig, axes = plt.subplots(1, 2, figsize=(20.0, fig_h),
+    fig, axes = plt.subplots(1, 2, figsize=(24.0, fig_h),
                              gridspec_kw={'left':0.025, 'right':0.995,
-                                          'top':0.93, 'bottom':0.06, 'wspace':0.05})
+                                          'top':0.93, 'bottom':0.06, 'wspace':0.12})
 
     XCOL = {
         'label':     0.005,   # subgroup label

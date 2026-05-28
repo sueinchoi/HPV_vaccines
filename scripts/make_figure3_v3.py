@@ -174,7 +174,8 @@ def main():
     ax_a.set_ylim(0.0, 0.20)
     ax_a.set_xticks(range(0, max_year + 1, 2))
     ax_a.set_ylabel('Cumulative incidence')
-    ax_a.legend(loc='upper left', fontsize=10)
+    leg_a = ax_a.get_legend()
+    if leg_a is not None: leg_a.remove()
     style_axes(ax_a)
     panel_label(ax_a, 'a')
 
@@ -196,7 +197,8 @@ def main():
     ax_b.set_ylim(0.0, 0.85)
     ax_b.set_xticks(range(0, max_year + 1, 2))
     ax_b.set_ylabel('Cumulative clearance probability')
-    ax_b.legend(loc='upper right', fontsize=10)
+    leg_b = ax_b.get_legend()
+    if leg_b is not None: leg_b.remove()
     style_axes(ax_b)
     panel_label(ax_b, 'b')
 
@@ -217,6 +219,17 @@ def main():
         ax_tab.text(-3.5, 0.4, 'Non-vaccinated', fontsize=10, color=COL_CTL, ha='left')
         ax_tab.text(max_year / 2, -0.6, 'Years',
                     fontsize=11, ha='center', color='#222')
+
+    # Shared horizontal legend (Vaccinated / Non-vaccinated) below all panels
+    from matplotlib.lines import Line2D
+    legend_handles = [
+        Line2D([0], [0], color=COL_VAC, lw=LINE_W, label='Vaccinated'),
+        Line2D([0], [0], color=COL_CTL, lw=LINE_W, label='Non-vaccinated'),
+    ]
+    fig.legend(handles=legend_handles,
+               loc='lower center', ncol=2,
+               bbox_to_anchor=(0.5, -0.01),
+               fontsize=11, frameon=False, columnspacing=2.5)
 
     plt.savefig(ROOT / 'Data' / 'Figure3_CohortB_CIF.png',
                 dpi=300, bbox_inches='tight', facecolor='white')
