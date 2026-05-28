@@ -64,6 +64,7 @@ def main() -> pd.DataFrame:
     out = pd.read_csv(COH_FILE, encoding='utf-8-sig')
     out['index_date'] = pd.to_datetime(out['index_date'])
     out['최종추적일자'] = pd.to_datetime(out['최종추적일자'])
+    out['recurrence_date'] = pd.to_datetime(out['recurrence_date'], errors='coerce')
 
     out = out.merge(doses, left_on='연구번호', right_index=True, how='left')
     out['dose_count'] = out['dose_count'].fillna(0).astype(int)
@@ -72,31 +73,43 @@ def main() -> pd.DataFrame:
     vac_below = out[(out['접종여부'] == True) & (out['dose_count'] < DOSE_THRESHOLD)]
     bad_fids_dose = vac_below['fine_match_id'].dropna().unique()
     after_dose = out[~out['fine_match_id'].isin(bad_fids_dose)].copy()
+    print(f'After ≥{DOSE_THRESHOLD}-dose filter: '
+          f'n={len(after_dose)} ({(after_dose["접종여부"]).sum()}/{(~after_dose["접종여부"]).sum()})')
 
-    # Step B — 3-month landmark eligibility (FU ≥ 90 d from index)
+    # Step B — 3-month landmark FU eligibility (FU ≥ 90 d from index)
+    after_dose['lm_zero'] = after_dose['index_date'] + pd.Timedelta(days=LANDMARK_DAYS)
     fu_days = (after_dose['최종추적일자'] - after_dose['index_date']).dt.days
     after_dose['lm_eligible_fu'] = fu_days >= LANDMARK_DAYS
 
-    vac_fail = after_dose[
-        (after_dose['접종여부'] == True) & (~after_dose['lm_eligible_fu'])
-    ]
+    vac_fail = after_dose[(after_dose['접종여부'] == True) & (~after_dose['lm_eligible_fu'])]
     bad_fids_fu = vac_fail['fine_match_id'].dropna().unique()
+    after_fu = after_dose[~after_dose['fine_match_id'].isin(bad_fids_fu)].copy()
+    after_fu = after_fu[after_fu['lm_eligible_fu']].copy()
+    print(f'After 3-mo landmark FU filter: '
+          f'n={len(after_fu)} ({(after_fu["접종여부"]).sum()}/{(~after_fu["접종여부"]).sum()})')
 
-    primary = after_dose[~after_dose['fine_match_id'].isin(bad_fids_fu)].copy()
-    # Drop individual non-vac who fail landmark FU
-    primary = primary[primary['lm_eligible_fu']].copy()
-
-    primary['lm_zero'] = primary['index_date'] + pd.Timedelta(days=LANDMARK_DAYS)
+    # Step C — exclude patients with event before landmark; preserve matched-set
+    # integrity (drop the whole set if the vaccinated case has a pre-landmark event)
+    rec_pre_lm = (after_fu['has_recurrence'] == True) & \
+                 (after_fu['recurrence_date'] < after_fu['lm_zero'])
+    vac_early = after_fu[(after_fu['접종여부'] == True) & rec_pre_lm]
+    bad_fids_ev = vac_early['fine_match_id'].dropna().unique()
+    primary = after_fu[~after_fu['fine_match_id'].isin(bad_fids_ev)].copy()
+    # Drop individual non-vac with pre-landmark recurrence
+    rec_pre_lm_p = (primary['has_recurrence'] == True) & \
+                   (primary['recurrence_date'] < primary['lm_zero'])
+    primary = primary[~rec_pre_lm_p].copy()
+    print(f'After pre-landmark event removal (at-risk at landmark): '
+          f'n={len(primary)} ({(primary["접종여부"]).sum()}/{(~primary["접종여부"]).sum()})')
 
     primary.to_csv(OUT_FILE, index=False, encoding='utf-8-sig')
 
-    print(f'Wrote {OUT_FILE.relative_to(ROOT)}')
+    print(f'\nWrote {OUT_FILE.relative_to(ROOT)}')
     print(
-        f'Primary cohort v3: total={len(primary)}, '
+        f'Primary cohort: total={len(primary)}, '
         f'vaccinated={(primary["접종여부"]).sum()}, '
         f'non-vaccinated={(~primary["접종여부"]).sum()}'
     )
-    print(f'Distinct fine_match_ids: {primary["fine_match_id"].nunique()}')
     return primary
 
 

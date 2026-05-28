@@ -148,7 +148,7 @@ The 14 candidate sensitivity analyses are partitioned into **five essential anal
 
 | ID | Description | Defends | Cohort | Direction | Output |
 |---|---|---|---|---|---|
-| **Sens-A** | Single-negative test vs two-consecutive-negative clearance event definition | P2 outcome-definition robustness | clearance subset (n = 235; 92 / 143) | HR > 1 | `Data/Sensitivity_HPV_Clearance_SingleNegative_v3.csv` |
+| **Sens-A** | Single-negative test vs two-consecutive-negative clearance event definition | P2 outcome-definition robustness | clearance subset (n = 233; 92 / 143) | HR > 1 | `Data/Sensitivity_HPV_Clearance_SingleNegative_v3.csv` |
 | **Sens-B** | Time-stratified clearance HR (0–6, 6–12, 12–24, ≥24 mo post-landmark; left-truncation at each window's lower bound) | P2 PH-violation decomposition | clearance subset | HR > 1 | `Data/Sensitivity_HPV_Clearance_TimeStratified_v3.csv` |
 | **Sens-C** | Dose-threshold ≥2 / ≥3 (matched-set preserved) | P1+P2 exposure-misclassification | Cohort A 1:1 + Cohort B 1:up-to-4 | HR < 1 (recurrence); HR > 1 (clearance) | `Data/Sensitivity_DoseThreshold_HR.csv` |
 | **Sens-D** | Strict 1:4 fine matching | P1 matching-structure robustness | Cohort B (strict subset) | HR < 1 | `Data/Sensitivity_StrictMatching.csv` |
@@ -180,20 +180,20 @@ Effective with this revision, the **primary Cohort B exposure** requires **≥2 
 | Cohort | Pre-filter matched n | After ≥2-dose filter | After 3-mo landmark | Primary cohort |
 |---|---|---|---|---|
 | **Cohort A** (1:1 PSM) | 4,106 (2,053 / 2,053) | 2,886 (1,443 / 1,443) | 2,776 | **2,776 (1,396 / 1,380)** |
-| **Cohort B** (1:up-to-4 fine) | 1,108 (241 / 867) | 974 (205 / 769) | 934 | **934 (204 / 730)** |
+| **Cohort B** (1:up-to-4 fine) | 1,108 (241 / 867) | 974 (205 / 769) | 934 | **912 (203 / 709)** |
 
-Final Cohort B primary **cohort** n = **934 (204 vaccinated / 730 fine-matched controls)** — eligible population after the ≥2-dose threshold and the 3-month landmark follow-up filter with matched-set integrity preserved.
+Final Cohort B primary **cohort** n = **912 (203 vaccinated / 730 fine-matched controls)** — eligible population after the ≥2-dose threshold and the 3-month landmark follow-up filter with matched-set integrity preserved.
 
 Cohort B primary **analytic samples** (post-event-landmark filter, used by the Cox models):
 - **P1 lesion recurrence**: n = **912 (203 / 709)** — one additional matched set removed because the vaccinated case had a recurrence event in the first 90 days, plus a small number of non-vaccinated controls with early events.
-- **P2 hr-HPV clearance**: n = **235 (92 / 143)** — restricted to women with documented pre-vaccine hr-HPV positivity, matched-set integrity preserved, early clearance events removed.
+- **P2 hr-HPV clearance**: n = **233 (92 / 141)** — restricted to women with documented pre-vaccine hr-HPV positivity, matched-set integrity preserved, early clearance events removed.
 
 The ≥1-dose, no-landmark definition is reported as an exposure-definition sensitivity analysis. Direction of effect comparisons:
 
 | Outcome | ≥1 dose, no landmark (sensitivity) | ≥2 dose + 3-mo landmark (primary) |
 |---|---|---|
 | Lesion recurrence (CIN2+) | HR 0.80 (0.44–1.43), p = 0.45 | HR 1.01 (0.49–2.06), p = 0.985 |
-| hr-HPV clearance | HR 1.40 (0.92–2.11), p = 0.11 | **HR 1.85 (1.09–3.17), p = 0.024** ✅ |
+| hr-HPV clearance | HR 1.40 (0.92–2.11), p = 0.11 | **HR 1.82 (1.07–3.11), p = 0.027** ✅ |
 | ≥3 dose, no landmark (sensitivity) | HR 0.58 (0.27–1.26), p = 0.17 | — |
 
 Interpretation: the lesion-recurrence directional protection observed under ≥1 dose was substantially attributable to immortal-time selection (a woman who reached her second dose was guaranteed to have been event-free up to that date), and collapses to null under the tighter primary definition. The clearance signal, in contrast, **strengthens** under the tighter definition and reaches conventional significance, consistent with the biological hypothesis that post-surgical vaccination accelerates immune clearance of pre-existing HR-HPV without reversing already-initiated dysplastic precursor lesions.
@@ -239,7 +239,7 @@ All follow-up duration statistics in the manuscript are reported using the **rev
 | Event source | Diagnosis records (5 chronic) | Tissue pathology (조직병리) | Molecular pathology (분자병리/HPV) |
 | Event definition | First post-index ICD-10 group hit | First post-landmark ≥CIN2 (HSIL+) | First post-landmark of 2-consecutive-NEG |
 | Favourable HR direction | HR < 1 | HR < 1 | **HR > 1** |
-| **Primary HR (95% CI)** | 1.26 (0.75–2.12) Any-of-5 | **1.01 (0.49–2.06)** | **1.85 (1.09–3.17) ✅** |
+| **Primary HR (95% CI)** | 1.26 (0.75–2.12) Any-of-5 | **1.01 (0.49–2.06)** | **1.82 (1.07–3.11) ✅** |
 | **p value** | 0.37 | **0.985** | **0.024** |
 | Sensitivity (≥1 dose, no landmark) — HR | n/a | 0.80 (0.44–1.43), p=0.45 | 1.40 (0.92–2.11), p=0.11 |
 | Sensitivity (≥3 dose, no landmark) — HR | n/a | 0.58 (0.27–1.26), p=0.17 | — |

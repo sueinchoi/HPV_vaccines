@@ -199,7 +199,7 @@ def figure1():
 
     arrow(9.0, 3.69, 9.0, 3.47)
     box(9.0, 3.00, 4.6, 0.95,
-        'Cohort B\nn = 934\nVaccinated 204 / Non-vac 730',
+        'Cohort B\nn = 912\nVaccinated 203 / Non-vac 709',
         fc='#f4a4a8', ec='#9b2226', fs=12, weight='bold')
 
     plt.tight_layout()
@@ -562,12 +562,8 @@ def figure3():
 #   Subgroups: Overall, by age at index, by vaccine type.
 # =====================================================================
 def figure4_subgroup():
-    """Subgroup forest under v3 primary cohort (≥2 dose + 3-mo landmark).
-    Includes age-at-index subgroups (<40 / 40–49 / ≥50 yrs) and vaccine-type
-    subgroups (Gardasil 9 / Cervarix / quadrivalent Gardasil) for both
-    co-primary outcomes. Vaccine-type subgroup confidence intervals are
-    expectedly wide because the v3 vaccinated n=204 yields ≤30 doses
-    per vaccine-type stratum.
+    """Subgroup forest plot for Cohort B co-primary outcomes.
+    Subgroups: Overall and by age at index (<40 / 40–49 / ≥50 yrs).
     """
     print('  Building Figure 4 (combined subgroup forest, v3 primary)...')
     LANDMARK_DAYS = 90
@@ -743,17 +739,6 @@ def figure4_subgroup():
                          'data'))
         ap = age_interaction_p(sub, ev_col, time_col)
         rows.append((f'P for interaction = {ap:.3f}' if not np.isnan(ap) else
-                     'P for interaction = NA', None, 'pval'))
-        rows.append(('', None, 'spacer'))
-        rows.append(('By vaccine type', None, 'header'))
-        for vt_key, vt_lab in [('Gardasil9', 'Gardasil 9 (9-valent)'),
-                                ('Cervarix',  'Cervarix (2-valent)'),
-                                ('Gardasil',  'Gardasil (4-valent)')]:
-            rows.append((vt_lab,
-                         hr_subset(sub[sub['vacc_type']==vt_key], ev_col, time_col),
-                         'data'))
-        vp = vacc_interaction_p(sub, ev_col, time_col)
-        rows.append((f'P for interaction = {vp:.3f}' if not np.isnan(vp) else
                      'P for interaction = NA', None, 'pval'))
         panel_data[plabel] = (ttl, rows, direction)
 

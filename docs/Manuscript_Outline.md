@@ -46,7 +46,7 @@
 | 모집단 | 전체 코호트 (n=32,969) | 자궁경부 수술 시행자 (n=6,890) |
 | 기본 매칭 | PSM 1:1 (age, BMI, SBP, DBP, smoking, residence) | 1:up-to-5 → fine 1:up-to-4 (수술방법 exact, 수술시점, age, BMI, 수술연도; variable-ratio greedy) |
 | 최종 표본 (intermediate (≥1-dose, no-landmark sensitivity)) | 4,102 (vac 2,051 / ctl 2,051) | 1,108 (vac 241 / ctl 867) |
-| **Primary (≥2 dose + 3-mo landmark)** | 4,102 (unchanged) | **934 (vac 204 / ctl 730)** |
+| **Primary (≥2 dose + 3-mo landmark)** | 4,102 (unchanged) | **912 (vac 203 / ctl 709)** |
 | Index date (vac) | 첫 백신 접종일 | 첫 백신 접종일 |
 | Index date (ctl) | 매칭된 접종군 백신일 (pseudo) | 비접종군 수술일 + 매칭 접종군의 수술-접종 간격(T) |
 | Primary outcome | 5대 만성질환 발생, MCE, Any-of-5 | 병변 재발 (CIN2 이상 / HSIL+), hr-HPV clearance |
@@ -87,7 +87,7 @@
 - Step 1 — 1:up-to-5 initial match: 수술방법 (exact: conization vs hysterectomy), 수술시점 (±1 yr), age at surgery (±5 yr) → 411 vaccinated and 1,815 non-vaccinated (mean ratio 4.42; 256 of 411 cases reached the maximum of 5).
 - Step 2 — Index date filtering: index ≤ 2020-12-31 (≥5 yr follow-up), ≥2 follow-up records → 411 / 1,797 (18 controls excluded).
 - Step 3 — Fine matching to 1:up-to-4: index age (±5 y), index BMI (±3 kg/m²), surgery year (±1 y) → 241 vaccinated and 867 non-vaccinated (mean ratio 3.60; 193 of 241 cases reached the maximum of 4). **Legacy intermediate cohort.**
-- Step 4 (PRIMARY) — ≥2-dose + 3-month landmark filter with matched-set integrity preserved: 36 vaccinated cases failing the dose threshold and their attached non-vaccinated participants dropped; 5 patients lost to the 3-month landmark FU filter; final  primary cohort **n = 934 (204 vaccinated / 730 non-vaccinated)**.
+- Step 4 (PRIMARY) — ≥2-dose + 3-month landmark filter with matched-set integrity preserved: 36 vaccinated cases failing the dose threshold and their attached non-vaccinated participants dropped; 5 patients lost to the 3-month landmark FU filter; final  primary cohort **n = 912 (203 vaccinated / 709 non-vaccinated)**.
 - Pseudo index date for non-vaccinated: surgery date + matched 접종군의 수술-접종 간격 T
 
 ### 1.7 Covariate balance assessment
@@ -150,7 +150,7 @@
 - High-risk hr-HPV clearance (pre-vaccine HPV+ subset)
 
 #### 2.3.2 Survival curves
-**Figure 3 ().** Cumulative incidence curves (1 − Kaplan-Meier) anchored at the 3-month landmark for (a) lesion recurrence in P1 analytic n=912 and (b) hr-HPV clearance in P2 analytic n=235, with HR/CI/p annotation and number-at-risk table.
+**Figure 3 ().** Cumulative incidence curves (1 − Kaplan-Meier) anchored at the 3-month landmark for (a) lesion recurrence in P1 analytic n=912 and (b) hr-HPV clearance in P2 analytic n=233, with HR/CI/p annotation and number-at-risk table.
 
 #### 2.3.3 Combined subgroup forest
 **Figure 4 ().** JAMA-style combined table-with-forest plot of HRs by age (<40 / 40–49 / ≥50) and vaccine type (Gardasil 9 / Cervarix / quadrivalent Gardasil) for both co-primary outcomes. Replaces legacy separate Figure 4 (vaccine type only) and Figure 5 (age subgroups).

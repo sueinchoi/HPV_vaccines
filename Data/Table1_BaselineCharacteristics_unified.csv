@@ -172,11 +172,29 @@ CohortB_post_v3,  Surgical pathology: CIN2 / moderate dysplasia,16 (7.8%),45 (6.
 CohortB_post_v3,  Surgical pathology: CIN1 / LSIL / mild dysplasia,20 (9.8%),83 (11.4%),0.613,0.051
 CohortB_post_v3,  Surgical pathology: Benign / other,53 (26.0%),206 (28.2%),0.596,0.050
 CohortB_post_v3,  Pre-vaccine hr-HPV+ (clearance subset eligibility),95 (46.6%),323 (44.2%),0.578,0.047
-CohortA_post_v3,"— ≥2 DOSE + 3-MO LANDMARK v3 PRIMARY (n=2,776: 1,396 vac / 1,380 non-vac) —",,,,
+CohortA_post_v3,Demographics,,,,
 CohortA_post_v3,"  Age at index, years",33.90 ± 9.34,33.27 ± 11.54,0.116,0.060
+CohortA_post_v3,  Birth year,1982.36 ± 10.23,1981.42 ± 11.23,0.021,0.088
+CohortA_post_v3,  Index year,2016.21 ± 3.92,2014.63 ± 3.77,<0.001,0.411
+CohortA_post_v3,  Residence in Seoul,437 (31.3%),468 (33.9%),0.145,0.056
+CohortA_post_v3,"Anthropometry & vital signs (closest to index, ±1 yr)",,,,
+CohortA_post_v3,"  Height, cm",161.10 ± 5.38,160.66 ± 5.43,0.166,0.081
+CohortA_post_v3,"  Weight, kg",57.54 ± 10.00,56.53 ± 9.91,0.087,0.101
 CohortA_post_v3,"  BMI, kg/m²",22.75 ± 2.35,22.70 ± 2.28,0.556,0.022
 CohortA_post_v3,"  Systolic BP, mmHg",116.09 ± 9.63,115.81 ± 10.23,0.458,0.028
 CohortA_post_v3,"  Diastolic BP, mmHg",72.42 ± 7.49,72.12 ± 7.58,0.287,0.040
-CohortA_post_v3,  Follow-up days,2071.01 ± 1566.61,2792.10 ± 1562.27,<0.001,0.461
-CohortA_post_v3,  Seoul residence,437 (31.3%),468 (33.9%),0.145,0.056
-CohortA_post_v3,  Mortality during follow-up,2 (0.1%),16 (1.2%),0.001,0.127
+CohortA_post_v3,Smoking status,,,,
+CohortA_post_v3,  Never,458 (32.8%),421 (30.5%),0.206,0.049
+CohortA_post_v3,  Former,6 (0.4%),5 (0.4%),1.000,0.011
+CohortA_post_v3,  Current,24 (1.7%),27 (2.0%),0.673,0.018
+CohortA_post_v3,  Unknown,908 (65.0%),927 (67.2%),0.245,0.045
+CohortA_post_v3,Pre-existing comorbidities (before index),,,,
+CohortA_post_v3,  Angina/MI,0 (0.0%),0 (0.0%),1.000,-
+CohortA_post_v3,  Hypertension,8 (0.6%),2 (0.1%),0.109,0.072
+CohortA_post_v3,  Diabetes,10 (0.7%),6 (0.4%),0.453,0.037
+CohortA_post_v3,  Stroke,0 (0.0%),0 (0.0%),1.000,-
+CohortA_post_v3,  PE,0 (0.0%),0 (0.0%),1.000,-
+CohortA_post_v3,  Composite (any of 5),18 (1.3%),8 (0.6%),0.074,0.074
+CohortA_post_v3,Follow-up,,,,
+CohortA_post_v3,"  Follow-up, days",2071.01 ± 1566.61,2792.10 ± 1562.27,<0.001,0.461
+CohortA_post_v3,  Mortality during follow-up,2 (0.1%),16 (1.2%),<0.001,0.127

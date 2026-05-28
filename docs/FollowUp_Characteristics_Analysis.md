@@ -1,6 +1,6 @@
 # 본 연구의 Follow-up 특성 — 종합 분석
 
-이 문서는 Cohort B primary cohort (≥2 dose + 3-mo landmark, n = 934)를 중심으로 본 연구의 follow-up 특성을 진단하고, 해석에 영향을 줄 수 있는 selection/length bias·calendar·surveillance·competing-risk 이슈를 정리한다.
+이 문서는 Cohort B primary cohort (≥2 dose + 3-mo landmark, n = 912)를 중심으로 본 연구의 follow-up 특성을 진단하고, 해석에 영향을 줄 수 있는 selection/length bias·calendar·surveillance·competing-risk 이슈를 정리한다.
 
 ---
 
@@ -8,7 +8,7 @@
 
 **보고 표준**: 본 연구는 follow-up time을 **reverse Kaplan–Meier (Schemper–Smith 1996)** 방식으로 보고한다. Reverse-KM은 event indicator를 invert하여 censoring distribution에 KM을 적용함으로써 **median potential follow-up time**을 unbiased로 추정한다. Naïve median (단순 관찰 FU)은 event가 일찍 일어난 환자가 짧은 시간으로 잘려 들어가 systematic하게 underestimate된다.
 
-### 1.1 Cohort B (PRIMARY, n = 934) — **reverse-KM**
+### 1.1 Cohort B (PRIMARY, n = 912) — **reverse-KM**
 
 | Time origin | Group | n | reverse-KM median (y) | IQR (y) | Naïve median (참고) | Max observed (y) |
 |---|---|---|---|---|---|---|
@@ -184,4 +184,4 @@ Year  | Vac    Non    Total
 
 ## 9. Reviewer 대응용 한 줄 요약
 
-> 본 연구는 단일 의료기관 CDW에서 2010–2023년 사이 enrolment된 cohort에 대해 2025년 12월까지 추적해, Cohort B 매칭 코호트(n = 934)에서 **median 4.87 / mean 6.10 / max 15.09년의 follow-up**을 확보했다. 두 군의 추적기간·사망률·surveillance density는 모두 일치하며 (reverse-KM potential FU 4.94 vs 5.02 y; HPV 검사 density 0.89 vs 0.81 /yr), administrative right-truncation·loss-to-follow-up imbalance는 관측되지 않는다. 다만 clearance achiever 한정 sustained-clearance 분석은 정의상 longer-FU 환자를 selection하므로 KM median을 보고하되 5-year reversion-free probability를 병기해 length bias의 영향을 명시한다.
+> 본 연구는 단일 의료기관 CDW에서 2010–2023년 사이 enrolment된 cohort에 대해 2025년 12월까지 추적해, Cohort B 매칭 코호트(n = 912)에서 **median 4.87 / mean 6.10 / max 15.09년의 follow-up**을 확보했다. 두 군의 추적기간·사망률·surveillance density는 모두 일치하며 (reverse-KM potential FU 4.94 vs 5.02 y; HPV 검사 density 0.89 vs 0.81 /yr), administrative right-truncation·loss-to-follow-up imbalance는 관측되지 않는다. 다만 clearance achiever 한정 sustained-clearance 분석은 정의상 longer-FU 환자를 selection하므로 KM median을 보고하되 5-year reversion-free probability를 병기해 length bias의 영향을 명시한다.
