@@ -172,3 +172,11 @@ CohortB_post_v3,  Surgical pathology: CIN2 / moderate dysplasia,16 (7.8%),45 (6.
 CohortB_post_v3,  Surgical pathology: CIN1 / LSIL / mild dysplasia,20 (9.8%),83 (11.4%),0.613,0.051
 CohortB_post_v3,  Surgical pathology: Benign / other,53 (26.0%),206 (28.2%),0.596,0.050
 CohortB_post_v3,  Pre-vaccine hr-HPV+ (clearance subset eligibility),95 (46.6%),323 (44.2%),0.578,0.047
+CohortA_post_v3,"— ≥2 DOSE + 3-MO LANDMARK v3 PRIMARY (n=2,776: 1,396 vac / 1,380 non-vac) —",,,,
+CohortA_post_v3,"  Age at index, years",33.90 ± 9.34,33.27 ± 11.54,0.116,0.060
+CohortA_post_v3,"  BMI, kg/m²",22.75 ± 2.35,22.70 ± 2.28,0.556,0.022
+CohortA_post_v3,"  Systolic BP, mmHg",116.09 ± 9.63,115.81 ± 10.23,0.458,0.028
+CohortA_post_v3,"  Diastolic BP, mmHg",72.42 ± 7.49,72.12 ± 7.58,0.287,0.040
+CohortA_post_v3,  Follow-up days,2071.01 ± 1566.61,2792.10 ± 1562.27,<0.001,0.461
+CohortA_post_v3,  Seoul residence,437 (31.3%),468 (33.9%),0.145,0.056
+CohortA_post_v3,  Mortality during follow-up,2 (0.1%),16 (1.2%),0.001,0.127

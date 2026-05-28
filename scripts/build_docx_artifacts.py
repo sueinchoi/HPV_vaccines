@@ -210,7 +210,7 @@ def add_spacer(doc: Document) -> None:
 def table1_rows() -> tuple[list[str], list[list[str]]]:
     """Reshape Table1_BaselineCharacteristics_unified.csv (long → wide-ish)."""
     header, body = read_csv(DATA / "Table1_BaselineCharacteristics_unified.csv")
-    keep = {"CohortA_post", "CohortB_post", "CohortB_post_v3", "CohortB_clearance"}
+    keep = {"CohortA_post", "CohortA_post_v3", "CohortB_post", "CohortB_post_v3", "CohortB_clearance"}
     out_header = ["Block", "Variable", "Vaccinated", "Non-vaccinated", "p value", "|SMD|"]
     out = []
     for r in body:
@@ -220,9 +220,10 @@ def table1_rows() -> tuple[list[str], list[list[str]]]:
         if block not in keep:
             continue
         block_label = {
-            "CohortA_post": "Cohort A (post-PSM)",
+            "CohortA_post": "Cohort A (post-PSM — ≥1 dose, no landmark; legacy)",
+            "CohortA_post_v3": "Cohort A (≥2 dose + 3-mo landmark; v3 PRIMARY)",
             "CohortB_post": "Cohort B (post fine match — ≥1 dose, no landmark; legacy)",
-            "CohortB_post_v3": "Cohort B (≥2 dose + 3-mo landmark; PRIMARY)",
+            "CohortB_post_v3": "Cohort B (≥2 dose + 3-mo landmark; v3 PRIMARY)",
             "CohortB_clearance": "Cohort B — clearance subset (≥1 dose, no landmark)",
         }[block]
         out.append([block_label, translate_korean(var), vac, ctl, p, smd])
@@ -230,9 +231,10 @@ def table1_rows() -> tuple[list[str], list[list[str]]]:
 
 
 def table1_split_rows() -> dict[str, list[list[str]]]:
-    """Return {block_id: rows_without_block_column} for the four Table 1 splits."""
+    """Return {block_id: rows_without_block_column} for the five Table 1 splits."""
     _h, body = read_csv(DATA / "Table1_BaselineCharacteristics_unified.csv")
-    out = {"CohortA_post": [], "CohortB_post": [], "CohortB_post_v3": [], "CohortB_clearance": []}
+    out = {"CohortA_post": [], "CohortA_post_v3": [],
+           "CohortB_post": [], "CohortB_post_v3": [], "CohortB_clearance": []}
     for r in body:
         if len(r) < 6 or r[0] not in out:
             continue
@@ -471,12 +473,26 @@ def build_tables_figures_docx(suffix: str = "") -> None:
     add_caption(
         doc, "Table 1A",
         "Baseline characteristics after 1:1 propensity-score matching — "
-        "Cohort A (long-term safety analysis). N = 4,102 "
-        "(2,051 vaccinated / 2,051 unvaccinated). Absolute standardised "
-        "mean differences (|SMD|) < 0.10 indicate adequate balance.",
+        "Cohort A (long-term safety analysis; legacy ≥1-dose, no-landmark "
+        "intermediate cohort). N = 4,102 (2,051 vaccinated / 2,051 "
+        "unvaccinated). Absolute standardised mean differences (|SMD|) < "
+        "0.10 indicate adequate balance.",
     )
     add_spacer(doc)
     add_table(doc, t1_header, splits["CohortA_post"], col_widths_in=t1_widths)
+    doc.add_page_break()
+
+    add_caption(
+        doc, "Table 1A (v3 PRIMARY)",
+        "Baseline characteristics under the ≥2-dose + 3-month landmark v3 "
+        "PRIMARY exposure definition — Cohort A (long-term safety analysis). "
+        "N = 2,776 (1,396 vaccinated / 1,380 matched controls). Derived from "
+        "the 1:1 PSM cohort by dropping 610 matched pairs that failed the "
+        "≥2-dose threshold and 47 matched pairs that failed the 3-month "
+        "landmark FU filter.",
+    )
+    add_spacer(doc)
+    add_table(doc, t1_header, splits["CohortA_post_v3"], col_widths_in=t1_widths)
     doc.add_page_break()
 
     add_caption(

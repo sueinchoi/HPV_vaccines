@@ -935,8 +935,37 @@ def figure5():
 if __name__ == '__main__':
     print('[Figure 1]')
     figure1()
-    print('[Figure 2]')
+    print('[Figure 2 — Cohort A v3 primary (≥2 dose + 3-mo landmark)]')
     m_A = build_cohort_a_matched()
+    # Apply v3 primary filters: ≥2 dose + 3-mo landmark with pair_id integrity
+    import re as _re
+    _NAME = _re.compile(r'gardasil|cervarix|hpv vaccine', _re.I)
+    _KOR = _re.compile(r'가다실|서바릭스')
+    _CODE = ('DV-9HPF','DV-HPF','DV-JHP','DV-HPJ')
+    def _is_vac(row):
+        return bool(_NAME.search(str(row.get('처방명','')))) or \
+               bool(_KOR.search(str(row.get('처방한글명','')))) or \
+               str(row.get('처방코드','')).startswith(_CODE)
+    _rx = pd.read_csv('Data/한국 HPV 코호트 자료를 이용한 자_처방정보.csv',
+                       encoding='cp949', low_memory=False)
+    _rx = _rx[_rx.apply(_is_vac, axis=1)].copy()
+    _rx['처방일자_dt'] = pd.to_datetime(_rx['처방일자'], format='%Y%m%d', errors='coerce')
+    _doses = _rx.dropna(subset=['처방일자_dt']).groupby('연구번호')['처방일자_dt'].nunique()
+    m_A = m_A.merge(_doses.rename('dose_count'), left_on='pid', right_index=True, how='left')
+    m_A['dose_count'] = m_A['dose_count'].fillna(0).astype(int)
+    # ≥2-dose filter
+    _bad_d = m_A[(m_A['vaccinated']==True) & (m_A['dose_count']<2)]['pair_id'].unique()
+    m_A = m_A[~m_A['pair_id'].isin(_bad_d)].copy()
+    # 3-mo landmark
+    LM = pd.Timedelta(days=90)
+    _fu = (m_A['last_follow'] - m_A['index_date']).dt.days
+    _bad_lm = m_A[(m_A['vaccinated']==True) & (_fu < 90)]['pair_id'].unique()
+    m_A = m_A[~m_A['pair_id'].isin(_bad_lm)].copy()
+    m_A = m_A[(m_A['last_follow']-m_A['index_date']).dt.days >= 90].copy()
+    # Shift index_date to landmark for time-to-event analysis
+    m_A['index_date'] = m_A['index_date'] + LM
+    print(f'  Cohort A v3 cohort: n={len(m_A)} '
+          f'(vac {(m_A["vaccinated"]==True).sum()} / non {(m_A["vaccinated"]==False).sum()})')
     figure2(m_A)
     print('[Figure 3]')
     figure3()
