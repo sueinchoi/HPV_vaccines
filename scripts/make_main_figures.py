@@ -408,12 +408,11 @@ def figure2(m):
             except Exception:
                 pass
         ax.set_xlim(0, max_year); ax.set_ylim(bottom=0)
-        ax.set_xlabel('Years from index date')
+        ax.set_xlabel('Years')
         ax.set_ylabel('Cumulative incidence')
         if plabel == 'a':
             ax.legend(loc='lower right', fontsize=9)
         style_axes(ax)
-        panel_label(ax, plabel)
 
     # Forest plot panel (bottom-right)
     ax_f = fig.add_subplot(gs[1, 2])
@@ -441,8 +440,25 @@ def figure2(m):
     ax_f.set_ylim(len(forest_order)-0.3, -0.7)  # explicit padding both ends
     ax_f.set_xlabel('Hazard ratio (95% CI)')
     style_axes(ax_f); ax_f.grid(axis='x', alpha=0.25, linestyle=':')
-    panel_label(ax_f, 'f')
 
+    # ---- Horizontal panel labels (a–f) below the figure ----
+    panel_letters = ['a', 'b', 'c', 'd', 'e', 'f']
+    panel_titles = ['Any-of-5 composite',
+                    'MCE composite',
+                    'Diabetes',
+                    'Hypertension',
+                    'Angina / MI',
+                    'Forest plot — cluster-robust HR (95% CI)']
+    label_y = 0.025
+    n_labels = len(panel_letters)
+    for i, (lt, ttl) in enumerate(zip(panel_letters, panel_titles)):
+        x_center = (i + 0.5) / n_labels
+        fig.text(x_center, label_y + 0.018, f'({lt})',
+                 ha='center', va='bottom', fontsize=12, fontweight='bold')
+        fig.text(x_center, label_y - 0.002, ttl,
+                 ha='center', va='top', fontsize=10)
+
+    plt.subplots_adjust(bottom=0.11)
     plt.savefig('Data/Figure2_CohortA_CIF_HR.png', dpi=300, bbox_inches='tight', facecolor='white')
     plt.close()
     print('Saved: Data/Figure2_CohortA_CIF_HR.png')
@@ -730,7 +746,7 @@ def figure4_subgroup():
         rows = []
         rows.append(('Overall', hr_subset(sub, ev_col, time_col), 'data'))
         rows.append(('', None, 'spacer'))
-        rows.append(('By age at index', None, 'header'))
+        rows.append(('Age groups', None, 'header'))
         for grp_key, grp_lab in [('<40', '<40 years'),
                                   ('40-49', '40–49 years'),
                                   ('≥50', '≥50 years')]:
@@ -776,20 +792,20 @@ def figure4_subgroup():
 
         # ---- Column headers ----
         ax.text(XCOL['label'], HEADER_Y, 'Subgroup', fontweight='bold',
-                fontsize=11, ha='left', va='center')
+                fontsize=13, ha='left', va='center')
         ax.text(XCOL['vac'], HEADER_Y, 'Vaccinated', fontweight='bold',
-                fontsize=11, ha='center', va='center')
-        ax.text(XCOL['vac'], SUBHEAD_Y, 'No. events / N', fontsize=10,
+                fontsize=13, ha='center', va='center')
+        ax.text(XCOL['vac'], SUBHEAD_Y, 'No. events / N', fontsize=11,
                 ha='center', va='center', color='#444')
         ax.text(XCOL['ctl'], HEADER_Y, 'Non-vaccinated', fontweight='bold',
-                fontsize=11, ha='center', va='center')
-        ax.text(XCOL['ctl'], SUBHEAD_Y, 'No. events / N', fontsize=10,
+                fontsize=13, ha='center', va='center')
+        ax.text(XCOL['ctl'], SUBHEAD_Y, 'No. events / N', fontsize=11,
                 ha='center', va='center', color='#444')
         ax.text((XCOL['forest_lo']+XCOL['forest_hi'])/2, HEADER_Y,
                 'Hazard ratio (95% CI)', fontweight='bold',
-                fontsize=11, ha='center', va='center')
+                fontsize=13, ha='center', va='center')
         ax.text(XCOL['hrtxt']+0.06, HEADER_Y, 'HR (95% CI)',
-                fontweight='bold', fontsize=11, ha='left', va='center')
+                fontweight='bold', fontsize=13, ha='left', va='center')
 
         # divider
         ax.plot([0, 1], [DIVIDER_Y, DIVIDER_Y], color='black', lw=0.9, clip_on=False)
@@ -803,21 +819,21 @@ def figure4_subgroup():
         for y, (label, data, kind) in enumerate(rows):
             if kind == 'header':
                 ax.text(XCOL['label'], y, label, fontstyle='italic',
-                        fontweight='bold', fontsize=10.5, ha='left', va='center')
+                        fontweight='bold', fontsize=12.5, ha='left', va='center')
             elif kind == 'pval':
-                ax.text(XCOL['label']+0.025, y, label, fontsize=9.5,
+                ax.text(XCOL['label']+0.025, y, label, fontsize=11.5,
                         fontstyle='italic', ha='left', va='center', color='#444')
             elif kind == 'spacer':
                 continue
             elif kind == 'data' and data is not None:
                 indent = 0.025 if label != 'Overall' else 0.0
                 weight = 'bold' if label == 'Overall' else 'normal'
-                ax.text(XCOL['label']+indent, y, label, fontsize=10.5,
+                ax.text(XCOL['label']+indent, y, label, fontsize=12.5,
                         fontweight=weight, ha='left', va='center')
                 ax.text(XCOL['vac'], y, f"{data['ev_v']} / {data['n_v']}",
-                        fontsize=10.5, ha='center', va='center')
+                        fontsize=12.5, ha='center', va='center')
                 ax.text(XCOL['ctl'], y, f"{data['ev_c']} / {data['n_c']}",
-                        fontsize=10.5, ha='center', va='center')
+                        fontsize=12.5, ha='center', va='center')
                 if not np.isnan(data['HR']):
                     sig = (data['CIlo'] > 1) or (data['CIhi'] < 1)
                     favourable = ((data['HR']<1) == favourable_lt1)
@@ -841,10 +857,10 @@ def figure4_subgroup():
                             markeredgecolor='black', markeredgewidth=0.6)
                     ax.text(XCOL['hrtxt']+0.06, y,
                             f"{data['HR']:.2f} ({data['CIlo']:.2f}–{data['CIhi']:.2f})",
-                            fontsize=10, ha='left', va='center')
+                            fontsize=12, ha='left', va='center')
                 else:
                     ax.text(XCOL['hrtxt']+0.06, y, '— insufficient events —',
-                            fontsize=9.5, ha='left', va='center',
+                            fontsize=11.5, ha='left', va='center',
                             color=COL_GREY, style='italic')
 
         # ---- Forest x-axis ticks (below last row) ----
@@ -855,7 +871,7 @@ def figure4_subgroup():
             xt = x_to_axes(tk)
             ax.plot([xt, xt], [x_axis_y, x_axis_y + 0.12], color='black', lw=0.9)
             ax.text(xt, x_axis_y + 0.45, str(tk),
-                    fontsize=9.5, ha='center', va='center')
+                    fontsize=11.5, ha='center', va='center')
         ax.text((XCOL['forest_lo']+XCOL['forest_hi'])/2, x_axis_y + 1.05,
                 'Hazard ratio (log scale)', fontsize=10.5, ha='center', va='center')
 

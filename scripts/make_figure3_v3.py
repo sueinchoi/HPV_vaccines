@@ -51,8 +51,9 @@ def style_axes(ax):
 
 
 def panel_label(ax, label):
-    ax.text(-0.18, 1.10, label, transform=ax.transAxes,
-            fontsize=14, fontweight='bold', va='top', ha='left')
+    # Top-right placement, consistent across panels
+    ax.text(0.98, 1.05, label, transform=ax.transAxes,
+            fontsize=14, fontweight='bold', va='top', ha='right')
 
 
 def build_p1_p2():
@@ -163,10 +164,6 @@ def main():
     kmf_c = KaplanMeierFitter().fit(c_a['time_days'] / 365.25, c_a['event'], label='Non-vaccinated')
     kmf_v.plot_cumulative_density(ax=ax_a, ci_alpha=0.15, color=COL_VAC, lw=LINE_W)
     kmf_c.plot_cumulative_density(ax=ax_a, ci_alpha=0.15, color=COL_CTL, lw=LINE_W)
-    # Mark the 3-month landmark on the x-axis
-    ax_a.axvline(0.25, color='#555', linestyle=':', linewidth=1.0, alpha=0.7)
-    ax_a.text(0.25, 0.195, '3-mo landmark', fontsize=9, color='#444',
-              ha='left', va='top', rotation=0)
     hr, lo, hi, pv = cox_hr(p1)
     ax_a.text(0.97, 0.04,
               f"HR = {hr:.2f} (95% CI {lo:.2f}–{hi:.2f})\np = {pv:.3f}",
@@ -189,10 +186,6 @@ def main():
     kmf_c2 = KaplanMeierFitter().fit(c_b['time_days'] / 365.25, c_b['event'], label='Non-vaccinated')
     kmf_v2.plot_cumulative_density(ax=ax_b, ci_alpha=0.15, color=COL_VAC, lw=LINE_W)
     kmf_c2.plot_cumulative_density(ax=ax_b, ci_alpha=0.15, color=COL_CTL, lw=LINE_W)
-    # Mark the 3-month landmark on the x-axis
-    ax_b.axvline(0.25, color='#555', linestyle=':', linewidth=1.0, alpha=0.7)
-    ax_b.text(0.25, 0.835, '3-mo landmark', fontsize=9, color='#444',
-              ha='left', va='top', rotation=0)
     hr2, lo2, hi2, pv2 = cox_hr(p2)
     ax_b.text(0.55, 0.05,
               f"HR = {hr2:.2f} (95% CI {lo2:.2f}–{hi2:.2f})\np = {pv2:.3f}",
@@ -222,7 +215,7 @@ def main():
             ax_tab.text(yr, 0.4, str(n_c_), fontsize=10, ha='center', color=COL_CTL)
         ax_tab.text(-3.5, 1.4, 'Vaccinated', fontsize=10, color=COL_VAC, ha='left')
         ax_tab.text(-3.5, 0.4, 'Non-vaccinated', fontsize=10, color=COL_CTL, ha='left')
-        ax_tab.text(max_year / 2, -0.6, 'Years from index date',
+        ax_tab.text(max_year / 2, -0.6, 'Years',
                     fontsize=11, ha='center', color='#222')
 
     plt.savefig(ROOT / 'Data' / 'Figure3_CohortB_CIF.png',
