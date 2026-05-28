@@ -848,7 +848,14 @@ def build_supplementary_docx(suffix: str = "") -> None:
         "90 days, ≥3 doses at 240 days. Patients (both arms) must be alive "
         "and event-free at the landmark to enter the analysis; for vaccinated "
         "cases, the k-th dose must additionally have been received by the "
-        "landmark. Time is left-truncated at the landmark.",
+        "landmark. Time is left-truncated at the landmark. The ≥2-dose, "
+        "90-day landmark row coincides with the v3 PRIMARY specification "
+        "(small numerical differences vs Table 3 reflect slightly different "
+        "matched-set integrity application: this Sens-C variant requires both "
+        "arms alive and event-free at the landmark whereas the v3 primary "
+        "drops the entire matched set if the vaccinated case fails the "
+        "landmark, then drops individual non-vaccinated patients with early "
+        "events).",
     )
     add_spacer(doc)
     h, b = read_csv(DATA / "Sensitivity_DoseThreshold_Landmark.csv")
