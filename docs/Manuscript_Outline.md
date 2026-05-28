@@ -150,16 +150,13 @@
 - High-risk hr-HPV clearance (pre-vaccine HPV+ subset)
 
 #### 2.3.2 Survival curves
-**Figure 3.** Kaplan-Meier curves for (a) recurrence and (b) hr-HPV clearance (pre-vaccine HPV+ subset) with log-rank p-value, number-at-risk table.
+**Figure 3 (v3).** Cumulative incidence curves (1 − Kaplan-Meier) anchored at the 3-month landmark for (a) lesion recurrence in P1 analytic n=912 and (b) hr-HPV clearance in P2 analytic n=235, with HR/CI/p annotation and number-at-risk table.
 
-#### 2.3.3 Vaccine-type subgroup
-**Figure 4.** Forest plot of HRs by vaccine type (Gardasil 9 / Cervarix / Gardasil) for both primary outcomes.
+#### 2.3.3 Combined subgroup forest
+**Figure 4 (v3).** JAMA-style combined table-with-forest plot of HRs by age (<40 / 40–49 / ≥50) and vaccine type (Gardasil 9 / Cervarix / quadrivalent Gardasil) for both co-primary outcomes. Replaces legacy separate Figure 4 (vaccine type only) and Figure 5 (age subgroups).
 
 #### 2.3.4 Sensitivity analyses
-**Figure 5** (or Table 4): Sensitivity analyses (recurrence)
-- Restricted follow-up (3y, 5y)
-- Adjusted vs unadjusted
-- As-treated
+**Supplementary Figure S6 (v3).** Five-panel summary forest plot — Sens-A (single-neg vs 2-cons-neg clearance), Sens-B (time-stratified clearance with 0–6mo signal), Sens-C (dose threshold), Sens-D (strict 1:4 matching), Sens-E (recurrence DFI 0/3/6/12mo post-landmark).
 
 ---
 
