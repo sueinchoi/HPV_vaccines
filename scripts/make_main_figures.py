@@ -394,6 +394,7 @@ def figure2(m):
     legend_handles_recorded = False
     legend_handles = []
     legend_labels = []
+    from matplotlib.ticker import PercentFormatter as _PercentFormatter
     for plabel, title, key, gs_pos in panel_specs:
         ax = fig.add_subplot(gs_pos)
         for grp_name, color, lbl in [('vac', COL_VAC, 'Vaccinated'),
@@ -416,7 +417,8 @@ def figure2(m):
         legend_handles_recorded = True
         ax.set_xlim(0, max_year); ax.set_ylim(bottom=0)
         ax.set_xlabel('Time (years)')
-        ax.set_ylabel('Cumulative incidence')
+        ax.set_ylabel('Cumulative incidence (%)')
+        ax.yaxis.set_major_formatter(_PercentFormatter(xmax=1.0, decimals=0))
         style_axes(ax)
         panel_label(ax, plabel)
 
@@ -448,21 +450,14 @@ def figure2(m):
     style_axes(ax_f); ax_f.grid(axis='x', alpha=0.25, linestyle=':')
     panel_label(ax_f, 'f')
 
-    # ---- Shared horizontal legend below all panels ----
+    # ---- Shared horizontal legend (Vaccinated / Non-vaccinated only) below all panels ----
     if legend_handles:
-        # Include the "insufficient events" criterion in the legend
-        from matplotlib.lines import Line2D
-        from matplotlib.patches import Patch
-        insufficient_proxy = Patch(facecolor='white', edgecolor='white',
-                                   label='Insufficient events: < 5 total events in either group (not modelled)')
-        full_handles = list(legend_handles) + [insufficient_proxy]
-        full_labels = list(legend_labels) + ['Insufficient events: < 5 total events in either group (not modelled)']
-        fig.legend(full_handles, full_labels,
-                   loc='lower center', ncol=len(full_handles),
+        fig.legend(legend_handles, legend_labels,
+                   loc='lower center', ncol=len(legend_handles),
                    bbox_to_anchor=(0.5, -0.04),
                    fontsize=11, frameon=False, columnspacing=2.5,
                    handletextpad=0.6, handlelength=2.0)
-        plt.subplots_adjust(bottom=0.14)
+        plt.subplots_adjust(bottom=0.12)
 
     plt.savefig('Data/Figure2_CohortA_CIF_HR.png', dpi=300, bbox_inches='tight', facecolor='white')
     plt.close()

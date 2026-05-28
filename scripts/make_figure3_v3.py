@@ -18,6 +18,7 @@ import numpy as np
 import pandas as pd
 from lifelines import CoxPHFitter, KaplanMeierFitter
 from matplotlib.gridspec import GridSpec
+from matplotlib.ticker import PercentFormatter
 
 warnings.filterwarnings('ignore')
 
@@ -174,7 +175,8 @@ def main():
     ax_a.set_ylim(0.0, 0.20)
     ax_a.set_xticks(range(0, max_year + 1, 2))
     ax_a.set_xlabel('')  # remove lifelines default "timeline"; at-risk panel carries the label
-    ax_a.set_ylabel('Cumulative incidence')
+    ax_a.set_ylabel('Cumulative incidence (%)')
+    ax_a.yaxis.set_major_formatter(PercentFormatter(xmax=1.0, decimals=0))
     leg_a = ax_a.get_legend()
     if leg_a is not None: leg_a.remove()
     style_axes(ax_a)
@@ -198,7 +200,8 @@ def main():
     ax_b.set_ylim(0.0, 0.85)
     ax_b.set_xticks(range(0, max_year + 1, 2))
     ax_b.set_xlabel('')  # remove lifelines default "timeline"; at-risk panel carries the label
-    ax_b.set_ylabel('Cumulative clearance probability')
+    ax_b.set_ylabel('Cumulative clearance probability (%)')
+    ax_b.yaxis.set_major_formatter(PercentFormatter(xmax=1.0, decimals=0))
     leg_b = ax_b.get_legend()
     if leg_b is not None: leg_b.remove()
     style_axes(ax_b)
