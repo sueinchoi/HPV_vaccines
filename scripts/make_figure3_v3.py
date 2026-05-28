@@ -18,7 +18,7 @@ import numpy as np
 import pandas as pd
 from lifelines import CoxPHFitter, KaplanMeierFitter
 from matplotlib.gridspec import GridSpec
-from matplotlib.ticker import PercentFormatter
+from matplotlib.ticker import PercentFormatter, FixedLocator
 
 warnings.filterwarnings('ignore')
 
@@ -176,6 +176,7 @@ def main():
     ax_a.set_xticks(range(0, max_year + 1, 2))
     ax_a.set_xlabel('')  # remove lifelines default "timeline"; at-risk panel carries the label
     ax_a.set_ylabel('Cumulative incidence (%)')
+    ax_a.yaxis.set_major_locator(FixedLocator([0.00, 0.05, 0.10, 0.15, 0.20]))
     ax_a.yaxis.set_major_formatter(PercentFormatter(xmax=1.0, decimals=1))
     leg_a = ax_a.get_legend()
     if leg_a is not None: leg_a.remove()
@@ -197,10 +198,11 @@ def main():
               bbox=dict(facecolor='white', edgecolor=COL_LIGHTGREY,
                         boxstyle='round,pad=0.45'))
     ax_b.set_xlim(0, max_year)
-    ax_b.set_ylim(0.0, 0.85)
+    ax_b.set_ylim(0.0, 0.60)
     ax_b.set_xticks(range(0, max_year + 1, 2))
     ax_b.set_xlabel('')  # remove lifelines default "timeline"; at-risk panel carries the label
     ax_b.set_ylabel('Cumulative clearance probability (%)')
+    ax_b.yaxis.set_major_locator(FixedLocator([0.00, 0.20, 0.40, 0.60]))
     ax_b.yaxis.set_major_formatter(PercentFormatter(xmax=1.0, decimals=1))
     leg_b = ax_b.get_legend()
     if leg_b is not None: leg_b.remove()
