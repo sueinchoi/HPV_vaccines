@@ -51,9 +51,9 @@ def style_axes(ax):
 
 
 def panel_label(ax, label):
-    # Top-right placement, consistent across panels
-    ax.text(0.98, 1.05, label, transform=ax.transAxes,
-            fontsize=14, fontweight='bold', va='top', ha='right')
+    # Top-left placement, consistent across panels
+    ax.text(0.02, 1.05, label, transform=ax.transAxes,
+            fontsize=14, fontweight='bold', va='top', ha='left')
 
 
 def build_p1_p2():
@@ -165,9 +165,9 @@ def main():
     kmf_v.plot_cumulative_density(ax=ax_a, ci_alpha=0.15, color=COL_VAC, lw=LINE_W)
     kmf_c.plot_cumulative_density(ax=ax_a, ci_alpha=0.15, color=COL_CTL, lw=LINE_W)
     hr, lo, hi, pv = cox_hr(p1)
-    ax_a.text(0.97, 0.04,
+    ax_a.text(0.97, 0.96,
               f"HR = {hr:.2f} (95% CI {lo:.2f}–{hi:.2f})\np = {pv:.3f}",
-              transform=ax_a.transAxes, fontsize=10.5, va='bottom', ha='right',
+              transform=ax_a.transAxes, fontsize=10.5, va='top', ha='right',
               bbox=dict(facecolor='white', edgecolor=COL_LIGHTGREY,
                         boxstyle='round,pad=0.45'))
     ax_a.set_xlim(0, max_year)
@@ -188,9 +188,9 @@ def main():
     kmf_v2.plot_cumulative_density(ax=ax_b, ci_alpha=0.15, color=COL_VAC, lw=LINE_W)
     kmf_c2.plot_cumulative_density(ax=ax_b, ci_alpha=0.15, color=COL_CTL, lw=LINE_W)
     hr2, lo2, hi2, pv2 = cox_hr(p2)
-    ax_b.text(0.55, 0.05,
+    ax_b.text(0.97, 0.96,
               f"HR = {hr2:.2f} (95% CI {lo2:.2f}–{hi2:.2f})\np = {pv2:.3f}",
-              transform=ax_b.transAxes, fontsize=10.5, va='bottom', ha='center',
+              transform=ax_b.transAxes, fontsize=10.5, va='top', ha='right',
               bbox=dict(facecolor='white', edgecolor=COL_LIGHTGREY,
                         boxstyle='round,pad=0.45'))
     ax_b.set_xlim(0, max_year)

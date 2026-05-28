@@ -450,11 +450,19 @@ def figure2(m):
 
     # ---- Shared horizontal legend below all panels ----
     if legend_handles:
-        fig.legend(legend_handles, legend_labels,
-                   loc='lower center', ncol=len(legend_labels),
-                   bbox_to_anchor=(0.5, 0.005),
-                   fontsize=11, frameon=False, columnspacing=2.0)
-        plt.subplots_adjust(bottom=0.10)
+        # Include the "insufficient events" criterion in the legend
+        from matplotlib.lines import Line2D
+        from matplotlib.patches import Patch
+        insufficient_proxy = Patch(facecolor='white', edgecolor='white',
+                                   label='Insufficient events: < 5 total events in either group (not modelled)')
+        full_handles = list(legend_handles) + [insufficient_proxy]
+        full_labels = list(legend_labels) + ['Insufficient events: < 5 total events in either group (not modelled)']
+        fig.legend(full_handles, full_labels,
+                   loc='lower center', ncol=len(full_handles),
+                   bbox_to_anchor=(0.5, -0.04),
+                   fontsize=11, frameon=False, columnspacing=2.5,
+                   handletextpad=0.6, handlelength=2.0)
+        plt.subplots_adjust(bottom=0.14)
 
     plt.savefig('Data/Figure2_CohortA_CIF_HR.png', dpi=300, bbox_inches='tight', facecolor='white')
     plt.close()
@@ -784,7 +792,7 @@ def figure4_subgroup():
         ax = axes[idx]
         n = len(rows)
         favourable_lt1 = (direction == 'protective_lt1')
-        ax.set_xlim(0, 1); ax.set_ylim(n + 1.6, HEADER_Y - 0.6)
+        ax.set_xlim(0, 1); ax.set_ylim(n + 1.6, HEADER_Y - 2.4)
         ax.axis('off')
 
         # ---- Column headers ----
@@ -872,8 +880,8 @@ def figure4_subgroup():
         ax.text((XCOL['forest_lo']+XCOL['forest_hi'])/2, x_axis_y + 1.05,
                 'Hazard ratio (log scale)', fontsize=10.5, ha='center', va='center')
 
-        # ---- Panel label only (outcome title moved to figure legend) ----
-        ax.text(-0.005, HEADER_Y - 0.3, plabel, fontsize=15, fontweight='bold',
+        # ---- Panel label (a, b) — placed with extra clearance above the header row ----
+        ax.text(-0.005, HEADER_Y - 1.8, plabel, fontsize=16, fontweight='bold',
                 ha='left', va='bottom', clip_on=False)
 
     plt.savefig('Data/Figure4_CohortB_Subgroup.png', dpi=300,
