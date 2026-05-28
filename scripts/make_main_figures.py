@@ -394,7 +394,13 @@ def figure2(m):
     legend_handles_recorded = False
     legend_handles = []
     legend_labels = []
-    from matplotlib.ticker import PercentFormatter as _PercentFormatter
+    from matplotlib.ticker import PercentFormatter as _PercentFormatter, FixedLocator as _FixedLocator
+    # Per user request, unify y-axis ranges:
+    #   panels a (Any-of-5) and c (Diabetes):    0, 1, 2, 3, 4, 5  (%)
+    #   panels b (MCE), d (Hypertension), e (Angina/MI):  0, 0.5, 1, 1.5, 2  (%)
+    y_high = [0.00, 0.01, 0.02, 0.03, 0.04, 0.05]
+    y_low  = [0.000, 0.005, 0.010, 0.015, 0.020]
+    Y_TICKS_BY_PANEL = {'a': y_high, 'b': y_low, 'c': y_high, 'd': y_low, 'e': y_low}
     for plabel, title, key, gs_pos in panel_specs:
         ax = fig.add_subplot(gs_pos)
         for grp_name, color, lbl in [('vac', COL_VAC, 'Vaccinated'),
@@ -415,10 +421,16 @@ def figure2(m):
             except Exception:
                 pass
         legend_handles_recorded = True
-        ax.set_xlim(0, max_year); ax.set_ylim(bottom=0)
+        ax.set_xlim(0, max_year)
         ax.set_xlabel('Time (years)')
         ax.set_ylabel('Cumulative incidence (%)')
-        ax.yaxis.set_major_formatter(_PercentFormatter(xmax=1.0, decimals=0))
+        ax.yaxis.set_major_formatter(_PercentFormatter(xmax=1.0, decimals=1))
+        ticks = Y_TICKS_BY_PANEL.get(plabel)
+        if ticks is not None:
+            ax.set_ylim(ticks[0], ticks[-1])
+            ax.yaxis.set_major_locator(_FixedLocator(ticks))
+        else:
+            ax.set_ylim(bottom=0)
         style_axes(ax)
         panel_label(ax, plabel)
 
