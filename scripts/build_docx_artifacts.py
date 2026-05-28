@@ -220,11 +220,11 @@ def table1_rows() -> tuple[list[str], list[list[str]]]:
         if block not in keep:
             continue
         block_label = {
-            "CohortA_post": "Cohort A (post-PSM — ≥1 dose, no landmark; legacy)",
-            "CohortA_post_v3": "Cohort A (≥2 dose + 3-mo landmark; v3 PRIMARY)",
-            "CohortB_post": "Cohort B (post fine match — ≥1 dose, no landmark; legacy)",
-            "CohortB_post_v3": "Cohort B (≥2 dose + 3-mo landmark; v3 PRIMARY)",
-            "CohortB_clearance": "Cohort B — clearance subset (≥1 dose, no landmark)",
+            "CohortA_post": "Cohort A (1:1 PSM intermediate)",
+            "CohortA_post_v3": "Cohort A (primary analytic)",
+            "CohortB_post": "Cohort B (1:up-to-4 fine match intermediate)",
+            "CohortB_post_v3": "Cohort B (primary analytic)",
+            "CohortB_clearance": "Cohort B — clearance subset",
         }[block]
         out.append([block_label, translate_korean(var), vac, ctl, p, smd])
     return out_header, out
@@ -408,10 +408,10 @@ def build_tables_figures_docx(suffix: str = "") -> None:
         "score matching to a final n = 4,102 (2,051 vaccinated / 2,051 "
         "unvaccinated); and Cohort B (post-surgical efficacy analysis) through "
         "the cervical-surgery filter (n = 6,890), 1:up-to-5 initial matching "
-        "(411 / 1,815), index-date eligibility, 1:up-to-4 fine matching to "
-        "1,108 (241 / 867; legacy intermediate), and finally the ≥2-dose + "
-        "3-month landmark filter with matched-set integrity yielding the v3 "
-        "primary cohort n = 934 (204 vaccinated / 730 unvaccinated).",
+        "(411 / 1,815), index-date eligibility, 1:up-to-4 fine matching, "
+        "and the primary exposure filter (≥2 doses + 3-month landmark with "
+        "matched-set integrity preserved) yielding the primary analytic "
+        "cohort n = 934 (204 vaccinated / 730 controls).",
     )
     doc.add_page_break()
 
@@ -432,13 +432,14 @@ def build_tables_figures_docx(suffix: str = "") -> None:
     add_image(doc, DATA / "Figure3_CohortB_CIF.png", width_in=6.5)
     add_caption(
         doc, "Figure 3",
-        "Cohort B co-primary outcomes under the v3 primary (≥2-dose + 3-month "
-        "landmark) — cumulative incidence curves with number-at-risk tables. "
-        "(a) lesion recurrence (≥CIN2) in the v3 Cohort B (n = 934; 204 "
-        "vaccinated / 730 controls); (b) cumulative clearance of pre-vaccine "
-        "hr-HPV (two-consecutive-negative event) in the v3 pre-vaccine HPV+ "
-        "subset (n = 235; 92 / 143). X-axis is years from landmark (index + 90 "
-        "days). For clearance, HR > 1 favours vaccinated.",
+        "Cohort B co-primary outcomes — cumulative incidence curves with "
+        "number-at-risk tables. (a) lesion recurrence (≥CIN2) in the "
+        "lesion-recurrence analytic sample (n = 912: 203 vaccinated / 709 "
+        "controls); (b) cumulative clearance of pre-existing hr-HPV "
+        "(two-consecutive-negative event) in the clearance subset (n = 235: "
+        "92 vaccinated / 143 controls). The x-axis is years from the "
+        "3-month landmark (index + 90 days). For clearance, HR > 1 favours "
+        "the vaccinated arm.",
     )
     doc.add_page_break()
 
@@ -461,35 +462,13 @@ def build_tables_figures_docx(suffix: str = "") -> None:
     t1_header = ["Variable", "Vaccinated", "Non-vaccinated", "p value", "|SMD|"]
     t1_widths = [2.4, 1.1, 1.2, 0.6, 0.6]
 
-    # Append a single "Pre-vaccine hr-HPV+" row to the Cohort B block in lieu
-    # of a separate clearance-subset table. Counts/p/SMD precomputed against
-    # CohortB_Clearance_Analytic.csv (n_v=110/241, n_c=182/867).
-    cohortB_rows = splits["CohortB_post"] + [
-        ["HPV history", "", "", "", ""],
-        ["  Pre-vaccine hr-HPV+ (clearance analytic subset)",
-         "110 (45.6%)", "182 (21.0%)", "<0.001", "0.542"],
-    ]
-
     add_caption(
         doc, "Table 1A",
-        "Baseline characteristics after 1:1 propensity-score matching — "
-        "Cohort A (long-term safety analysis; legacy ≥1-dose, no-landmark "
-        "intermediate cohort). N = 4,102 (2,051 vaccinated / 2,051 "
-        "unvaccinated). Absolute standardised mean differences (|SMD|) < "
-        "0.10 indicate adequate balance.",
-    )
-    add_spacer(doc)
-    add_table(doc, t1_header, splits["CohortA_post"], col_widths_in=t1_widths)
-    doc.add_page_break()
-
-    add_caption(
-        doc, "Table 1A (v3 PRIMARY)",
-        "Baseline characteristics under the ≥2-dose + 3-month landmark v3 "
-        "PRIMARY exposure definition — Cohort A (long-term safety analysis). "
-        "N = 2,776 (1,396 vaccinated / 1,380 matched controls). Derived from "
-        "the 1:1 PSM cohort by dropping 610 matched pairs that failed the "
-        "≥2-dose threshold and 47 matched pairs that failed the 3-month "
-        "landmark FU filter.",
+        "Baseline characteristics of Cohort A (chronic-disease safety "
+        "analysis) after 1:1 propensity-score matching and primary exposure "
+        "filtering. N = 2,776 (1,396 vaccinated / 1,380 matched controls). "
+        "Absolute standardised mean differences (|SMD|) < 0.10 indicate "
+        "adequate balance.",
     )
     add_spacer(doc)
     add_table(doc, t1_header, splits["CohortA_post_v3"], col_widths_in=t1_widths)
@@ -497,32 +476,13 @@ def build_tables_figures_docx(suffix: str = "") -> None:
 
     add_caption(
         doc, "Table 1B",
-        "Baseline characteristics after 1:up-to-4 fine matching — Cohort B "
-        "(post-surgical efficacy analysis; ≥1-dose, no-landmark legacy "
-        "exposure definition retained for reference). N = 1,108 "
-        "(241 vaccinated / 867 unvaccinated; mean realised ratio 3.60). "
-        "Absolute standardised mean differences (|SMD|) < 0.10 indicate "
-        "adequate balance. The final row (Pre-vaccine hr-HPV+) defines the "
-        "clearance co-primary analytic subset (n = 292: 110 vaccinated / "
-        "182 unvaccinated); the large |SMD| on this row reflects differential "
-        "pre-vaccine molecular-pathology test frequency rather than a "
-        "balance failure of the fine matching on the other covariates.",
-    )
-    add_spacer(doc)
-    add_table(doc, t1_header, cohortB_rows, col_widths_in=t1_widths)
-    doc.add_page_break()
-
-    add_caption(
-        doc, "Table 1C",
-        "Baseline characteristics under the ≥2-dose + 3-month landmark PRIMARY "
-        "exposure definition — Cohort B (post-surgical efficacy analysis). "
-        "N = 934 (204 vaccinated / 730 fine-matched controls). Matched-set "
-        "integrity preserved: vaccinated cases failing the ≥2-dose or "
-        "landmark filter had their full fine-matched set removed. Additional "
-        "variables — pre-surgery / post-surgery HPV test status (any-time and "
-        "pre-vaccine windowed) and surgical-pathology severity (HSIL/CIN3 vs "
-        "invasive cancer vs lower-grade) — are added to support cohort "
-        "characterisation requested at revision.",
+        "Baseline characteristics of Cohort B (post-surgical efficacy "
+        "analysis) after variable-ratio 1:up-to-4 fine matching and primary "
+        "exposure filtering. N = 934 (204 vaccinated / 730 fine-matched "
+        "controls). Absolute standardised mean differences (|SMD|) < 0.10 "
+        "indicate adequate balance. Pre- and post-surgery HPV status and "
+        "surgical-pathology severity rows characterise the cervical-disease "
+        "context at the time of the qualifying surgery.",
     )
     add_spacer(doc)
     add_table(doc, t1_header, splits["CohortB_post_v3"], col_widths_in=t1_widths)
@@ -661,15 +621,13 @@ def build_supplementary_docx(suffix: str = "") -> None:
     add_table(doc, h, rows)
     doc.add_page_break()
 
-    # S3: Age × FU forest data (legacy ≥1-dose cohort; exploratory only)
+    # S3: Age × FU forest data (exploratory; reported as hypothesis-generating)
     add_caption(
         doc, "Supplementary Table S3",
         "Age-stratified hazard ratios for Cohort B lesion recurrence across "
-        "follow-up windows. Computed on the legacy ≥1-dose, no-landmark Cohort B "
-        "(n = 1,108: 241 vac / 867 ctl) because the v3 primary cohort (n = 934) "
-        "leaves too few events for stable age × follow-up subgroup estimation. "
-        "Reported as exploratory grid-search only; no inference is drawn (see "
-        "Manuscript Limitations).",
+        "follow-up windows. Reported descriptively as an exploratory "
+        "hypothesis-generating analysis; no inference is drawn from these "
+        "subgroup estimates (see Manuscript Limitations).",
     )
     add_spacer(doc)
     h_src, b_src = read_csv(DATA / "CohortB_age_fu_forest.csv")
@@ -691,36 +649,34 @@ def build_supplementary_docx(suffix: str = "") -> None:
               col_widths_in=[1.1, 1.3, 0.6, 1.0, 1.0, 1.2, 0.5])
     doc.add_page_break()
 
-    # S4: Number at risk — Cohort B v3 primary, anchored at landmark (index + 90 d)
+    # S4: Number at risk — Cohort B, anchored at landmark (index + 90 d)
     add_caption(
         doc, "Supplementary Table S4",
-        "Number-at-risk tables for Cohort B v3 primary cumulative-incidence "
-        "curves, anchored at the 3-month landmark (index + 90 days); years 0, "
-        "2, 4, 6, 8, 10 measured from landmark. Lesion recurrence rows are "
-        "the P1 analytic sample (n = 912: 203 / 709); hr-HPV clearance rows "
-        "are the P2 analytic sample (n = 235: 92 / 143).",
+        "Number-at-risk tables for Cohort B cumulative-incidence curves, "
+        "anchored at the 3-month landmark (index + 90 days); years 0, 2, 4, "
+        "6, 8, 10 measured from landmark. Lesion-recurrence rows are the "
+        "lesion-recurrence analytic sample (n = 912: 203 / 709); hr-HPV "
+        "clearance rows are the clearance subset (n = 235: 92 / 143).",
     )
     add_spacer(doc)
     nar_header = ["Outcome", "Group", "0", "2", "4", "6", "8", "10"]
     nar_body = [
-        ["Lesion recurrence (P1, v3)", "Vaccinated",     "203", "171", "119", "69",  "49",  "34"],
-        ["Lesion recurrence (P1, v3)", "Non-vaccinated", "709", "608", "421", "260", "174", "107"],
-        ["hr-HPV clearance (P2, v3)",  "Vaccinated",      "92",  "53",  "37", "17",  "10",   "6"],
-        ["hr-HPV clearance (P2, v3)",  "Non-vaccinated", "143", "101",  "69", "39",  "20",  "10"],
+        ["Lesion recurrence",  "Vaccinated",     "203", "171", "119", "69",  "49",  "34"],
+        ["Lesion recurrence",  "Non-vaccinated", "709", "608", "421", "260", "174", "107"],
+        ["hr-HPV clearance",   "Vaccinated",      "92",  "53",  "37", "17",  "10",   "6"],
+        ["hr-HPV clearance",   "Non-vaccinated", "143", "101",  "69", "39",  "20",  "10"],
     ]
     add_table(doc, nar_header, nar_body)
     doc.add_page_break()
 
-    # S5: Vaccine-type interaction (legacy ≥1-dose cohort)
+    # S5: Vaccine-type interaction
     add_caption(
         doc, "Supplementary Table S5",
         "Per-vaccine-type detailed results — single-model interaction-derived "
         "hazard ratios with the likelihood-ratio test for vaccine-type "
-        "heterogeneity. Rows include both co-primary outcomes plus the legacy "
-        "post-index hr-HPV detection sensitivity. Computed on the legacy "
-        "≥1-dose Cohort B (vaccine-type strata in the v3 cohort have too few "
-        "events for stable estimation: n=128 Gardasil 9 / 77 Cervarix / 36 "
-        "quadrivalent Gardasil under ≥1-dose collapses further under ≥2-dose).",
+        "heterogeneity. Rows include both co-primary outcomes plus an "
+        "exploratory post-index hr-HPV detection model that conflates "
+        "persistence with new acquisition (reported descriptively only).",
     )
     add_spacer(doc)
     h, b = read_csv(DATA / "CohortB_vaccine_interaction.csv")
@@ -750,9 +706,9 @@ def build_supplementary_docx(suffix: str = "") -> None:
         doc, "Supplementary Table S6",
         "Cluster-robust hazard ratios with person-years, incidence rates per "
         "1,000 person-years, and Schoenfeld residual p-values for both "
-        "cohorts. Cohort B rows include both co-primary outcomes (lesion "
-        "recurrence, hr-HPV clearance) and the legacy post-index hr-HPV "
-        "detection sensitivity row.",
+        "cohorts. Cohort B rows report both co-primary outcomes (lesion "
+        "recurrence, hr-HPV clearance) and the Kaplan–Meier sustained-"
+        "clearance summary.",
     )
     add_spacer(doc)
     h, b = read_csv(DATA / "Table2_CohortA_HazardRatios.csv")
@@ -858,20 +814,15 @@ def build_supplementary_docx(suffix: str = "") -> None:
     # S8B: Dose threshold with landmark (immortal-time-corrected)
     add_caption(
         doc, "Supplementary Table S8B",
-        "(Sens-C, landmark) Immortal-time-bias-corrected dose-threshold "
-        "sensitivity for Cohort B. Landmarks reflect the standard HPV-vaccine "
-        "0–2–6 month schedule plus grace: ≥1 dose at 30 days, ≥2 doses at "
-        "90 days, ≥3 doses at 240 days. Patients (both arms) must be alive "
-        "and event-free at the landmark to enter the analysis; for vaccinated "
-        "cases, the k-th dose must additionally have been received by the "
-        "landmark. Time is left-truncated at the landmark. The ≥2-dose, "
-        "90-day landmark row coincides with the v3 PRIMARY specification "
-        "(small numerical differences vs Table 3 reflect slightly different "
-        "matched-set integrity application: this Sens-C variant requires both "
-        "arms alive and event-free at the landmark whereas the v3 primary "
-        "drops the entire matched set if the vaccinated case fails the "
-        "landmark, then drops individual non-vaccinated patients with early "
-        "events).",
+        "Immortal-time-bias-corrected dose-threshold sensitivity for Cohort B. "
+        "Landmarks reflect the standard HPV-vaccine 0–2–6 month schedule plus "
+        "grace: ≥1 dose at 30 days, ≥2 doses at 90 days, ≥3 doses at 240 days. "
+        "Patients in both arms must be alive and event-free at the landmark "
+        "to enter the analysis; for vaccinated cases, the k-th dose must "
+        "additionally have been received by the landmark. Time is "
+        "left-truncated at the landmark. The ≥2-dose, 90-day landmark "
+        "specification coincides with the primary specification used in the "
+        "main analysis.",
     )
     add_spacer(doc)
     h, b = read_csv(DATA / "Sensitivity_DoseThreshold_Landmark.csv")

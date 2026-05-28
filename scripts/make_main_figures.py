@@ -161,9 +161,19 @@ def figure1():
         'Propensity-score model\n+ 1:1 matching',
         fc='#eaf6ee', ec='#155724', fs=12)
 
-    arrow(3.0, 4.80, 3.0, 4.50)
-    box(3.0, 3.85, 4.6, 1.1,
-        'Final Cohort A   n = 4,102\nVaccinated 2,051\nUnvaccinated 2,051',
+    arrow(3.0, 4.80, 3.0, 4.55)
+    box(3.0, 4.18, 4.6, 0.55,
+        '1:1 PSM match\nVac 2,053 / Non-vac 2,053',
+        fc='#eaf6ee', ec='#155724', fs=11)
+
+    arrow(3.0, 3.90, 3.0, 3.68)
+    box(3.0, 3.32, 4.6, 0.55,
+        'Primary exposure filter\n≥2 doses + 3-month landmark',
+        fc='#eaf6ee', ec='#155724', fs=11)
+
+    arrow(3.0, 3.04, 3.0, 2.82)
+    box(3.0, 2.35, 4.6, 0.95,
+        'Cohort A\nn = 2,776\nVaccinated 1,396 / Non-vac 1,380',
         fc='#a8d5b5', ec='#155724', fs=12, weight='bold')
 
     # === Cohort B steps (concise) ===
@@ -179,17 +189,17 @@ def figure1():
 
     arrow(9.0, 5.35, 9.0, 5.13)
     box(9.0, 4.80, 4.6, 0.55,
-        '1:up-to-4 fine match\nVac 241 / Non-vac 867 (n = 1,108)',
+        '1:up-to-4 fine match\nVac 241 / Non-vac 867',
         fc='#fdedee', ec='#9b2226', fs=11)
 
     arrow(9.0, 4.52, 9.0, 4.30)
     box(9.0, 3.97, 4.6, 0.55,
-        '≥2-dose + 3-month landmark\n(matched-set integrity preserved)',
+        'Primary exposure filter\n≥2 doses + 3-month landmark',
         fc='#fdedee', ec='#9b2226', fs=11)
 
     arrow(9.0, 3.69, 9.0, 3.47)
     box(9.0, 3.00, 4.6, 0.95,
-        'Final Cohort B (PRIMARY)\nn = 934\nVaccinated 204 / Non-vac 730',
+        'Cohort B\nn = 934\nVaccinated 204 / Non-vac 730',
         fc='#f4a4a8', ec='#9b2226', fs=12, weight='bold')
 
     plt.tight_layout()

@@ -1,6 +1,6 @@
 # 본 연구의 Follow-up 특성 — 종합 분석
 
-이 문서는 Cohort B v3 primary cohort (≥2 dose + 3-mo landmark, n = 934)를 중심으로 본 연구의 follow-up 특성을 진단하고, 해석에 영향을 줄 수 있는 selection/length bias·calendar·surveillance·competing-risk 이슈를 정리한다.
+이 문서는 Cohort B primary cohort (≥2 dose + 3-mo landmark, n = 934)를 중심으로 본 연구의 follow-up 특성을 진단하고, 해석에 영향을 줄 수 있는 selection/length bias·calendar·surveillance·competing-risk 이슈를 정리한다.
 
 ---
 
@@ -8,7 +8,7 @@
 
 **보고 표준**: 본 연구는 follow-up time을 **reverse Kaplan–Meier (Schemper–Smith 1996)** 방식으로 보고한다. Reverse-KM은 event indicator를 invert하여 censoring distribution에 KM을 적용함으로써 **median potential follow-up time**을 unbiased로 추정한다. Naïve median (단순 관찰 FU)은 event가 일찍 일어난 환자가 짧은 시간으로 잘려 들어가 systematic하게 underestimate된다.
 
-### 1.1 Cohort B v3 (PRIMARY, n = 934) — **reverse-KM**
+### 1.1 Cohort B (PRIMARY, n = 934) — **reverse-KM**
 
 | Time origin | Group | n | reverse-KM median (y) | IQR (y) | Naïve median (참고) | Max observed (y) |
 |---|---|---|---|---|---|---|
@@ -32,7 +32,7 @@
 **해석**: 두 군의 follow-up은 잘 균형되어 있다. 중간 추적 5년 + 평균 6년 + 최장 15년이라는 분포는 **CDW 기반 후향 cohort study로서는 매우 긴 편**이며, KOSIS·국내 HPV 백신 효과 연구 중 가장 긴 FU 범위에 속한다.
 
 ### 1.2 Cohort B legacy (≥1 dose, no landmark, n = 1,108)
-- Vac median 4.88 y (mean 6.12), Non median 5.02 y (mean 6.12). v3 cohort와 거의 동일.
+- Vac median 4.88 y (mean 6.12), Non median 5.02 y (mean 6.12).  cohort와 거의 동일.
 
 ---
 
@@ -80,8 +80,8 @@ Year  | Vac    Non    Total
 
 | Group | n | Deaths during FU | % |
 |---|---|---|---|
-| Vac (v3) | 204 | 0 | 0.00% |
-| Non-vac (v3) | 730 | 3 | 0.41% |
+| Vac () | 204 | 0 | 0.00% |
+| Non-vac () | 730 | 3 | 0.41% |
 | Source population (모든 N=32,969) | 32,969 | 376 | 1.14% |
 
 **해석**: Cohort B는 평균 37세 여성 인구이며 follow-up 중 **사망 거의 없음 (3건)**. 따라서:
@@ -125,7 +125,7 @@ Year  | Vac    Non    Total
 | Non | not cleared | 119 | 4.73 | 5.38 |
 
 **관찰**:
-- **Vaccinated cleared 환자는 median FU 8.67년**으로, v3 cohort 전체 vac median (4.87년)의 **거의 2배**.
+- **Vaccinated cleared 환자는 median FU 8.67년**으로, primary cohort 전체 vac median (4.87년)의 **거의 2배**.
 - Non-vac cleared 환자도 비슷한 length bias (5.54 vs 4.73년) 하지만 vac에서 훨씬 강함.
 - 즉, "2연속 음성" 정의는 자연히 follow-up이 긴 환자를 selection.
 - 이 length bias가 sustained clearance KM median (vac 10.79y vs non 5.67y)을 **인공적으로 부풀린 것**으로 확인됨.
@@ -152,7 +152,7 @@ Year  | Vac    Non    Total
 
 **해석**: 
 - Non-vac에서 재발이 더 일찍 일어남 (median 0.86 y vs 2.23 y).
-- 그러나 v3 primary HR = 1.01 (null) — 즉 timing 차이는 있으나 누적 incidence는 동등.
+- 그러나 primary HR = 1.01 (null) — 즉 timing 차이는 있으나 누적 incidence는 동등.
 - Non-vac의 early recurrence는 surgical incomplete excision 가능성을 시사 (Sens-E disease-free interval analysis에서도 다뤄진 부분).
 
 ---
@@ -161,7 +161,7 @@ Year  | Vac    Non    Total
 
 **그렇다 — 비교 가능한 한국 후향 cohort study 중 상위권**:
 
-| 지표 | 본 연구 (v3) | 일반적 후향 cohort 기준 |
+| 지표 | 본 연구 () | 일반적 후향 cohort 기준 |
 |---|---|---|
 | Median FU | 4.87 y | 2–4 y (대부분) |
 | Mean FU | 6.10 y | 3–5 y |

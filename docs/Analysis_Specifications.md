@@ -148,11 +148,11 @@ The 14 candidate sensitivity analyses are partitioned into **five essential anal
 
 | ID | Description | Defends | Cohort | Direction | Output |
 |---|---|---|---|---|---|
-| **Sens-A** | Single-negative test vs two-consecutive-negative clearance event definition | P2 outcome-definition robustness | v3 clearance subset (n = 235; 92 / 143) | HR > 1 | `Data/Sensitivity_HPV_Clearance_SingleNegative_v3.csv` |
-| **Sens-B** | Time-stratified clearance HR (0–6, 6–12, 12–24, ≥24 mo post-landmark; left-truncation at each window's lower bound) | P2 PH-violation decomposition | v3 clearance subset | HR > 1 | `Data/Sensitivity_HPV_Clearance_TimeStratified_v3.csv` |
+| **Sens-A** | Single-negative test vs two-consecutive-negative clearance event definition | P2 outcome-definition robustness | clearance subset (n = 235; 92 / 143) | HR > 1 | `Data/Sensitivity_HPV_Clearance_SingleNegative_v3.csv` |
+| **Sens-B** | Time-stratified clearance HR (0–6, 6–12, 12–24, ≥24 mo post-landmark; left-truncation at each window's lower bound) | P2 PH-violation decomposition | clearance subset | HR > 1 | `Data/Sensitivity_HPV_Clearance_TimeStratified_v3.csv` |
 | **Sens-C** | Dose-threshold ≥2 / ≥3 (matched-set preserved) | P1+P2 exposure-misclassification | Cohort A 1:1 + Cohort B 1:up-to-4 | HR < 1 (recurrence); HR > 1 (clearance) | `Data/Sensitivity_DoseThreshold_HR.csv` |
 | **Sens-D** | Strict 1:4 fine matching | P1 matching-structure robustness | Cohort B (strict subset) | HR < 1 | `Data/Sensitivity_StrictMatching.csv` |
-| **Sens-E** | Lesion recurrence with ≥3, ≥6, ≥12-month minimum disease-free interval **post-landmark** (in addition to the 90-day landmark in the v3 primary) | P1 incomplete-excision artefact | v3 Cohort B P1 analytic | HR < 1 | `Data/Sensitivity_Recurrence_DFInterval_v3.csv` |
+| **Sens-E** | Lesion recurrence with ≥3, ≥6, ≥12-month minimum disease-free interval **post-landmark** (in addition to the 90-day landmark in the primary specification) | P1 incomplete-excision artefact | lesion-recurrence analytic sample | HR < 1 | `Data/Sensitivity_Recurrence_DFInterval_v3.csv` |
 
 #### 4.5.2 Appendix-only sensitivity analyses (supplementary tables only)
 
@@ -175,9 +175,9 @@ These analyses are retained in the supplementary material for reviewer transpare
 
 Effective with this revision, the **primary Cohort B exposure** requires **≥2 distinct HPV-vaccine prescription dates** (counted from the prescription file using the same identification rules as §2; identical-day records collapse to one dose). A **symmetric 3-month landmark** is applied across arms: the at-risk clock is shifted to `index + 90 days`, patients with < 90 days follow-up or with an outcome event in the first 90 days are excluded, and matched non-vaccinated controls of any vaccinated case dropped by the dose or landmark filter are removed in the same step to preserve matched-set integrity.
 
-**v3 primary applies symmetrically to BOTH cohorts** for methodological consistency:
+**The primary exposure definition applies symmetrically to both cohorts** for methodological consistency:
 
-| Cohort | Pre-v3 matched n | After ≥2-dose filter | After 3-mo landmark | v3 PRIMARY cohort |
+| Cohort | Pre-filter matched n | After ≥2-dose filter | After 3-mo landmark | Primary cohort |
 |---|---|---|---|---|
 | **Cohort A** (1:1 PSM) | 4,106 (2,053 / 2,053) | 2,886 (1,443 / 1,443) | 2,776 | **2,776 (1,396 / 1,380)** |
 | **Cohort B** (1:up-to-4 fine) | 1,108 (241 / 867) | 974 (205 / 769) | 934 | **934 (204 / 730)** |
@@ -188,9 +188,9 @@ Cohort B primary **analytic samples** (post-event-landmark filter, used by the C
 - **P1 lesion recurrence**: n = **912 (203 / 709)** — one additional matched set removed because the vaccinated case had a recurrence event in the first 90 days, plus a small number of non-vaccinated controls with early events.
 - **P2 hr-HPV clearance**: n = **235 (92 / 143)** — restricted to women with documented pre-vaccine hr-HPV positivity, matched-set integrity preserved, early clearance events removed.
 
-The previous `≥1-dose, no-landmark` definition is retained as **Sens-C exposure-definition sensitivity** (legacy primary). Direction of effect comparisons:
+The ≥1-dose, no-landmark definition is reported as an exposure-definition sensitivity analysis. Direction of effect comparisons:
 
-| Outcome | ≥1 dose, no landmark (Sens-C, legacy) | ≥2 dose + 3-mo landmark (NEW PRIMARY) |
+| Outcome | ≥1 dose, no landmark (sensitivity) | ≥2 dose + 3-mo landmark (primary) |
 |---|---|---|
 | Lesion recurrence (CIN2+) | HR 0.80 (0.44–1.43), p = 0.45 | HR 1.01 (0.49–2.06), p = 0.985 |
 | hr-HPV clearance | HR 1.40 (0.92–2.11), p = 0.11 | **HR 1.85 (1.09–3.17), p = 0.024** ✅ |
@@ -200,20 +200,20 @@ Interpretation: the lesion-recurrence directional protection observed under ≥1
 
 ### 4.5c Follow-up time reporting
 
-All follow-up duration statistics in the manuscript are reported using the **reverse Kaplan–Meier method of Schemper and Smith** (Control Clin Trials 1996;17:343-346). The event indicator is inverted (censoring becomes the "event", outcome becomes the censoring) and the Kaplan–Meier estimator is applied to the resulting series; the resulting median is the unbiased estimate of the *median potential follow-up time*. The naïve median of observed follow-up time is systematically biased downward when outcome events truncate observation; the difference is small in this study (≈0.07 y in Cohort B v3) but the reverse-KM is the methodologically preferred reporting convention and is used uniformly across cohorts and subsets.
+All follow-up duration statistics in the manuscript are reported using the **reverse Kaplan–Meier method of Schemper and Smith** (Control Clin Trials 1996;17:343-346). The event indicator is inverted (censoring becomes the "event", outcome becomes the censoring) and the Kaplan–Meier estimator is applied to the resulting series; the resulting median is the unbiased estimate of the *median potential follow-up time*. The naïve median of observed follow-up time is systematically biased downward when outcome events truncate observation; the difference is small in this study (≈0.07 y in Cohort B) but the reverse-KM is the methodologically preferred reporting convention and is used uniformly across cohorts and subsets.
 
 | Cohort | Group | n | reverse-KM median FU (y) | IQR (y) | Origin |
 |---|---|---|---|---|---|
 | Cohort A (PSM) | Vac | 2,050 | 4.68 | 1.95–9.92 | Index |
 | Cohort A (PSM) | Non | 2,110 | 6.99 | 3.73–11.21 | Index |
 | Cohort A (PSM) | Combined | 4,160 | **5.93** | 2.78–10.75 | Index |
-| Cohort B legacy (≥1 dose) | Vac | 241 | 4.97 | 3.36–8.84 | Index |
-| Cohort B legacy (≥1 dose) | Non | 867 | 5.26 | 3.52–9.32 | Index |
-| Cohort B legacy (≥1 dose) | Combined | 1,108 | **5.10** | 3.48–9.23 | Index |
-| **Cohort B v3 PRIMARY** | Vac | 204 | 4.94 | 3.30–8.90 | Index |
-| **Cohort B v3 PRIMARY** | Non | 730 | 5.02 | 3.48–8.93 | Index |
-| **Cohort B v3 PRIMARY** | Combined | 934 | **4.97** | 3.44–8.91 | Index |
-| Cohort B v3 PRIMARY | Combined | 934 | 4.73 | 3.20–8.67 | Landmark (+90 d) |
+| Cohort B (≥1 dose, sensitivity) | Vac | 241 | 4.97 | 3.36–8.84 | Index |
+| Cohort B (≥1 dose, sensitivity) | Non | 867 | 5.26 | 3.52–9.32 | Index |
+| Cohort B (≥1 dose, sensitivity) | Combined | 1,108 | **5.10** | 3.48–9.23 | Index |
+| **Cohort B (primary)** | Vac | 204 | 4.94 | 3.30–8.90 | Index |
+| **Cohort B (primary)** | Non | 730 | 5.02 | 3.48–8.93 | Index |
+| **Cohort B (primary)** | Combined | 934 | **4.97** | 3.44–8.91 | Index |
+| Cohort B (primary) | Combined | 934 | 4.73 | 3.20–8.67 | Landmark (+90 d) |
 
 ### 4.6 Statistical model (both co-primary outcomes)
 
@@ -229,8 +229,8 @@ All follow-up duration statistics in the manuscript are reported using the **rev
 
 | | Cohort A — Safety | Cohort B (recurrence co-primary) | Cohort B (clearance co-primary) |
 |---|---|---|---|
-| v3 primary **cohort** n | 4,102 | 934 | 235 |
-| v3 **analytic** sample (Cox fit) n | 4,102 | **912** (203 / 709 after early-event removal) | 235 |
+| Primary cohort n | 4,102 | 934 | 235 |
+| Analytic sample (Cox fit) n | 4,102 | **912** (203 / 709 after early-event removal) | 235 |
 | Vac / Non-vac (cohort) | 2,051 / 2,051 | **204 / 730** | **92 / 143** |
 | Match | PSM 1:1, caliper 0.2 SD logit(PS) | Variable-ratio 1:up-to-5 → 1:up-to-4 (then ≥2 dose + landmark filters) | Same + pre-vaccine HPV+ filter + landmark |
 | Index (vac) | First vaccine date | First vaccine date after surgery (≥2 dose) | First vaccine date after surgery (≥2 dose) |
@@ -251,7 +251,7 @@ All follow-up duration statistics in the manuscript are reported using the **rev
 | 5-yr reversion-free probability — vaccinated | — | — | **0.569 (56.9%)** |
 | 5-yr reversion-free probability — non-vac | — | — | 0.533 (53.3%) |
 
-Clearance co-primary reaches conventional significance under the new primary definition; lesion-recurrence null is honest collapse of the legacy ≥1-dose directional signal once immortal-time selection is removed.
+Under the primary exposure definition the clearance co-primary reaches conventional significance, and the directional lesion-recurrence point estimate observed under the less stringent ≥1-dose, no-landmark sensitivity attenuates to the null once immortal-time selection is removed.
 
 ---
 

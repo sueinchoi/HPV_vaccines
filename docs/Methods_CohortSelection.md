@@ -54,7 +54,7 @@
 | 매칭 변수 | 생년월(±5년), index 시점 관찰가능성 | 수술방법(exact), 수술시점(±1년), 수술시 나이(±5세), Index 시점 나이, BMI, 수술연도 |
 | Index date (접종군) | 첫 백신 접종일 | 첫 백신 접종일 |
 | Index date (비접종군) | 매칭된 접종군의 백신일 (pseudo) | 비접종군 수술일 + 매칭된 접종군의 "수술-접종 간격(T)" |
-| **최종 n** | **4,102** (접종 2,051 / 비접종 2,051; 1:1 PSM) | **1,108** (접종 241 / 비접종 867; 1:up-to-4) → **v3 PRIMARY 934** (접종 204 / 비접종 730) |
+| **최종 n** | **4,102** (접종 2,051 / 비접종 2,051; 1:1 PSM) | **1,108** (접종 241 / 비접종 867; 1:up-to-4) → **primary 934** (접종 204 / 비접종 730) |
 | Primary outcome | 5대 만성질환 발생 | 병변 재발 (CIN2 이상 / HSIL+), hr-HPV clearance |
 
 Cohort B는 Cohort A의 부분집합이며, 두 코호트는 **각각 독립적으로 매칭**되었다.
@@ -122,9 +122,9 @@ flowchart TD
 
 ### 6.4 Cohort A characteristics (post-matching)
 
-⚠ **이 표는 1:4 매칭 시점의 legacy 수치 (n=2,155 / 8,620)**. 현재 Cohort A는 1:1 PSM (n=2,051 / 2,051 = 4,102). 정확한 baseline은 Manuscript Table 1A / `Data/Table1_BaselineCharacteristics_unified.csv` (`block=CohortA_post`) 참고.
+현재 Cohort A는 1:1 PSM (n=2,051 / 2,051 = 4,102). 
 
-| 변수 (legacy 1:4) | 접종군 (n=2,155) | 비접종군 (n=8,620) | \|SMD\| |
+| 변수 (pre-PSM 1:4 intermediate) | 접종군 (n=2,155) | 비접종군 (n=8,620) | \|SMD\| |
 |---|---|---|---|
 | Age at index, years (mean ± SD) | 33.48 ± 9.15 | 34.16 ± 9.22 | 0.074 |
 | Birth year (mean ± SD) | 1982.31 ± 10.08 | 1981.64 ± 10.07 | 0.067 |
@@ -165,10 +165,10 @@ flowchart TD
 - 알고리즘: 정규화된 합산 거리 (age_diff/5 + bmi_diff/3 + year_diff/1) 기준 greedy nearest matching, without replacement. 매칭 후보가 4명 미만이면 가용한 수만 사용. BMI가 결측이거나 BMI 매칭 후보가 0인 경우 BMI 조건 무시.
 - **Fine match 직후 (legacy intermediate)**: 접종군 241 / 비접종군 867 (총 1,108명; mean ratio 3.60; full 4 매칭 193/241 = 80%, 1–3 controls 48/241 = 20%)
 
-**Step 4 — ≥2-dose + 3-month landmark filter (v3 PRIMARY)**
+**Step 4 — ≥2-dose + 3-month landmark filter (primary)**
 - 접종군 중 백신 접종 횟수 < 2명 (36명) 및 그들의 매칭 control (132명) 전체 set drop (matched-set integrity 보존)
 - 3-month landmark: index date를 index+90일로 shift; 양 군 대칭 적용; <90일 추적 또는 90일 내 outcome 발생 환자 제외 (5명)
-- **v3 최종**: **접종군 204 / 비접종군 730 (총 934명)** — 본 연구의 정식 primary analytic cohort. 자세한 정의·결과는 `Analysis_Specifications.md §4.5b` 참고.
+- **Primary cohort**: **접종군 204 / 비접종군 730 (총 934명)** — 본 연구의 primary analytic cohort. 자세한 정의·결과는 `Analysis_Specifications.md §4.5b` 참고.
 
 ### 7.4 Cohort B characteristics (post-matching)
 
