@@ -173,6 +173,7 @@ def main():
     ax_a.set_xlim(0, max_year)
     ax_a.set_ylim(0.0, 0.20)
     ax_a.set_xticks(range(0, max_year + 1, 2))
+    ax_a.set_xlabel('')  # remove lifelines default "timeline"; at-risk panel carries the label
     ax_a.set_ylabel('Cumulative incidence')
     leg_a = ax_a.get_legend()
     if leg_a is not None: leg_a.remove()
@@ -196,6 +197,7 @@ def main():
     ax_b.set_xlim(0, max_year)
     ax_b.set_ylim(0.0, 0.85)
     ax_b.set_xticks(range(0, max_year + 1, 2))
+    ax_b.set_xlabel('')  # remove lifelines default "timeline"; at-risk panel carries the label
     ax_b.set_ylabel('Cumulative clearance probability')
     leg_b = ax_b.get_legend()
     if leg_b is not None: leg_b.remove()
