@@ -217,7 +217,7 @@ def main():
             ax_tab.text(yr, 0.4, str(n_c_), fontsize=10, ha='center', color=COL_CTL)
         ax_tab.text(-3.5, 1.4, 'Vaccinated', fontsize=10, color=COL_VAC, ha='left')
         ax_tab.text(-3.5, 0.4, 'Non-vaccinated', fontsize=10, color=COL_CTL, ha='left')
-        ax_tab.text(max_year / 2, -0.6, 'Years',
+        ax_tab.text(max_year / 2, -0.6, 'Time (years)',
                     fontsize=11, ha='center', color='#222')
 
     # Shared horizontal legend (Vaccinated / Non-vaccinated) below all panels

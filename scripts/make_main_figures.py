@@ -415,7 +415,7 @@ def figure2(m):
                 pass
         legend_handles_recorded = True
         ax.set_xlim(0, max_year); ax.set_ylim(bottom=0)
-        ax.set_xlabel('Years')
+        ax.set_xlabel('Time (years)')
         ax.set_ylabel('Cumulative incidence')
         style_axes(ax)
         panel_label(ax, plabel)
