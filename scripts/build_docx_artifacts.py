@@ -645,11 +645,15 @@ def build_supplementary_docx(suffix: str = "") -> None:
     add_table(doc, h, rows)
     doc.add_page_break()
 
-    # S3: Age × FU forest data
+    # S3: Age × FU forest data (legacy ≥1-dose cohort; exploratory only)
     add_caption(
         doc, "Supplementary Table S3",
         "Age-stratified hazard ratios for Cohort B lesion recurrence across "
-        "follow-up windows.",
+        "follow-up windows. Computed on the legacy ≥1-dose, no-landmark Cohort B "
+        "(n = 1,108: 241 vac / 867 ctl) because the v3 primary cohort (n = 934) "
+        "leaves too few events for stable age × follow-up subgroup estimation. "
+        "Reported as exploratory grid-search only; no inference is drawn (see "
+        "Manuscript Limitations).",
     )
     add_spacer(doc)
     h_src, b_src = read_csv(DATA / "CohortB_age_fu_forest.csv")
@@ -691,13 +695,16 @@ def build_supplementary_docx(suffix: str = "") -> None:
     add_table(doc, nar_header, nar_body)
     doc.add_page_break()
 
-    # S5: Vaccine-type interaction
+    # S5: Vaccine-type interaction (legacy ≥1-dose cohort)
     add_caption(
         doc, "Supplementary Table S5",
         "Per-vaccine-type detailed results — single-model interaction-derived "
         "hazard ratios with the likelihood-ratio test for vaccine-type "
         "heterogeneity. Rows include both co-primary outcomes plus the legacy "
-        "post-index hr-HPV detection sensitivity.",
+        "post-index hr-HPV detection sensitivity. Computed on the legacy "
+        "≥1-dose Cohort B (vaccine-type strata in the v3 cohort have too few "
+        "events for stable estimation: n=128 Gardasil 9 / 77 Cervarix / 36 "
+        "quadrivalent Gardasil under ≥1-dose collapses further under ≥2-dose).",
     )
     add_spacer(doc)
     h, b = read_csv(DATA / "CohortB_vaccine_interaction.csv")
