@@ -241,6 +241,8 @@ All follow-up duration statistics in the manuscript are reported using the **rev
 | Reversion events / censored — vaccinated | — | — | 13 / 18 (n=31 cleared) |
 | Reversion events / censored — non-vac | — | — | 13 / 15 (n=28 cleared) |
 | Log-rank (reversion-free) | — | — | χ²=1.00, p=0.317 |
+| 5-yr reversion-free probability — vaccinated | — | — | **0.569 (56.9%)** |
+| 5-yr reversion-free probability — non-vac | — | — | 0.533 (53.3%) |
 
 Clearance co-primary reaches conventional significance under the new primary definition; lesion-recurrence null is honest collapse of the legacy ≥1-dose directional signal once immortal-time selection is removed.
 

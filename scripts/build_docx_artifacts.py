@@ -671,20 +671,22 @@ def build_supplementary_docx(suffix: str = "") -> None:
               col_widths_in=[1.1, 1.3, 0.6, 1.0, 1.0, 1.2, 0.5])
     doc.add_page_break()
 
-    # S4: Number at risk — generate inline from Figure 3 source if available
+    # S4: Number at risk — Cohort B v3 primary, anchored at landmark (index + 90 d)
     add_caption(
         doc, "Supplementary Table S4",
-        "Number-at-risk tables for Cohort B Kaplan–Meier and Aalen–Johansen "
-        "cumulative-incidence curves (years 0, 2, 4, 6, 8, 10).",
+        "Number-at-risk tables for Cohort B v3 primary cumulative-incidence "
+        "curves, anchored at the 3-month landmark (index + 90 days); years 0, "
+        "2, 4, 6, 8, 10 measured from landmark. Lesion recurrence rows are "
+        "the P1 analytic sample (n = 912: 203 / 709); hr-HPV clearance rows "
+        "are the P2 analytic sample (n = 235: 92 / 143).",
     )
     add_spacer(doc)
-    # static rows lifted from Figure 3 panel a + b
     nar_header = ["Outcome", "Group", "0", "2", "4", "6", "8", "10"]
     nar_body = [
-        ["Lesion recurrence",  "Vaccinated",     "241", "209", "149", "89",  "60",  "43"],
-        ["Lesion recurrence",  "Non-vaccinated", "867", "730", "547", "338", "233", "152"],
-        ["hr-HPV clearance",   "Vaccinated",     "110", "65",  "44",  "22",  "13",  "8"],
-        ["hr-HPV clearance",   "Non-vaccinated", "182", "117", "87",  "50",  "28",  "14"],
+        ["Lesion recurrence (P1, v3)", "Vaccinated",     "203", "171", "119", "69",  "49",  "34"],
+        ["Lesion recurrence (P1, v3)", "Non-vaccinated", "709", "608", "421", "260", "174", "107"],
+        ["hr-HPV clearance (P2, v3)",  "Vaccinated",      "92",  "53",  "37", "17",  "10",   "6"],
+        ["hr-HPV clearance (P2, v3)",  "Non-vaccinated", "143", "101",  "69", "39",  "20",  "10"],
     ]
     add_table(doc, nar_header, nar_body)
     doc.add_page_break()
