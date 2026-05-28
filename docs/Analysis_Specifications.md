@@ -149,10 +149,10 @@ The 14 candidate sensitivity analyses are partitioned into **five essential anal
 | ID | Description | Defends | Cohort | Direction | Output |
 |---|---|---|---|---|---|
 | **Sens-A** | Single-negative test vs two-consecutive-negative clearance event definition | P2 outcome-definition robustness | clearance subset (n = 233; 92 / 143) | HR > 1 | `Data/Sensitivity_HPV_Clearance_SingleNegative_v3.csv` |
-| **Sens-B** | Time-stratified clearance HR (0–6, 6–12, 12–24, ≥24 mo post-landmark; left-truncation at each window's lower bound) | P2 PH-violation decomposition | clearance subset | HR > 1 | `Data/Sensitivity_HPV_Clearance_TimeStratified_v3.csv` |
+| **Sens-B** | Time-stratified clearance HR (0–6, 6–12, 12–24, ≥24 mo post-index; left-truncation at each window's lower bound) | P2 PH-violation decomposition | clearance subset | HR > 1 | `Data/Sensitivity_HPV_Clearance_TimeStratified_v3.csv` |
 | **Sens-C** | Dose-threshold ≥2 / ≥3 (matched-set preserved) | P1+P2 exposure-misclassification | Cohort A 1:1 + Cohort B 1:up-to-4 | HR < 1 (recurrence); HR > 1 (clearance) | `Data/Sensitivity_DoseThreshold_HR.csv` |
 | **Sens-D** | Strict 1:4 fine matching | P1 matching-structure robustness | Cohort B (strict subset) | HR < 1 | `Data/Sensitivity_StrictMatching.csv` |
-| **Sens-E** | Lesion recurrence with ≥3, ≥6, ≥12-month minimum disease-free interval **post-landmark** (in addition to the 90-day landmark in the primary specification) | P1 incomplete-excision artefact | lesion-recurrence analytic sample | HR < 1 | `Data/Sensitivity_Recurrence_DFInterval_v3.csv` |
+| **Sens-E** | Lesion recurrence with ≥3, ≥6, ≥12-month minimum disease-free interval **post-index** (in addition to the 90-day landmark in the primary specification) | P1 incomplete-excision artefact | lesion-recurrence analytic sample | HR < 1 | `Data/Sensitivity_Recurrence_DFInterval_v3.csv` |
 
 #### 4.5.2 Appendix-only sensitivity analyses (supplementary tables only)
 
@@ -237,7 +237,7 @@ All follow-up duration statistics in the manuscript are reported using the **rev
 | Index (non-vac) | Random pseudo-date | Surgery + matched interval (T) | Surgery + matched interval (T) |
 | Time zero (primary) | Index | **Index + 90 days (landmark)** | **Index + 90 days (landmark)** |
 | Event source | Diagnosis records (5 chronic) | Tissue pathology (조직병리) | Molecular pathology (분자병리/HPV) |
-| Event definition | First post-index ICD-10 group hit | First post-landmark ≥CIN2 (HSIL+) | First post-landmark of 2-consecutive-NEG |
+| Event definition | First post-index ICD-10 group hit | First post-index ≥CIN2 (HSIL+) | First post-index of 2-consecutive-NEG |
 | Favourable HR direction | HR < 1 | HR < 1 | **HR > 1** |
 | **Primary HR (95% CI)** | 1.26 (0.75–2.12) Any-of-5 | **1.01 (0.49–2.06)** | **1.82 (1.07–3.11) ✅** |
 | **p value** | 0.37 | **0.985** | **0.024** |

@@ -91,6 +91,14 @@ def fit_cox(df, t_col, e_col, label):
 
 
 def apply_landmark(df, event_col, event_date_col, lm_days=LANDMARK_DAYS):
+    """Apply landmark analysis with time origin at the index date.
+
+    Patients with events before the landmark are excluded from the cohort
+    (preserving matched-set integrity for vaccinated cases); the time variable
+    used for Cox regression and Kaplan–Meier is computed from the index date,
+    so cumulative-incidence curves start flat in the [0, landmark) window
+    by construction (no events possible there).
+    """
     df = df.copy()
     df['lm_zero'] = df['index_date'] + pd.Timedelta(days=lm_days)
     pre_lm = (df[event_col] == True) & (df[event_date_col] < df['lm_zero'])
@@ -99,8 +107,8 @@ def apply_landmark(df, event_col, event_date_col, lm_days=LANDMARK_DAYS):
     df = df[~pre_lm.loc[df.index]].copy()
     df['t'] = np.where(
         df[event_col] == True,
-        (df[event_date_col] - df['lm_zero']).dt.days,
-        (df['최종추적일자'] - df['lm_zero']).dt.days,
+        (df[event_date_col] - df['index_date']).dt.days,
+        (df['최종추적일자'] - df['index_date']).dt.days,
     )
     return df[df['t'] > 0].copy()
 

@@ -156,7 +156,7 @@
 **Figure 4 ().** JAMA-style combined table-with-forest plot of HRs by age (<40 / 40–49 / ≥50) and vaccine type (Gardasil 9 / Cervarix / quadrivalent Gardasil) for both co-primary outcomes. Replaces legacy separate Figure 4 (vaccine type only) and Figure 5 (age subgroups).
 
 #### 2.3.4 Sensitivity analyses
-**Supplementary Figure S6 ().** Five-panel summary forest plot — Sens-A (single-neg vs 2-cons-neg clearance), Sens-B (time-stratified clearance with 0–6mo signal), Sens-C (dose threshold), Sens-D (strict 1:4 matching), Sens-E (recurrence DFI 0/3/6/12mo post-landmark).
+**Supplementary Figure S6 ().** Five-panel summary forest plot — Sens-A (single-neg vs 2-cons-neg clearance), Sens-B (time-stratified clearance with 0–6mo signal), Sens-C (dose threshold), Sens-D (strict 1:4 matching), Sens-E (recurrence DFI 0/3/6/12mo post-index).
 
 ---
 

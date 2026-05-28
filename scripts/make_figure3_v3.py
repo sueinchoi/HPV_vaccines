@@ -62,15 +62,15 @@ def build_p1_p2():
     df['recurrence_date'] = pd.to_datetime(df['recurrence_date'], errors='coerce')
     df['lm_zero'] = df['index_date'] + pd.Timedelta(days=LANDMARK_DAYS)
 
-    # P1 — recurrence
+    # P1 — recurrence (time-from-index; landmark applied by excluding pre-landmark events)
     df['rec_pre_lm'] = (df['has_recurrence'] == True) & (df['recurrence_date'] < df['lm_zero'])
     bad_fids = df[(df['접종여부'] == True) & df['rec_pre_lm']]['fine_match_id'].unique()
     p1 = df[~df['fine_match_id'].isin(bad_fids)].copy()
     p1 = p1[~p1['rec_pre_lm']].copy()
     p1['time_days'] = np.where(
         p1['has_recurrence'] == True,
-        (p1['recurrence_date'] - p1['lm_zero']).dt.days,
-        (p1['최종추적일자'] - p1['lm_zero']).dt.days,
+        (p1['recurrence_date'] - p1['index_date']).dt.days,
+        (p1['최종추적일자'] - p1['index_date']).dt.days,
     )
     p1['event'] = p1['has_recurrence'].astype(int)
     p1['vac'] = p1['접종여부'].astype(int)
@@ -125,8 +125,8 @@ def build_p1_p2():
     clr = clr[~clr['clr_pre_lm']].copy()
     clr['time_days'] = np.where(
         clr['has_clearance'],
-        (clr['first_neg_date'] - clr['lm_zero']).dt.days,
-        (clr['최종추적일자'] - clr['lm_zero']).dt.days,
+        (clr['first_neg_date'] - clr['index_date']).dt.days,
+        (clr['최종추적일자'] - clr['index_date']).dt.days,
     )
     clr['event'] = clr['has_clearance'].astype(int)
     clr['vac'] = clr['접종여부'].astype(int)
@@ -163,6 +163,10 @@ def main():
     kmf_c = KaplanMeierFitter().fit(c_a['time_days'] / 365.25, c_a['event'], label='Non-vaccinated')
     kmf_v.plot_cumulative_density(ax=ax_a, ci_alpha=0.15, color=COL_VAC, lw=LINE_W)
     kmf_c.plot_cumulative_density(ax=ax_a, ci_alpha=0.15, color=COL_CTL, lw=LINE_W)
+    # Mark the 3-month landmark on the x-axis
+    ax_a.axvline(0.25, color='#555', linestyle=':', linewidth=1.0, alpha=0.7)
+    ax_a.text(0.25, 0.195, '3-mo landmark', fontsize=9, color='#444',
+              ha='left', va='top', rotation=0)
     hr, lo, hi, pv = cox_hr(p1)
     ax_a.text(0.97, 0.04,
               f"HR = {hr:.2f} (95% CI {lo:.2f}–{hi:.2f})\np = {pv:.3f}",
@@ -185,6 +189,10 @@ def main():
     kmf_c2 = KaplanMeierFitter().fit(c_b['time_days'] / 365.25, c_b['event'], label='Non-vaccinated')
     kmf_v2.plot_cumulative_density(ax=ax_b, ci_alpha=0.15, color=COL_VAC, lw=LINE_W)
     kmf_c2.plot_cumulative_density(ax=ax_b, ci_alpha=0.15, color=COL_CTL, lw=LINE_W)
+    # Mark the 3-month landmark on the x-axis
+    ax_b.axvline(0.25, color='#555', linestyle=':', linewidth=1.0, alpha=0.7)
+    ax_b.text(0.25, 0.835, '3-mo landmark', fontsize=9, color='#444',
+              ha='left', va='top', rotation=0)
     hr2, lo2, hi2, pv2 = cox_hr(p2)
     ax_b.text(0.55, 0.05,
               f"HR = {hr2:.2f} (95% CI {lo2:.2f}–{hi2:.2f})\np = {pv2:.3f}",
@@ -214,7 +222,7 @@ def main():
             ax_tab.text(yr, 0.4, str(n_c_), fontsize=10, ha='center', color=COL_CTL)
         ax_tab.text(-3.5, 1.4, 'Vaccinated', fontsize=10, color=COL_VAC, ha='left')
         ax_tab.text(-3.5, 0.4, 'Non-vaccinated', fontsize=10, color=COL_CTL, ha='left')
-        ax_tab.text(max_year / 2, -0.6, 'Years from landmark (index + 90 days)',
+        ax_tab.text(max_year / 2, -0.6, 'Years from index date',
                     fontsize=11, ha='center', color='#222')
 
     plt.savefig(ROOT / 'Data' / 'Figure3_CohortB_CIF.png',

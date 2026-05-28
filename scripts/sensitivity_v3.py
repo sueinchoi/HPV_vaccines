@@ -117,10 +117,11 @@ def main():
         bad = c[(c['접종여부'] == True) & pre_lm]['fine_match_id'].unique()
         c = c[~c['fine_match_id'].isin(bad)].copy()
         c = c[~pre_lm.loc[c.index]].copy()
+        # Time origin at index date; landmark applied by excluding pre-landmark events
         c['t'] = np.where(
             c[event_col] == True,
-            (c[event_date_col] - c['lm_zero']).dt.days,
-            (c['최종추적일자'] - c['lm_zero']).dt.days,
+            (c[event_date_col] - c['index_date']).dt.days,
+            (c['최종추적일자'] - c['index_date']).dt.days,
         )
         return c[c['t'] > 0].copy()
 
@@ -159,12 +160,15 @@ def main():
     c['event'] = c['event'].astype(int)
 
     sens_b_rows = []
+    # Time windows measured from index date (consistent with primary analysis).
+    # Patients are at risk only from the 3-month landmark by construction; the
+    # first window therefore effectively spans (90 d, 180 d] after index.
     windows = [
-        ('Overall (post-landmark)', 0, np.inf),
-        ('0–6 months', 0, 180),
-        ('6–12 months', 180, 365),
-        ('12–24 months', 365, 730),
-        ('≥24 months', 730, np.inf),
+        ('Overall (post-index, ≥90 d)', 0, np.inf),
+        ('0–6 months (from index)', 0, 180),
+        ('6–12 months (from index)', 180, 365),
+        ('12–24 months (from index)', 365, 730),
+        ('≥24 months (from index)', 730, np.inf),
     ]
     for label, lo_d, hi_d in windows:
         sub = c.copy()

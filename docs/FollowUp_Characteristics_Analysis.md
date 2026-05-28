@@ -144,7 +144,7 @@ Year  | Vac    Non    Total
 
 **해석**: Clearance가 일어나는 시점은 양 군 모두 **수술 후 6개월 시점**에 집중. IQR이 매우 좁고 median이 거의 같음 → 한국에서 자궁경부 수술 후 첫 추적 검사(보통 6개월)에서 두 음성을 잡는 패턴이 일반적.
 
-### 7.2 Lesion recurrence timing (post-landmark)
+### 7.2 Lesion recurrence timing (post-index)
 | Group | n events | Median (y) | IQR (y) | Max (y) |
 |---|---|---|---|---|
 | Vac | 11 | 2.23 | 0.44–3.87 | 5.63 |

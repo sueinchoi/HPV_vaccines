@@ -649,22 +649,25 @@ def build_supplementary_docx(suffix: str = "") -> None:
               col_widths_in=[1.1, 1.3, 0.6, 1.0, 1.0, 1.2, 0.5])
     doc.add_page_break()
 
-    # S4: Number at risk — Cohort B, anchored at landmark (index + 90 d)
+    # S4: Number at risk — Cohort B, time origin at index date
     add_caption(
         doc, "Supplementary Table S4",
         "Number-at-risk tables for Cohort B cumulative-incidence curves, "
-        "anchored at the 3-month landmark (index + 90 days); years 0, 2, 4, "
-        "6, 8, 10 measured from landmark. Lesion-recurrence rows are the "
-        "lesion-recurrence analytic sample (n = 912: 203 / 709); hr-HPV "
-        "clearance rows are the clearance subset (n = 235: 92 / 143).",
+        "time origin at the index date; years 0, 2, 4, 6, 8, 10 measured "
+        "from index. All patients in the primary cohort survived the 3-month "
+        "landmark event-free by construction, so the number at risk at year "
+        "0 equals the primary cohort size and remains unchanged through the "
+        "first 0.25 years. Lesion-recurrence rows are the primary cohort "
+        "(n = 912: 203 / 709); hr-HPV clearance rows are the clearance "
+        "subset (n = 233: 92 / 141).",
     )
     add_spacer(doc)
     nar_header = ["Outcome", "Group", "0", "2", "4", "6", "8", "10"]
     nar_body = [
-        ["Lesion recurrence",  "Vaccinated",     "203", "171", "119", "69",  "49",  "34"],
-        ["Lesion recurrence",  "Non-vaccinated", "709", "608", "421", "260", "174", "107"],
-        ["hr-HPV clearance",   "Vaccinated",      "92",  "53",  "37", "17",  "10",   "6"],
-        ["hr-HPV clearance",   "Non-vaccinated", "143", "101",  "69", "39",  "20",  "10"],
+        ["Lesion recurrence",  "Vaccinated",     "203", "176", "125",  "72",  "51",  "35"],
+        ["Lesion recurrence",  "Non-vaccinated", "709", "615", "457", "270", "182", "113"],
+        ["hr-HPV clearance",   "Vaccinated",      "92",  "55",  "39",  "18",  "12",   "7"],
+        ["hr-HPV clearance",   "Non-vaccinated", "141", "101",  "74",  "40",  "22",  "11"],
     ]
     add_table(doc, nar_header, nar_body)
     doc.add_page_break()
