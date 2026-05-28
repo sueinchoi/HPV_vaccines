@@ -750,6 +750,10 @@ def build_supplementary_docx(suffix: str = "") -> None:
     h_b, b_b = read_csv(DATA / "Table3_CohortB_HR.csv")
     # Hard-coded Schoenfeld p values for Cohort B primary models (Methods §Stat).
     SCH_B = {
+        # v3 primary CSV row outcome names (canonical):
+        "Lesion recurrence (≥CIN2 / HSIL+ or invasive carcinoma) — ≥2 dose + 3-mo landmark PRIMARY": "0.820",
+        "hr-HPV clearance (two consecutive negatives; pre-vaccine HPV+ baseline) — ≥2 dose + 3-mo landmark PRIMARY": "0.028",
+        # legacy outcome names kept for backward compatibility:
         "Lesion recurrence (≥CIN2 / HSIL+ or invasive carcinoma)": "0.820",
         "hr-HPV clearance / regression (pre-vaccine HPV+ baseline)": "0.028",
     }
