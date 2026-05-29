@@ -159,16 +159,30 @@ def main():
                          'Sens — Lesion recurrence; ≥1 dose, no landmark'))
 
     # ===== Sensitivity: ≥3 dose, no landmark =====
-    doses = (
-        pd.read_csv(ROOT / 'Data' / 'primary_cohort_v3.csv', encoding='utf-8-sig')[
-            ['연구번호', 'dose_count']
-        ]
-        .drop_duplicates('연구번호')
-        .set_index('연구번호')['dose_count']
+    # Dose count must be derived from the full prescription file (not from
+    # primary_cohort_v3, which would silently drop vaccinated cases that
+    # failed the ≥2-dose-plus-landmark filter and bias the ≥3-dose row
+    # downward). Matches the ascertainment used by
+    # sensitivity_exposure_definition.py for Sensitivity_DoseThreshold_HR.csv.
+    rx = pd.read_csv(
+        ROOT / 'Data' / '한국 HPV 코호트 자료를 이용한 자_처방정보.csv',
+        encoding='cp949', low_memory=False,
     )
-    # Need full final_matched_outcomes with dose merged
-    o3 = out_all.merge(doses.rename('dose_count'), left_on='연구번호',
-                        right_index=True, how='left')
+    name_re = (
+        rx['처방명'].astype(str).str.contains('Gardasil|Cervarix|HPV vaccine',
+                                             case=False, regex=True, na=False)
+        | rx['처방한글명'].astype(str).str.contains('가다실|서바릭스', regex=True, na=False)
+    )
+    rx_vac = rx[name_re].copy()
+    rx_vac['처방일자'] = pd.to_datetime(
+        rx_vac['처방일자'].astype('Int64').astype(str),
+        format='%Y%m%d', errors='coerce',
+    )
+    doses_full = rx_vac.dropna(subset=['처방일자']).groupby('연구번호').size()
+    o3 = out_all.merge(
+        doses_full.rename('dose_count'),
+        left_on='연구번호', right_index=True, how='left',
+    )
     o3['dose_count'] = o3['dose_count'].fillna(0).astype(int)
     bad3 = o3[(o3['접종여부'] == True) & (o3['dose_count'] < 3)]['fine_match_id'].unique()
     o3 = o3[~o3['fine_match_id'].isin(bad3)].copy()

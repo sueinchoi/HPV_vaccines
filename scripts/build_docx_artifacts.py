@@ -489,6 +489,19 @@ def build_tables_figures_docx(suffix: str = "") -> None:
     add_table(doc, t1_header, splits["CohortB_post_v3"], col_widths_in=t1_widths)
     doc.add_page_break()
 
+    add_caption(
+        doc, "Table 1C",
+        "Baseline characteristics of the Cohort B clearance co-primary "
+        "analytic subset (women with documented pre-vaccine hr-HPV "
+        "positivity, after matched-set integrity and the 3-month landmark). "
+        "N = 233 (92 vaccinated / 141 fine-matched controls). Absolute "
+        "standardised mean differences (|SMD|) describe balance on the "
+        "matching covariates within the clearance subset.",
+    )
+    add_spacer(doc)
+    add_table(doc, t1_header, splits["CohortB_clearance"], col_widths_in=t1_widths)
+    doc.add_page_break()
+
     # ---- Table 2 ----
     add_caption(
         doc, "Table 2",
