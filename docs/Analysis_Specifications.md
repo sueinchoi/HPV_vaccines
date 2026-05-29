@@ -60,7 +60,8 @@ Validation: `scripts/sensitivity_exposure_definition.py` (S2 — prescription-co
 - **Caliper**: 0.2 × SD of logit(PS), without replacement (Austin 2011).
 - **Propensity-score model** (logistic regression):
   - age at index, BMI, SBP, DBP (mean imputation + missing indicators each), smoking (Never / Former / Current / Unknown reference), residence in Seoul.
-- **Final n** = 4,102 (2,051 vaccinated / 2,051 unvaccinated).
+- **Post-PSM intermediate n** = 4,102 (2,051 vaccinated / 2,051 unvaccinated) before the primary exposure filter.
+- **Final analytic n** = 2,776 (1,396 vaccinated / 1,380 unvaccinated) after the ≥2-dose-plus-3-month-landmark filter is applied with matched-pair integrity (the matched non-vaccinated partner is dropped when its vaccinated case fails the filter).
 
 ### 3.4 Outcomes
 
@@ -148,7 +149,7 @@ The 14 candidate sensitivity analyses are partitioned into **five essential anal
 
 | ID | Description | Defends | Cohort | Direction | Output |
 |---|---|---|---|---|---|
-| **Sens-A** | Single-negative test vs two-consecutive-negative clearance event definition | P2 outcome-definition robustness | clearance subset (n = 233; 92 / 143) | HR > 1 | `Data/Sensitivity_HPV_Clearance_SingleNegative_v3.csv` |
+| **Sens-A** | Single-negative test vs two-consecutive-negative clearance event definition | P2 outcome-definition robustness | clearance subset (n = 233; 92 / 141) | HR > 1 | `Data/Sensitivity_HPV_Clearance_SingleNegative_v3.csv` |
 | **Sens-B** | Time-stratified clearance HR (0–6, 6–12, 12–24, ≥24 mo post-index; left-truncation at each window's lower bound) | P2 PH-violation decomposition | clearance subset | HR > 1 | `Data/Sensitivity_HPV_Clearance_TimeStratified_v3.csv` |
 | **Sens-C** | Dose-threshold ≥2 / ≥3 (matched-set preserved) | P1+P2 exposure-misclassification | Cohort A 1:1 + Cohort B 1:up-to-4 | HR < 1 (recurrence); HR > 1 (clearance) | `Data/Sensitivity_DoseThreshold_HR.csv` |
 | **Sens-D** | Strict 1:4 fine matching | P1 matching-structure robustness | Cohort B (strict subset) | HR < 1 | `Data/Sensitivity_StrictMatching.csv` |
@@ -182,7 +183,7 @@ Effective with this revision, the **primary Cohort B exposure** requires **≥2 
 | **Cohort A** (1:1 PSM) | 4,106 (2,053 / 2,053) | 2,886 (1,443 / 1,443) | 2,776 | **2,776 (1,396 / 1,380)** |
 | **Cohort B** (1:up-to-4 fine) | 1,108 (241 / 867) | 974 (205 / 769) | 934 | **912 (203 / 709)** |
 
-Final Cohort B primary **cohort** n = **912 (203 vaccinated / 730 fine-matched controls)** — eligible population after the ≥2-dose threshold and the 3-month landmark follow-up filter with matched-set integrity preserved.
+Final Cohort B primary **cohort** n = **912 (203 vaccinated / 709 fine-matched controls)** — eligible population after the ≥2-dose threshold and the 3-month landmark follow-up filter with matched-set integrity preserved.
 
 Cohort B primary **analytic samples** (post-event-landmark filter, used by the Cox models):
 - **P1 lesion recurrence**: n = **912 (203 / 709)** — one additional matched set removed because the vaccinated case had a recurrence event in the first 90 days, plus a small number of non-vaccinated controls with early events.
@@ -210,10 +211,10 @@ All follow-up duration statistics in the manuscript are reported using the **rev
 | Cohort B (≥1 dose, sensitivity) | Vac | 241 | 4.97 | 3.36–8.84 | Index |
 | Cohort B (≥1 dose, sensitivity) | Non | 867 | 5.26 | 3.52–9.32 | Index |
 | Cohort B (≥1 dose, sensitivity) | Combined | 1,108 | **5.10** | 3.48–9.23 | Index |
-| **Cohort B (primary)** | Vac | 204 | 4.94 | 3.30–8.90 | Index |
-| **Cohort B (primary)** | Non | 730 | 5.02 | 3.48–8.93 | Index |
-| **Cohort B (primary)** | Combined | 934 | **4.97** | 3.44–8.91 | Index |
-| Cohort B (primary) | Combined | 934 | 4.73 | 3.20–8.67 | Landmark (+90 d) |
+| **Cohort B (primary)** | Vac | 203 | 4.94 | 3.30–8.90 | Index |
+| **Cohort B (primary)** | Non | 709 | 5.02 | 3.48–8.93 | Index |
+| **Cohort B (primary)** | Combined | 912 | **4.97** | 3.44–8.91 | Index |
+| Cohort B (primary) | Combined | 912 | 4.73 | 3.20–8.67 | Landmark (+90 d) |
 
 ### 4.6 Statistical model (both co-primary outcomes)
 
@@ -229,9 +230,9 @@ All follow-up duration statistics in the manuscript are reported using the **rev
 
 | | Cohort A — Safety | Cohort B (recurrence co-primary) | Cohort B (clearance co-primary) |
 |---|---|---|---|
-| Primary cohort n | 4,102 | 934 | 235 |
-| Analytic sample (Cox fit) n | 4,102 | **912** (203 / 709 after early-event removal) | 235 |
-| Vac / Non-vac (cohort) | 2,051 / 2,051 | **204 / 730** | **92 / 143** |
+| Primary cohort n | **2,776** | **912** | **233** |
+| Analytic sample (Cox fit) n | 2,776 | 912 (203 / 709 at-risk at landmark) | 233 |
+| Vac / Non-vac (cohort) | **1,396 / 1,380** | **203 / 709** | **92 / 141** |
 | Match | PSM 1:1, caliper 0.2 SD logit(PS) | Variable-ratio 1:up-to-5 → 1:up-to-4 (then ≥2 dose + landmark filters) | Same + pre-vaccine HPV+ filter + landmark |
 | Index (vac) | First vaccine date | First vaccine date after surgery (≥2 dose) | First vaccine date after surgery (≥2 dose) |
 | Index (non-vac) | Random pseudo-date | Surgery + matched interval (T) | Surgery + matched interval (T) |

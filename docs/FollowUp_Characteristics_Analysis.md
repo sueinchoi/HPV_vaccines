@@ -12,12 +12,12 @@
 
 | Time origin | Group | n | reverse-KM median (y) | IQR (y) | Naïve median (참고) | Max observed (y) |
 |---|---|---|---|---|---|---|
-| From index | Vaccinated | 204 | **4.94** | 3.30–8.90 | 4.87 | 15.09 |
-| From index | Non-vaccinated | 730 | **5.02** | 3.48–8.93 | 4.90 | 15.73 |
-| From index | **Combined** | 934 | **4.97** | 3.44–8.91 | — | — |
-| From landmark (index + 90 d) | Vaccinated | 204 | 4.69 | 3.05–8.65 | 4.63 | 14.84 |
-| From landmark (index + 90 d) | Non-vaccinated | 730 | 4.78 | 3.23–8.68 | 4.65 | 15.48 |
-| From landmark (index + 90 d) | **Combined** | 934 | **4.73** | 3.20–8.67 | — | — |
+| From index | Vaccinated | 203 | **4.94** | 3.30–8.90 | 4.87 | 15.09 |
+| From index | Non-vaccinated | 709 | **5.02** | 3.48–8.93 | 4.90 | 15.73 |
+| From index | **Combined** | 912 | **4.97** | 3.44–8.91 | — | — |
+| From landmark (index + 90 d) | Vaccinated | 203 | 4.69 | 3.05–8.65 | 4.63 | 14.84 |
+| From landmark (index + 90 d) | Non-vaccinated | 709 | 4.78 | 3.23–8.68 | 4.65 | 15.48 |
+| From landmark (index + 90 d) | **Combined** | 912 | **4.73** | 3.20–8.67 | — | — |
 
 ### 1.2 Cohort A (PSM, n = 4,160) — **reverse-KM**
 
@@ -58,7 +58,7 @@ Year  | Vac    Non    Total
 
 **관찰**:
 - 2010–2023의 13년 calendar span. CDW 기반 study로서는 매우 폭넓다.
-- 2018–2021이 peak (전체 416/934 = 44.5%) — 한국 9가 백신 도입(2016) 및 청년층 자가 접종 확산 시기와 일치.
+- 2018–2021이 peak (전체 416/912 ≈ 45.6%) — 한국 9가 백신 도입(2016) 및 청년층 자가 접종 확산 시기와 일치.
 - 2022–2023 enrolment은 작음 (총 63명, 6.7%) — **이들은 분석 시점(2025-12-31)까지 남은 follow-up이 2–3년에 불과**해 long-term 추정에는 기여하지 못함.
 
 **Right-truncation**: 분석 종료시점 2025-12-31에 censoring된 환자 0명 (모두 그 전에 last_follow_up이 있음) — 즉 administrative censoring보다는 **자연 loss-to-follow-up**이 종료의 주된 원인이다.
@@ -80,8 +80,8 @@ Year  | Vac    Non    Total
 
 | Group | n | Deaths during FU | % |
 |---|---|---|---|
-| Vac () | 204 | 0 | 0.00% |
-| Non-vac () | 730 | 3 | 0.41% |
+| Vac (primary) | 203 | 0 | 0.00% |
+| Non-vac (primary) | 709 | 3 | 0.42% |
 | Source population (모든 N=32,969) | 32,969 | 376 | 1.14% |
 
 **해석**: Cohort B는 평균 37세 여성 인구이며 follow-up 중 **사망 거의 없음 (3건)**. 따라서:

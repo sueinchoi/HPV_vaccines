@@ -45,8 +45,8 @@
 | 연구 질문 | Q1: HPV 백신이 장기적으로 만성질환 발생에 영향을 주는가? | Q2: 자궁경부 수술 후 HPV 백신이 병변 재발 및 HPV 재감염을 줄이는가? |
 | 모집단 | 전체 코호트 (n=32,969) | 자궁경부 수술 시행자 (n=6,890) |
 | 기본 매칭 | PSM 1:1 (age, BMI, SBP, DBP, smoking, residence) | 1:up-to-5 → fine 1:up-to-4 (수술방법 exact, 수술시점, age, BMI, 수술연도; variable-ratio greedy) |
-| 최종 표본 (intermediate (≥1-dose, no-landmark sensitivity)) | 4,102 (vac 2,051 / ctl 2,051) | 1,108 (vac 241 / ctl 867) |
-| **Primary (≥2 dose + 3-mo landmark)** | 4,102 (unchanged) | **912 (vac 203 / ctl 709)** |
+| 매칭 직후 (intermediate, used as ≥1-dose / no-landmark sensitivity) | 4,102 (vac 2,051 / ctl 2,051) | 1,108 (vac 241 / ctl 867) |
+| **Primary (≥2 dose + 3-mo landmark, matched-set integrity)** | **2,776 (vac 1,396 / ctl 1,380)** | **912 (vac 203 / ctl 709)** |
 | Index date (vac) | 첫 백신 접종일 | 첫 백신 접종일 |
 | Index date (ctl) | 매칭된 접종군 백신일 (pseudo) | 비접종군 수술일 + 매칭 접종군의 수술-접종 간격(T) |
 | Primary outcome | 5대 만성질환 발생, MCE, Any-of-5 | 병변 재발 (CIN2 이상 / HSIL+), hr-HPV clearance |

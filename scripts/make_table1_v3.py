@@ -1,6 +1,6 @@
 """
 Build Table 1 v3 — Cohort B baseline characteristics under ≥2-dose + 3-mo landmark
-primary cohort (n=934). Adds:
+primary cohort (n=912; 203 vaccinated / 709 fine-matched controls). Adds:
   - Pre-surgery HPV (HR+ / non-HR+ / Negative / No test)
   - Post-surgery HPV, first test after surgery (two versions: any-time + pre-vaccine windowed)
   - Surgical pathology severity (Invasive cancer / HSIL/CIN3 / CIN2/moderate / lower / benign)

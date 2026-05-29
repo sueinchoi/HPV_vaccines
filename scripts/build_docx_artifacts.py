@@ -404,14 +404,16 @@ def build_tables_figures_docx(suffix: str = "") -> None:
         "CONSORT-style cohort selection flow diagram. From the single source "
         "population (N = 32,969) the diagram traces the derivation of Cohort A "
         "(whole-cohort safety analysis) through eligibility filtering, "
-        "pseudo-index assignment for unvaccinated controls, and 1:1 propensity-"
-        "score matching to a final n = 4,102 (2,051 vaccinated / 2,051 "
+        "pseudo-index assignment for unvaccinated controls, 1:1 propensity-"
+        "score matching, and the primary exposure filter (\u22652 doses + "
+        "3-month landmark with matched-pair integrity preserved) yielding a "
+        "final analytic cohort n = 2,776 (1,396 vaccinated / 1,380 "
         "unvaccinated); and Cohort B (post-surgical efficacy analysis) through "
-        "the cervical-surgery filter (n = 6,890), 1:up-to-5 initial matching "
-        "(411 / 1,815), index-date eligibility, 1:up-to-4 fine matching, "
-        "and the primary exposure filter (≥2 doses + 3-month landmark with "
-        "matched-set integrity preserved) yielding the primary analytic "
-        "cohort n = 934 (204 vaccinated / 730 controls).",
+        "the cervical-surgery filter (n = 6,890), 1:up-to-5 initial matching, "
+        "index-date eligibility, 1:up-to-4 fine matching, and the same "
+        "primary exposure filter with matched-set integrity preserved, "
+        "yielding a primary analytic cohort n = 912 (203 vaccinated / 709 "
+        "fine-matched controls).",
     )
     doc.add_page_break()
 
@@ -433,13 +435,12 @@ def build_tables_figures_docx(suffix: str = "") -> None:
     add_caption(
         doc, "Figure 3",
         "Cohort B co-primary outcomes — cumulative incidence curves with "
-        "number-at-risk tables. (a) lesion recurrence (≥CIN2) in the "
-        "lesion-recurrence analytic sample (n = 912: 203 vaccinated / 709 "
-        "controls); (b) cumulative clearance of pre-existing hr-HPV "
-        "(two-consecutive-negative event) in the clearance subset (n = 235: "
-        "92 vaccinated / 143 controls). The x-axis is years from the "
-        "3-month landmark (index + 90 days). For clearance, HR > 1 favours "
-        "the vaccinated arm.",
+        "number-at-risk tables. (a) lesion recurrence (≥CIN2) in the primary "
+        "cohort (n = 912: 203 vaccinated / 709 controls); (b) cumulative "
+        "clearance of pre-existing hr-HPV (two-consecutive-negative event) "
+        "in the clearance subset (n = 233: 92 vaccinated / 141 controls). "
+        "The x-axis is years from index. For clearance, HR > 1 favours the "
+        "vaccinated arm.",
     )
     doc.add_page_break()
 
@@ -478,7 +479,7 @@ def build_tables_figures_docx(suffix: str = "") -> None:
         doc, "Table 1B",
         "Baseline characteristics of Cohort B (post-surgical efficacy "
         "analysis) after variable-ratio 1:up-to-4 fine matching and primary "
-        "exposure filtering. N = 934 (204 vaccinated / 730 fine-matched "
+        "exposure filtering. N = 912 (203 vaccinated / 709 fine-matched "
         "controls). Absolute standardised mean differences (|SMD|) < 0.10 "
         "indicate adequate balance. Pre- and post-surgery HPV status and "
         "surgical-pathology severity rows characterise the cervical-disease "

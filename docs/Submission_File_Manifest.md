@@ -68,7 +68,7 @@ submission/
 
 | # | Title | Source file (in `Data/`) | Submit as | Format / Resolution |
 |---|---|---|---|---|
-| **Figure 1** | Cohort selection flow diagram — single source population (N = 32,969) → Cohort A (whole-cohort safety, n = 4,102) and Cohort B (post-surgical efficacy, primary n = 912). | `Figure1_cohort_selection.png` | `Figure1_CohortSelection.png` | PNG, 200 dpi |
+| **Figure 1** | Cohort selection flow diagram — single source population (N = 32,969) → Cohort A (whole-cohort safety, primary n = 2,776) and Cohort B (post-surgical efficacy, primary n = 912). | `Figure1_cohort_selection.png` | `Figure1_CohortSelection.png` | PNG, 200 dpi |
 | **Figure 2** | Cohort A — Aalen–Johansen cumulative incidence functions and cause-specific / Fine–Gray hazard ratio forest plot for Any-of-5, MCE, and five individual comorbidities. | `cohort_a_psm_cif_hr.png` | `Figure2_CohortA_CIF_HR.png` | PNG, 150 dpi |
 | **Figure 3** | Cohort B — cumulative incidence (1 − Kaplan–Meier) curves for the two co-primary outcomes, anchored at the 3-month landmark (index + 90 days): biopsy-confirmed lesion recurrence (primary n = 912) and hr-HPV clearance among women with documented pre-vaccine hr-HPV positivity (primary n = 233). | `Figure3_CohortB_CIF.png` | `Figure3_CohortB_CIF.png` | PNG, 300 dpi |
 | **Figure 4** | Cohort B — JAMA-style combined table-with-forest plot of both co-primary outcomes, with subgroups by age at index (<40 / 40–49 / ≥50). Replaces the legacy separate Figure 4 (vaccine type) and Figure 5 (age × FU) — both are now panels in this single figure. | `Figure4_CohortB_Subgroup.png` | `Figure4_CohortB_Subgroup.png` | PNG, 300 dpi |

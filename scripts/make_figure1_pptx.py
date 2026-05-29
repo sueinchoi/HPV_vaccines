@@ -132,13 +132,15 @@ add_box(LEFT_X, ROW_STEP1, BOX_W, BOX_H_S,
         RGB_A_STEP, RGB_A_BR, fs_first=14, fs_rest=14)
 add_arrow(LEFT_X, ROW_STEP1 + BOX_H_S/2, LEFT_X, ROW_STEP2 - BOX_H_M/2)
 add_box(LEFT_X, ROW_STEP2, BOX_W, BOX_H_M,
-        ['Propensity-score model', '+ 1:1 matching'],
+        ['Propensity-score 1:1 matching',
+         '+ \u22652 doses + 3-mo landmark',
+         '(matched-pair integrity)'],
         RGB_A_STEP, RGB_A_BR, fs_first=14, fs_rest=14)
 add_arrow(LEFT_X, ROW_STEP2 + BOX_H_M/2, LEFT_X, ROW_FINAL - BOX_H_L/2)
 add_box(LEFT_X, ROW_FINAL, BOX_W, BOX_H_L,
-        ['Final Cohort A   n = 4,102',
-         'Vaccinated 2,051',
-         'Unvaccinated 2,051',
+        ['Final Cohort A   n = 2,776',
+         'Vaccinated 1,396',
+         'Unvaccinated 1,380',
          '',
          'Outcomes: 5 chronic conditions'],
         RGB_A_FIN, RGB_A_BR, fs_first=15, fs_rest=13, bold_first=True)
@@ -150,14 +152,15 @@ add_box(RIGHT_X, ROW_STEP1, BOX_W, BOX_H_S,
         RGB_B_STEP, RGB_B_BR, fs_first=14, fs_rest=14)
 add_arrow(RIGHT_X, ROW_STEP1 + BOX_H_S/2, RIGHT_X, ROW_STEP2 - BOX_H_M/2)
 add_box(RIGHT_X, ROW_STEP2, BOX_W, BOX_H_M,
-        ['1:up-to-5 initial match',
-         'Vac 411  /  Non-vac 1,815'],
+        ['Variable-ratio fine matching',
+         '+ \u22652 doses + 3-mo landmark',
+         '(matched-set integrity)'],
         RGB_B_STEP, RGB_B_BR, fs_first=14, fs_rest=14)
 add_arrow(RIGHT_X, ROW_STEP2 + BOX_H_M/2, RIGHT_X, ROW_FINAL - BOX_H_L/2)
 add_box(RIGHT_X, ROW_FINAL, BOX_W, BOX_H_L,
-        ['Final Cohort B   n = 1,108',
-         'Vaccinated 241',
-         'Unvaccinated 867',
+        ['Final Cohort B   n = 912',
+         'Vaccinated 203',
+         'Unvaccinated 709',
          '',
          'Outcomes: recurrence, HPV'],
         RGB_B_FIN, RGB_B_BR, fs_first=15, fs_rest=13, bold_first=True)
