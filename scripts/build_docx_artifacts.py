@@ -14,6 +14,8 @@ import subprocess
 import sys
 from pathlib import Path
 
+import pandas as pd
+
 from docx import Document
 from docx.shared import Cm, Inches, Pt, RGBColor
 from docx.enum.text import WD_ALIGN_PARAGRAPH
@@ -635,11 +637,12 @@ def build_supplementary_docx(suffix: str = "") -> None:
     add_table(doc, h, rows)
     doc.add_page_break()
 
-    # S3: Age × FU forest data (exploratory; reported as hypothesis-generating)
+    # S3A: Age × FU forest data (pre-specified strata: <40 / 40–49 / ≥50)
     add_caption(
-        doc, "Supplementary Table S3",
+        doc, "Supplementary Table S3A",
         "Age-stratified hazard ratios for Cohort B lesion recurrence across "
-        "follow-up windows. Reported descriptively as an exploratory "
+        "follow-up windows in the pre-specified age strata (<40 / 40–49 / "
+        "≥50 years). Reported descriptively as an exploratory "
         "hypothesis-generating analysis; no inference is drawn from these "
         "subgroup estimates (see Manuscript Limitations).",
     )
@@ -661,6 +664,87 @@ def build_supplementary_docx(suffix: str = "") -> None:
             continue
     add_table(doc, s3_header, s3_rows,
               col_widths_in=[1.1, 1.3, 0.6, 1.0, 1.0, 1.2, 0.5])
+    doc.add_page_break()
+
+    # S3B: Exploratory grid search (≈6,920 combinations of age min/max,
+    # landmark, and max follow-up). Reported for transparency around the
+    # post-hoc 30–52 y / 2-y window cell named in Limitations. The full
+    # grid is supplied as Data/sensitivity_age_cutoff.csv. Bonferroni-
+    # adjusted α = 0.05 / 6,920 = 7.2 × 10⁻⁶; no cell survives this
+    # threshold.
+    add_caption(
+        doc, "Supplementary Table S3B",
+        "Exploratory grid-search of overlapping age and follow-up windows "
+        "for the Cohort B lesion-recurrence outcome (≈6,920 cell "
+        "combinations of age_min, age_max, landmark, and max_fu_years). "
+        "Reported for transparency around the post-hoc 30–52 y / 2-y "
+        "window cell named in Manuscript Limitations. The full grid is "
+        "supplied as Data/sensitivity_age_cutoff.csv. The Bonferroni-"
+        "adjusted significance threshold for the family of 6,920 tests is "
+        "α = 7.2 × 10⁻⁶; no cell — including the highlighted 30–52 y / 2-y "
+        "cell — survives this correction. The table below reports the "
+        "highlighted cell and the next five smallest-p non-degenerate "
+        "cells; degenerate cells with zero vaccinated events (HR = ∞) are "
+        "excluded.",
+    )
+    add_spacer(doc)
+    grid = pd.read_csv(DATA / "sensitivity_age_cutoff.csv")
+    grid = grid[grid["outcome"] == "recurrence"].copy()
+    # exclude degenerate inf-HR cells
+    grid = grid[grid["HR"].astype(float).between(0, 1000, inclusive="neither")
+                | (grid["HR"].astype(float) <= 1000)]
+    grid = grid[grid["HR"].astype(float).between(1e-3, 1e3)]
+    highlighted = grid[
+        (grid["age_min"] == 30)
+        & (grid["age_max"] == 52)
+        & (grid["landmark"] == 0)
+        & (grid["max_fu_years"].astype(str) == "2")
+    ]
+    nominally_sig = grid[grid["p_value"].astype(float) < 0.05]
+    # drop the highlighted to avoid duplication in 'next 5'
+    others = nominally_sig[~nominally_sig.index.isin(highlighted.index)]
+    others = others.sort_values("p_value").head(5)
+
+    s3b_header = [
+        "Cell (age range, landmark, FU window)", "n total",
+        "Vac events / N", "Ctl events / N", "HR (95% CI)", "nominal p",
+        "Bonferroni-adjusted p",
+    ]
+    s3b_rows: list[list[str]] = []
+
+    def fmt_cell(r: pd.Series, prefix: str = "") -> list[str]:
+        try:
+            hr = float(r["HR"]); lo = float(r["CI_lower"]); hi = float(r["CI_upper"])
+            p = float(r["p_value"])
+            n = int(r["n"]); ev = int(r["events"])
+            n_v = int(r["vacc_n"]); ev_v = int(r["vacc_events"])
+        except (ValueError, TypeError):
+            return []
+        age_min = int(r["age_min"]); age_max = int(r["age_max"])
+        lm = int(r["landmark"]); fu = r["max_fu_years"]
+        cell_label = (f"{prefix}age {age_min}–{age_max} y, "
+                      f"landmark {lm} d, FU ≤{fu} y")
+        bonf_p = min(p * 6920, 1.0)
+        return [
+            cell_label, f"{n:,}",
+            f"{ev_v} / {n_v}",
+            f"{ev - ev_v} / {n - n_v}",
+            f"{hr:.2f} ({lo:.2f}–{hi:.2f})",
+            f"{p:.3f}" if p >= 0.001 else "<0.001",
+            f"{bonf_p:.3f}" if bonf_p < 1 else "1.000",
+        ]
+
+    if len(highlighted):
+        row = fmt_cell(highlighted.iloc[0], prefix="Highlighted: ")
+        if row:
+            s3b_rows.append(row)
+    for _, r in others.iterrows():
+        row = fmt_cell(r)
+        if row:
+            s3b_rows.append(row)
+
+    add_table(doc, s3b_header, s3b_rows,
+              col_widths_in=[2.0, 0.6, 0.85, 0.85, 1.05, 0.6, 0.85])
     doc.add_page_break()
 
     # S4: Number at risk — Cohort B, time origin at index date
