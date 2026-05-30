@@ -657,19 +657,31 @@ def figure4_subgroup():
         axis=1)
     B['has_clearance'] = B['first_neg_date'].notna()
     B['clr_pre_lm'] = B['has_clearance'] & (B['first_neg_date'] < B['lm_zero'])
+    # Matched-set integrity for clearance: drop fids where the vaccinated case
+    # had a clearance event before the landmark.
     bad_p2 = B[(B['vac']==1) & B['clr_pre_lm']]['fine_match_id'].unique()
     B = B[~B['fine_match_id'].isin(bad_p2)].copy()
-    # Drop early clearance events; preserve set
-    B.loc[B['clr_pre_lm'], 'has_clearance'] = False
-    B.loc[B['clr_pre_lm'], 'first_neg_date'] = pd.NaT
+    # Use time-from-index (not time-from-lm_zero) to match analyze_primary_v3.py;
+    # also drop any remaining rows with pre-landmark clearance events so the
+    # clearance analytic sample equals the canonical P2 subset (n = 233).
+    B = B[~B['clr_pre_lm']].copy()
     B['clear_event'] = B['has_clearance'].astype(int)
     B['clear_time']  = np.where(
         B['has_clearance'],
-        (B['first_neg_date'] - B['lm_zero']).dt.days,
-        (B['최종추적일자']     - B['lm_zero']).dt.days)
-    # Restrict clearance analyses to prevac HR+ subset; non-HR+ rows get NaN
-    B.loc[~B['prevac_hr'].astype(bool), 'clear_event'] = np.nan
-    B.loc[~B['prevac_hr'].astype(bool), 'clear_time']  = np.nan
+        (B['first_neg_date'] - B['index_date']).dt.days,
+        (B['최종추적일자']     - B['index_date']).dt.days)
+    # Restrict clearance analyses to the canonical P2 analytic subset:
+    # matched-set integrity (only fine_match_ids whose vaccinated case is
+    # itself pre-vaccine hr-HPV+) + individual pre-vaccine hr-HPV+ (vac or
+    # ctl). This matches the P2 cohort definition in analyze_primary_v3.py
+    # and yields n = 233 (92 vac / 141 ctl) with HR 1.82 instead of the
+    # loose n = 402 (92 / 310, HR 2.44) that drops only the individual-row
+    # filter.
+    fids_clr = set(B.loc[(B['vac']==1) & (B['prevac_hr'].astype(bool)),
+                          'fine_match_id'].unique())
+    keep_clr = B['fine_match_id'].isin(fids_clr) & B['prevac_hr'].astype(bool)
+    B.loc[~keep_clr, 'clear_event'] = np.nan
+    B.loc[~keep_clr, 'clear_time']  = np.nan
 
     def hr_subset(d, ev_col, time_col='follow_up_days'):
         """Generic Cox HR with cluster on fine_match_id and age adjustment.
