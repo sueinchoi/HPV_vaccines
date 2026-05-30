@@ -2,8 +2,9 @@
 코호트 세부 필터링 및 Fine Matching을 통한 최종 분석 데이터 생성
 
 필터링 조건:
-1. Index date ≤ 2020년 12월 31일 (5년 이상 추적 관찰 확보)
-2. Biopsy 또는 HPV 추적 관찰 2회 이상
+1. Index date ≤ 2024년 12월 31일 (1년 이상 potential 추적 관찰 확보,
+   admin censor 2025-12-31 기준; symmetric across cohorts)
+2. Biopsy 또는 HPV 추적 관찰 2회 이상 (surveillance density 보장)
 
 Fine Matching 변수 (Step 3):
 - Index date 기준 나이
@@ -146,8 +147,8 @@ def add_matching_variables(cohort: pd.DataFrame,
 
 
 def filter_by_index_date(cohort: pd.DataFrame,
-                          cutoff_date: str = '2020-12-31') -> pd.DataFrame:
-    """Step 1: Index date 기준 필터링"""
+                          cutoff_date: str = '2024-12-31') -> pd.DataFrame:
+    """Step 1: Index date 기준 필터링 (≥1y potential FU before 2025-12-31 admin censor)."""
     cutoff = pd.Timestamp(cutoff_date)
     return cohort[cohort['index_date'] <= cutoff].copy()
 
@@ -467,9 +468,9 @@ def main():
     step0_n = len(cohort)
     print_cohort_flow("[Step 0] 초기 매칭 코호트", cohort)
 
-    # Step 1: Index date 필터링
-    cohort_step1 = filter_by_index_date(cohort, '2023-12-31')
-    print_cohort_flow("[Step 1] Index date ≤ 2023-12-31 (2년 추적 확보)",
+    # Step 1: Index date 필터링 (≥1y potential FU before 2025-12-31 admin censor)
+    cohort_step1 = filter_by_index_date(cohort, '2024-12-31')
+    print_cohort_flow("[Step 1] Index date ≤ 2024-12-31 (≥1y potential follow-up)",
                       cohort_step1, step0_n - len(cohort_step1))
 
     # Step 2: 추적 관찰 횟수 필터링

@@ -238,6 +238,11 @@ def build_cohort_a_matched():
     df['age_at_index'] = (df['index_date'] - df['birth_date']).dt.days/365.25
     df = df[(df['death_date'].isna()) | (df['death_date'] > df['index_date'])]
     df = df[df['last_follow'] > df['index_date']].reset_index(drop=True)
+    # Symmetric ≥1y-potential-FU eligibility filter (admin censor 2025-12-31):
+    # cap index date at 2024-12-31 so every retained subject has at least one
+    # year of potential observation before administrative censoring. Mirrors
+    # the eligibility filter used in build_final_cohort.py (Cohort B).
+    df = df[df['index_date'] <= pd.Timestamp('2024-12-31')].reset_index(drop=True)
     q = df[['pid','index_date']].copy()
     df['height'] = closest_vec(q, ci, '키')
     df['weight'] = closest_vec(q, ci, '몸무게')

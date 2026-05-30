@@ -114,7 +114,7 @@ box(9.6, 4.65, 5.6, 1.1,
 
 arrow(9.6, 4.07, 9.6, 3.74)
 box(9.6, 3.18, 5.6, 1.1,
-    'Eligibility: index ≤ 2020-12-31\n(≥5y follow-up); ≥2 follow-up records\n'
+    'Eligibility: index ≤ 2024-12-31\n(≥1y potential FU); ≥2 follow-up records\n'
     'Vac 411  /  Ctl 1,797   (excluded 18)',
     color='#fdedee', edge='#9b2226', fontsize=9)
 

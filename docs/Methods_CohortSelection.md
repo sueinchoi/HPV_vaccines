@@ -73,7 +73,7 @@ flowchart TD
 
     %% Cohort A: Whole-cohort
     SPLIT --> A1["<b>Cohort A — Whole-cohort analysis</b><br/>Q1: 백신 ↔ 만성질환 발생"]:::ah
-    A1 --> A2["적격성 필터<br/>· 생년월 정보 보유<br/>· Index date 시점 생존 및 추적가능"]:::ab
+    A1 --> A2["적격성 필터<br/>· 생년월 정보 보유<br/>· Index date 시점 생존 및 추적가능<br/>· Index date ≤ 2024-12-31 (≥1년 potential FU, A·B 공통)"]:::ab
     A2 --> A3["1:up-to-4 Variable-ratio Matching<br/>매칭변수: 생년월 ±5년<br/>(greedy nearest, no replacement)"]:::ab
     A3 --> A3b["1:1 PSM (caliper 0.2 × SD logit(PS))<br/>접종군 2,051 / 비접종군 2,051<br/>(intermediate n = 4,102)"]:::ab
     A3b --> A4["<b>Cohort A 최종 (≥2 dose + 3-mo landmark,</b><br/><b>matched-pair integrity)</b><br/>접종군 1,396<br/>비접종군 1,380<br/><b>Total n = 2,776</b>"]:::af
@@ -82,7 +82,7 @@ flowchart TD
     SPLIT --> B1["<b>Cohort B — Surgical efficacy analysis</b><br/>Q2: 백신 ↔ 병변 재발·HPV 재감염"]:::bh
     B1 --> B2["자궁경부 수술 시행자 추출<br/>(원추절제술 또는 자궁절제술)<br/><b>n = 6,890</b>"]:::bb
     B2 --> B3["1차 매칭 (1:up-to-5)<br/>수술방법(exact), 수술시점(±1년),<br/>수술시 나이(±5년)<br/>접종군 411 / 비접종군 1,815<br/>(mean ratio 4.42)"]:::bb
-    B3 --> B4["적격성 필터<br/>· Index date ≤ 2020-12-31 (≥5년 추적)<br/>· 추적관찰 ≥2회<br/>접종군 411 / 비접종군 1,797 (제외 18)"]:::bb
+    B3 --> B4["적격성 필터 (A·B 공통)<br/>· Index date ≤ 2024-12-31 (≥1년 potential 추적)<br/>· 추적관찰 ≥2회 (Cohort B 한정)<br/>접종군 411 / 비접종군 1,797 (제외 18)"]:::bb
     B4 --> B5["2차 Fine matching (1:up-to-4)<br/>Index 시점 나이(±5y), BMI(±3), 수술연도(±1y)<br/>(mean ratio 3.60)"]:::bb
     B5 --> B5b["Fine-matched intermediate<br/>접종군 241 / 비접종군 867<br/>(n = 1,108)"]:::bb
     B5b --> B6["<b>Cohort B 최종 (≥2 dose + 3-mo landmark,</b><br/><b>matched-set integrity)</b><br/>접종군 203 / 비접종군 709<br/><b>Total n = 912</b>"]:::bf
@@ -110,8 +110,8 @@ flowchart TD
 
 ### 6.2 Eligibility
 
-- **포함**: 생년월 정보가 확보되고, 접종군의 첫 백신 접종일(또는 매칭에 따른 pseudo index date) 시점에 생존하며 추적 가능한 환자
-- **제외**: 생년월 결측, Index date 시점 사망 또는 추적 종료
+- **포함**: 생년월 정보가 확보되고, 접종군의 첫 백신 접종일(또는 매칭에 따른 pseudo index date) 시점에 생존하며 추적 가능한 환자, **Index date ≤ 2024-12-31** (admin censor 2025-12-31 기준 ≥1년 potential 추적관찰; Cohort B와 symmetric)
+- **제외**: 생년월 결측, Index date 시점 사망 또는 추적 종료, Index date > 2024-12-31
 
 ### 6.3 Matching procedure
 
@@ -147,7 +147,7 @@ flowchart TD
 
 ### 7.2 Eligibility
 
-- **포함**: 자궁경부 수술 시행자(n = 6,890), Index date ≤ 2020-12-31 (≥5년 추적 확보 목적), 추적관찰 기록 2회 이상
+- **포함**: 자궁경부 수술 시행자(n = 6,890), **Index date ≤ 2024-12-31** (admin censor 2025-12-31 기준 ≥1년 potential 추적관찰; **Cohort A·B 공통 symmetric 적용**), 추적관찰 기록 2회 이상 (Cohort B 특이 surveillance 요건)
 - **제외**: Index date 이전 재발, Index date 시점 사망/자격상실, 2020년 이후 백신 접종 완료, 매칭 실패
 
 ### 7.3 Matching procedure (2단계)
@@ -160,7 +160,7 @@ flowchart TD
 **Step 2 — Index date 부여 및 적격성 필터링**
 - 접종군: 첫 백신 접종일
 - 비접종군: 비접종군 수술일 + 매칭된 접종군의 "수술-접종 간격(T)" → pseudo index date
-- Index date ≤ 2020-12-31 및 추적 ≥2회 충족 여부 확인 → 18명 제외 (접종군 411 / 비접종군 1,797)
+- Index date ≤ 2024-12-31 (≥1년 potential FU; A·B 공통) 및 추적 ≥2회 (Cohort B) 충족 여부 확인 → 18명 제외 (접종군 411 / 비접종군 1,797)
 
 **Step 3 — Fine matching (1:up-to-4, variable-ratio greedy)**
 - 추가 매칭 변수: Index date 시점 나이 (±5년), Index date에 가장 가까운 BMI (±3 kg/m²), 수술연도 (±1년)

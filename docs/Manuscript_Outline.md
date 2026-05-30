@@ -85,7 +85,7 @@
 **Cohort B — Variable-ratio matching (1:up-to-4)**
 - Algorithm note: Both steps use **greedy nearest matching without replacement**; the requested ratio is the *maximum* number of controls per vaccinated case. If fewer eligible controls exist (rare cells, depleted pool), the case is matched with whatever controls remain.
 - Step 1 — 1:up-to-5 initial match: 수술방법 (exact: conization vs hysterectomy), 수술시점 (±1 yr), age at surgery (±5 yr) → 411 vaccinated and 1,815 non-vaccinated (mean ratio 4.42; 256 of 411 cases reached the maximum of 5).
-- Step 2 — Index date filtering: index ≤ 2020-12-31 (≥5 yr follow-up), ≥2 follow-up records → 411 / 1,797 (18 controls excluded).
+- Step 2 — Index date filtering: **index ≤ 2024-12-31** (≥1 yr potential follow-up before 2025-12-31 admin censor; applied symmetrically to both cohorts), ≥2 follow-up pathology records (Cohort B only) → 411 / 1,797 (18 controls excluded).
 - Step 3 — Fine matching to 1:up-to-4: index age (±5 y), index BMI (±3 kg/m²), surgery year (±1 y) → 241 vaccinated and 867 non-vaccinated (mean ratio 3.60; 193 of 241 cases reached the maximum of 4). **Legacy intermediate cohort.**
 - Step 4 (PRIMARY) — ≥2-dose + 3-month landmark filter with matched-set integrity preserved: 36 vaccinated cases failing the dose threshold and their attached non-vaccinated participants dropped; 5 patients lost to the 3-month landmark FU filter; final  primary cohort **n = 912 (203 vaccinated / 709 non-vaccinated)**.
 - Pseudo index date for non-vaccinated: surgery date + matched 접종군의 수술-접종 간격 T

@@ -17,7 +17,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 | Time zero (primary) | **Index + 90 days (3-mo landmark, symmetric)** | **Index + 90 days (3-mo landmark, symmetric)** |
 | Index (vac) | 첫 백신일 | 수술 이후 첫 백신일 |
 | Index (non-vac) | 접종군 백신일 분포에서 random pseudo-date (seed=42) | 수술일 + 매칭 접종군의 (수술→접종 간격 T) |
-| 매칭 | PSM 1:1, caliper 0.2 × SD logit(PS); 변수: 연령, BMI, SBP, DBP, 흡연, 서울 거주 | Step1: 수술방법(exact)/수술년(±1y)/수술시 연령(±5y) 1:up-to-5 → Step2: index ≤2020-12-31 + 추적≥2건 → Step3: index 연령(±5y)/BMI(±3 kg/m²)/수술년(±1y) 1:up-to-4 (BMI 결측 시 완화) → **Step4: ≥2 dose + 3-mo landmark filter w/ matched-set integrity** |
+| Eligibility (양 코호트 공통) | **index ≤ 2024-12-31** (admin censor 2025-12-31 기준 ≥1y potential FU), `last_follow > index`, vac은 사망일 > index | 동일 + Cohort B는 ≥2 follow-up 병리 기록 (biopsy/HPV) 추가 |
+| 매칭 | PSM 1:1, caliper 0.2 × SD logit(PS); 변수: 연령, BMI, SBP, DBP, 흡연, 서울 거주 | Step1: 수술방법(exact)/수술년(±1y)/수술시 연령(±5y) 1:up-to-5 → Step2: index ≤2024-12-31 + 추적≥2건 → Step3: index 연령(±5y)/BMI(±3 kg/m²)/수술년(±1y) 1:up-to-4 (BMI 결측 시 완화) → **Step4: ≥2 dose + 3-mo landmark filter w/ matched-set integrity** |
 | 최종 N (primary cohort) | **2,776 (1,396/1,380)** (1:1 PSM 4,106 → ≥2 dose + 3-mo landmark) | **912 (203/709)** primary cohort (at-risk at landmark); P2 clearance subset **233 (92/141)** (pre-vaccine hr-HPV+ matched-set-integrity subset) |
 | Primary HR | Any-of-5 **1.28 (0.66–2.48), p=0.47** | P1 **1.01 (0.49–2.06), p=0.99** / P2 **1.82 (1.07–3.11), p=0.027 ✅** |
 | Outcome | 5개 만성질환 (협심증/MI, HTN, DM, 뇌졸중, PE) + Any-of-5 + MCE; **첫 post-index ICD-10 hit** | P1: 병변 재발(≥CIN2/HSIL+/암; **CIN2** 임계임을 주의); P2: hr-HPV clearance (post-index 분자병리 2건 연속 음성 중 첫 음성일자) |

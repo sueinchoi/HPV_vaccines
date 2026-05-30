@@ -112,7 +112,7 @@ Two-step variable-ratio greedy matching, **without replacement**. Requested rati
 | Step | Variables (tolerance) | Ratio | Realised mean | Output |
 |---|---|---|---|---|
 | Step 1 — initial | surgery method (exact), surgery year (±1 y), age at surgery (±5 y) | 1:up-to-5 | 4.42 (256 of 411 cases hit the cap) | 411 vac / 1,815 ctl |
-| Step 2 — index-date filter | index date ≤ 2020-12-31, ≥ 2 follow-up records | – | – | 411 / 1,797 (18 ctl excluded) |
+| Step 2 — index-date filter | **index date ≤ 2024-12-31** (≥1y potential FU before 2025-12-31 admin censor; **applied symmetrically to both cohorts**), ≥ 2 follow-up records (Cohort B only) | – | – | 411 / 1,797 (18 ctl excluded) |
 | Step 3 — fine matching | index age (±5 y), BMI nearest index (±3 kg/m²), surgery year (±1 y); BMI condition relaxed if no candidate has BMI | 1:up-to-4 | 3.60 (193 of 241 cases hit the cap) | 241 / 867 (n = 1,108) |
 
 ### 4.4 Co-primary outcomes
