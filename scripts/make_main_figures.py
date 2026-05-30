@@ -108,99 +108,106 @@ def smoke_vec(query_df, ci):
 # Figure 1 — Cohort selection flow
 # =====================================================================
 def figure1():
-    """Concise CONSORT flow. Detailed methodology lives in the figure-legend
-    note (docs/Figure1_Note.md), so the boxes carry only step labels and n's."""
+    """Concise CONSORT flow. Academic monochrome palette (black borders,
+    white / light-gray fills, black text) for journal submission. Detailed
+    methodology lives in docs/Figure1_Note.md; the boxes carry only step
+    labels and n's."""
     fig, ax = plt.subplots(figsize=(11, 8))
     ax.set_xlim(0, 12); ax.set_ylim(0, 10.5)
     ax.axis('off')
 
-    def box(x, y, w, h, text, fc='#ffffff', ec=COL_GREY, fs=12, weight='normal'):
+    EDGE = '#1a1a1a'
+    FILL_WHITE = '#ffffff'
+    FILL_LIGHT = '#f2f2f2'
+    FILL_FINAL = '#e6e6e6'
+
+    def box(x, y, w, h, text, fc=FILL_WHITE, ec=EDGE, fs=12, weight='normal'):
         rect = FancyBboxPatch((x-w/2, y-h/2), w, h, boxstyle='round,pad=0.06',
-                              facecolor=fc, edgecolor=ec, linewidth=1.2)
+                              facecolor=fc, edgecolor=ec, linewidth=1.0)
         ax.add_patch(rect)
         ax.text(x, y, text, ha='center', va='center', fontsize=fs,
-                fontweight=weight, color='#222')
+                fontweight=weight, color='#000000')
 
     def arrow(x1, y1, x2, y2):
         a = FancyArrowPatch((x1, y1), (x2, y2), arrowstyle='-|>',
-                           mutation_scale=14, color='#444', lw=1.2)
+                           mutation_scale=12, color=EDGE, lw=1.0)
         ax.add_patch(a)
 
     # Source
     box(6, 9.7, 5.0, 0.7,
         'Source population\nN = 32,969',
-        fc='#e8f4f8', ec='#1f6f8b', fs=12, weight='bold')
+        fc=FILL_WHITE, fs=12, weight='bold')
 
     arrow(6, 9.35, 6, 9.05)
-    box(6, 8.65, 5.6, 0.7,
-        'HPV vaccine ascertained\n'
-        'Vaccinated 2,156  /  Unvaccinated 30,813',
-        fc='#fff3cd', ec='#856404', fs=12)
+    box(6, 8.65, 5.8, 0.7,
+        'HPV vaccine prescription ascertained\n'
+        'Vaccinated 2,156    Unvaccinated 30,813',
+        fc=FILL_WHITE, fs=12)
 
     arrow(6, 8.30, 3.0, 7.65)
     arrow(6, 8.30, 9.0, 7.65)
 
     # Cohort A header
     box(3.0, 7.30, 4.6, 0.6,
-        'Cohort A',
-        fc='#d4edda', ec='#155724', fs=13, weight='bold')
+        'Cohort A — chronic-disease safety',
+        fc=FILL_LIGHT, fs=12, weight='bold')
 
     # Cohort B header
     box(9.0, 7.30, 4.6, 0.6,
-        'Cohort B',
-        fc='#fde2e4', ec='#9b2226', fs=13, weight='bold')
+        'Cohort B — post-surgical efficacy',
+        fc=FILL_LIGHT, fs=12, weight='bold')
 
     # === Cohort A steps (concise) ===
     arrow(3.0, 7.00, 3.0, 6.70)
     box(3.0, 6.30, 4.6, 0.7,
-        'Eligibility check\n+ pseudo index date',
-        fc='#eaf6ee', ec='#155724', fs=12)
+        'Eligibility (index ≤ 31 Dec 2024)\n+ pseudo index date for controls',
+        fc=FILL_WHITE, fs=11)
 
     arrow(3.0, 5.95, 3.0, 5.65)
     box(3.0, 5.20, 4.6, 0.8,
-        'Propensity-score model\n+ 1:1 matching',
-        fc='#eaf6ee', ec='#155724', fs=12)
+        '1:1 propensity-score matching\n(caliper 0.2 × SD logit PS)',
+        fc=FILL_WHITE, fs=11)
 
     arrow(3.0, 4.80, 3.0, 4.55)
     box(3.0, 4.18, 4.6, 0.55,
-        '1:1 PSM match\nVac 2,053 / Non-vac 2,053',
-        fc='#eaf6ee', ec='#155724', fs=11)
+        'Post-PSM intermediate\nVac 2,053 / Non-vac 2,053',
+        fc=FILL_WHITE, fs=11)
 
     arrow(3.0, 3.90, 3.0, 3.68)
     box(3.0, 3.32, 4.6, 0.55,
         'Primary exposure filter\n≥2 doses + 3-month landmark',
-        fc='#eaf6ee', ec='#155724', fs=11)
+        fc=FILL_WHITE, fs=11)
 
     arrow(3.0, 3.04, 3.0, 2.82)
     box(3.0, 2.35, 4.6, 0.95,
-        'Cohort A\nn = 2,776\nVaccinated 1,396 / Non-vac 1,380',
-        fc='#a8d5b5', ec='#155724', fs=12, weight='bold')
+        'Final analytic Cohort A\nn = 2,776\nVac 1,396  /  Non-vac 1,380',
+        fc=FILL_FINAL, fs=12, weight='bold')
 
     # === Cohort B steps (concise) ===
     arrow(9.0, 7.00, 9.0, 6.78)
     box(9.0, 6.45, 4.6, 0.55,
-        'Cervical surgery\nn = 6,890',
-        fc='#fdedee', ec='#9b2226', fs=11)
+        'Cervical surgery (conization/hysterectomy)\nn = 6,890',
+        fc=FILL_WHITE, fs=11)
 
     arrow(9.0, 6.17, 9.0, 5.95)
     box(9.0, 5.62, 4.6, 0.55,
         '1:up-to-5 initial match\nVac 411 / Non-vac 1,815',
-        fc='#fdedee', ec='#9b2226', fs=11)
+        fc=FILL_WHITE, fs=11)
 
     arrow(9.0, 5.35, 9.0, 5.13)
     box(9.0, 4.80, 4.6, 0.55,
         '1:up-to-4 fine match\nVac 241 / Non-vac 867',
-        fc='#fdedee', ec='#9b2226', fs=11)
+        fc=FILL_WHITE, fs=11)
 
     arrow(9.0, 4.52, 9.0, 4.30)
     box(9.0, 3.97, 4.6, 0.55,
         'Primary exposure filter\n≥2 doses + 3-month landmark',
-        fc='#fdedee', ec='#9b2226', fs=11)
+        fc=FILL_WHITE, fs=11)
 
     arrow(9.0, 3.69, 9.0, 3.47)
     box(9.0, 3.00, 4.6, 0.95,
-        'Cohort B\nn = 912\nVaccinated 203 / Non-vac 709',
-        fc='#f4a4a8', ec='#9b2226', fs=12, weight='bold')
+        'Final analytic Cohort B\nn = 912\nVac 203  /  Non-vac 709',
+        fc=FILL_FINAL, fs=12, weight='bold')
 
     plt.tight_layout()
     plt.savefig('Data/Figure1_CohortSelection.png', dpi=300, bbox_inches='tight', facecolor='white')
