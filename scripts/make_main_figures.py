@@ -490,17 +490,65 @@ def figure3():
           (subset with documented pre-vaccine hr-HPV+ baseline)
     """
     print('  Building Figure 3 (Cohort B co-primary CIF)...')
-    B = pd.read_csv('Data/final_matched_outcomes.csv', encoding='utf-8-sig')
-    B['index_date'] = pd.to_datetime(B['index_date'])
+    LANDMARK_DAYS = 90
+    # Load v3 primary cohort (≥2 dose + 3-mo landmark + matched-set integrity).
+    # The 3-month landmark filter is applied below so that the cumulative
+    # incidence curves are flat in [0, 90 d] from the index date by
+    # construction — no events are at risk in the landmark window.
+    B = pd.read_csv('Data/primary_cohort_v3.csv', encoding='utf-8-sig')
+    B['index_date']      = pd.to_datetime(B['index_date'])
+    B['최종추적일자']     = pd.to_datetime(B['최종추적일자'])
     B['recurrence_date'] = pd.to_datetime(B['recurrence_date'], errors='coerce')
-    B['vac'] = B['접종여부'].astype(bool).astype(int)
-    B['follow_up_days'] = pd.to_numeric(B['follow_up_days'], errors='coerce')
-    B['index_age'] = pd.to_numeric(B['index_age'], errors='coerce')
+    B['vac']             = B['접종여부'].astype(bool).astype(int)
+    B['index_age']       = pd.to_numeric(B['index_age'], errors='coerce')
+    B['lm_zero']         = B['index_date'] + pd.Timedelta(days=LANDMARK_DAYS)
 
-    # Load clearance analytic dataset (pre-vaccine baseline, any-clearance)
-    BC = pd.read_csv('Data/CohortB_Clearance_Analytic.csv', encoding='utf-8-sig')
-    BC['index_date']     = pd.to_datetime(BC['index_date'])
-    BC['first_neg_date'] = pd.to_datetime(BC['first_neg_date'], errors='coerce')
+    # Apply landmark to recurrence: drop matched sets where the vaccinated
+    # case had a recurrence before the landmark, then drop any remaining
+    # rows whose event was pre-landmark, so the analytic sample equals the
+    # canonical P1 (n = 912: 203 vac / 709 ctl).
+    rec_pre_lm = (B['has_recurrence']==True) & (B['recurrence_date'] < B['lm_zero'])
+    bad_p1 = B[(B['vac']==1) & rec_pre_lm]['fine_match_id'].unique()
+    P1 = B[~B['fine_match_id'].isin(bad_p1)].copy()
+    P1 = P1[~rec_pre_lm.loc[P1.index]].copy()
+
+    # Compute clearance subset (pre-vaccine hr-HPV+, matched-set integrity,
+    # landmark filter) — same definition as analyze_primary_v3.py P2.
+    import sys as _sys; _sys.path.insert(0, 'scripts')
+    from extract_pathology_outcomes import detect_high_risk_hpv as _det
+    _path = pd.read_csv(
+        'Data/한국 HPV 코호트 자료를 이용한 자_병리검사 (복구됨).CSV',
+        encoding='cp949', low_memory=False)
+    _path['실시일자'] = pd.to_datetime(_path['실시일자'], format='%Y%m%d', errors='coerce')
+    _mol = _path[_path['병리검사구분'].isin(['분자병리','HPV'])].dropna(subset=['실시일자','판독결과'])
+    _res = _mol['판독결과'].apply(_det)
+    _mol = _mol.assign(hpv_pos=_res.apply(lambda d: d['is_high_risk_hpv_positive']))
+    _mol_by_pid = {pid: g.sort_values('실시일자') for pid, g in _mol.groupby('연구번호')}
+
+    def _prevac_hr(pid, idx_dt):
+        sub = _mol_by_pid.get(pid)
+        return False if sub is None else bool((sub[sub['실시일자']<idx_dt]['hpv_pos']==True).any())
+    def _first_two_neg(pid, idx_dt):
+        sub = _mol_by_pid.get(pid)
+        if sub is None: return None
+        sub = sub[sub['실시일자']>idx_dt]
+        if len(sub)<2: return None
+        pos = sub['hpv_pos'].values; dates = sub['실시일자'].values
+        for i in range(len(pos)-1):
+            if (not pos[i]) and (not pos[i+1]):
+                return pd.Timestamp(dates[i])
+        return None
+
+    B['prevac_hr'] = B.apply(lambda r: _prevac_hr(r['연구번호'], r['index_date']), axis=1)
+    fids_clr = B.loc[(B['vac']==1) & B['prevac_hr'], 'fine_match_id'].unique()
+    BC = B[B['fine_match_id'].isin(fids_clr) & B['prevac_hr']].copy()
+    BC['first_neg_date'] = BC.apply(
+        lambda r: _first_two_neg(r['연구번호'], r['index_date']), axis=1)
+    BC['has_clearance']  = BC['first_neg_date'].notna()
+    clr_pre_lm = BC['has_clearance'] & (BC['first_neg_date'] < BC['lm_zero'])
+    bad_p2 = BC[(BC['vac']==1) & clr_pre_lm]['fine_match_id'].unique()
+    BC = BC[~BC['fine_match_id'].isin(bad_p2)].copy()
+    BC = BC[~clr_pre_lm.loc[BC.index]].copy()
 
     fig = plt.figure(figsize=(14, 8.4))
     gs = GridSpec(2, 2, figure=fig,
@@ -510,11 +558,11 @@ def figure3():
 
     # ---- Panel a: Lesion recurrence (cumulative incidence rises) ----
     ax_a = fig.add_subplot(gs[0, 0])
-    sub_a = B.copy()
-    sub_a['time'] = np.where(sub_a['recurrence_date'].notna(),
+    sub_a = P1.copy()
+    sub_a['time'] = np.where(sub_a['has_recurrence']==True,
                               (sub_a['recurrence_date']-sub_a['index_date']).dt.days,
-                              sub_a['follow_up_days'])
-    sub_a['event'] = sub_a['has_recurrence'].astype(int)
+                              (sub_a['최종추적일자']    -sub_a['index_date']).dt.days)
+    sub_a['event'] = (sub_a['has_recurrence']==True).astype(int)
     sub_a = sub_a[sub_a['time'] > 0]
     v_a = sub_a[sub_a['vac']==1]; c_a = sub_a[sub_a['vac']==0]
     kmf_v = KaplanMeierFitter().fit(v_a['time']/365.25, v_a['event'], label='Vaccinated')
@@ -541,10 +589,10 @@ def figure3():
     # ---- Panel b: hr-HPV clearance (cumulative clearance probability) ----
     ax_b = fig.add_subplot(gs[0, 1])
     sub_b = BC.copy()
-    sub_b['time']  = np.where(sub_b['first_neg_date'].notna(),
+    sub_b['time']  = np.where(sub_b['has_clearance'],
                                (sub_b['first_neg_date']-sub_b['index_date']).dt.days,
-                               sub_b['follow_up_days'])
-    sub_b['event'] = sub_b['first_neg_date'].notna().astype(int)
+                               (sub_b['최종추적일자']    -sub_b['index_date']).dt.days)
+    sub_b['event'] = sub_b['has_clearance'].astype(int)
     sub_b = sub_b[sub_b['time'] > 0]
     v_b = sub_b[sub_b['vac']==1]; c_b = sub_b[sub_b['vac']==0]
     kmf_v2 = KaplanMeierFitter().fit(v_b['time']/365.25, v_b['event'], label='Vaccinated')
