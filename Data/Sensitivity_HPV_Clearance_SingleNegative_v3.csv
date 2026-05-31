@@ -1,3 +1,3 @@
 ﻿definition,n_v,n_c,ev_v,ev_c,HR,CIlo,CIhi,p
 "Two consecutive negatives (PRIMARY, v3)",92,141,31,28,1.823,1.069,3.108,0.0274
-"Single negative test (sensitivity, v3)",91,137,42,42,1.668,1.11,2.505,0.0137
+"Single negative test (sensitivity, v3; shared sample)",92,141,42,42,1.694,1.14,2.516,0.0091

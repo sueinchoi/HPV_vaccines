@@ -125,26 +125,57 @@ def main():
         )
         return c[c['t'] > 0].copy()
 
+    # Sens-A — SHARED-SAMPLE design: lock the analytic sample using the
+    # two-consecutive-negative event definition (matched-set integrity +
+    # 3-month landmark, yielding n = 233: 92 vac / 141 ctl), then redefine
+    # the event for the single-negative variant on the same subjects.
+    # This isolates the contrast to event ascertainment only and removes
+    # the spurious 5-subject N difference that arises when landmark +
+    # matched-set integrity are re-applied independently per definition.
     sens_a_rows = []
-    for label, fn in [
-        ('Two consecutive negatives (PRIMARY, v3)', first_two_neg),
-        ('Single negative test (sensitivity, v3)', first_single_neg),
-    ]:
-        c = clr.copy()
-        c['ev_date'] = c.apply(lambda r: fn(r['연구번호'], r['index_date']), axis=1)
-        c['event'] = c['ev_date'].notna()
-        c2 = apply_landmark_to_clr(c, 'event', 'ev_date')
-        n_v, n_c, ev_v, ev_c, hr, lo, hi, p = cox_hr(c2, 't', 'event')
-        sens_a_rows.append(
-            {
-                'definition': label,
-                'n_v': n_v, 'n_c': n_c, 'ev_v': ev_v, 'ev_c': ev_c,
-                'HR': round(hr, 3) if not np.isnan(hr) else 'NA',
-                'CIlo': round(lo, 3) if not np.isnan(lo) else 'NA',
-                'CIhi': round(hi, 3) if not np.isnan(hi) else 'NA',
-                'p': round(p, 4) if not np.isnan(p) else 'NA',
-            }
-        )
+
+    # (1) Primary subjects — anchored by two-consecutive-negative
+    c_primary = clr.copy()
+    c_primary['ev_date_two'] = c_primary.apply(
+        lambda r: first_two_neg(r['연구번호'], r['index_date']), axis=1)
+    c_primary['event_two'] = c_primary['ev_date_two'].notna()
+    analytic = apply_landmark_to_clr(c_primary, 'event_two', 'ev_date_two').copy()
+    analytic = analytic.rename(columns={'event_two': 'event', 'ev_date_two': 'ev_date'})
+    n_v, n_c, ev_v, ev_c, hr, lo, hi, p = cox_hr(analytic, 't', 'event')
+    sens_a_rows.append({
+        'definition': 'Two consecutive negatives (PRIMARY, v3)',
+        'n_v': n_v, 'n_c': n_c, 'ev_v': ev_v, 'ev_c': ev_c,
+        'HR': round(hr, 3) if not np.isnan(hr) else 'NA',
+        'CIlo': round(lo, 3) if not np.isnan(lo) else 'NA',
+        'CIhi': round(hi, 3) if not np.isnan(hi) else 'NA',
+        'p': round(p, 4) if not np.isnan(p) else 'NA',
+    })
+
+    # (2) Same analytic subjects, event redefined as first single negative
+    # post-landmark. Subjects whose first single-negative test occurred
+    # before the landmark are treated as censored at last follow-up under
+    # the single-negative definition on this shared sample (they remain
+    # in the risk set; only events at t > 0 count).
+    sn = analytic.copy()
+    sn['ev_date_sn'] = sn.apply(
+        lambda r: first_single_neg(r['연구번호'], r['index_date']), axis=1)
+    sn['event_sn'] = sn['ev_date_sn'].notna() & (sn['ev_date_sn'] > sn['lm_zero'])
+    sn['t_sn'] = np.where(
+        sn['event_sn'],
+        (sn['ev_date_sn'] - sn['index_date']).dt.days,
+        (sn['최종추적일자'] - sn['index_date']).dt.days,
+    )
+    sn = sn[sn['t_sn'] > 0].copy()
+    n_v, n_c, ev_v, ev_c, hr, lo, hi, p = cox_hr(sn, 't_sn', 'event_sn')
+    sens_a_rows.append({
+        'definition': 'Single negative test (sensitivity, v3; shared sample)',
+        'n_v': n_v, 'n_c': n_c, 'ev_v': ev_v, 'ev_c': ev_c,
+        'HR': round(hr, 3) if not np.isnan(hr) else 'NA',
+        'CIlo': round(lo, 3) if not np.isnan(lo) else 'NA',
+        'CIhi': round(hi, 3) if not np.isnan(hi) else 'NA',
+        'p': round(p, 4) if not np.isnan(p) else 'NA',
+    })
+
     pd.DataFrame(sens_a_rows).to_csv(
         ROOT / 'Data' / 'Sensitivity_HPV_Clearance_SingleNegative_v3.csv',
         index=False, encoding='utf-8-sig',
