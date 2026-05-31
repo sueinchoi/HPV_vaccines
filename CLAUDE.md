@@ -20,11 +20,12 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 | Eligibility (양 코호트 공통) | **index ≤ 2024-12-31** (admin censor 2025-12-31 기준 ≥1y potential FU), `last_follow > index`, vac은 사망일 > index | 동일 + Cohort B는 ≥2 follow-up 병리 기록 (biopsy/HPV) 추가 |
 | 매칭 | PSM 1:1, caliper 0.2 × SD logit(PS); 변수: 연령, BMI, SBP, DBP, 흡연, 서울 거주 | Step1: 수술방법(exact)/수술년(±1y)/수술시 연령(±5y) 1:up-to-5 → Step2: index ≤2024-12-31 + 추적≥2건 → Step3: index 연령(±5y)/BMI(±3 kg/m²)/수술년(±1y) 1:up-to-4 (BMI 결측 시 완화) → **Step4: ≥2 dose + 3-mo landmark filter w/ matched-set integrity** |
 | 최종 N (primary cohort) | **2,776 (1,396/1,380)** (1:1 PSM 4,106 → ≥2 dose + 3-mo landmark) | **912 (203/709)** primary cohort (at-risk at landmark); P2 clearance subset **233 (92/141)** (pre-vaccine hr-HPV+ matched-set-integrity subset) |
-| Primary HR | Any-of-5 **1.28 (0.66–2.48), p=0.47** | P1 **1.01 (0.49–2.06), p=0.99** / P2 **1.82 (1.07–3.11), p=0.027 ✅** |
+| Primary HR | Any-of-5 **1.27 (0.66–2.48), p=0.47** | P1 **1.01 (0.49–2.06), p=0.985** / P2 **1.82 (1.07–3.11), p=0.027 ✅** |
 | Outcome | 5개 만성질환 (협심증/MI, HTN, DM, 뇌졸중, PE) + Any-of-5 + MCE; **첫 post-index ICD-10 hit** | P1: 병변 재발(≥CIN2/HSIL+/암; **CIN2** 임계임을 주의); P2: hr-HPV clearance (post-index 분자병리 2건 연속 음성 중 첫 음성일자) |
 | 효과 방향 | **HR < 1 유리** | P1: **HR < 1 유리** / P2: **HR > 1 유리** (clearance) |
-| Primary HR (95% CI) | 1.26 (0.75–2.12) Any-of-5 | P1 **1.01 (0.49–2.06), p=0.99 (null collapse)** / P2 **1.82 (1.07–3.11), p=0.027 ✅** |
 | Sensitivity (≥1 dose, no landmark) | n/a | P1 0.80 (0.44–1.43), p=0.45 / P2 1.40 (0.92–2.11), p=0.11 |
+| Sensitivity (≥3 dose, no landmark) — Sens-C | n/a | P1 0.61 (0.30–1.24), p=0.173 (8 vs 45 events on 193 vs 697) |
+| Sensitivity (single-neg clearance, shared sample) — Sens-A | n/a | P2 **1.69 (1.14–2.52), p=0.009** on 92/141 (42 vs 42 events); 동일 analytic sample, event 정의만 변경 |
 | Sustained clearance (KM median, Q25/Q75) | — | vac **10.79y (2.31, NR)** / non-vac 5.67y (1.91, NR); log-rank p=0.317 (reversion 13/31 vs 13/28); 5y reversion-free P 0.569 vs 0.533 |
 
 ⚠ Cohort B의 hr-HPV baseline은 **pre-vaccine** (records with `실시일자 < index_date`)으로 두 군 공통 — pre-surgery가 **아니다**. Matched-set 무결성: vaccinated case에 baseline HPV+ 기록이 없으면 그 `fine_match_id` 전체를 drop.
@@ -77,24 +78,28 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 4. `extract_outcomes_after_index.py` — Index date 이후 outcome 결합
 5. `extract_outcomes_from_diagnosis.py` — 진단 기반 보조 outcome
 
-**일차 분석**:
-- `cohort_a_psm.py` / `cohort_a_psm_hr_cif.py` — Cohort A PSM + Fine–Gray + Aalen–Johansen
-- `analyze_cohortB_clearance_primary.py` — **Cohort B 공동 일차 결과 (P1 재발 + P2 clearance)**. P2는 pre-vaccine hr-HPV+ subset에 한정, 2-연속음성 정의.
-- `rebuild_table2.py` / `rebuild_table3.py` — Cohort A / B HR 표 재생성 (cluster-robust)
+**일차 분석 (v3 — 현행 canonical)**:
+- `build_primary_cohort_v3.py` — Cohort B primary cohort (n=912; 203/709) 빌드: ≥2 dose + 3-mo landmark + matched-set integrity
+- `analyze_primary_v3.py` — Cohort B P1 + P2 일차 HRs, sustained clearance, ≥1/≥3-dose Sens (`CohortB_HR_v3.csv`). ≥3-dose dose count는 처방원본에서 ascertain (v3 cohort merge 아님).
+- `build_cohort_a_v3.py` + `analyze_cohort_a_v3.py` — Cohort A primary cohort + HR (`cohort_a_v3_matched.csv` / `CohortA_HR_v3.csv`)
+- `sensitivity_v3.py` — **Sens-A (shared-sample, single-neg)** / **Sens-B (time-stratified)** / **Sens-E (DFI buffer)**. Sens-A는 two-consec primary로 analytic sample(n=233) 고정 후 event 정의만 변경.
+- 레거시 보존: `cohort_a_psm.py` / `cohort_a_psm_hr_cif.py` / `analyze_cohortB_clearance_primary.py` / `rebuild_table2.py` / `rebuild_table3.py` (pre-v3 산출물; CSV는 hand-curated v3 값으로 동기화됨)
 
 **Baseline / Figures**:
-- `baseline_table1_unified.py` — Pre/Post matching baseline (A·B 모두, 동일 변수 행)
-- `append_table1_clearance_subset.py` — clearance subset baseline append
-- `make_main_figures.py` — Figure 1–5 통합 생성 (cohort flow, CIF+forest, KM, vaccine-type, age×FU)
-- `make_supfig_S6_sensitivity_forest.py`, `regenerate_love_plots.py`, `make_figure1_pptx.py`
+- `baseline_table1_unified.py` — Pre/Post matching baseline 컬럼 구조
+- `build_table1a_v3_full.py` — Cohort A primary baseline (`CohortA_post_v3` 블록, 26행)
+- `make_table1_v3.py` — Cohort B primary baseline (`CohortB_post_v3` 블록, n=912; HPV 검사 이력 + 수술 병리 severity 포함)
+- `build_table1_clearance_subset_v3.py` — Cohort B clearance subset baseline (`CohortB_clearance` 블록, n=233; v3 landmark 적용)
+- `make_main_figures.py` — Figure 1–4 통합 생성:
+  - **Figure 1**: academic monochrome CONSORT flow (백·연회색·흑색); Cohort A = 백신 분기, Cohort B = 수술→수술 후 백신 분기로 분리 표현
+  - **Figure 3**: v3 primary cohort + landmark 적용; 시간 축 index date 기준 → 0–90일 flat 구간 시각화
+- `make_figure1_pptx.py` — Figure 1 편집 가능 PPTX (동일 monochrome 스타일)
+- `make_supfig_S6_sensitivity_forest.py` — Sup Fig S6 (5-panel sensitivity forest)
+- `regenerate_love_plots.py`
 
 **민감도 분석** — Essential (Sens-A∼E, 본문) vs Appendix (App-1∼10, 부록만). 매핑은 `Analysis_Specifications.md §4.5`:
-- `sensitivity_hpv_clearance.py` / `sensitivity_clearance_time_stratified.py` (Sens-A/B)
-- `sensitivity_dose_threshold_landmark.py` (Sens-C; immortal-time 보정 landmark)
-- `sensitivity_strict_matching.py` (Sens-D)
-- `sensitivity_outcome_definition_rigour.py` (Sens-E recurrence DF-interval)
-- `sensitivity_exposure_definition.py` — S2 (Rx-code) / S3 (mixed vaccine)
-- `sensitivity_hpv_landmark.py`, `sensitivity_hpv_novel_type.py`, `sensitivity_hpv_refined_definition.py`, `sensitivity_vaccine_type_calendar.py`, `sensitivity_analysis*.py`, `sensitivity_age_cutoff.py`, `sensitivity_unadjusted.py`
+- **현행 v3 통합**: `sensitivity_v3.py` (Sens-A shared-sample / Sens-B time-stratified / Sens-E DFI) + `sensitivity_exposure_definition.py` (Sens-C dose-threshold) + `sensitivity_dose_threshold_landmark.py` (Sens-C immortal-time 보정 landmark, S8B) + `sensitivity_strict_matching.py` (Sens-D)
+- **레거시** (pre-v3, 부록 보조): `sensitivity_hpv_clearance.py`, `sensitivity_clearance_time_stratified.py`, `sensitivity_outcome_definition_rigour.py`, `sensitivity_hpv_landmark.py`, `sensitivity_hpv_novel_type.py`, `sensitivity_hpv_refined_definition.py`, `sensitivity_vaccine_type_calendar.py`, `sensitivity_analysis*.py`, `sensitivity_age_cutoff.py` (grid search, Sup Table S3B), `sensitivity_unadjusted.py`
 
 **보충 파일 / DOCX 빌드**:
 - `rebuild_supplementary_clearance.py`, `rebuild_supplementary_misc.py`, `promote_two_negative_primary.py`, `relabel_supplementary*.py`, `slim_supplementary.py`
@@ -112,6 +117,11 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - **Cohort B 재발 outcome 임계**: 수술 적격은 **HSIL/CIN3+**, post-index 재발 outcome은 **CIN2+** (HSIL+ 또는 invasive). 다른 임계라는 점이 표/원고에 명시되어야 함.
 - **Vaccine-type subgroup (n=36 Gardasil 4가)**: 검정력 한계로 본문에서는 forest plot만 사용, "유의 효과"로 해석하지 않음 (예전 CLAUDE.md/legacy 보고서의 `HR=0.395, p=0.004` 결과는 다중비교 미보정·소표본 결과이므로 그대로 인용 금지).
 - **Backup docx 처리**: `.gitignore`가 `*.backup.docx`, `*.preslim.docx` 제외. `docs/HPV_manuscript.docx`·`HPV_tables_figures.docx`·`HPV_supplementary.docx`가 정본; 편집 전 backup 생성하는 스크립트들이 있으므로 덮어쓰기 시 git diff 확인.
+- **Sens-A "shared sample" 원칙**: clearance event-definition robustness는 two-consec primary로 fixed analytic sample (n=233) 위에서 event만 재정의해 평가. landmark + matched-set integrity를 정의별로 독립 적용하면 spurious N drift가 발생.
+- **Figure 3 landmark 시각화**: v3 primary cohort + 3-mo landmark 적용 후 시간 축이 `index_date` 기준이므로, 0–90일 구간이 by construction flat. legacy pre-landmark dataset 사용 금지 (`final_matched_outcomes.csv` n=1108은 ≥1-dose Sens 전용).
+- **Figure 1 / Figure 1 PPTX**: academic monochrome 스타일 (흰색·연회색·검은 테두리). Cohort A 분기 = 백신 status → 1:1 PSM, Cohort B 분기 = 수술 → 수술 후 백신 → 1:4 matching. 매칭 박스는 1:1/1:4 헤드라인만, 중간 카운트(411/1,815 등)는 docs 본문에만.
+- **Sup Table S3A / S3B 구분**: S3A = 사전 정의 연령 strata (<40/40–49/≥50, `CohortB_age_fu_forest.csv`); S3B = 탐색적 ≈6,920-cell grid search (`sensitivity_age_cutoff.csv`, 30–52y/2y window 셀 포함). 본문 Limitations 인용은 S3B.
+- **Eligibility cutoff (양 코호트 공통)**: `index ≤ 2024-12-31` (admin censor 2025-12-31 기준 ≥1y potential FU). 이전 hidden code의 `2023-12-31` (Cohort B) + Cohort A no-cap 비대칭은 정리됨. 정합성 변경이며 analytic sample은 동일.
 
 ## 미해결 / 후속
 
