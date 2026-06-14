@@ -860,6 +860,10 @@ def figure4_subgroup():
         'forest_hi': 0.84,    # line spans more of the panel, not a short stub)
         'hrtxt':     0.86,    # HR (CI) text start
     }
+    # Right extent of the table rule: the HR text is left-aligned at
+    # hrtxt+0.06 (=0.92) and the longest value (e.g. "2.64 (0.39–18.07)")
+    # runs to ≈1.06; extend the header divider to cover it (panel gap is 0.12).
+    X_TABLE_RIGHT = 1.10
     HEADER_Y = -2.0   # column header row
     SUBHEAD_Y = -1.1  # 'No. events / N' subline
     DIVIDER_Y = -0.4  # divider between header and rows
@@ -894,8 +898,11 @@ def figure4_subgroup():
         ax.text(XCOL['hrtxt']+0.06, HEADER_Y, 'HR (95% CI)',
                 fontweight='bold', fontsize=13, ha='left', va='center')
 
-        # divider
-        ax.plot([0, 1], [DIVIDER_Y, DIVIDER_Y], color='black', lw=0.9, clip_on=False)
+        # divider — extend past x=1 to span the full HR (95% CI) text column,
+        # which is left-aligned at hrtxt+0.06 and overflows the [0,1] axes
+        # (otherwise the rule appears cut off short of the HR column).
+        ax.plot([0, X_TABLE_RIGHT], [DIVIDER_Y, DIVIDER_Y],
+                color='black', lw=0.9, clip_on=False)
 
         # ---- Forest backbone (null line) ----
         x_null = x_to_axes(1)
