@@ -96,7 +96,7 @@ Prevalent disease (any of the five tagged with `diag_date ≤ index_date`) exclu
 ### 4.1 Eligibility
 
 - Women in the source population who underwent cervical conization or hysterectomy for histologically confirmed HSIL/CIN3+ disease (N_pool = 6,890).
-- After matching: index date ≤ 31 December 2020, ≥ 2 follow-up records.
+- After matching: index date ≤ 31 December 2024, ≥ 2 follow-up records.
 
 ### 4.2 Index date
 
@@ -195,7 +195,7 @@ The ≥1-dose, no-landmark definition is reported as an exposure-definition sens
 |---|---|---|
 | Lesion recurrence (CIN2+) | HR 0.80 (0.44–1.43), p = 0.45 | HR 1.01 (0.49–2.06), p = 0.985 |
 | hr-HPV clearance | HR 1.40 (0.92–2.11), p = 0.11 | **HR 1.82 (1.07–3.11), p = 0.027** ✅ |
-| ≥3 dose, no landmark (sensitivity) | HR 0.58 (0.27–1.26), p = 0.17 | — |
+| ≥3 dose, no landmark (sensitivity) | HR 0.61 (0.30–1.24), p = 0.173 | — |
 
 Interpretation: the lesion-recurrence directional protection observed under ≥1 dose was substantially attributable to immortal-time selection (a woman who reached her second dose was guaranteed to have been event-free up to that date), and collapses to null under the tighter primary definition. The clearance signal, in contrast, **strengthens** under the tighter definition and reaches conventional significance, consistent with the biological hypothesis that post-surgical vaccination accelerates immune clearance of pre-existing HR-HPV without reversing already-initiated dysplastic precursor lesions.
 
@@ -240,10 +240,10 @@ All follow-up duration statistics in the manuscript are reported using the **rev
 | Event source | Diagnosis records (5 chronic) | Tissue pathology (조직병리) | Molecular pathology (분자병리/HPV) |
 | Event definition | First post-index ICD-10 group hit | First post-index ≥CIN2 (HSIL+) | First post-index of 2-consecutive-NEG |
 | Favourable HR direction | HR < 1 | HR < 1 | **HR > 1** |
-| **Primary HR (95% CI)** | 1.26 (0.75–2.12) Any-of-5 | **1.01 (0.49–2.06)** | **1.82 (1.07–3.11) ✅** |
-| **p value** | 0.37 | **0.985** | **0.024** |
+| **Primary HR (95% CI)** | 1.27 (0.66–2.48) Any-of-5 | **1.01 (0.49–2.06)** | **1.82 (1.07–3.11) ✅** |
+| **p value** | 0.47 | **0.985** | **0.027** |
 | Sensitivity (≥1 dose, no landmark) — HR | n/a | 0.80 (0.44–1.43), p=0.45 | 1.40 (0.92–2.11), p=0.11 |
-| Sensitivity (≥3 dose, no landmark) — HR | n/a | 0.58 (0.27–1.26), p=0.17 | — |
+| Sensitivity (≥3 dose, no landmark) — HR | n/a | 0.61 (0.30–1.24), p=0.173 | — |
 | Sustained clearance — KM median (Q25, Q75) — vaccinated | — | — | **10.79y (2.31, NR)** |
 | Sustained clearance — KM median (Q25, Q75) — non-vac | — | — | 5.67y (1.91, NR) |
 | Reversion events / censored — vaccinated | — | — | 13 / 18 (n=31 cleared) |

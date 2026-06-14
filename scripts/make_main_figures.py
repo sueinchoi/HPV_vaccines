@@ -707,15 +707,16 @@ def figure4_subgroup():
         axis=1)
     B['has_clearance'] = B['first_neg_date'].notna()
     B['clr_pre_lm'] = B['has_clearance'] & (B['first_neg_date'] < B['lm_zero'])
-    # Matched-set integrity for clearance: drop fids where the vaccinated case
-    # had a clearance event before the landmark.
+    # Matched-set integrity for clearance: fids where the vaccinated case had a
+    # clearance event before the landmark. NOTE: the clearance landmark/matched-set
+    # exclusions are applied ONLY to the clearance columns via the keep_clr mask
+    # below — they must NOT drop rows from the shared `B`, which is also used for
+    # the panel-a recurrence (P1) analysis. Dropping them here previously shrank
+    # the recurrence overall to 200/673 instead of the canonical 203/709 (n=912).
     bad_p2 = B[(B['vac']==1) & B['clr_pre_lm']]['fine_match_id'].unique()
-    B = B[~B['fine_match_id'].isin(bad_p2)].copy()
-    # Use time-from-index (not time-from-lm_zero) to match analyze_primary_v3.py;
-    # also drop any remaining rows with pre-landmark clearance events so the
-    # clearance analytic sample equals the canonical P2 subset (n = 233).
-    B = B[~B['clr_pre_lm']].copy()
     B['clear_event'] = B['has_clearance'].astype(int)
+    # Time-from-index (matches analyze_primary_v3.py); a uniform landmark shift
+    # leaves Cox risk-set ordering — and thus the HR — unchanged.
     B['clear_time']  = np.where(
         B['has_clearance'],
         (B['first_neg_date'] - B['index_date']).dt.days,
@@ -723,13 +724,15 @@ def figure4_subgroup():
     # Restrict clearance analyses to the canonical P2 analytic subset:
     # matched-set integrity (only fine_match_ids whose vaccinated case is
     # itself pre-vaccine hr-HPV+) + individual pre-vaccine hr-HPV+ (vac or
-    # ctl). This matches the P2 cohort definition in analyze_primary_v3.py
-    # and yields n = 233 (92 vac / 141 ctl) with HR 1.82 instead of the
-    # loose n = 402 (92 / 310, HR 2.44) that drops only the individual-row
-    # filter.
+    # ctl), excluding the pre-landmark clearance fids/rows. This matches the
+    # P2 cohort definition in analyze_primary_v3.py and yields n = 233
+    # (92 vac / 141 ctl) with HR 1.82.
     fids_clr = set(B.loc[(B['vac']==1) & (B['prevac_hr'].astype(bool)),
                           'fine_match_id'].unique())
-    keep_clr = B['fine_match_id'].isin(fids_clr) & B['prevac_hr'].astype(bool)
+    keep_clr = (B['fine_match_id'].isin(fids_clr)
+                & B['prevac_hr'].astype(bool)
+                & ~B['fine_match_id'].isin(bad_p2)
+                & ~B['clr_pre_lm'])
     B.loc[~keep_clr, 'clear_event'] = np.nan
     B.loc[~keep_clr, 'clear_time']  = np.nan
 
