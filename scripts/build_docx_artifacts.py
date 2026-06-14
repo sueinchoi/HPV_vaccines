@@ -456,7 +456,11 @@ def build_tables_figures_docx(suffix: str = "") -> None:
         "Strata: Overall, age at index (<40 / 40–49 / ≥50), vaccine type "
         "(Gardasil 9 / Cervarix / quadrivalent Gardasil). Likelihood-ratio P "
         "values for age × vaccination and vaccine-type × vaccination "
-        "interaction terms are reported beneath each subgroup section.",
+        "interaction terms are reported beneath each subgroup section. "
+        "Subgroups with fewer than five events across the two arms are marked "
+        "NE (not estimable) with the hazard ratio suppressed — applicable to "
+        "the ≥50-year stratum for hr-HPV clearance (2/5 vaccinated, 1/6 "
+        "controls).",
     )
     doc.add_page_break()
 

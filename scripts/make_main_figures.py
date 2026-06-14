@@ -750,16 +750,26 @@ def figure4_subgroup():
         ev_c = int(((df_fit['vac']==0) & (df_fit['event']==1)).sum())
         out = dict(n_v=n_v, n_c=n_c, ev_v=ev_v, ev_c=ev_c,
                    HR=np.nan, CIlo=np.nan, CIhi=np.nan, p=np.nan)
-        if ev_v + ev_c < 3 or n_v < 2 or n_c < 2 or df_fit['event'].sum() < 3:
+        # Not estimable (NE) when events are too sparse to support a reliable
+        # hazard ratio. Following standard forest-plot reporting convention
+        # (HR suppressed and marked NE when fewer than ~5 events accrue across
+        # the two arms), we require ≥5 total events and ≥2 patients per arm.
+        if ev_v + ev_c < 5 or n_v < 2 or n_c < 2:
             return out
         try:
             cph = CoxPHFitter().fit(df_fit, duration_col='time', event_col='event',
                                     cluster_col='fine_match_id', robust=True)
             r = cph.summary.loc['vac']
-            out.update(HR=float(r['exp(coef)']),
-                       CIlo=float(r['exp(coef) lower 95%']),
-                       CIhi=float(r['exp(coef) upper 95%']),
-                       p=float(r['p']))
+            hr  = float(r['exp(coef)'])
+            clo = float(r['exp(coef) lower 95%'])
+            chi = float(r['exp(coef) upper 95%'])
+            # Degeneracy guard: (quasi-)complete separation produces an
+            # explosive point estimate / unbounded CI (e.g. HR ~1e4, CI 0–1e12).
+            # Treat such fits as not estimable rather than plotting them.
+            if (not np.isfinite(hr) or hr <= 1e-2 or hr >= 1e2
+                    or chi >= 1e3 or clo <= 1e-3):
+                return out
+            out.update(HR=hr, CIlo=clo, CIhi=chi, p=float(r['p']))
         except Exception:
             pass
         return out
@@ -844,10 +854,10 @@ def figure4_subgroup():
 
     XCOL = {
         'label':     0.005,   # subgroup label
-        'vac':       0.32,    # vaccinated events/N
-        'ctl':       0.48,    # control events/N
-        'forest_lo': 0.58,    # forest x range begin
-        'forest_hi': 0.84,    # forest x range end
+        'vac':       0.27,    # vaccinated events/N
+        'ctl':       0.42,    # control events/N
+        'forest_lo': 0.50,    # forest x range begin (widened left so the axis
+        'forest_hi': 0.84,    # line spans more of the panel, not a short stub)
         'hrtxt':     0.86,    # HR (CI) text start
     }
     HEADER_Y = -2.0   # column header row
@@ -936,8 +946,10 @@ def figure4_subgroup():
                             f"{data['HR']:.2f} ({data['CIlo']:.2f}–{data['CIhi']:.2f})",
                             fontsize=12, ha='left', va='center')
                 else:
-                    ax.text(XCOL['hrtxt']+0.06, y, '— insufficient events —',
-                            fontsize=11.5, ha='left', va='center',
+                    # Not estimable: show counts (already drawn) but no marker
+                    # or whisker; mark NE with an explanatory footnote below.
+                    ax.text(XCOL['hrtxt']+0.06, y, 'NE',
+                            fontsize=12, ha='left', va='center',
                             color=COL_GREY, style='italic')
 
         # ---- Forest x-axis ticks (below last row) ----
@@ -955,6 +967,18 @@ def figure4_subgroup():
         # ---- Panel label (a, b) — placed with extra clearance above the header row ----
         ax.text(-0.005, HEADER_Y - 1.8, plabel, fontsize=16, fontweight='bold',
                 ha='left', va='bottom', clip_on=False)
+
+    # ---- Footnote: explain NE (not estimable) cells, if any ----
+    has_ne = any(
+        kind == 'data' and data is not None and np.isnan(data['HR'])
+        for _, rows, _ in panel_data.values()
+        for _, data, kind in rows)
+    if has_ne:
+        fig.text(0.025, 0.008,
+                 'NE, not estimable: fewer than 5 events in the subgroup '
+                 '(here ≥50 years for hr-HPV clearance) precluded reliable '
+                 'hazard-ratio estimation; event counts are shown for completeness.',
+                 fontsize=10.5, ha='left', va='bottom', color='#444', style='italic')
 
     plt.savefig('Data/Figure4_CohortB_Subgroup.png', dpi=300,
                 bbox_inches='tight', facecolor='white')
